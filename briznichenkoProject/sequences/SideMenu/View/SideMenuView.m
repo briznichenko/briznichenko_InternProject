@@ -56,14 +56,12 @@
 - (void) makeAppNameLabel
 {
     self.appNameLabel = [UILabel new];
-    self.appNameLabel.text = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+    self.appNameLabel.text = @"APPLICATION NAME";
     [self.headerImage addSubview:self.appNameLabel];
 }
 
 - (void) makeInnerConstraints
 {
-    float headerImageHeightMultiplier = 0.4f;
-    
     self.headerImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.menuItems.translatesAutoresizingMaskIntoConstraints = NO;
     self.appNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -71,7 +69,7 @@
      @[ [self.headerImage.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
      	[self.headerImage.topAnchor constraintEqualToAnchor:self.topAnchor],
         [self.headerImage.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-        [self.headerImage.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:headerImageHeightMultiplier],
+        [self.headerImage.heightAnchor constraintEqualToAnchor:self.headerImage.widthAnchor],
         
         [self.appNameLabel.centerXAnchor constraintEqualToAnchor:self.headerImage.centerXAnchor],
         [self.appNameLabel.centerYAnchor constraintEqualToAnchor:self.headerImage.centerYAnchor],
@@ -79,7 +77,7 @@
         [self.menuItems.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
         [self.menuItems.topAnchor constraintEqualToAnchor:self.headerImage.bottomAnchor],
         [self.menuItems.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-        [self.menuItems.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:(1.0f - headerImageHeightMultiplier)]
+        [self.menuItems.bottomAnchor constraintEqualToAnchor:self.bottomAnchor]
        ]];
 }
 

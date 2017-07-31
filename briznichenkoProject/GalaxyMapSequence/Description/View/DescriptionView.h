@@ -12,6 +12,7 @@
 @interface DescriptionView : UIView
 
 @property (nonatomic, strong) UIImageView *objectImageView;
+@property (nonatomic, strong) UILabel *objectNameLabel;
 @property (nonatomic, strong) UITextView *objectInfoView;
 
 @property (nonatomic, strong) UIButton *galleryButton;

@@ -28,6 +28,7 @@
 
 - (void)setupViewControllerWithData:(NSData *)data {
     [self.descriptionViewController setupViewControllerWithData:data];
+    self.descriptionViewController.bodyEntity = self.descriptionModel.bodyEntity;
 }
 
 @end

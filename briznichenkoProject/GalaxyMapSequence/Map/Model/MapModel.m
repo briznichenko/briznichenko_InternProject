@@ -50,6 +50,7 @@
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"gotCelestialData"
          object:fetchedData];
+        self.bodyEntity = [[CelestialBodyEntity alloc] initWithDictionary: fetchedData];
     }];
 }
 
@@ -67,7 +68,6 @@
                         if(!error)
                         {
                             NSString *rawASCII = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-                            
                             completionBlock([self parseEntityFromString:rawASCII]);
                         }
                         else

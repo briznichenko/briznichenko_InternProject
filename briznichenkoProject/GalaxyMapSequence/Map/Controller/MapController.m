@@ -82,7 +82,7 @@
     }
     else if ([notification.name isEqualToString:@"presentDescriptionController"])
     {
-        [self presentDesctiprionViewController];
+        [self presentDescriptionViewController];
     }
     else if ([notification.name isEqualToString:@"presentGalleryController"])
     {
@@ -97,12 +97,14 @@
 
 #pragma mark -- Routing
 
-- (void) presentDesctiprionViewController
+- (void) presentDescriptionViewController
 {
     self.descriptionController = [[DescriptionController alloc] initAndAssemble];
     self.descriptionController.descriptionViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     
-    [self.mapViewController.navigationController pushViewController:self.descriptionController.descriptionViewController animated:YES];
+    [self.mapViewController presentViewController:self.descriptionController.descriptionViewController animated:YES completion:^{
+        self.descriptionController.descriptionModel.bodyEntity = self.mapModel.bodyEntity;
+    }];
 }
 
 - (void) presentGalleryViewController
@@ -110,7 +112,7 @@
     self.galleryController = [[GalleryController alloc] initAndAssemble];
     self.galleryController.galleryViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
 
-    [self.mapViewController.navigationController pushViewController:self.galleryController.galleryViewController animated:YES];
+    [self.mapViewController.navigationController pushViewController: self.galleryController.galleryViewController animated:YES];
 }
 
 @end

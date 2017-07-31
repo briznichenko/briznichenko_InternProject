@@ -7,6 +7,8 @@
 //
 
 #import "GalleryView.h"
+#import "CelestialBodyImageCell.h"
+#import "CustomFlowLayout.h"
 
 
 @implementation GalleryView
@@ -26,15 +28,34 @@
 
 - (void) makeView
 {
+    self.backgroundColor = [UIColor whiteColor];
+    [self makeImageryCollection];
+}
 
-
+-(void)makeImageryCollection
+{
+    float cellWidth = self.window.frame.size.width / 3;
+    
+    CustomFlowLayout *imageryCollectionLayout = [[CustomFlowLayout alloc] init];
+    imageryCollectionLayout.itemSize = CGSizeMake(cellWidth, cellWidth);
+    imageryCollectionLayout.minimumInteritemSpacing = 0;
+    imageryCollectionLayout.minimumLineSpacing = 0;
+    self.imageryCollection = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout: imageryCollectionLayout];
+    self.imageryCollection.backgroundColor = [UIColor whiteColor];
+    [self.imageryCollection registerClass:[CelestialBodyImageCell class] forCellWithReuseIdentifier:@"BodyImageCell"];
+    
+    [self addSubview:self.imageryCollection];
 }
 
 - (void) makeInnerConstraints
 {
-		[NSLayoutConstraint activateConstraints:
-     @[
-     	
+    self.imageryCollection.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [NSLayoutConstraint activateConstraints:
+     @[[self.imageryCollection.topAnchor constraintEqualToAnchor: self.topAnchor],
+       [self.imageryCollection.centerXAnchor constraintEqualToAnchor: self.centerXAnchor],
+       [self.imageryCollection.widthAnchor constraintEqualToAnchor: self.widthAnchor],
+       [self.imageryCollection.heightAnchor constraintEqualToAnchor: self.heightAnchor]
        ]];
 }
 

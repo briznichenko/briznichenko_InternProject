@@ -7,6 +7,7 @@
 //
 
 #import "DescriptionViewController.h"
+#import "CelestialBodyEntity.h"
 
 @implementation DescriptionViewController
 
@@ -14,11 +15,26 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.01f alpha: 0.2f];
+    self.descriptionView.objectNameLabel.text = self.bodyEntity.bodyName;
 }
 
 -(void)setupViewControllerWithData:(NSData *)data
 {
     self.descriptionView = [[DescriptionView alloc] initAndInstallIntoSuperView: self.view];
+}
+
+
+#pragma mark -- ViewController actions
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    
+    if ([touch view] == self.view)
+    {
+        [self dismissViewControllerAnimated:YES completion:^{}];
+    }
 }
 
 @end

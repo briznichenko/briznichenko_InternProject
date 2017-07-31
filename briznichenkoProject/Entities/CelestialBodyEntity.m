@@ -15,7 +15,7 @@
     self = [super init];
     if(self)
     {
-        
+        self.bodyName = [dataDictionary valueForKey:@"objName"];
     }
     return self;
 }

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface GalleryView : UIView 
+@interface GalleryView : UIView
+
+@property (nonatomic, strong) UICollectionView *imageryCollection;
 
 -(instancetype)initAndInstallIntoSuperView:(UIView *) superview;
 

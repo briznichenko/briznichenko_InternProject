@@ -28,6 +28,7 @@
 {
     self.backgroundColor = [UIColor whiteColor];
     [self makeObjectImageView];
+    [self makeObjectNameLabel];
     [self makeObjectInfoView];
     [self makeButtons];
 }
@@ -41,6 +42,14 @@
     [self addSubview: self.objectImageView];
 }
 
+- (void) makeObjectNameLabel
+{
+    self.objectNameLabel = [UILabel new];
+    self.objectNameLabel.text = @"[PLACEHOLDER TEXT]";
+    
+    [self addSubview:self.objectNameLabel];
+}
+
 - (void) makeObjectInfoView
 {
     self.objectInfoView = [UITextView new];
@@ -51,13 +60,27 @@
 
 - (void) makeButtons
 {
+    self.galleryButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.galleryButton.backgroundColor = [UIColor whiteColor];
+    [self addSubview:self.galleryButton];
     
+    self.shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.shareButton.backgroundColor = [UIColor whiteColor];
+    [self addSubview:self.shareButton];
+    
+    self.saveButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.saveButton.backgroundColor = [UIColor whiteColor];
+    [self addSubview:self.saveButton];
 }
 
 - (void) makeInnerConstraints
 {
     self.objectImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.objectNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.objectInfoView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.galleryButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.shareButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.saveButton.translatesAutoresizingMaskIntoConstraints = NO;
     
     [NSLayoutConstraint activateConstraints:
      @[[self.objectImageView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
@@ -65,10 +88,23 @@
        [self.objectImageView.widthAnchor constraintEqualToAnchor:self.widthAnchor],
        [self.objectImageView.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:0.5f],
        
+       [self.objectNameLabel.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
+       [self.objectNameLabel.topAnchor constraintEqualToAnchor:self.objectImageView.bottomAnchor],
+       [self.objectNameLabel.widthAnchor constraintEqualToAnchor:self.widthAnchor],
+       
        [self.objectInfoView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
-       [self.objectInfoView.topAnchor constraintEqualToAnchor:self.objectImageView.bottomAnchor],
+       [self.objectInfoView.topAnchor constraintEqualToAnchor:self.objectNameLabel.bottomAnchor],
        [self.objectInfoView.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-       [self.objectInfoView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor]
+       [self.objectInfoView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor],
+       
+       [self.galleryButton.topAnchor constraintEqualToAnchor:self.topAnchor],
+       [self.galleryButton.rightAnchor constraintEqualToAnchor:self.rightAnchor],
+
+       [self.shareButton.bottomAnchor constraintEqualToAnchor:self.bottomAnchor],
+       [self.shareButton.leftAnchor constraintEqualToAnchor:self.leftAnchor],
+       
+       [self.saveButton.bottomAnchor constraintEqualToAnchor:self.bottomAnchor],
+       [self.saveButton.rightAnchor constraintEqualToAnchor:self.rightAnchor]
        ]];
 }
 

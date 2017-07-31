@@ -24,7 +24,14 @@
 
 - (void) makeView
 {
+    float viewBorderWidth = 0.5f;
+    float viewCornerRadius = 5.0f;
+    
     self.backgroundColor = [UIColor whiteColor];
+    self.layer.borderColor = [UIColor blueColor].CGColor;
+    self.layer.borderWidth = viewBorderWidth;
+    self.layer.cornerRadius = viewCornerRadius;
+    
     [self makeLabels];
     [self makeButtons];
 }
@@ -53,7 +60,6 @@
     
     self.galleryButton = [UIButton buttonWithType:UIButtonTypePlain];
     [self.galleryButton setTitle:@"Imagery" forState:UIControlStateNormal];
-    self.galleryButton.tintColor = [UIColor blackColor];
     self.galleryButton.layer.borderWidth = borderWidth;
     self.galleryButton.layer.borderColor = [UIColor blackColor].CGColor;
     [self addSubview:self.galleryButton];

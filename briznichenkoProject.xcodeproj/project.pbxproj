@@ -17,6 +17,8 @@
 		6B41F1AEAD2C662CC9C85962 /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A0BA7F3FEB6440ED2B24D6 /* MapController.m */; };
 		712192C68226D93C6D7D2146 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52B0A41D1A3155122302517 /* SideMenuViewController.m */; };
 		7C4D6CC3D1D1B94522A3F92C /* DescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D09360ECAFC28C5308F595 /* DescriptionViewController.m */; };
+		7D19F3161F2F782A000202AA /* CelestialBodyImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3151F2F782A000202AA /* CelestialBodyImageCell.m */; };
+		7D19F31A1F2F7C60000202AA /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */; };
 		7DA6C8131F274AE300A5BB0F /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */; };
 		7DC0C4151F2A355A0080EEAE /* CelestialBodyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */; };
 		7DC0C4191F2A44490080EEAE /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4181F2A44490080EEAE /* PopupView.m */; };
@@ -57,6 +59,10 @@
 		4E928FC0744F616841826F46 /* DescriptionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DescriptionController.h; sourceTree = "<group>"; };
 		6E3D796C1D5FDEA281D0982C /* MapController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
 		7588AC8566E7CC54F9C42438 /* MapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		7D19F3141F2F782A000202AA /* CelestialBodyImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CelestialBodyImageCell.h; sourceTree = "<group>"; };
+		7D19F3151F2F782A000202AA /* CelestialBodyImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CelestialBodyImageCell.m; sourceTree = "<group>"; };
+		7D19F3181F2F7C60000202AA /* CustomFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomFlowLayout.h; sourceTree = "<group>"; };
+		7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
 		7DA6C8111F274AE300A5BB0F /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
 		7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		7DC0C4131F2A355A0080EEAE /* CelestialBodyEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CelestialBodyEntity.h; sourceTree = "<group>"; };
@@ -141,6 +147,8 @@
 				1DA829C734E945437B1C4CAE /* GalleryViewController.m */,
 				8AFD4B2F1D81571489F97AEF /* GalleryView.h */,
 				F420EFB54B44A3D6C81DDDEC /* GalleryView.m */,
+				7D19F3171F2F7C2E000202AA /* CustomFlowLayout */,
+				7D19F3131F2F77C5000202AA /* CelestialBodyImageCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +263,24 @@
 				5859328CB83F1AEBE39E94D1 /* Map */,
 			);
 			path = GalaxyMapSequence;
+			sourceTree = "<group>";
+		};
+		7D19F3131F2F77C5000202AA /* CelestialBodyImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				7D19F3141F2F782A000202AA /* CelestialBodyImageCell.h */,
+				7D19F3151F2F782A000202AA /* CelestialBodyImageCell.m */,
+			);
+			path = CelestialBodyImageCell;
+			sourceTree = "<group>";
+		};
+		7D19F3171F2F7C2E000202AA /* CustomFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				7D19F3181F2F7C60000202AA /* CustomFlowLayout.h */,
+				7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */,
+			);
+			path = CustomFlowLayout;
 			sourceTree = "<group>";
 		};
 		7D32A42B1F28C29900485FE1 /* NavigationViews */ = {
@@ -588,7 +614,9 @@
 				2F18493DADA81D0000BBD546 /* DescriptionModel.m in Sources */,
 				21D839BC5ABE824CB82EA68B /* GalleryController.m in Sources */,
 				462F473668F899DEF8BB9C89 /* GalleryViewController.m in Sources */,
+				7D19F31A1F2F7C60000202AA /* CustomFlowLayout.m in Sources */,
 				AE6BB56F59EFA58A0891F53A /* GalleryView.m in Sources */,
+				7D19F3161F2F782A000202AA /* CelestialBodyImageCell.m in Sources */,
 				F73FEE53F825CB1119207AC9 /* GalleryModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
