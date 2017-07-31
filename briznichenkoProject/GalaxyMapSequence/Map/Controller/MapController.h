@@ -12,11 +12,16 @@
 #import "MapModel.h"
 #import "MapProtocols.h"
 
+@class DescriptionController;
+@class GalleryController;
 @interface MapController : NSObject
 <MapModelProtocol, MapViewControllerProtocol>
 
 @property (nonatomic, strong) MapViewController* mapViewController;
 @property (nonatomic, strong) MapModel* mapModel;
+
+@property (nonatomic, strong) DescriptionController *descriptionController;
+@property (nonatomic, strong) GalleryController *galleryController;
 
 -(instancetype) initAndAssemble;
 

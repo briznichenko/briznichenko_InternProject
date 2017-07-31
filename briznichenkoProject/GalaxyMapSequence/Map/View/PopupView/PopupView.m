@@ -36,22 +36,24 @@
     [self addSubview:self.celestialBodyNameLabel];
     
     self.celestialBodyRaDecLabel = [UILabel new];
+    self.celestialBodyRaDecLabel.adjustsFontSizeToFitWidth = YES;
     self.celestialBodyRaDecLabel.text = @"X:     Y:     ";
     [self addSubview:self.celestialBodyRaDecLabel];
 }
 
 - (void) makeButtons
 {
-    float borderWidth = 0.5f;
+    float borderWidth = 1.5f;
     
     self.descriptionButton = [UIButton buttonWithType:UIButtonTypePlain];
-    self.descriptionButton.titleLabel.text = @"Description";
+    [self.descriptionButton setTitle:@"Description" forState:UIControlStateNormal];
     self.descriptionButton.layer.borderWidth = borderWidth;
     self.descriptionButton.layer.borderColor = [UIColor blackColor].CGColor;
     [self addSubview:self.descriptionButton];
     
     self.galleryButton = [UIButton buttonWithType:UIButtonTypePlain];
-    self.galleryButton.titleLabel.text = @"Imagery";
+    [self.galleryButton setTitle:@"Imagery" forState:UIControlStateNormal];
+    self.galleryButton.tintColor = [UIColor blackColor];
     self.galleryButton.layer.borderWidth = borderWidth;
     self.galleryButton.layer.borderColor = [UIColor blackColor].CGColor;
     [self addSubview:self.galleryButton];
@@ -95,13 +97,12 @@
 {
     [superview addSubview:self];
     
-    self.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:
-     @[[self.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
-       [self.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
-       [self.widthAnchor constraintEqualToAnchor: self.celestialBodyRaDecLabel.widthAnchor],
-       [self.heightAnchor constraintEqualToConstant: 60.0f]
-       ]];
+    CGRect frame = CGRectMake(superview.center.x,
+                              superview.center.y,
+                              superview.frame.size.width / 2,
+                              superview.frame.size.height / 5);
+    self.frame = frame;
+
 }
 
 @end

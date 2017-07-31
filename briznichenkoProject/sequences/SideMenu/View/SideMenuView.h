@@ -11,7 +11,7 @@
 
 @interface SideMenuView : UIView
 
-@property (nonatomic, strong) UIImageView *EPICImage;
+@property (nonatomic, strong) UIImageView *headerImage;
 @property (nonatomic, strong) UITableView *menuItems;
 @property (nonatomic, strong) UILabel *appNameLabel;
 

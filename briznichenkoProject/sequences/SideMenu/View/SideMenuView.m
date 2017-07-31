@@ -27,22 +27,23 @@
 - (void) makeView
 {
     self.backgroundColor = [UIColor whiteColor];
-    [self makeEPICImage];
+    [self makeHeaderImage];
     [self makeMenuEntries];
     [self makeAppNameLabel];
 }
 
-- (void) makeEPICImage
+- (void) makeHeaderImage
 {
     float borderWidth = 2.0f;
     CGColorRef borderColor = [UIColor colorWithRed:0.0f green:0.07450980392f blue:0.2f alpha:1.0f].CGColor;
     
-    self.EPICImage = [UIImageView new];
-    self.EPICImage.layer.borderWidth = borderWidth;
-    self.EPICImage.layer.borderColor = borderColor;
-    self.EPICImage.clipsToBounds = YES;
-    self.EPICImage.contentMode = UIViewContentModeScaleAspectFit;
-    [self addSubview: self.EPICImage];
+    self.headerImage = [UIImageView new];
+    self.headerImage.layer.borderWidth = borderWidth;
+    self.headerImage.layer.borderColor = borderColor;
+    self.headerImage.backgroundColor = [UIColor blackColor];
+    self.headerImage.clipsToBounds = YES;
+    self.headerImage.contentMode = UIViewContentModeScaleAspectFit;
+    [self addSubview: self.headerImage];
 }
 
 - (void) makeMenuEntries
@@ -56,29 +57,29 @@
 {
     self.appNameLabel = [UILabel new];
     self.appNameLabel.text = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
-    [self.EPICImage addSubview:self.appNameLabel];
+    [self.headerImage addSubview:self.appNameLabel];
 }
 
 - (void) makeInnerConstraints
 {
-    float EPICImageHeightMultiplier = 0.4f;
+    float headerImageHeightMultiplier = 0.4f;
     
-    self.EPICImage.translatesAutoresizingMaskIntoConstraints = NO;
+    self.headerImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.menuItems.translatesAutoresizingMaskIntoConstraints = NO;
     self.appNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
 		[NSLayoutConstraint activateConstraints:
-     @[ [self.EPICImage.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
-     	[self.EPICImage.topAnchor constraintEqualToAnchor:self.topAnchor],
-        [self.EPICImage.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-        [self.EPICImage.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:EPICImageHeightMultiplier],
+     @[ [self.headerImage.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
+     	[self.headerImage.topAnchor constraintEqualToAnchor:self.topAnchor],
+        [self.headerImage.widthAnchor constraintEqualToAnchor:self.widthAnchor],
+        [self.headerImage.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:headerImageHeightMultiplier],
         
-        [self.appNameLabel.centerXAnchor constraintEqualToAnchor:self.EPICImage.centerXAnchor],
-        [self.appNameLabel.centerYAnchor constraintEqualToAnchor:self.EPICImage.centerYAnchor],
+        [self.appNameLabel.centerXAnchor constraintEqualToAnchor:self.headerImage.centerXAnchor],
+        [self.appNameLabel.centerYAnchor constraintEqualToAnchor:self.headerImage.centerYAnchor],
         
         [self.menuItems.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
-        [self.menuItems.topAnchor constraintEqualToAnchor:self.EPICImage.bottomAnchor],
+        [self.menuItems.topAnchor constraintEqualToAnchor:self.headerImage.bottomAnchor],
         [self.menuItems.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-        [self.menuItems.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:(1.0f - EPICImageHeightMultiplier)]
+        [self.menuItems.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:(1.0f - headerImageHeightMultiplier)]
        ]];
 }
 

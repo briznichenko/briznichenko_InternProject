@@ -11,13 +11,11 @@
 #import "MapView.h"
 #import "PopupView.h"
 
-@class CelestialBodyEntity;
 @interface MapViewController : UIViewController
 <MapViewControllerProtocol, UIWebViewDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) MapView* mapView;
 @property (nonatomic, strong) PopupView* popupView;
-@property (nonatomic, strong) CelestialBodyEntity *bodyEntity;
 @property (nonatomic, strong) NSDictionary *celestialBodyData;
 
 @property (nonatomic) bool isReady;

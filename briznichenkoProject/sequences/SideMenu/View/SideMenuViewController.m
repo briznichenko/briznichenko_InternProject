@@ -26,14 +26,14 @@
     [super viewDidLayoutSubviews];
     dispatch_async(dispatch_get_main_queue(),
     ^{
-        self.sidemenuView.EPICImage.layer.cornerRadius = self.sidemenuView.EPICImage.frame.size.height / 2;
+        self.sidemenuView.headerImage.layer.cornerRadius = self.sidemenuView.headerImage.frame.size.height / 2;
     });
 }
 
 -(void)setupViewControllerWithData:(NSData *)data
 {
     self.sidemenuView = [[SideMenuView alloc] initAndInstallIntoSuperView: self.view];
-    self.sidemenuView.EPICImage.image = [UIImage imageWithData:data];
+    self.sidemenuView.headerImage.image = [UIImage imageWithData:data];
     self.sidemenuView.menuItems.delegate = self;
     self.sidemenuView.menuItems.dataSource = self;
 }

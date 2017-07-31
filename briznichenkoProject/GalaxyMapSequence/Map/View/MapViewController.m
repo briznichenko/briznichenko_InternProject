@@ -91,7 +91,12 @@
 -(void) presentObjectPopup
 {
     if(!self.popupView)
+    {
         self.popupView = [[PopupView alloc] initAndInstallIntoSuperView:self.mapView.map];
+        [self.popupView.descriptionButton addTarget:self action:@selector(presentDescriptionController) forControlEvents: UIControlEventTouchUpInside];
+        [self.popupView.galleryButton addTarget:self action:@selector(presentGalleryController) forControlEvents: UIControlEventTouchUpInside];
+    }
+    self.popupView.celestialBodyNameLabel.text = [self.celestialBodyData valueForKey:@"objName"];
     self.popupView.center = tapLocation;
     self.popupView.hidden = NO;
     self.popupView.celestialBodyRaDecLabel.text = worldLocationString;
@@ -148,6 +153,22 @@
         
     NSLog(@"Pinching! %f", currentZoom);
     [self.mapView.map stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"aladin.setFov(%f);", currentZoom]];
+}
+
+#pragma mark -- Routing
+
+-(void) presentDescriptionController
+{
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"presentDescriptionController"
+     object:nil];
+}
+
+-(void) presentGalleryController
+{
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"presentGalleryController"
+     object:nil];
 }
 
 @end
