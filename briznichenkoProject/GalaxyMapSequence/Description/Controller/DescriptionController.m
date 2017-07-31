@@ -11,24 +11,27 @@
 
 @implementation DescriptionController
 
--(instancetype) initAndAssemble
+-(instancetype) initAndAssembleWithData:(id)data
 {
 	self = [super init];
 	if(self)
 	{
 		self.descriptionViewController = [DescriptionViewController new];
 		self.descriptionModel = [[DescriptionModel alloc] initWithData];
+        self.descriptionModel.bodyEntity = data;
         
-        [self setupViewControllerWithData:self.descriptionModel.data];
+        [self setupViewControllerWithData:self.descriptionModel.bodyEntity];
 	}	
 	return self;
 }
 
 #pragma mark -- Routing
 
-- (void)setupViewControllerWithData:(NSData *)data {
-    [self.descriptionViewController setupViewControllerWithData:data];
-    self.descriptionViewController.bodyEntity = self.descriptionModel.bodyEntity;
+- (void)setupViewControllerWithData:(id) data {
+    [self.descriptionViewController setupViewControllerWithData: data];
+    [self.descriptionModel extractAndDownloadImageFromEntity:^(NSData *fetchedData) {
+        [self.descriptionViewController makeObjectImage: fetchedData];
+    }];
 }
 
 @end

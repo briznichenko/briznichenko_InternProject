@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "briznichenkoProject/GalaxyMapSequence/Gallery/View/GalleryView.m"
-            timestampString = "523206904.982969"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Controller/DescriptionController.m"
+            timestampString = "523212758.648843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-makeImageryCollection"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-setupViewControllerWithData:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,124 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "briznichenkoProject/GalaxyMapSequence/Gallery/View/GalleryView.m"
-            timestampString = "523206904.983593"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Controller/DescriptionController.m"
+            timestampString = "523212758.648945"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-makeImageryCollection"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DescriptionController setupViewControllerWithData:]"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/GalaxyMapSequence/Description/Controller/DescriptionController.m"
+                  timestampString = "523212520.564193"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "105">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[DescriptionController setupViewControllerWithData:]_block_invoke"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/GalaxyMapSequence/Description/Controller/DescriptionController.m"
+                  timestampString = "523212520.567221"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Controller/DescriptionController.m"
+            timestampString = "523212758.64902"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[DescriptionController setupViewControllerWithData:]_block_invoke"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/GalaxyMapSequence/Description/Controller/DescriptionController.m"
+                  timestampString = "523212521.374954"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "138">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/GalaxyMapSequence/Description/Controller/DescriptionController.m"
+                  timestampString = "523212521.377786"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/GalaxyMapSequence/Description/Controller/DescriptionController.m"
+                  timestampString = "523212521.379636"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Model/DescriptionModel.m"
+            timestampString = "523212758.649095"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-cutoutImageUrlConstructorString:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +152,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "briznichenkoProject/GalaxyMapSequence/Gallery/View/GalleryView.m"
-            timestampString = "523206904.984051"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Model/DescriptionModel.m"
+            timestampString = "523212758.649169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
             endingLineNumber = "41"
-            landmarkName = "-makeImageryCollection"
+            landmarkName = "-cutoutImageUrlConstructorString:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +168,77 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "briznichenkoProject/GalaxyMapSequence/Gallery/View/GalleryView.m"
-            timestampString = "523206904.984492"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Model/DescriptionModel.m"
+            timestampString = "523212758.649236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
             endingLineNumber = "43"
-            landmarkName = "-makeImageryCollection"
+            landmarkName = "-cutoutImageUrlConstructorString:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Model/DescriptionModel.m"
+            timestampString = "523212758.649302"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-cutoutImageUrlConstructorString:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Model/DescriptionModel.m"
+            timestampString = "523212758.649366"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-extractAndDownloadImageFromEntity:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Model/DescriptionModel.m"
+            timestampString = "523212758.649433"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-extractAndDownloadImageFromEntity:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/GalaxyMapSequence/Description/Model/DescriptionModel.m"
+            timestampString = "523212758.649505"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-extractAndDownloadImageFromEntity:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

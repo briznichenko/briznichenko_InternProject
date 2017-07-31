@@ -17,7 +17,7 @@
 
 @protocol DescriptionViewControllerProtocol <NSObject>
 
--(void)setupViewControllerWithData:(NSData *)data;
+-(void)setupViewControllerWithData:(id)data;
 
 @end
 

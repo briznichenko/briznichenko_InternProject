@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSString * bodyName;
 @property (nonatomic, strong) NSString * bodyRaDec;
+@property (nonatomic, strong) NSString * rawRaDecScaleString;
+@property (nonatomic, strong) NSDictionary *internalData;
 
 - (instancetype) initWithDictionary: (NSDictionary *) dataDictionary;
 

@@ -17,5 +17,5 @@
 @property (nonatomic, strong) DescriptionViewController* descriptionViewController;
 @property (nonatomic, strong) DescriptionModel* descriptionModel;
 
--(instancetype) initAndAssemble;
+-(instancetype) initAndAssembleWithData: (id) data;
 @end

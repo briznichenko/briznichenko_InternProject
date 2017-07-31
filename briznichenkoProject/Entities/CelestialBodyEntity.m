@@ -16,6 +16,8 @@
     if(self)
     {
         self.bodyName = [dataDictionary valueForKey:@"objName"];
+        self.bodyRaDec = [dataDictionary valueForKey:@"coord1 (ICRS,J2000/2000)"];
+        self.internalData = dataDictionary;
     }
     return self;
 }

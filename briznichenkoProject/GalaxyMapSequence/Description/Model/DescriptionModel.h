@@ -17,5 +17,6 @@
 @property (nonatomic, strong) CelestialBodyEntity *bodyEntity;
 
 - (instancetype) initWithData;
+-(void) extractAndDownloadImageFromEntity : (void (^) (NSData *fetchedData)) completion;
 
 @end

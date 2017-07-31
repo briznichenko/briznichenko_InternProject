@@ -51,6 +51,7 @@
          postNotificationName:@"gotCelestialData"
          object:fetchedData];
         self.bodyEntity = [[CelestialBodyEntity alloc] initWithDictionary: fetchedData];
+        self.bodyEntity.rawRaDecScaleString = [NSString stringWithFormat:@"%f|%f|%f|", ra, dec, urlFOV];
     }];
 }
 

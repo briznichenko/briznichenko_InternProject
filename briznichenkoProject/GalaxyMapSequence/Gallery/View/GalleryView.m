@@ -34,10 +34,8 @@
 
 -(void)makeImageryCollection
 {
-    float cellWidth = self.window.frame.size.width / 3;
-    
     CustomFlowLayout *imageryCollectionLayout = [[CustomFlowLayout alloc] init];
-    imageryCollectionLayout.itemSize = CGSizeMake(cellWidth, cellWidth);
+    imageryCollectionLayout.itemSize = CGSizeMake(120, 120);
     imageryCollectionLayout.minimumInteritemSpacing = 0;
     imageryCollectionLayout.minimumLineSpacing = 0;
     self.imageryCollection = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout: imageryCollectionLayout];

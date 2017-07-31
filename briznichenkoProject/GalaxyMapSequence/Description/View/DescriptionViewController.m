@@ -15,15 +15,34 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+}
+
+-(void)setupViewControllerWithData:(id)data
+{
+    self.bodyEntity = data;
+    self.descriptionView = [[DescriptionView alloc] initAndInstallIntoSuperView: self.view];
     self.view.backgroundColor = [UIColor colorWithWhite:0.01f alpha: 0.2f];
     self.descriptionView.objectNameLabel.text = self.bodyEntity.bodyName;
+    [self setupDescriptionViewWithInfo:self.bodyEntity.internalData];
 }
 
--(void)setupViewControllerWithData:(NSData *)data
+-(void) setupDescriptionViewWithInfo: (NSDictionary*) info
 {
-    self.descriptionView = [[DescriptionView alloc] initAndInstallIntoSuperView: self.view];
+    NSString *infoString = @"OBJECT INFO: \n";
+    for (NSString * key in info.allKeys)
+    {
+        infoString = [[infoString stringByAppendingString: key] stringByAppendingString:[NSString stringWithFormat:@" %@ \n", [info valueForKey:key]]];
+    }
+    self.descriptionView.objectInfoView.text = infoString;
 }
 
+-(void) makeObjectImage: (NSData*) data
+{
+    dispatch_async(dispatch_get_main_queue(),
+                   ^{
+                       self.descriptionView.objectImageView.image = [UIImage imageWithData:data];
+                   });
+}
 
 #pragma mark -- ViewController actions
 

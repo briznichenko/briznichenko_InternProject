@@ -99,12 +99,10 @@
 
 - (void) presentDescriptionViewController
 {
-    self.descriptionController = [[DescriptionController alloc] initAndAssemble];
+    self.descriptionController = [[DescriptionController alloc] initAndAssembleWithData: self.mapModel.bodyEntity];
     self.descriptionController.descriptionViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     
-    [self.mapViewController presentViewController:self.descriptionController.descriptionViewController animated:YES completion:^{
-        self.descriptionController.descriptionModel.bodyEntity = self.mapModel.bodyEntity;
-    }];
+    [self.mapViewController presentViewController:self.descriptionController.descriptionViewController animated:YES completion:^{}];
 }
 
 - (void) presentGalleryViewController
