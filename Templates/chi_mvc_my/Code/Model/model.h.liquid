@@ -1,0 +1,14 @@
+{% include 'header' %}
+
+#import <Foundation/Foundation.h>
+#import "{{ prefix }}{{ module_info.name }}Protocols.h"
+
+
+@interface {{ prefix }}{{ module_info.name }}Model : NSObject
+<{{ prefix }}{{ module_info.name }}ModelProtocol>
+
+@property (atomic, strong) NSData *data;
+
+- (instancetype) initWithData;
+
+@end

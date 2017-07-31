@@ -1,0 +1,35 @@
+# Template information section
+name: chi_mvc_my
+summary: My vision of clean mvc architecture
+author: briznichenko
+version: 1.0.0
+license: MIT
+
+# The declarations for code files
+code_files:
+
+# Sequence interface
+
+- {name: Interface/{{ module_info.name }}Protocols.h, path: Code/Interface/protocols.h.liquid}
+
+# Controller layer
+- {name: Controller/Controller.h, path: Code/Controller/Controller.h.liquid}
+- {name: Controller/Controller.m, path: Code/Controller/Controller.m.liquid}
+
+# View layer
+- {name: View/ViewController.h, path: Code/ViewController/ViewController.h.liquid}
+- {name: View/ViewController.m, path: Code/ViewController/ViewController.m.liquid}
+- {name: View/View.h, path: Code/View/View.h.liquid}
+- {name: View/View.m, path: Code/View/View.m.liquid}
+
+# Model layer
+- {name: Model/Model.h, path: Code/Model/Model.h.liquid}
+- {name: Model/Model.m, path: Code/Model/Model.m.liquid}
+
+
+# The declarations for test files
+test_files:
+- {name: Service/ServiceTests.m, path: Tests/Service/service_tests.m.liquid}
+
+# Template dependencies
+dependencies:
