@@ -24,6 +24,7 @@
     self.view.backgroundColor = [UIColor colorWithWhite:0.01f alpha: 0.2f];
     self.descriptionView.objectNameLabel.text = self.bodyEntity.bodyName;
     [self setupDescriptionViewWithInfo:self.bodyEntity.internalData];
+    [self setupButtonActions];
 }
 
 -(void) setupDescriptionViewWithInfo: (NSDictionary*) info
@@ -34,6 +35,13 @@
         infoString = [[infoString stringByAppendingString: key] stringByAppendingString:[NSString stringWithFormat:@" %@ \n", [info valueForKey:key]]];
     }
     self.descriptionView.objectInfoView.text = infoString;
+}
+
+- (void) setupButtonActions
+{
+    [self.descriptionView.galleryButton addTarget:self action:@selector(presentGalleryController) forControlEvents:UIControlEventTouchUpInside];
+    [self.descriptionView.saveButton addTarget:self action:@selector(saveObject) forControlEvents:UIControlEventTouchUpInside];
+    [self.descriptionView.shareButton addTarget:self action:@selector(shareObject) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void) makeObjectImage: (NSData*) data
@@ -54,6 +62,21 @@
     {
         [self dismissViewControllerAnimated:YES completion:^{}];
     }
+}
+
+-(void) presentGalleryController
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"presentGalleryController" object:nil];
+}
+
+- (void) saveObject
+{
+    NSLog(@"SAVE_OBJECT_STUB");
+}
+
+- (void) shareObject
+{
+    NSLog(@"SHARE_OBJECT_STUB");
 }
 
 @end

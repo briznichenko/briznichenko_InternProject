@@ -11,7 +11,7 @@
 #import "GalleryView.h"
 
 @interface GalleryViewController : UIViewController
-<GalleryViewControllerProtocol, UICollectionViewDelegate, UICollectionViewDataSource>
+<GalleryViewControllerProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) GalleryView *galleryView;
 

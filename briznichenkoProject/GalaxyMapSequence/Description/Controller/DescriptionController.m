@@ -7,7 +7,8 @@
 //
 
 #import "DescriptionController.h"
-
+#import "GalleryController.h"
+#import "CelestialBodyEntity.h"
 
 @implementation DescriptionController
 
@@ -21,17 +22,49 @@
         self.descriptionModel.bodyEntity = data;
         
         [self setupViewControllerWithData:self.descriptionModel.bodyEntity];
+        [self subscribeToNotifications];
 	}	
 	return self;
 }
-
-#pragma mark -- Routing
 
 - (void)setupViewControllerWithData:(id) data {
     [self.descriptionViewController setupViewControllerWithData: data];
     [self.descriptionModel extractAndDownloadImageFromEntity:^(NSData *fetchedData) {
         [self.descriptionViewController makeObjectImage: fetchedData];
     }];
+}
+
+#pragma mark -- Routing
+
+- (void) subscribeToNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"presentGalleryController"
+                                               object:nil];
+}
+
+- (void) receiveNotification:(NSNotification *) notification
+{
+    if ([notification.name isEqualToString:@"presentGalleryController"])
+    {
+        [self presentGalleryViewController];
+    }
+}
+
+- (void) presentGalleryViewController
+{
+    [self.descriptionViewController dismissViewControllerAnimated:YES completion:^{
+        
+        self.galleryController = [[GalleryController alloc] initAndAssembleWithIninitalArray:@[self.descriptionModel.bodyEntity.bodyName,
+                                                                                               self.descriptionViewController.descriptionView.objectImageView.image]];
+        [self.descriptionViewController.navigationController pushViewController: self.galleryController.galleryViewController animated:YES];
+    }];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

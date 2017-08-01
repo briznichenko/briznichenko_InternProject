@@ -12,19 +12,19 @@
 @implementation GalleryModel
 
 
-- (instancetype) initWithData
+- (instancetype) initWithData: (NSArray*) dataArray
 {
 	self = [super init];
 	if(self)
 	{
-        [self fetchData];
+        [self fetchData: dataArray];
 	}
 	return self;
 }
 
--(void) fetchData
+-(void) fetchData : (NSArray *) sourceArray
 {
-    self.data = [NSData new];
+    self.data = [NSKeyedArchiver archivedDataWithRootObject:sourceArray];
 }
 
 

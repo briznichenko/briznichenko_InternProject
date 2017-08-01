@@ -14,6 +14,6 @@
 
 @property (atomic, strong) NSData *data;
 
-- (instancetype) initWithData;
+- (instancetype) initWithData: (NSArray*) dataArray;
 
 @end

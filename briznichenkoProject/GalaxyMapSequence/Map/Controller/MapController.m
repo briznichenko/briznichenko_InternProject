@@ -9,6 +9,7 @@
 #import "MapController.h"
 #import "DescriptionController.h"
 #import "GalleryController.h"
+#import "CelestialBodyEntity.h"
 
 @implementation MapController
 
@@ -107,7 +108,7 @@
 
 - (void) presentGalleryViewController
 {
-    self.galleryController = [[GalleryController alloc] initAndAssemble];
+    self.galleryController = [[GalleryController alloc] initAndAssembleWithIninitalArray:@[self.mapModel.bodyEntity.bodyName, @""]];
     self.galleryController.galleryViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
 
     [self.mapViewController.navigationController pushViewController: self.galleryController.galleryViewController animated:YES];

@@ -11,12 +11,15 @@
 #import "GalleryViewController.h"
 #import "GalleryModel.h"
 
+@class ViewerController;
 @interface GalleryController : NSObject
 <GalleryViewControllerProtocol, GalleryControllerProtocol, GalleryModelProtocol>
 
 @property (nonatomic, strong) GalleryViewController* galleryViewController;
 @property (nonatomic, strong) GalleryModel* galleryModel;
 
--(instancetype) initAndAssemble;
+@property (nonatomic, strong) ViewerController *viewerController;
+
+-(instancetype) initAndAssembleWithIninitalArray: (NSArray *) array;
 
 @end

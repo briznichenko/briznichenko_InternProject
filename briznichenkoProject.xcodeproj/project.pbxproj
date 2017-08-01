@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0901306A67F466751CCC1B45 /* ViewerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF049F1F361EA682F2C04495 /* ViewerModel.m */; };
 		21D839BC5ABE824CB82EA68B /* GalleryController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7424BC5761E1EED5EA8BA69 /* GalleryController.m */; };
 		2F18493DADA81D0000BBD546 /* DescriptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A31FBDF9964D745A5ED3FF7B /* DescriptionModel.m */; };
 		43430E399E6BF45AE7F5A3B2 /* SideMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 986C4775EA43E46C6F607D47 /* SideMenuModel.m */; };
@@ -29,7 +30,9 @@
 		7DFF4A591F1D0C5F00E5A602 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF4A581F1D0C5F00E5A602 /* UIImage+animatedGIF.m */; };
 		7DFF4A5E1F1D1C4800E5A602 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF4A5D1F1D1C4800E5A602 /* Assets.xcassets */; };
 		7DFF4A601F1D1C4F00E5A602 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF4A5F1F1D1C4F00E5A602 /* giphy.gif */; };
+		82EB953C0B1C5E02732D3A76 /* ViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DADCC50ED9B2E27F15F2F2 /* ViewerController.m */; };
 		874E0C3FC309BD8FCC1169D3 /* SplashModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCA5ADCBD115C9AB49A436B /* SplashModel.m */; };
+		919D596D82CAF831F166F153 /* ViewerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF2E0DBD9C25D40F9C639E0 /* ViewerView.m */; };
 		9476C326EA9479D40064ECDD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0648693740D5E8DDF7FA40B /* MapViewController.m */; };
 		97C53397EB8211CEC2002ED9 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DB671209B5A8823AB7D9FD /* SplashViewController.m */; };
 		9C3C22367C999D3D0C7DA47A /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B62FDD043CBC37D89B9993 /* MapModel.m */; };
@@ -37,6 +40,7 @@
 		BEDA95780FB0D5E3287F982D /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01F2A148D03A889FDB5C396 /* SplashView.m */; };
 		CA0ADD97B62778ACE9B081FC /* SideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C73FC46A91B41B5623DFCD /* SideMenuController.m */; };
 		CC4ED70D7F29451E6D37F40B /* DescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4D11EDFC9508140DFB2D82 /* DescriptionController.m */; };
+		E263F3982514937F90FCA6D7 /* ViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */; };
 		E94242F57C5EA3AC052D3734 /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E512894172FE78D737A1E13 /* SideMenuView.m */; };
 		F73FEE53F825CB1119207AC9 /* GalleryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 086FA570171CC76A6FE256A1 /* GalleryModel.m */; };
 /* End PBXBuildFile section */
@@ -44,7 +48,9 @@
 /* Begin PBXFileReference section */
 		01D0BF4D57FC1930DA3252B8 /* SplashModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SplashModel.h; sourceTree = "<group>"; };
 		021F30786813A6A51E7C39FC /* GalleryModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GalleryModel.h; sourceTree = "<group>"; };
+		04DADCC50ED9B2E27F15F2F2 /* ViewerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewerController.m; sourceTree = "<group>"; };
 		086FA570171CC76A6FE256A1 /* GalleryModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GalleryModel.m; sourceTree = "<group>"; };
+		0EF2E0DBD9C25D40F9C639E0 /* ViewerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewerView.m; sourceTree = "<group>"; };
 		16C03507C294075518384316 /* SideMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuView.h; sourceTree = "<group>"; };
 		1DA829C734E945437B1C4CAE /* GalleryViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		22946662C5D00DF902335257 /* GalleryController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GalleryController.h; sourceTree = "<group>"; };
@@ -54,9 +60,13 @@
 		44DB671209B5A8823AB7D9FD /* SplashViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		4809F24BF3FD2E9E09D57A00 /* SplashViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		491AA717A4C9A117D95C415C /* MapView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		4982716B85A15D31DFB58FA5 /* ViewerModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerModel.h; sourceTree = "<group>"; };
 		49FE96308F002A063E097E8C /* SideMenuModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuModel.h; sourceTree = "<group>"; };
 		4C2530C32ECA27BBDE54DAB3 /* SplashController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SplashController.h; sourceTree = "<group>"; };
 		4E928FC0744F616841826F46 /* DescriptionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DescriptionController.h; sourceTree = "<group>"; };
+		53EEC9A4536851B9D522B826 /* ViewerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerView.h; sourceTree = "<group>"; };
+		5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewerViewController.m; sourceTree = "<group>"; };
+		5D90B169F1BF90A7F0EA5FD7 /* ViewerProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerProtocols.h; sourceTree = "<group>"; };
 		6E3D796C1D5FDEA281D0982C /* MapController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
 		7588AC8566E7CC54F9C42438 /* MapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7D19F3141F2F782A000202AA /* CelestialBodyImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CelestialBodyImageCell.h; sourceTree = "<group>"; };
@@ -91,14 +101,17 @@
 		94332C92A8267E7A0DD7B362 /* MapView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		986C4775EA43E46C6F607D47 /* SideMenuModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SideMenuModel.m; sourceTree = "<group>"; };
 		9C523DD30E43D87AEE2F6B66 /* DescriptionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DescriptionView.m; sourceTree = "<group>"; };
+		9DBBAD5236B265EB3FBBBFB8 /* ViewerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerViewController.h; sourceTree = "<group>"; };
 		A31FBDF9964D745A5ED3FF7B /* DescriptionModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DescriptionModel.m; sourceTree = "<group>"; };
 		A7424BC5761E1EED5EA8BA69 /* GalleryController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GalleryController.m; sourceTree = "<group>"; };
+		AF049F1F361EA682F2C04495 /* ViewerModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewerModel.m; sourceTree = "<group>"; };
 		B0648693740D5E8DDF7FA40B /* MapViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		B0A0BA7F3FEB6440ED2B24D6 /* MapController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
 		B5344B1296186DF734B91DCA /* DescriptionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DescriptionViewController.h; sourceTree = "<group>"; };
 		C01C9450600A03BE640C6659 /* DescriptionModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DescriptionModel.h; sourceTree = "<group>"; };
 		CC3C398685EF2E5E16AEADCC /* SideMenuViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
 		D01F2A148D03A889FDB5C396 /* SplashView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SplashView.m; sourceTree = "<group>"; };
+		D514B6158AD10027A24DCCC7 /* ViewerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerController.h; sourceTree = "<group>"; };
 		D52B0A41D1A3155122302517 /* SideMenuViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		DD3C9FD5A3188CA9A02FEA76 /* SideMenuProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuProtocols.h; sourceTree = "<group>"; };
 		E6B62FDD043CBC37D89B9993 /* MapModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapModel.m; sourceTree = "<group>"; };
@@ -139,6 +152,18 @@
 			);
 			path = Interface;
 			sourceTree = "<group>";
+		};
+		2F904CF01D5BB048B8CAC681 /* Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				52A96334E2BF677AD19017FF /* Controller */,
+				D890F05A488C904EC87121E0 /* Interface */,
+				F9993D89DABC1D58D75D16C1 /* Model */,
+				AC68BB4351B1FD9777C7C7BC /* View */,
+			);
+			name = Viewer;
+			path = briznichenkoProject/GalaxyMapSequence/Viewer;
+			sourceTree = SOURCE_ROOT;
 		};
 		34FD9D1DF8F288AF9CA654B1 /* View */ = {
 			isa = PBXGroup;
@@ -194,6 +219,15 @@
 			name = Splash;
 			path = briznichenkoProject/sequences/Splash;
 			sourceTree = SOURCE_ROOT;
+		};
+		52A96334E2BF677AD19017FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D514B6158AD10027A24DCCC7 /* ViewerController.h */,
+				04DADCC50ED9B2E27F15F2F2 /* ViewerController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
 		};
 		5859328CB83F1AEBE39E94D1 /* Map */ = {
 			isa = PBXGroup;
@@ -258,6 +292,7 @@
 		7D19F3121F2F45D2000202AA /* GalaxyMapSequence */ = {
 			isa = PBXGroup;
 			children = (
+				2F904CF01D5BB048B8CAC681 /* Viewer */,
 				ADCDF758407EB0ACD0659C08 /* Gallery */,
 				FD8687A18967EBA1211B491E /* Description */,
 				5859328CB83F1AEBE39E94D1 /* Map */,
@@ -440,13 +475,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AC68BB4351B1FD9777C7C7BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9DBBAD5236B265EB3FBBBFB8 /* ViewerViewController.h */,
+				5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */,
+				53EEC9A4536851B9D522B826 /* ViewerView.h */,
+				0EF2E0DBD9C25D40F9C639E0 /* ViewerView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		ADCDF758407EB0ACD0659C08 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				27AF2DDF89A3477ECC9919B1 /* Interface */,
 				6381710338157DCDDAA93A89 /* Controller */,
-				34FD9D1DF8F288AF9CA654B1 /* View */,
+				27AF2DDF89A3477ECC9919B1 /* Interface */,
 				FAF5CFC2E5E91C391FD22FE8 /* Model */,
+				34FD9D1DF8F288AF9CA654B1 /* View */,
 			);
 			name = Gallery;
 			path = briznichenkoProject/GalaxyMapSequence/Gallery;
@@ -468,6 +514,14 @@
 				8E4D11EDFC9508140DFB2D82 /* DescriptionController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		D890F05A488C904EC87121E0 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				5D90B169F1BF90A7F0EA5FD7 /* ViewerProtocols.h */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 		DB60BD9F374F667C91417F25 /* Model */ = {
@@ -497,6 +551,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F9993D89DABC1D58D75D16C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4982716B85A15D31DFB58FA5 /* ViewerModel.h */,
+				AF049F1F361EA682F2C04495 /* ViewerModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FAF5CFC2E5E91C391FD22FE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,10 +572,10 @@
 		FD8687A18967EBA1211B491E /* Description */ = {
 			isa = PBXGroup;
 			children = (
-				62E7EF4C8AAEB95327988EA5 /* Interface */,
 				D04E912A06B7771747ACC464 /* Controller */,
-				9E6E5C555215370DD66AF96D /* View */,
+				62E7EF4C8AAEB95327988EA5 /* Interface */,
 				A4672EFA12E0F88FF69DD143 /* Model */,
+				9E6E5C555215370DD66AF96D /* View */,
 			);
 			name = Description;
 			path = briznichenkoProject/GalaxyMapSequence/Description;
@@ -618,6 +681,10 @@
 				AE6BB56F59EFA58A0891F53A /* GalleryView.m in Sources */,
 				7D19F3161F2F782A000202AA /* CelestialBodyImageCell.m in Sources */,
 				F73FEE53F825CB1119207AC9 /* GalleryModel.m in Sources */,
+				82EB953C0B1C5E02732D3A76 /* ViewerController.m in Sources */,
+				E263F3982514937F90FCA6D7 /* ViewerViewController.m in Sources */,
+				919D596D82CAF831F166F153 /* ViewerView.m in Sources */,
+				0901306A67F466751CCC1B45 /* ViewerModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
