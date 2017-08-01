@@ -87,7 +87,7 @@
     }
     else if ([notification.name isEqualToString:@"presentGalleryController"])
     {
-        [self presentGalleryViewController];
+        [self presentGalleryViewController: notification.object];
     }
 }
 
@@ -106,10 +106,9 @@
     [self.mapViewController presentViewController:self.descriptionController.descriptionViewController animated:YES completion:^{}];
 }
 
-- (void) presentGalleryViewController
+- (void) presentGalleryViewController : (UIImage *) sdssImage
 {
-    self.galleryController = [[GalleryController alloc] initAndAssembleWithIninitalArray:@[self.mapModel.bodyEntity.bodyName, @""]];
-    self.galleryController.galleryViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    self.galleryController = [[GalleryController alloc] initAndAssembleWithInititalArray:@[self.mapModel.bodyEntity.bodyName, sdssImage ? sdssImage : [UIImage new]]];
 
     [self.mapViewController.navigationController pushViewController: self.galleryController.galleryViewController animated:YES];
 }

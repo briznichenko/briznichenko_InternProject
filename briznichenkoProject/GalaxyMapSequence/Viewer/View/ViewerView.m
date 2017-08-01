@@ -26,16 +26,45 @@
 
 - (void) makeView
 {
+    self.backgroundColor = [UIColor whiteColor];
+    [self makeViewedImageView];
+    [self makeBottomBar];
+}
 
+- (void) makeViewedImageView
+{
+    self.viewedImageView = [UIImageView new];
+    //
+    self.viewedImageView.backgroundColor = [UIColor orangeColor];
+    
+    [self addSubview:self.viewedImageView];
+}
 
+- (void) makeBottomBar
+{
+    self.stubBar = [UIView new];
+    self.stubBar.backgroundColor = [UIColor blueColor];
+    
+    [self addSubview:self.stubBar];
 }
 
 - (void) makeInnerConstraints
 {
-		[NSLayoutConstraint activateConstraints:
-     @[
-     	
-       ]];
+    float imageViewHeightMultiplier = 0.75f;
+    
+    self.viewedImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.stubBar.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [NSLayoutConstraint activateConstraints:
+     @[[self.viewedImageView.topAnchor constraintEqualToAnchor:self.topAnchor],
+       [self.viewedImageView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
+       [self.viewedImageView.widthAnchor constraintEqualToAnchor:self.widthAnchor],
+       [self.viewedImageView.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:imageViewHeightMultiplier],
+       
+       [self.stubBar.topAnchor constraintEqualToAnchor:self.viewedImageView.bottomAnchor],
+       [self.stubBar.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
+       [self.stubBar.widthAnchor constraintEqualToAnchor:self.widthAnchor],
+       [self.stubBar.bottomAnchor constraintEqualToAnchor:self.bottomAnchor]]];
 }
 
 - (void) makeOuterConstraints:(UIView *) superview

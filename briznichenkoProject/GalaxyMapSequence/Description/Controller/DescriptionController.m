@@ -38,28 +38,18 @@
 
 - (void) subscribeToNotifications
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:@"presentGalleryController"
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(receiveNotification:)
+//                                                 name:@"presentGalleryFromDescriptionController"
+//                                               object:nil];
 }
 
 - (void) receiveNotification:(NSNotification *) notification
 {
-    if ([notification.name isEqualToString:@"presentGalleryController"])
-    {
-        [self presentGalleryViewController];
-    }
-}
-
-- (void) presentGalleryViewController
-{
-    [self.descriptionViewController dismissViewControllerAnimated:YES completion:^{
-        
-        self.galleryController = [[GalleryController alloc] initAndAssembleWithIninitalArray:@[self.descriptionModel.bodyEntity.bodyName,
-                                                                                               self.descriptionViewController.descriptionView.objectImageView.image]];
-        [self.descriptionViewController.navigationController pushViewController: self.galleryController.galleryViewController animated:YES];
-    }];
+//    if ([notification.name isEqualToString:@"presentGalleryFromDescriptionController"])
+//    {
+//        [self presentGalleryViewController];
+//    }
 }
 
 - (void)dealloc

@@ -11,7 +11,7 @@
 
 @implementation GalleryController
 
--(instancetype) initAndAssembleWithIninitalArray:(NSArray *)array
+-(instancetype) initAndAssembleWithInititalArray:(NSArray *)array
 {
 	self = [super init];
 	if(self)
@@ -50,6 +50,9 @@
 - (void) presentViewerController
 {
     self.viewerController = [[ViewerController alloc] initAndAssemble];
+    //
+    self.viewerController.viewerViewController.viewerView.viewedImageView.image = [NSKeyedUnarchiver unarchiveObjectWithData: self.galleryModel.data][1];
+    //
     [self.galleryViewController.navigationController pushViewController:self.viewerController.viewerViewController animated:YES];
 }
 

@@ -30,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self remakeViewToFitScreen];
 }
 
 -(void)viewDidLayoutSubviews
@@ -46,15 +47,31 @@
         self.navigationBar.topItem.leftBarButtonItem = backButton;
         self.navigationItem.hidesBackButton = NO;
         
-        [self.navigationBar setFrame: CGRectMake(0, 0, 100, 50)];
+//        [self.navigationBar setFrame: CGRectMake(0, 0, 100, 50)];
         self.navigationBar.barTintColor = [UIColor colorWithRed:0.0f green:0.07450980392f blue:0.2f alpha:1.0f];
     }
 
 }
 
-- (void)didReceiveMemoryWarning
+- (void) remakeViewToFitScreen
 {
-    [super didReceiveMemoryWarning];
+//    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+    CGRect mainScreenBounds = [[UIScreen mainScreen] bounds];
+    CGRect windowFrame = CGRectMake(mainScreenBounds.origin.x,
+                                    mainScreenBounds.origin.y + statusBarFrame.size.height,
+                                    mainScreenBounds.size.width,
+                                    mainScreenBounds.size.height - statusBarFrame.size.height);
+    
+    self.view.frame = windowFrame;
+    
+//    [NSLayoutConstraint activateConstraints:
+//     @[[self.view.topAnchor constraintGreaterThanOrEqualToAnchor:self.view.window.topAnchor constant:statusBarFrame.size.height],
+//       [self.view.centerXAnchor constraintEqualToAnchor:self.view.window.centerXAnchor],
+//       [self.view.widthAnchor constraintEqualToAnchor:self.view.window.widthAnchor],
+//       [self.view.heightAnchor constraintLessThanOrEqualToAnchor:self.view.window.heightAnchor constant:statusBarFrame.size.height]
+//       ]];
 }
 
 #pragma mark - Navigation

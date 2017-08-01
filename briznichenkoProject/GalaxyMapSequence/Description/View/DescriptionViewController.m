@@ -66,7 +66,9 @@
 
 -(void) presentGalleryController
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"presentGalleryController" object:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"presentGalleryController" object:self.descriptionView.objectImageView.image];
+    }];
 }
 
 - (void) saveObject

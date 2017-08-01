@@ -20,6 +20,6 @@
 
 @property (nonatomic, strong) ViewerController *viewerController;
 
--(instancetype) initAndAssembleWithIninitalArray: (NSArray *) array;
+-(instancetype) initAndAssembleWithInititalArray: (NSArray *) array;
 
 @end

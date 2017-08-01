@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewerView : UIView 
+@interface ViewerView : UIView
+
+@property (nonatomic, strong) UIImageView *viewedImageView;
+@property (nonatomic, strong) UIView *stubBar;
 
 -(instancetype)initAndInstallIntoSuperView:(UIView *) superview;
 
