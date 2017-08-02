@@ -21,6 +21,7 @@
 		7D19F3161F2F782A000202AA /* CelestialBodyImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3151F2F782A000202AA /* CelestialBodyImageCell.m */; };
 		7D19F31A1F2F7C60000202AA /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */; };
 		7DA6C8131F274AE300A5BB0F /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */; };
+		7DC05E411F322A340090A29B /* CropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC05E401F322A330090A29B /* CropView.m */; };
 		7DC0C4151F2A355A0080EEAE /* CelestialBodyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */; };
 		7DC0C4191F2A44490080EEAE /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4181F2A44490080EEAE /* PopupView.m */; };
 		7DDA22071F1E36AD004155F6 /* AladinMap in Resources */ = {isa = PBXBuildFile; fileRef = 7DDA22061F1E36AD004155F6 /* AladinMap */; };
@@ -75,6 +76,8 @@
 		7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
 		7DA6C8111F274AE300A5BB0F /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
 		7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
+		7DC05E3F1F322A330090A29B /* CropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CropView.h; sourceTree = "<group>"; };
+		7DC05E401F322A330090A29B /* CropView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CropView.m; sourceTree = "<group>"; };
 		7DC0C4131F2A355A0080EEAE /* CelestialBodyEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CelestialBodyEntity.h; sourceTree = "<group>"; };
 		7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CelestialBodyEntity.m; sourceTree = "<group>"; };
 		7DC0C4171F2A44490080EEAE /* PopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
@@ -335,6 +338,15 @@
 			name = RootNavigationController;
 			sourceTree = "<group>";
 		};
+		7DC05E3E1F3229CC0090A29B /* CropView */ = {
+			isa = PBXGroup;
+			children = (
+				7DC05E3F1F322A330090A29B /* CropView.h */,
+				7DC05E401F322A330090A29B /* CropView.m */,
+			);
+			path = CropView;
+			sourceTree = "<group>";
+		};
 		7DC0C4121F2A34E40080EEAE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +494,7 @@
 				5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */,
 				53EEC9A4536851B9D522B826 /* ViewerView.h */,
 				0EF2E0DBD9C25D40F9C639E0 /* ViewerView.m */,
+				7DC05E3E1F3229CC0090A29B /* CropView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -676,6 +689,7 @@
 				5398CA681906669E1886394A /* DescriptionView.m in Sources */,
 				2F18493DADA81D0000BBD546 /* DescriptionModel.m in Sources */,
 				21D839BC5ABE824CB82EA68B /* GalleryController.m in Sources */,
+				7DC05E411F322A340090A29B /* CropView.m in Sources */,
 				462F473668F899DEF8BB9C89 /* GalleryViewController.m in Sources */,
 				7D19F31A1F2F7C60000202AA /* CustomFlowLayout.m in Sources */,
 				AE6BB56F59EFA58A0891F53A /* GalleryView.m in Sources */,

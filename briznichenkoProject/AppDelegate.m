@@ -15,10 +15,8 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -26,17 +24,6 @@
     
     [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (CGRect) makeWindowFrame
-{
-    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-    CGRect mainScreenBounds = [[UIScreen mainScreen] bounds];
-    CGRect windowFrame = CGRectMake(mainScreenBounds.origin.x,
-                                    mainScreenBounds.origin.y + statusBarFrame.size.height,
-                                    mainScreenBounds.size.width,
-                                    mainScreenBounds.size.height - statusBarFrame.size.height);
-    return windowFrame;
 }
 
 

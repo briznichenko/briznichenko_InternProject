@@ -31,9 +31,11 @@
 {
     [super viewDidLoad];
     [self remakeViewToFitScreen];
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
--(void)viewDidLayoutSubviews
+- (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
     if(self.viewControllers.count == 1)

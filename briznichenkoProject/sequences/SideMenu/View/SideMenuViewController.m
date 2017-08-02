@@ -17,8 +17,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    [self setupSideMenu];
-    [self setupSideMenuActions];
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 -(void)viewDidLayoutSubviews
@@ -36,6 +36,8 @@
     self.sidemenuView.headerImage.image = [UIImage imageWithData:data];
     self.sidemenuView.menuItems.delegate = self;
     self.sidemenuView.menuItems.dataSource = self;
+    [self setupSideMenu];
+    [self setupSideMenuActions];
 }
 
 

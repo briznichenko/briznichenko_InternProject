@@ -85,13 +85,14 @@
 {
 	[superview addSubview:self];
     float widthMultiplier = 0.6f;
+    float statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:
      @[[self.leftAnchor constraintEqualToAnchor:superview.leftAnchor],
-       [self.centerYAnchor constraintEqualToAnchor:superview.centerYAnchor],
+       [self.topAnchor constraintGreaterThanOrEqualToAnchor:superview.topAnchor constant:statusBarHeight],
        [self.widthAnchor constraintEqualToAnchor:superview.widthAnchor multiplier: widthMultiplier],
-       [self.heightAnchor constraintEqualToAnchor:superview.heightAnchor]
+       [self.heightAnchor constraintLessThanOrEqualToAnchor:superview.heightAnchor constant:-statusBarHeight]
      ]];
 
 }
