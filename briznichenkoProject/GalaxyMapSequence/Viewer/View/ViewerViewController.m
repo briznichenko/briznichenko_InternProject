@@ -44,6 +44,8 @@
     [self.viewerView.cutButton addTarget:self action:@selector(cutImage:) forControlEvents:UIControlEventTouchUpInside];
     [self.viewerView.filtersButton addTarget:self action:@selector(filterImage:) forControlEvents:UIControlEventTouchUpInside];
     [self.viewerView.textButton addTarget:self action:@selector(addTextToImage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.viewerView.textSizeSlider addTarget:self action:@selector(adjustTextSize:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void) setupEditingTools
@@ -134,6 +136,12 @@
     self.viewerView.textSizeSlider.hidden = NO;
     self.viewerView.cutButton.backgroundColor = [UIColor grayColor];
     self.viewerView.filtersButton.backgroundColor = [UIColor grayColor];
+}
+
+-(void) adjustTextSize: (id) sender
+{
+    self.viewerView.addTextField.font = [UIFont fontWithName:@"Helvetica" size:(int)self.viewerView.textSizeSlider.value];
+    self.viewerView.addTextField.adjustsFontSizeToFitWidth = YES;
 }
 
 - (void) finishEdtitingMode

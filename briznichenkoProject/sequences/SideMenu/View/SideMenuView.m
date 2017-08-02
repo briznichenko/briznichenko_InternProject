@@ -10,6 +10,9 @@
 
 
 @implementation SideMenuView
+{
+    UIView *statusBarView;
+}
 
 
 - (instancetype) initAndInstallIntoSuperView:(UIView *) superview
@@ -27,6 +30,10 @@
 - (void) makeView
 {
     self.backgroundColor = [UIColor whiteColor];
+    
+    statusBarView = [UIView new];
+    [self addSubview:statusBarView];
+    
     [self makeHeaderImage];
     [self makeMenuEntries];
     [self makeAppNameLabel];
@@ -65,9 +72,16 @@
     self.headerImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.menuItems.translatesAutoresizingMaskIntoConstraints = NO;
     self.appNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
-		[NSLayoutConstraint activateConstraints:
-     @[ [self.headerImage.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
-     	[self.headerImage.topAnchor constraintEqualToAnchor:self.topAnchor],
+    statusBarView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [NSLayoutConstraint activateConstraints:
+     @[ [statusBarView.topAnchor constraintEqualToAnchor: self.topAnchor],
+        [statusBarView.widthAnchor constraintEqualToAnchor:self.widthAnchor],
+        [statusBarView.leftAnchor constraintEqualToAnchor:self.leftAnchor],
+        [statusBarView.heightAnchor constraintEqualToConstant:20.0f],
+        
+        [self.headerImage.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
+     	[self.headerImage.topAnchor constraintEqualToAnchor:statusBarView.bottomAnchor],
         [self.headerImage.widthAnchor constraintEqualToAnchor:self.widthAnchor],
         [self.headerImage.heightAnchor constraintEqualToAnchor:self.headerImage.widthAnchor],
         
@@ -85,14 +99,13 @@
 {
 	[superview addSubview:self];
     float widthMultiplier = 0.6f;
-    float statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:
      @[[self.leftAnchor constraintEqualToAnchor:superview.leftAnchor],
-       [self.topAnchor constraintGreaterThanOrEqualToAnchor:superview.topAnchor constant:statusBarHeight],
+       [self.topAnchor constraintGreaterThanOrEqualToAnchor:superview.topAnchor],
        [self.widthAnchor constraintEqualToAnchor:superview.widthAnchor multiplier: widthMultiplier],
-       [self.heightAnchor constraintLessThanOrEqualToAnchor:superview.heightAnchor constant:-statusBarHeight]
+       [self.heightAnchor constraintLessThanOrEqualToAnchor:superview.heightAnchor]
      ]];
 
 }

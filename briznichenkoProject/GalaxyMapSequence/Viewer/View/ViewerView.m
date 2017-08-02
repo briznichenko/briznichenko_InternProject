@@ -44,6 +44,7 @@
 {
     self.modeSwitcher = [UIButton buttonWithType:UIButtonTypePlain];
     [self.modeSwitcher setTitle:@"👁" forState:UIControlStateNormal];
+    self.modeSwitcher.tintColor = [UIColor blueColor];
     
     [self addSubview:self.modeSwitcher];
 }
@@ -51,10 +52,7 @@
 - (void) makeBottomBar
 {
     self.bottomBar = [UIView new];
-    self.bottomBar.backgroundColor = [UIColor whiteColor];
-    
     [self addSubview:self.bottomBar];
-    
     
     for(UIView *barItem in [self makeAndAddButtons])
         [self.bottomBar addSubview: barItem];
@@ -102,14 +100,13 @@
     self.cropView = [UIView new];
     self.cropViewOverlay.transparentView = self.cropView;
     self.cropViewOverlay.backgroundColor = [UIColor colorWithWhite:0.001f alpha:0.5f];
-    self.cropView.backgroundColor = [UIColor clearColor];
     self.cropViewOverlay.hidden = YES;
     [self.viewedImageView addSubview:self.cropViewOverlay];
     [self.cropViewOverlay addSubview:self.cropView];
     
     self.filterBar = [UIScrollView new];
     self.filterBar.backgroundColor = [UIColor whiteColor];
-    self.filterBar.scrollEnabled = YES;
+    self.filterBar.bounces = NO;
     self.filterBar.hidden = YES;
     [self addSubview: self.filterBar];
     
@@ -122,11 +119,13 @@
     [self addSubview:self.addTextField];
     
     self.textSizeSlider = [UISlider new];
-    self.textSizeSlider.maximumValue = 100;
-    self.textSizeSlider.value = 10;
+    self.textSizeSlider.continuous = NO;
+    self.textSizeSlider.maximumValue = 40;
+    self.textSizeSlider.minimumValue = 0;
+    self.textSizeSlider.value = 5;
     self.textSizeSlider.hidden = YES;
-    self.textSizeSlider.tintColor = [UIColor blackColor];
-    self.textSizeSlider.transform = CGAffineTransformMakeRotation(-M_PI * 0.5);
+    self.textSizeSlider.maximumTrackTintColor = [UIColor blackColor];
+    self.textSizeSlider.minimumTrackTintColor = [UIColor whiteColor];
     [self addSubview:self.textSizeSlider];
 }
 
@@ -138,9 +137,7 @@
         UIImageView *filterView = [UIImageView new];
         filterView.backgroundColor = [UIColor colorWithWhite: i / 10.0f alpha:1.0f];
         [filtersArray addObject:filterView];
-        
     }
-    
     return filtersArray;
 }
 
@@ -222,8 +219,9 @@
        [self.addTextField.centerYAnchor constraintEqualToAnchor:self.viewedImageView.centerYAnchor],
        [self.addTextField.centerXAnchor constraintEqualToAnchor:self.viewedImageView.centerXAnchor],
        
-       [self.textSizeSlider.centerYAnchor constraintEqualToAnchor:self.addTextField.centerYAnchor],
-       [self.textSizeSlider.rightAnchor constraintLessThanOrEqualToAnchor:self.addTextField.leftAnchor constant: -self.textSizeSlider.frame.size.width]
+       [self.textSizeSlider.bottomAnchor constraintEqualToAnchor:self.bottomBar.topAnchor],
+       [self.textSizeSlider.centerXAnchor constraintEqualToAnchor:self.bottomBar.centerXAnchor],
+       [self.textSizeSlider.widthAnchor constraintEqualToAnchor:self.bottomBar.widthAnchor multiplier: 0.9f]
        ]];
 }
 
