@@ -10,10 +10,6 @@
 
 
 @implementation SideMenuView
-{
-    UIView *statusBarView;
-}
-
 
 - (instancetype) initAndInstallIntoSuperView:(UIView *) superview
 {
@@ -21,8 +17,8 @@
 	if(self)
 	{
 		[self makeView];
+        [self makeOuterConstraints: superview];
 		[self makeInnerConstraints];
-		[self makeOuterConstraints: superview];
 	}
 	return self;
 }
@@ -30,9 +26,6 @@
 - (void) makeView
 {
     self.backgroundColor = [UIColor whiteColor];
-    
-    statusBarView = [UIView new];
-    [self addSubview:statusBarView];
     
     [self makeHeaderImage];
     [self makeMenuEntries];
@@ -49,7 +42,7 @@
     self.headerImage.layer.borderColor = borderColor;
     self.headerImage.backgroundColor = [UIColor blackColor];
     self.headerImage.clipsToBounds = YES;
-    self.headerImage.contentMode = UIViewContentModeScaleAspectFit;
+    self.headerImage.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview: self.headerImage];
 }
 
@@ -69,21 +62,18 @@
 
 - (void) makeInnerConstraints
 {
+    float imageHeightMultiplier = 0.35f;
+    float menuHeightMultiplier = 1.0f - imageHeightMultiplier;
+    
     self.headerImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.menuItems.translatesAutoresizingMaskIntoConstraints = NO;
     self.appNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    statusBarView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [NSLayoutConstraint activateConstraints:
-     @[ [statusBarView.topAnchor constraintEqualToAnchor: self.topAnchor],
-        [statusBarView.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-        [statusBarView.leftAnchor constraintEqualToAnchor:self.leftAnchor],
-        [statusBarView.heightAnchor constraintEqualToConstant:20.0f],
-        
-        [self.headerImage.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
-     	[self.headerImage.topAnchor constraintEqualToAnchor:statusBarView.bottomAnchor],
-        [self.headerImage.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-        [self.headerImage.heightAnchor constraintEqualToAnchor:self.headerImage.widthAnchor],
+     @[ [self.headerImage.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
+     	[self.headerImage.topAnchor constraintEqualToAnchor:self.topAnchor],
+        [self.headerImage.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier: imageHeightMultiplier],
+        [self.headerImage.widthAnchor constraintEqualToAnchor:self.headerImage.heightAnchor],
         
         [self.appNameLabel.centerXAnchor constraintEqualToAnchor:self.headerImage.centerXAnchor],
         [self.appNameLabel.centerYAnchor constraintEqualToAnchor:self.headerImage.centerYAnchor],
@@ -91,7 +81,7 @@
         [self.menuItems.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
         [self.menuItems.topAnchor constraintEqualToAnchor:self.headerImage.bottomAnchor],
         [self.menuItems.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-        [self.menuItems.bottomAnchor constraintEqualToAnchor:self.bottomAnchor]
+        [self.menuItems.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier: menuHeightMultiplier]
        ]];
 }
 
@@ -99,15 +89,14 @@
 {
 	[superview addSubview:self];
     float widthMultiplier = 0.6f;
+    float statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:
-     @[[self.leftAnchor constraintEqualToAnchor:superview.leftAnchor],
-       [self.topAnchor constraintGreaterThanOrEqualToAnchor:superview.topAnchor],
+     @[[self.topAnchor constraintGreaterThanOrEqualToAnchor:superview.topAnchor constant:statusBarHeight],
+       [self.leftAnchor constraintEqualToAnchor:superview.leftAnchor],
        [self.widthAnchor constraintEqualToAnchor:superview.widthAnchor multiplier: widthMultiplier],
-       [self.heightAnchor constraintLessThanOrEqualToAnchor:superview.heightAnchor]
+       [self.heightAnchor constraintLessThanOrEqualToAnchor:superview.heightAnchor constant:statusBarHeight]
      ]];
-
 }
-
 @end

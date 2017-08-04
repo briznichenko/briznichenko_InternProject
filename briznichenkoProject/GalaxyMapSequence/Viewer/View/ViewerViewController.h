@@ -11,7 +11,7 @@
 #import "ViewerView.h"
 
 @interface ViewerViewController : UIViewController
-<ViewerViewControllerProtocol>
+<ViewerViewControllerProtocol, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) ViewerView* viewerView;
 

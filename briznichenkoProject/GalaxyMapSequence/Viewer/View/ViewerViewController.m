@@ -7,16 +7,24 @@
 //
 
 #import "ViewerViewController.h"
+#import "UIImage+Filtering.h"
+#import "CropView.h"
 
 @implementation ViewerViewController
 {
     void (^superposition)(void);
+    NSArray *filters;
 }
 
 #pragma mark - ViewController lifecycle methods
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self makeFilterPreviews];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -64,12 +72,54 @@
     };
 }
 
+- (void) makeFilterPreviews
+{
+        [self getFilters:^{
+            for (UIImageView *filterView in self.viewerView.filterBar.subviews) {
+                if([self.viewerView.filterBar.subviews indexOfObject:filterView] >= filters.count)
+                    break;
+                filterView.image = filters[[self.viewerView.filterBar.subviews indexOfObject:filterView]];
+            };
+        }];
+    [self.viewerView.filterBar setNeedsDisplay];
+}
+
+- (void) getFilters: (void (^)()) completion
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        filters = [UIImage makeFiltersForImage: self.viewerView.viewedImageView.image];
+        completion();
+    });
+}
+
 #pragma mark ViewControllerActions
+
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:self.viewerView.filterBar];
+    
+    for (UIView *view in self.viewerView.filterBar.subviews)
+    {
+        if ([view isKindOfClass:[UIImageView class]])
+            if(CGRectContainsPoint(view.frame, touchLocation))
+        {
+            self.viewerView.viewedImageView.image = filters[[self.viewerView.filterBar.subviews indexOfObject:view]];
+        }
+    }
+}
 
 - (void) switchMode: (id) sender
 {
     if([self.viewerView.modeSwitcher.titleLabel.text isEqualToString:@"✔"])
     {
+        if(self.viewerView.cutButton.backgroundColor == [UIColor whiteColor])
+            self.viewerView.viewedImageView.image = [self cropImage:self.viewerView.viewedImageView.image];
+        else if (self.viewerView.filtersButton.backgroundColor == [UIColor whiteColor])
+            self.viewerView.viewedImageView.image = [self applyFilterToImage:self.viewerView.viewedImageView.image];
+        else if (self.viewerView.textButton.backgroundColor == [UIColor whiteColor])
+            self.viewerView.viewedImageView.image = [self makeTextOnImage:self.viewerView.viewedImageView.image];
+        
         [self.viewerView.modeSwitcher setTitle:@"✎"forState: UIControlStateNormal];
         superposition();
     }
@@ -148,6 +198,59 @@
 {
     [self.viewerView.modeSwitcher.titleLabel.text isEqualToString:@"✎"] ?
     superposition() : ^{};
+}
+
+#pragma mark -- UIImage editing
+
+- (UIImage *) cropImage: (UIImage *) originalImage
+{
+    CGRect clippedRect  = self.viewerView.cropViewOverlay.transparentView.frame;
+    CGImageRef imageRef = CGImageCreateWithImageInRect(originalImage.CGImage, clippedRect);
+    UIImage *croppedImage   = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return croppedImage;
+}
+
+- (UIImage *) applyFilterToImage: (UIImage *) originalImage
+{
+    NSLog(@"FILTER METHOD");
+    UIImage *filteredImage = self.viewerView.viewedImageView.image;
+    return filteredImage;
+}
+
+- (UIImage *) makeTextOnImage: (UIImage *) originalImage
+{
+    CGRect rect = CGRectMake(0,
+                             0,
+                             originalImage.size.width,
+                             originalImage.size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    [originalImage drawInRect:rect];
+    
+    UIFont* font = [UIFont fontWithName:@"Helvetica" size:(int)self.viewerView.textSizeSlider.value];
+    
+    NSMutableParagraphStyle* paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                  NSParagraphStyleAttributeName: paragraphStyle };
+    
+    CGSize imageSize = originalImage.size;
+    CGRect textFrame = self.viewerView.addTextField.frame;
+    float xRatio = textFrame.size.width / imageSize.width;
+    float yRatio = textFrame.size.height / imageSize.height;
+    CGRect textRect = CGRectMake(textFrame.origin.x * xRatio,
+                                 textFrame.origin.y * yRatio,
+                                 textFrame.size.width,
+                                 textFrame.size.height);
+
+    [self.viewerView.addTextField.text drawInRect:textRect withAttributes:attributes];
+    
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 @end

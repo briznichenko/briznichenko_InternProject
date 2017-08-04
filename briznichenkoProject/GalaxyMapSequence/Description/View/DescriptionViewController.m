@@ -22,6 +22,7 @@
     self.bodyEntity = data;
     self.descriptionView = [[DescriptionView alloc] initAndInstallIntoSuperView: self.view];
     self.view.backgroundColor = [UIColor colorWithWhite:0.01f alpha: 0.2f];
+    self.descriptionView.objectImageView.image = [UIImage imageWithData:self.bodyEntity.imageData];
     self.descriptionView.objectNameLabel.text = self.bodyEntity.bodyName;
     [self setupDescriptionViewWithInfo:self.bodyEntity.internalData];
     [self setupButtonActions];
@@ -44,14 +45,6 @@
     [self.descriptionView.shareButton addTarget:self action:@selector(shareObject) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void) makeObjectImage: (NSData*) data
-{
-    dispatch_async(dispatch_get_main_queue(),
-                   ^{
-                       self.descriptionView.objectImageView.image = [UIImage imageWithData:data];
-                   });
-}
-
 #pragma mark -- ViewController actions
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -67,7 +60,7 @@
 -(void) presentGalleryController
 {
     [self dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"presentGalleryController" object:self.descriptionView.objectImageView.image];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"presentGalleryController" object:nil];
     }];
 }
 

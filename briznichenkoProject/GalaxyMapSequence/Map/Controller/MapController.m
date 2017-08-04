@@ -87,7 +87,7 @@
     }
     else if ([notification.name isEqualToString:@"presentGalleryController"])
     {
-        [self presentGalleryViewController: notification.object];
+        [self presentGalleryViewController: [UIImage imageWithData: self.mapModel.bodyEntity.imageData]];
     }
 }
 

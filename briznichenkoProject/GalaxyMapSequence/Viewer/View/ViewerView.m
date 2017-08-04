@@ -8,9 +8,7 @@
 
 #import "ViewerView.h"
 
-
 @implementation ViewerView
-
 
 - (instancetype) initAndInstallIntoSuperView:(UIView *) superview
 {
@@ -37,6 +35,7 @@
 - (void) makeViewedImageView
 {
     self.viewedImageView = [UIImageView new];
+    self.viewedImageView.contentMode = UIViewContentModeScaleToFill;
     [self addSubview:self.viewedImageView];
 }
 
@@ -108,6 +107,8 @@
     self.filterBar.backgroundColor = [UIColor whiteColor];
     self.filterBar.bounces = NO;
     self.filterBar.hidden = YES;
+    self.filterBar.userInteractionEnabled = YES;
+    self.filterBar.inter
     [self addSubview: self.filterBar];
     
     for (UIView *subview in [self makeFilters])
@@ -115,27 +116,29 @@
     
     self.addTextField = [UITextField new];
     self.addTextField.text = @"SAMPLE TEXT";
+    self.addTextField.font = [UIFont fontWithName:@"Helvetica" size:15];
     self.addTextField.hidden = YES;
     [self addSubview:self.addTextField];
     
     self.textSizeSlider = [UISlider new];
     self.textSizeSlider.continuous = NO;
-    self.textSizeSlider.maximumValue = 40;
+    self.textSizeSlider.maximumValue = 50;
     self.textSizeSlider.minimumValue = 0;
-    self.textSizeSlider.value = 5;
+    self.textSizeSlider.value = self.addTextField.font.pointSize;
     self.textSizeSlider.hidden = YES;
-    self.textSizeSlider.maximumTrackTintColor = [UIColor blackColor];
-    self.textSizeSlider.minimumTrackTintColor = [UIColor whiteColor];
+    self.textSizeSlider.maximumTrackTintColor = [UIColor blueColor];
+    self.textSizeSlider.minimumTrackTintColor = [UIColor orangeColor];
     [self addSubview:self.textSizeSlider];
 }
 
 -(NSArray *) makeFilters
 {
     NSMutableArray *filtersArray = [NSMutableArray new];
-    for(int i = 0; i < 7; i++)
+    for(int i = 0; i < 6; i++)
     {
         UIImageView *filterView = [UIImageView new];
         filterView.backgroundColor = [UIColor colorWithWhite: i / 10.0f alpha:1.0f];
+        filterView.userInteractionEnabled = YES;
         [filtersArray addObject:filterView];
     }
     return filtersArray;

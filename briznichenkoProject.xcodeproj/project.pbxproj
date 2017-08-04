@@ -21,6 +21,7 @@
 		7D19F3161F2F782A000202AA /* CelestialBodyImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3151F2F782A000202AA /* CelestialBodyImageCell.m */; };
 		7D19F31A1F2F7C60000202AA /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */; };
 		7DA6C8131F274AE300A5BB0F /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */; };
+		7DAAC2361F34A0FD00C3B68D /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */; };
 		7DC05E411F322A340090A29B /* CropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC05E401F322A330090A29B /* CropView.m */; };
 		7DC0C4151F2A355A0080EEAE /* CelestialBodyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */; };
 		7DC0C4191F2A44490080EEAE /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4181F2A44490080EEAE /* PopupView.m */; };
@@ -76,6 +77,8 @@
 		7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
 		7DA6C8111F274AE300A5BB0F /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
 		7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
+		7DAAC2341F34A0FC00C3B68D /* UIImage+Filtering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filtering.h"; sourceTree = "<group>"; };
+		7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filtering.m"; sourceTree = "<group>"; };
 		7DC05E3F1F322A330090A29B /* CropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CropView.h; sourceTree = "<group>"; };
 		7DC05E401F322A330090A29B /* CropView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CropView.m; sourceTree = "<group>"; };
 		7DC0C4131F2A355A0080EEAE /* CelestialBodyEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CelestialBodyEntity.h; sourceTree = "<group>"; };
@@ -338,6 +341,15 @@
 			name = RootNavigationController;
 			sourceTree = "<group>";
 		};
+		7DAAC2321F349D3700C3B68D /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				7DAAC2341F34A0FC00C3B68D /* UIImage+Filtering.h */,
+				7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
 		7DC05E3E1F3229CC0090A29B /* CropView */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +504,7 @@
 			children = (
 				9DBBAD5236B265EB3FBBBFB8 /* ViewerViewController.h */,
 				5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */,
+				7DAAC2321F349D3700C3B68D /* Filters */,
 				53EEC9A4536851B9D522B826 /* ViewerView.h */,
 				0EF2E0DBD9C25D40F9C639E0 /* ViewerView.m */,
 				7DC05E3E1F3229CC0090A29B /* CropView */,
@@ -672,6 +685,7 @@
 				7DFF4A591F1D0C5F00E5A602 /* UIImage+animatedGIF.m in Sources */,
 				97C53397EB8211CEC2002ED9 /* SplashViewController.m in Sources */,
 				BEDA95780FB0D5E3287F982D /* SplashView.m in Sources */,
+				7DAAC2361F34A0FD00C3B68D /* UIImage+Filtering.m in Sources */,
 				874E0C3FC309BD8FCC1169D3 /* SplashModel.m in Sources */,
 				6B41F1AEAD2C662CC9C85962 /* MapController.m in Sources */,
 				9476C326EA9479D40064ECDD /* MapViewController.m in Sources */,

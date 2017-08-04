@@ -29,9 +29,6 @@
 
 - (void)setupViewControllerWithData:(id) data {
     [self.descriptionViewController setupViewControllerWithData: data];
-    [self.descriptionModel extractAndDownloadImageFromEntity:^(NSData *fetchedData) {
-        [self.descriptionViewController makeObjectImage: fetchedData];
-    }];
 }
 
 #pragma mark -- Routing

@@ -17,6 +17,4 @@
 @property (nonatomic, strong) DescriptionView *descriptionView;
 @property (nonatomic, strong) CelestialBodyEntity *bodyEntity;
 
--(void) makeObjectImage: (NSData*) data;
-
 @end

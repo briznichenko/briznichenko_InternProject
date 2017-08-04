@@ -52,8 +52,13 @@
          object:fetchedData];
         self.bodyEntity = [[CelestialBodyEntity alloc] initWithDictionary: fetchedData];
         self.bodyEntity.rawRaDecScaleString = [NSString stringWithFormat:@"%f|%f|%f|", ra, dec, urlFOV];
+        [self extractAndDownloadImageFromEntity:self.bodyEntity completion:^(NSData *fetchedData) {
+            self.bodyEntity.imageData = fetchedData;
+        }];
     }];
 }
+
+#pragma mark Entity construction
 
 -(void) fetchEntityData: (NSString *) stringUrl completion: (void (^)(NSDictionary * fetchedData))completionBlock
 {
@@ -158,6 +163,30 @@
         }
     }
     return objectDictionary;
+}
+
+-(void) extractAndDownloadImageFromEntity: (CelestialBodyEntity *) entity completion: (void (^) (NSData *fetchedData)) completion
+{
+    NSString *rawRaDecString = [entity.internalData valueForKey:@"coord1 (ICRS,J2000/2000)"];
+    //    NSRange *raRange = NSMakeRange([rawRaDecString rangeOfString:@"."], NSUInteger len);
+    rawRaDecString = [rawRaDecString stringByReplacingCharactersInRange:NSMakeRange(12, 1) withString:@"|"];
+    NSURL *url = [NSURL URLWithString:[self cutoutImageUrlConstructorString:rawRaDecString]];
+    NSLog(@"%@", url);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *imageData = [NSData dataWithContentsOfURL: url];
+        completion(imageData);
+    });
+}
+
+-(NSString *)cutoutImageUrlConstructorString: (NSString *) rawRaDecScaleString
+{
+    NSArray *URLComponents = [rawRaDecScaleString componentsSeparatedByString: @"|"];
+    NSString *rawURL = @"http://archive.eso.org/dss/dss/image?ra=%@&dec=%@&equinox=J2000&name=&x=%i&y=%i&Sky-Survey=DSS1&mime-type=download-gif";
+    NSString *url = [NSString stringWithFormat: rawURL, URLComponents[0], URLComponents[1], 8, 6];
+    
+    NSString* webURL = [url stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
+    
+    return webURL;
 }
 
 @end
