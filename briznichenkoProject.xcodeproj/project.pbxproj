@@ -9,14 +9,18 @@
 /* Begin PBXBuildFile section */
 		0901306A67F466751CCC1B45 /* ViewerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF049F1F361EA682F2C04495 /* ViewerModel.m */; };
 		21D839BC5ABE824CB82EA68B /* GalleryController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7424BC5761E1EED5EA8BA69 /* GalleryController.m */; };
+		232464A409C2FD670994FD16 /* EarthScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CE12BB11EBCD610B17150E /* EarthScreenViewController.m */; };
 		2F18493DADA81D0000BBD546 /* DescriptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A31FBDF9964D745A5ED3FF7B /* DescriptionModel.m */; };
 		43430E399E6BF45AE7F5A3B2 /* SideMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 986C4775EA43E46C6F607D47 /* SideMenuModel.m */; };
 		446790C28CB108671B117877 /* SplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DCF003E402B28088ED2C9 /* SplashController.m */; };
 		462F473668F899DEF8BB9C89 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA829C734E945437B1C4CAE /* GalleryViewController.m */; };
 		4A0A936BFA5CC4CAFB639843 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 491AA717A4C9A117D95C415C /* MapView.m */; };
 		5398CA681906669E1886394A /* DescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C523DD30E43D87AEE2F6B66 /* DescriptionView.m */; };
+		5901308F8C95FB08D3267864 /* EarthScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF83C08F18F6AB8877B3971B /* EarthScreenController.m */; };
+		617A20AA12F5EB8CB91A4769 /* EarthScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4B3A46E2C8F97A83B90387 /* EarthScreenView.m */; };
 		6B41F1AEAD2C662CC9C85962 /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A0BA7F3FEB6440ED2B24D6 /* MapController.m */; };
 		712192C68226D93C6D7D2146 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D52B0A41D1A3155122302517 /* SideMenuViewController.m */; };
+		74752222581ED58739D7D4B4 /* EarthScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FEE64B7D8B0BE6B89E043A /* EarthScreenModel.m */; };
 		7C4D6CC3D1D1B94522A3F92C /* DescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D09360ECAFC28C5308F595 /* DescriptionViewController.m */; };
 		7D19F3161F2F782A000202AA /* CelestialBodyImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3151F2F782A000202AA /* CelestialBodyImageCell.m */; };
 		7D19F31A1F2F7C60000202AA /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */; };
@@ -66,10 +70,13 @@
 		49FE96308F002A063E097E8C /* SideMenuModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuModel.h; sourceTree = "<group>"; };
 		4C2530C32ECA27BBDE54DAB3 /* SplashController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SplashController.h; sourceTree = "<group>"; };
 		4E928FC0744F616841826F46 /* DescriptionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DescriptionController.h; sourceTree = "<group>"; };
+		4FA837C2E91823CB7EF2A468 /* EarthScreenProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EarthScreenProtocols.h; sourceTree = "<group>"; };
 		53EEC9A4536851B9D522B826 /* ViewerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerView.h; sourceTree = "<group>"; };
 		5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewerViewController.m; sourceTree = "<group>"; };
 		5D90B169F1BF90A7F0EA5FD7 /* ViewerProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerProtocols.h; sourceTree = "<group>"; };
 		6E3D796C1D5FDEA281D0982C /* MapController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
+		709A64332C10D8962B8FA58A /* EarthScreenView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EarthScreenView.h; sourceTree = "<group>"; };
+		71CE12BB11EBCD610B17150E /* EarthScreenViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EarthScreenViewController.m; sourceTree = "<group>"; };
 		7588AC8566E7CC54F9C42438 /* MapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7D19F3141F2F782A000202AA /* CelestialBodyImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CelestialBodyImageCell.h; sourceTree = "<group>"; };
 		7D19F3151F2F782A000202AA /* CelestialBodyImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CelestialBodyImageCell.m; sourceTree = "<group>"; };
@@ -100,12 +107,14 @@
 		7DFF4A5F1F1D1C4F00E5A602 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = giphy.gif; path = Resources/Assets.xcassets/giphy.gif; sourceTree = "<group>"; };
 		889DCF003E402B28088ED2C9 /* SplashController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SplashController.m; sourceTree = "<group>"; };
 		8A6D8B6D12D95B1861E6B577 /* MapModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapModel.h; sourceTree = "<group>"; };
+		8A70613725AB4A302DCDF63F /* EarthScreenModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EarthScreenModel.h; sourceTree = "<group>"; };
 		8AFD4B2F1D81571489F97AEF /* GalleryView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GalleryView.h; sourceTree = "<group>"; };
 		8E4D11EDFC9508140DFB2D82 /* DescriptionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DescriptionController.m; sourceTree = "<group>"; };
 		8E512894172FE78D737A1E13 /* SideMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SideMenuView.m; sourceTree = "<group>"; };
 		91F14EEEEB7027D5C3ECAE03 /* SplashView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SplashView.h; sourceTree = "<group>"; };
 		94332C92A8267E7A0DD7B362 /* MapView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		986C4775EA43E46C6F607D47 /* SideMenuModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SideMenuModel.m; sourceTree = "<group>"; };
+		99FEE64B7D8B0BE6B89E043A /* EarthScreenModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EarthScreenModel.m; sourceTree = "<group>"; };
 		9C523DD30E43D87AEE2F6B66 /* DescriptionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DescriptionView.m; sourceTree = "<group>"; };
 		9DBBAD5236B265EB3FBBBFB8 /* ViewerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerViewController.h; sourceTree = "<group>"; };
 		A31FBDF9964D745A5ED3FF7B /* DescriptionModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DescriptionModel.m; sourceTree = "<group>"; };
@@ -114,12 +123,16 @@
 		B0648693740D5E8DDF7FA40B /* MapViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		B0A0BA7F3FEB6440ED2B24D6 /* MapController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
 		B5344B1296186DF734B91DCA /* DescriptionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DescriptionViewController.h; sourceTree = "<group>"; };
+		B909ACE4806E2836904D3F16 /* EarthScreenController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EarthScreenController.h; sourceTree = "<group>"; };
 		C01C9450600A03BE640C6659 /* DescriptionModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DescriptionModel.h; sourceTree = "<group>"; };
 		CC3C398685EF2E5E16AEADCC /* SideMenuViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		CF83C08F18F6AB8877B3971B /* EarthScreenController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EarthScreenController.m; sourceTree = "<group>"; };
 		D01F2A148D03A889FDB5C396 /* SplashView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SplashView.m; sourceTree = "<group>"; };
 		D514B6158AD10027A24DCCC7 /* ViewerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerController.h; sourceTree = "<group>"; };
 		D52B0A41D1A3155122302517 /* SideMenuViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		D9BBB6FC604F0591AF5EA292 /* EarthScreenViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EarthScreenViewController.h; sourceTree = "<group>"; };
 		DD3C9FD5A3188CA9A02FEA76 /* SideMenuProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuProtocols.h; sourceTree = "<group>"; };
+		DD4B3A46E2C8F97A83B90387 /* EarthScreenView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EarthScreenView.m; sourceTree = "<group>"; };
 		E6B62FDD043CBC37D89B9993 /* MapModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapModel.m; sourceTree = "<group>"; };
 		EC9DEC7A0CF35041343B660D /* DescriptionProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DescriptionProtocols.h; sourceTree = "<group>"; };
 		F420EFB54B44A3D6C81DDDEC /* GalleryView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GalleryView.m; sourceTree = "<group>"; };
@@ -140,6 +153,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0817F7547F669C18523E8771 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9BBB6FC604F0591AF5EA292 /* EarthScreenViewController.h */,
+				71CE12BB11EBCD610B17150E /* EarthScreenViewController.m */,
+				709A64332C10D8962B8FA58A /* EarthScreenView.h */,
+				DD4B3A46E2C8F97A83B90387 /* EarthScreenView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2119E9CB9E54120A696235FC /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +194,15 @@
 			name = Viewer;
 			path = briznichenkoProject/GalaxyMapSequence/Viewer;
 			sourceTree = SOURCE_ROOT;
+		};
+		301872B5440676523E6C9D68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A70613725AB4A302DCDF63F /* EarthScreenModel.h */,
+				99FEE64B7D8B0BE6B89E043A /* EarthScreenModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
 		};
 		34FD9D1DF8F288AF9CA654B1 /* View */ = {
 			isa = PBXGroup;
@@ -247,6 +280,14 @@
 			path = briznichenkoProject/GalaxyMapSequence/Map;
 			sourceTree = SOURCE_ROOT;
 		};
+		5DDE832FC671E4F11B8CE095 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				4FA837C2E91823CB7EF2A468 /* EarthScreenProtocols.h */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
 		62E7EF4C8AAEB95327988EA5 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +311,15 @@
 				7DDA21FF1F1E1A15004155F6 /* MapProtocols.h */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		677386D0F03F78D6BF519E97 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B909ACE4806E2836904D3F16 /* EarthScreenController.h */,
+				CF83C08F18F6AB8877B3971B /* EarthScreenController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		73201F51053F90A0B1C1EE53 /* View */ = {
@@ -348,6 +398,14 @@
 				7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */,
 			);
 			path = Filters;
+			sourceTree = "<group>";
+		};
+		7DAAC2371F34DB7B00C3B68D /* EarthSequence */ = {
+			isa = PBXGroup;
+			children = (
+				FE2C170309453024512A160B /* EarthScreen */,
+			);
+			path = EarthSequence;
 			sourceTree = "<group>";
 		};
 		7DC05E3E1F3229CC0090A29B /* CropView */ = {
@@ -454,6 +512,7 @@
 		7DFF4A551F1D02BB00E5A602 /* Sequences */ = {
 			isa = PBXGroup;
 			children = (
+				7DAAC2371F34DB7B00C3B68D /* EarthSequence */,
 				7D19F3121F2F45D2000202AA /* GalaxyMapSequence */,
 				51B2183435554D3801645546 /* Splash */,
 			);
@@ -502,12 +561,12 @@
 		AC68BB4351B1FD9777C7C7BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9DBBAD5236B265EB3FBBBFB8 /* ViewerViewController.h */,
-				5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */,
+				7DC05E3E1F3229CC0090A29B /* CropView */,
 				7DAAC2321F349D3700C3B68D /* Filters */,
 				53EEC9A4536851B9D522B826 /* ViewerView.h */,
 				0EF2E0DBD9C25D40F9C639E0 /* ViewerView.m */,
-				7DC05E3E1F3229CC0090A29B /* CropView */,
+				9DBBAD5236B265EB3FBBBFB8 /* ViewerViewController.h */,
+				5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -605,6 +664,18 @@
 			);
 			name = Description;
 			path = briznichenkoProject/GalaxyMapSequence/Description;
+			sourceTree = SOURCE_ROOT;
+		};
+		FE2C170309453024512A160B /* EarthScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5DDE832FC671E4F11B8CE095 /* Interface */,
+				677386D0F03F78D6BF519E97 /* Controller */,
+				0817F7547F669C18523E8771 /* View */,
+				301872B5440676523E6C9D68 /* Model */,
+			);
+			name = EarthScreen;
+			path = briznichenkoProject/EarthSequence/EarthScreen;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -713,6 +784,10 @@
 				E263F3982514937F90FCA6D7 /* ViewerViewController.m in Sources */,
 				919D596D82CAF831F166F153 /* ViewerView.m in Sources */,
 				0901306A67F466751CCC1B45 /* ViewerModel.m in Sources */,
+				5901308F8C95FB08D3267864 /* EarthScreenController.m in Sources */,
+				232464A409C2FD670994FD16 /* EarthScreenViewController.m in Sources */,
+				617A20AA12F5EB8CB91A4769 /* EarthScreenView.m in Sources */,
+				74752222581ED58739D7D4B4 /* EarthScreenModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

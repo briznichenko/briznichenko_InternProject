@@ -10,7 +10,6 @@
 
 @implementation SideMenuViewController
 {
-    NSArray *menuEntries;
 }
 
 #pragma mark - ViewController lifecycle methods
@@ -45,7 +44,7 @@
 
 -(void) setupSideMenu
 {
-    menuEntries = [[NSArray alloc] initWithObjects:@"Galaxy Map", @"Earth Map", @"My Conditions", @"My Library", nil];
+    self.menuEntries = [[NSArray alloc] initWithObjects:@"Galaxy Map", @"Earth Map", @"My Conditions", @"My Library", nil];
     self.view.backgroundColor = [UIColor colorWithWhite:0.01f alpha: 0.2f];
 }
 
@@ -56,7 +55,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return menuEntries.count;
+    return self.menuEntries.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,14 +65,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
-    cell.textLabel.text = menuEntries[indexPath.row];
+    cell.textLabel.text = self.menuEntries[indexPath.row];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSLog(@"%@", cell.textLabel.text);
+    [[NSNotificationCenter defaultCenter] postNotificationName: self.menuEntries[indexPath.row] object:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

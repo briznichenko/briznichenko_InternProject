@@ -7,12 +7,12 @@
 //
 
 #import "SideMenuController.h"
-#import "MapController.h"
-//#import "header"
-//#import "header"
-//#import "header"
+#import "RootNavigationController.h"
 
 @implementation SideMenuController
+{
+    NSArray *sideMenuEntries;
+}
 
 -(instancetype) initAndAssemble
 {
@@ -31,14 +31,65 @@
 -(void)setupViewControllerWithData:(NSData *)data
 {
     [self.sideMenuViewController setupViewControllerWithData:data];
+    sideMenuEntries = [[NSArray alloc] initWithObjects:@"Galaxy Map", @"Earth Map", @"My Conditions", @"My Library", nil];
+    [self subscribeToNotifications];
+}
+
+- (void) subscribeToNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:sideMenuEntries[0]
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:sideMenuEntries[1]
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:sideMenuEntries[2]
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:sideMenuEntries[3]
+                                               object:nil];
 }
 
 #pragma mark -- Routing
 
-- (MapController *) presentMapController
+- (void) receiveNotification: (NSNotification *) notification
 {
-    self.mapController = [[MapController alloc] initAndAssemble];
-    return self.mapController;
+    switch ([sideMenuEntries indexOfObject:notification.name]) {
+        case 0:
+            [self.rootNavigationController presentMapController];
+             [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
+            break;
+        case 1:
+            [self.rootNavigationController presentEarthScreenController];
+            [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
+            break;
+        case 2:
+            NSLog(@"");
+            [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
+            break;
+        case 3:
+             NSLog(@"");
+            [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark -- dealloc
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

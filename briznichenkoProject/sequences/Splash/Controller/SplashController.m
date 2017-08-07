@@ -45,19 +45,19 @@
 - (void) presentRootNavigationController
 {
     self.rootNavigationController = [[RootNavigationController alloc] initWithInitialViewController];
-    [self addObserver:self forKeyPath:@"rootNavigationController.sideMenuController.mapController.mapViewController.isReady" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    [self addObserver:self forKeyPath:@"rootNavigationController.mapController.mapViewController.isReady" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if([keyPath isEqualToString:@"rootNavigationController.sideMenuController.mapController.mapViewController.isReady"])
+    if([keyPath isEqualToString:@"rootNavigationController.mapController.mapViewController.isReady"])
     {
-        if (self.rootNavigationController.sideMenuController.mapController.mapViewController.isReady)
+        if (self.rootNavigationController.mapController.mapViewController.isReady)
         {
             [self.splashViewController presentViewController:self.rootNavigationController animated:YES completion:
              ^{
                  self.selfReference = nil;
-                [self removeObserver:self forKeyPath:@"rootNavigationController.sideMenuController.mapController.mapViewController.isReady"];
+                [self removeObserver:self forKeyPath:@"rootNavigationController.mapController.mapViewController.isReady"];
              }];
         }
     }

@@ -11,20 +11,17 @@
 #import "SideMenuViewController.h"
 #import "SideMenuModel.h"
 
-@class MapController;
-//@class name;
-//@class ;
-//@class ;
+@class RootNavigationController;
+
 
 @interface SideMenuController : NSObject
 <SideMenuViewControllerProtocol, SideMenuControllerProtocol, SideMenuModelProtocol>
 
-@property (nonatomic, strong) MapController *mapController;
+@property (nonatomic, weak) RootNavigationController *rootNavigationController;
 
 @property (nonatomic, strong) SideMenuViewController* sideMenuViewController;
 @property (nonatomic, strong) SideMenuModel* sideMenuModel;
 
 -(instancetype) initAndAssemble;
-- (MapController *) presentMapController;
 
 @end

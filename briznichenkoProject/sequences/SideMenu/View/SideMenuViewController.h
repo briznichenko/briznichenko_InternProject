@@ -14,5 +14,6 @@
 <SideMenuViewControllerProtocol, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) SideMenuView* sidemenuView;
+@property (nonatomic, strong) NSArray *menuEntries;
 
 @end

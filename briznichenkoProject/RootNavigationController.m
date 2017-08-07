@@ -9,6 +9,11 @@
 #import "RootNavigationController.h"
 #import "SideMenuController.h"
 #import "MapController.h"
+#import "MapViewController.h"
+#import "EarthScreenController.h"
+#import "EarthScreenViewController.h"
+//#import "header"
+//#import "header"
 
 @interface RootNavigationController ()
 
@@ -22,7 +27,8 @@
     if(self)
     {
         self.sideMenuController = [[SideMenuController alloc] initAndAssemble];
-        [self addChildViewController: [self.sideMenuController presentMapController].mapViewController];
+        self.sideMenuController.rootNavigationController = self;
+        [self presentMapController];
     }
     return self;
 }
@@ -57,8 +63,6 @@
 
 - (void) remakeViewToFitScreen
 {
-//    self.view.translatesAutoresizingMaskIntoConstraints = NO;
-    
     CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
     CGRect mainScreenBounds = [[UIScreen mainScreen] bounds];
     CGRect windowFrame = CGRectMake(mainScreenBounds.origin.x,
@@ -67,13 +71,6 @@
                                     mainScreenBounds.size.height - statusBarFrame.size.height);
     
     self.view.frame = windowFrame;
-    
-//    [NSLayoutConstraint activateConstraints:
-//     @[[self.view.topAnchor constraintGreaterThanOrEqualToAnchor:self.view.window.topAnchor constant:statusBarFrame.size.height],
-//       [self.view.centerXAnchor constraintEqualToAnchor:self.view.window.centerXAnchor],
-//       [self.view.widthAnchor constraintEqualToAnchor:self.view.window.widthAnchor],
-//       [self.view.heightAnchor constraintLessThanOrEqualToAnchor:self.view.window.heightAnchor constant:statusBarFrame.size.height]
-//       ]];
 }
 
 #pragma mark - Navigation
@@ -84,5 +81,35 @@
     self.sideMenuController.sideMenuViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:self.sideMenuController.sideMenuViewController animated:YES completion:^{}];
 }
+
+- (void) presentMapController
+{
+    if(self.viewControllers.count == 0)
+    {
+        self.mapController = [[MapController alloc] initAndAssemble];
+        [self addChildViewController:self.mapController.mapViewController];
+    }
+    else if([self.viewControllers[0] isKindOfClass:[MapViewController class]])
+        [self.sideMenuController.sideMenuViewController dismissViewControllerAnimated:YES completion:nil];
+    else
+    {
+        self.mapController = [[MapController alloc] initAndAssemble];
+        NSArray *newControllerStack = @[self.mapController.mapViewController];
+        [self setViewControllers:newControllerStack animated:YES];
+    }
+}
+
+- (void) presentEarthScreenController
+{
+    if([self.viewControllers[0] isKindOfClass:[EarthScreenViewController class]])
+        [self.sideMenuController.sideMenuViewController dismissViewControllerAnimated:YES completion:nil];
+    else
+    {
+        self.earthScreenController = [[EarthScreenController alloc] initAndAssemble];
+        NSArray *newControllerStack = @[self.earthScreenController.earthscreenViewController];
+        [self setViewControllers:newControllerStack animated:YES];
+    }
+}
+
 
 @end

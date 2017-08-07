@@ -54,6 +54,10 @@
     [self.viewerView.textButton addTarget:self action:@selector(addTextToImage:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.viewerView.textSizeSlider addTarget:self action:@selector(adjustTextSize:) forControlEvents:UIControlEventValueChanged];
+    
+    UITapGestureRecognizer *filterTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(filterTapGestureCaptured:)];
+    filterTap.cancelsTouchesInView = NO;
+    [self.viewerView.filterBar addGestureRecognizer:filterTap];
 }
 
 - (void) setupEditingTools
@@ -74,40 +78,17 @@
 
 - (void) makeFilterPreviews
 {
-        [self getFilters:^{
-            for (UIImageView *filterView in self.viewerView.filterBar.subviews) {
-                if([self.viewerView.filterBar.subviews indexOfObject:filterView] >= filters.count)
-                    break;
-                filterView.image = filters[[self.viewerView.filterBar.subviews indexOfObject:filterView]];
-            };
-        }];
+    filters = [UIImage makeFiltersForImage: self.viewerView.viewedImageView.image];
+    for (UIImageView *filterView in self.viewerView.filterBar.subviews) {
+        if([self.viewerView.filterBar.subviews indexOfObject:filterView] >= filters.count)
+            break;
+        filterView.image = filters[[self.viewerView.filterBar.subviews indexOfObject:filterView]];
+    };
     [self.viewerView.filterBar setNeedsDisplay];
 }
 
-- (void) getFilters: (void (^)()) completion
-{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        filters = [UIImage makeFiltersForImage: self.viewerView.viewedImageView.image];
-        completion();
-    });
-}
 
 #pragma mark ViewControllerActions
-
--(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint touchLocation = [touch locationInView:self.viewerView.filterBar];
-    
-    for (UIView *view in self.viewerView.filterBar.subviews)
-    {
-        if ([view isKindOfClass:[UIImageView class]])
-            if(CGRectContainsPoint(view.frame, touchLocation))
-        {
-            self.viewerView.viewedImageView.image = filters[[self.viewerView.filterBar.subviews indexOfObject:view]];
-        }
-    }
-}
 
 - (void) switchMode: (id) sender
 {
@@ -198,6 +179,14 @@
 {
     [self.viewerView.modeSwitcher.titleLabel.text isEqualToString:@"✎"] ?
     superposition() : ^{};
+}
+
+-(void) filterTapGestureCaptured: (UITapGestureRecognizer*) recognizer
+{
+    UIView* superview = recognizer.view;
+    CGPoint subviewLocation = [recognizer locationInView:superview];
+    UIView* subview = [superview hitTest:subviewLocation withEvent:nil];
+    self.viewerView.viewedImageView.image = filters[[self.viewerView.filterBar.subviews indexOfObject:subview]];
 }
 
 #pragma mark -- UIImage editing

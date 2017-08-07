@@ -108,7 +108,6 @@
     self.filterBar.bounces = NO;
     self.filterBar.hidden = YES;
     self.filterBar.userInteractionEnabled = YES;
-    self.filterBar.inter
     [self addSubview: self.filterBar];
     
     for (UIView *subview in [self makeFilters])

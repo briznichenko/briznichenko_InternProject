@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "briznichenkoProject/GalaxyMapSequence/Viewer/View/ViewerViewController.m"
-            timestampString = "523555531.920406"
+            filePath = "briznichenkoProject/RootNavigationController.m"
+            timestampString = "523797887.457671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "-touchesEnded:withEvent:"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-presentMapController"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "briznichenkoProject/GalaxyMapSequence/Viewer/View/ViewerViewController.m"
-            timestampString = "523555531.920879"
+            filePath = "briznichenkoProject/RootNavigationController.m"
+            timestampString = "523797887.457787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "-touchesEnded:withEvent:"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-presentMapController"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "briznichenkoProject/GalaxyMapSequence/Viewer/View/ViewerViewController.m"
-            timestampString = "523555531.921216"
+            filePath = "briznichenkoProject/RootNavigationController.m"
+            timestampString = "523797887.457919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "-touchesEnded:withEvent:"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-presentMapController"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "briznichenkoProject/GalaxyMapSequence/Viewer/View/ViewerViewController.m"
-            timestampString = "523555531.921577"
+            filePath = "briznichenkoProject/RootNavigationController.m"
+            timestampString = "523797887.457996"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-presentMapController"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/RootNavigationController.m"
+            timestampString = "523797887.458081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
-            landmarkName = "-touchesEnded:withEvent:"
+            landmarkName = "-presentEarthScreenController"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +89,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "briznichenkoProject/GalaxyMapSequence/Viewer/View/ViewerViewController.m"
-            timestampString = "523555531.922081"
+            filePath = "briznichenkoProject/RootNavigationController.m"
+            timestampString = "523797887.458163"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-presentEarthScreenController"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/RootNavigationController.m"
+            timestampString = "523797887.458227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
             endingLineNumber = "105"
-            landmarkName = "-touchesEnded:withEvent:"
+            landmarkName = "-presentEarthScreenController"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/RootNavigationController.m"
+            timestampString = "523797887.458291"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-presentEarthScreenController"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/RootNavigationController.m"
+            timestampString = "523797887.458361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-presentEarthScreenController"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
