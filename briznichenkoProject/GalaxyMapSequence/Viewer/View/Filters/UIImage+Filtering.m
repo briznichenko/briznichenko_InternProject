@@ -14,7 +14,7 @@
 
 + (NSArray *)makeFiltersForImage: (UIImage*) image
 {
-    UIImage *scaledImage = [UIImage imageWithCGImage:image.CGImage scale:0.1f orientation:UIImageOrientationUp];
+    UIImage *scaledImage = [self imageWithImage:image scaledToSize:CGSizeMake(image.size.width / 10, image.size.height / 10)];
     return @[[self makeSepiaFilteredImage: scaledImage],
              [self makeBloomFilteredImage:scaledImage],
              [self makeMonochromeFilteredImage:scaledImage],
@@ -135,6 +135,14 @@
     }
     NSLog(@"Failed to apply noir filter!");
     return image;
+}
+
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 
