@@ -35,18 +35,18 @@
 
 - (void) subscribeToNotifications
 {
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(receiveNotification:)
-//                                                 name:@"presentGalleryFromDescriptionController"
-//                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"saveSpaceObjectEntity"
+                                               object:nil];
 }
 
 - (void) receiveNotification:(NSNotification *) notification
 {
-//    if ([notification.name isEqualToString:@"presentGalleryFromDescriptionController"])
-//    {
-//        [self presentGalleryViewController];
-//    }
+    if ([notification.name isEqualToString:@"saveSpaceObjectEntity"])
+    {
+        [self.descriptionModel saveSpaceObjectEntity];
+    }
 }
 
 - (void)dealloc

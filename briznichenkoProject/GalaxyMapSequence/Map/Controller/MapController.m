@@ -87,7 +87,7 @@
     }
     else if ([notification.name isEqualToString:@"presentGalleryController"])
     {
-        [self presentGalleryViewController: [UIImage imageWithData: self.mapModel.bodyEntity.imageData]];
+        [self presentGalleryViewController: [UIImage imageWithData: self.mapModel.bodyEntity.image]];
     }
 }
 
@@ -108,7 +108,7 @@
 
 - (void) presentGalleryViewController : (UIImage *) sdssImage
 {
-    self.galleryController = [[GalleryController alloc] initAndAssembleWithInititalArray:@[self.mapModel.bodyEntity.bodyName, sdssImage ? sdssImage : [UIImage new]]];
+    self.galleryController = [[GalleryController alloc] initAndAssembleWithInititalArray:@[self.mapModel.bodyEntity.name, sdssImage ? sdssImage : [UIImage new]]];
 
     [self.mapViewController.navigationController pushViewController: self.galleryController.galleryViewController animated:YES];
 }

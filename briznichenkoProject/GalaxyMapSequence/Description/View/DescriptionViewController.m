@@ -22,20 +22,15 @@
     self.bodyEntity = data;
     self.descriptionView = [[DescriptionView alloc] initAndInstallIntoSuperView: self.view];
     self.view.backgroundColor = [UIColor colorWithWhite:0.01f alpha: 0.2f];
-    self.descriptionView.objectImageView.image = [UIImage imageWithData:self.bodyEntity.imageData];
-    self.descriptionView.objectNameLabel.text = self.bodyEntity.bodyName;
-    [self setupDescriptionViewWithInfo:self.bodyEntity.internalData];
+    self.descriptionView.objectImageView.image = [UIImage imageWithData:self.bodyEntity.image];
+    self.descriptionView.objectNameLabel.text = self.bodyEntity.name;
+    self.descriptionView.objectInfoView.text = self.bodyEntity.info;
     [self setupButtonActions];
 }
 
 -(void) setupDescriptionViewWithInfo: (NSDictionary*) info
 {
-    NSString *infoString = @"OBJECT INFO: \n";
-    for (NSString * key in info.allKeys)
-    {
-        infoString = [[infoString stringByAppendingString: key] stringByAppendingString:[NSString stringWithFormat:@" %@ \n", [info valueForKey:key]]];
-    }
-    self.descriptionView.objectInfoView.text = infoString;
+//
 }
 
 - (void) setupButtonActions
@@ -66,7 +61,7 @@
 
 - (void) saveObject
 {
-    NSLog(@"SAVE_OBJECT_STUB");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"saveSpaceObjectEntity" object:nil];
 }
 
 - (void) shareObject
