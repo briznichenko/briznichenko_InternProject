@@ -15,7 +15,7 @@
     self = [super init];
     if(self)
     {
-        self.image = nil;
+        self.image = [NSData new];
         self.name = [dataDictionary valueForKey:@"objName"];
         self.raDec = [dataDictionary valueForKey:@"coord1 (ICRS,J2000/2000)"];
         self.info = [NSKeyedArchiver archivedDataWithRootObject: dataDictionary];

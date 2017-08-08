@@ -116,7 +116,10 @@
 
 - (void) presentGalleryViewController
 {
-    tempGalleryArray ? [tempGalleryArray insertObject:self.mapModel.bodyEntity.image atIndex:0] : @[self.mapModel.bodyEntity.image];
+    if(tempGalleryArray)
+        [tempGalleryArray insertObject:self.mapModel.bodyEntity.image atIndex:0];
+    else
+        tempGalleryArray = [[NSMutableArray alloc] initWithObjects:self.mapModel.bodyEntity.image, nil];
     
     self.galleryController = [[GalleryController alloc] initAndAssembleWithInititalArray: tempGalleryArray];
 

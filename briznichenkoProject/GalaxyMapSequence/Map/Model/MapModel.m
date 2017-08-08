@@ -193,7 +193,7 @@
 {
     NSURLSession *urlSession;
     NSURLSessionDataTask *dataTask;
-    NSString *urlQueryName = [objectName stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *urlQueryName = [self constructQueryNameFromOriginalName:objectName];
     NSURL *url = [[NSURL URLWithString:[NSString stringWithFormat:@"https://images-api.nasa.gov/search?q=%@", urlQueryName]] URLByResolvingSymlinksInPath];
     NSLog(@"%@", url.absoluteString);
     
@@ -242,6 +242,18 @@
             if(counter == 0)
                 completion(imageryDataArray.allObjects);
         });
+}
+
+-(NSString *) constructQueryNameFromOriginalName: (NSString *) objectName
+{
+    NSArray *nameComponents = [objectName componentsSeparatedByString:@" "];
+    if([nameComponents[0] length] > 1)
+        return nameComponents[0];
+    else if (nameComponents.count > 0 && [nameComponents[1] length] > 1)
+        return [nameComponents[0] stringByAppendingString:nameComponents[1]];
+    else if (nameComponents.count > 1)
+        return [NSString stringWithFormat:@"%@%@%@", nameComponents[0], nameComponents[1], nameComponents[2]];
+    return @"M100";
 }
 
 @end
