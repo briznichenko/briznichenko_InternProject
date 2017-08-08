@@ -9,7 +9,7 @@
 #import "DescriptionModel.h"
 #import "CelestialBodyEntity.h"
 #import "DataStorageManager.h"
-
+#import "ManagedCelesctialBodyEntity.h"
 
 @implementation DescriptionModel
 
@@ -31,7 +31,11 @@
 -(void)saveSpaceObjectEntity
 {
     NSManagedObjectContext *context = [[DataStorageManager sharedManager] managedObjectContext];
-    self.bodyEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Space Object" inManagedObjectContext:context];
+    ManagedCelesctialBodyEntity *bodyEntity = [NSEntityDescription insertNewObjectForEntityForName:@"SpaceObject" inManagedObjectContext:context];
+    bodyEntity.name = self.bodyEntity.name;
+    bodyEntity.image = self.bodyEntity.image;
+    bodyEntity.raDec = self.bodyEntity.raDec;
+    bodyEntity.info = self.bodyEntity.info;
     
     NSError *error = nil;
     if ([context save:&error] == NO) {

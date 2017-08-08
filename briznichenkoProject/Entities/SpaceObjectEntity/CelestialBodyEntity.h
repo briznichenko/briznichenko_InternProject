@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
-@interface CelestialBodyEntity : NSManagedObject
+@interface CelestialBodyEntity : NSObject
 
 @property (nonatomic, strong) NSData * image;
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSString * raDec;
-@property (nonatomic, strong) NSString *info;
+@property (nonatomic, strong) NSData *info;
 
 - (instancetype) initWithDictionary: (NSDictionary *) dataDictionary;
 

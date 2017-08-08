@@ -24,13 +24,18 @@
     self.view.backgroundColor = [UIColor colorWithWhite:0.01f alpha: 0.2f];
     self.descriptionView.objectImageView.image = [UIImage imageWithData:self.bodyEntity.image];
     self.descriptionView.objectNameLabel.text = self.bodyEntity.name;
-    self.descriptionView.objectInfoView.text = self.bodyEntity.info;
+    self.descriptionView.objectInfoView.text = [self setupDescriptionViewWithInfo:[NSKeyedUnarchiver unarchiveObjectWithData: self.bodyEntity.info]];
     [self setupButtonActions];
 }
 
--(void) setupDescriptionViewWithInfo: (NSDictionary*) info
+-(NSString *) setupDescriptionViewWithInfo: (NSDictionary*) info
 {
-//
+    NSString *infoString = @"INFO: /n";
+    for(NSString *key in info.allKeys)
+    {
+        infoString = [infoString stringByAppendingString:[NSString stringWithFormat:@"%@ : %@ /n", key, [info valueForKey:key]]];
+    }
+    return infoString;
 }
 
 - (void) setupButtonActions

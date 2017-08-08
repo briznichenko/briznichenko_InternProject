@@ -166,7 +166,7 @@
 
 -(void) extractAndDownloadImageFromEntity: (CelestialBodyEntity *) entity completion: (void (^) (NSData *fetchedData)) completion
 {
-    NSString *rawRaDecString = [entity.info valueForKey:@"coord1 (ICRS,J2000/2000)"];
+    NSString *rawRaDecString = [[NSKeyedUnarchiver unarchiveObjectWithData:entity.info] valueForKey:@"coord1 (ICRS,J2000/2000)"];
     //    NSRange *raRange = NSMakeRange([rawRaDecString rangeOfString:@"."], NSUInteger len);
     rawRaDecString = [rawRaDecString stringByReplacingCharactersInRange:NSMakeRange(12, 1) withString:@"|"];
     NSURL *url = [NSURL URLWithString:[self cutoutImageUrlConstructorString:rawRaDecString]];

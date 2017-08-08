@@ -9,6 +9,9 @@
 #import "DataStorageManager.h"
 
 @implementation DataStorageManager
+{
+    NSString *pathToModel;
+}
 
 @synthesize managedObjectModel, managedObjectContext, persistentStoreCoordinator;
 
@@ -36,10 +39,9 @@
 -(void) makeManager
 {
     [self makeManagedObjectModel];
+    [self makeEntites];
     [self makePersistentStoreCoordinator];
     [self makeManagedObjectContext];
-    
-    [self makeEntites];
 }
 
 #pragma mark -- Core Data Methods
@@ -50,7 +52,7 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
     NSString *nameForModel = @"AppDataModel.momd";
-    NSString *pathToModel = [documentsDirectory stringByAppendingFormat:@"/db/%@", nameForModel];
+    pathToModel = [documentsDirectory stringByAppendingFormat:@"/db/%@", nameForModel];
     
     managedObjectModel = nil;
     if([[NSFileManager defaultManager] fileExistsAtPath:pathToModel])
@@ -66,15 +68,28 @@
 {
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: managedObjectModel];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
     
     NSString *nameForSQLiteStore = @"AppDataDb.sqlite";
-    NSString *pathToSQLiteStore = [documentsDirectory stringByAppendingFormat:@"/db/%@", nameForSQLiteStore];
-    NSURL *SQLiteStoreURL = [NSURL URLWithString: pathToSQLiteStore];
+    NSString *pathToSQLiteFolder = [cachesDirectory stringByAppendingString:@"/db/"];
+    NSString *pathToSQLiteStore = [pathToSQLiteFolder stringByAppendingFormat:@"%@", nameForSQLiteStore];
+    NSURL *SQLiteStoreURL = [NSURL fileURLWithPath: pathToSQLiteStore];
     
-    if(![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:@"PF_DEFAULT_CONFIGURATION_NAME"  URL:SQLiteStoreURL options:nil error: nil])
-        return;
+    NSError *error = nil;
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:pathToSQLiteFolder])
+        [[NSFileManager defaultManager] createDirectoryAtPath:pathToSQLiteFolder withIntermediateDirectories:NO attributes:nil error:&error];
+    
+    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:@"PF_DEFAULT_CONFIGURATION_NAME" URL:SQLiteStoreURL options:nil error:&error])
+    {
+        [[NSFileManager defaultManager] removeItemAtURL:SQLiteStoreURL error:NULL];
+        if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:@"PF_DEFAULT_CONFIGURATION_NAME" URL:SQLiteStoreURL options:nil error:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
 }
 
 - (void) makeManagedObjectContext
@@ -93,12 +108,16 @@
 -(void) makeEntites
 {
     [managedObjectModel setEntities:@[[self makeSpaceObjectEntityDescription]]];
+    
+    NSData *modelData = [NSKeyedArchiver archivedDataWithRootObject:managedObjectModel];
+    [modelData writeToFile:pathToModel atomically:YES];
 }
 
 - (NSEntityDescription *) makeSpaceObjectEntityDescription
 {
     NSEntityDescription *spaceObjectEntityDescription = [[NSEntityDescription alloc] init];
-    [spaceObjectEntityDescription setName:@"Space Object"];
+    [spaceObjectEntityDescription setName:@"SpaceObject"];
+    [spaceObjectEntityDescription setManagedObjectClassName:@"SpaceObject"];
     
     NSAttributeDescription *nameAttribute = [[NSAttributeDescription alloc] init];
     [nameAttribute setName:@"Name"];
@@ -120,7 +139,7 @@
     
     NSAttributeDescription *infoAttribute = [[NSAttributeDescription alloc] init];
     [infoAttribute setName:@"info"];
-    [infoAttribute setAttributeType:NSStringAttributeType];
+    [infoAttribute setAttributeType:NSBinaryDataAttributeType];
     [infoAttribute setOptional:YES];
     [infoAttribute setIndexed:NO];
     

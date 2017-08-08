@@ -10,16 +10,15 @@
 
 @implementation CelestialBodyEntity
 
-@dynamic name, image, raDec, info;
-
 -(instancetype)initWithDictionary:(NSDictionary *)dataDictionary
 {
     self = [super init];
     if(self)
     {
+        self.image = nil;
         self.name = [dataDictionary valueForKey:@"objName"];
         self.raDec = [dataDictionary valueForKey:@"coord1 (ICRS,J2000/2000)"];
-        self.info = [NSString stringWithFormat:@"INFO: %@", dataDictionary];
+        self.info = [NSKeyedArchiver archivedDataWithRootObject: dataDictionary];
     }
     return self;
 }

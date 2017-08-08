@@ -29,6 +29,7 @@
 		7DC05E411F322A340090A29B /* CropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC05E401F322A330090A29B /* CropView.m */; };
 		7DC0C4151F2A355A0080EEAE /* CelestialBodyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */; };
 		7DC0C4191F2A44490080EEAE /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4181F2A44490080EEAE /* PopupView.m */; };
+		7DC68FD51F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC68FD41F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.m */; };
 		7DDA22071F1E36AD004155F6 /* AladinMap in Resources */ = {isa = PBXBuildFile; fileRef = 7DDA22061F1E36AD004155F6 /* AladinMap */; };
 		7DDC42471F3896FA00DA176D /* DataStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDC42461F3896F900DA176D /* DataStorageManager.m */; };
 		7DFF4A2D1F1CCAB600E5A602 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF4A2C1F1CCAB600E5A602 /* main.m */; };
@@ -92,6 +93,8 @@
 		7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CelestialBodyEntity.m; sourceTree = "<group>"; };
 		7DC0C4171F2A44490080EEAE /* PopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		7DC0C4181F2A44490080EEAE /* PopupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
+		7DC68FD31F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagedCelesctialBodyEntity.h; sourceTree = "<group>"; };
+		7DC68FD41F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagedCelesctialBodyEntity.m; sourceTree = "<group>"; };
 		7DDA21FF1F1E1A15004155F6 /* MapProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapProtocols.h; sourceTree = "<group>"; };
 		7DDA22011F1E2184004155F6 /* SplashProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashProtocols.h; sourceTree = "<group>"; };
 		7DDA22061F1E36AD004155F6 /* AladinMap */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AladinMap; sourceTree = "<group>"; };
@@ -421,8 +424,7 @@
 		7DC0C4121F2A34E40080EEAE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				7DC0C4131F2A355A0080EEAE /* CelestialBodyEntity.h */,
-				7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */,
+				7DC68FD21F39D26A007F7DF0 /* SpaceObjectEntity */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -434,6 +436,17 @@
 				7DC0C4181F2A44490080EEAE /* PopupView.m */,
 			);
 			path = PopupView;
+			sourceTree = "<group>";
+		};
+		7DC68FD21F39D26A007F7DF0 /* SpaceObjectEntity */ = {
+			isa = PBXGroup;
+			children = (
+				7DC0C4131F2A355A0080EEAE /* CelestialBodyEntity.h */,
+				7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */,
+				7DC68FD31F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.h */,
+				7DC68FD41F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.m */,
+			);
+			path = SpaceObjectEntity;
 			sourceTree = "<group>";
 		};
 		7DDA22001F1E215C004155F6 /* Interface */ = {
@@ -784,6 +797,7 @@
 				2F18493DADA81D0000BBD546 /* DescriptionModel.m in Sources */,
 				21D839BC5ABE824CB82EA68B /* GalleryController.m in Sources */,
 				7DDC42471F3896FA00DA176D /* DataStorageManager.m in Sources */,
+				7DC68FD51F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.m in Sources */,
 				7DC05E411F322A340090A29B /* CropView.m in Sources */,
 				462F473668F899DEF8BB9C89 /* GalleryViewController.m in Sources */,
 				7D19F31A1F2F7C60000202AA /* CustomFlowLayout.m in Sources */,

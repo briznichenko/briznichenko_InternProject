@@ -61,15 +61,15 @@
 - (void) makeButtons
 {
     self.galleryButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.galleryButton.backgroundColor = [UIColor whiteColor];
+    self.galleryButton.backgroundColor = [UIColor orangeColor];
     [self addSubview:self.galleryButton];
     
     self.shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.shareButton.backgroundColor = [UIColor whiteColor];
+    self.shareButton.backgroundColor = [UIColor greenColor];
     [self addSubview:self.shareButton];
     
     self.saveButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.saveButton.backgroundColor = [UIColor whiteColor];
+    self.saveButton.backgroundColor = [UIColor cyanColor];
     [self addSubview:self.saveButton];
 }
 
