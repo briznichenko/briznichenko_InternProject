@@ -12,6 +12,9 @@
 #import "CelestialBodyEntity.h"
 
 @implementation MapController
+{
+    NSMutableArray *tempGalleryArray;
+}
 
 -(instancetype) initAndAssemble
 {
@@ -80,6 +83,11 @@
                        ^{
                            [self.mapViewController presentObjectPopup];
                        });
+        NSString *objectName = [notification.object valueForKey:@"objName"];
+        [self.mapModel imageryForObjectWithName: objectName completion:^(NSArray *imageryArray)
+        {
+            tempGalleryArray = [NSMutableArray arrayWithArray:imageryArray];
+        }];
     }
     else if ([notification.name isEqualToString:@"presentDescriptionController"])
     {
@@ -87,7 +95,7 @@
     }
     else if ([notification.name isEqualToString:@"presentGalleryController"])
     {
-        [self presentGalleryViewController: [UIImage imageWithData: self.mapModel.bodyEntity.image]];
+        [self presentGalleryViewController];
     }
 }
 
@@ -106,9 +114,11 @@
     [self.mapViewController presentViewController:self.descriptionController.descriptionViewController animated:YES completion:^{}];
 }
 
-- (void) presentGalleryViewController : (UIImage *) sdssImage
+- (void) presentGalleryViewController
 {
-    self.galleryController = [[GalleryController alloc] initAndAssembleWithInititalArray:@[self.mapModel.bodyEntity.name, sdssImage ? sdssImage : [UIImage new]]];
+    tempGalleryArray ? [tempGalleryArray insertObject:self.mapModel.bodyEntity.image atIndex:0] : @[self.mapModel.bodyEntity.image];
+    
+    self.galleryController = [[GalleryController alloc] initAndAssembleWithInititalArray: tempGalleryArray];
 
     [self.mapViewController.navigationController pushViewController: self.galleryController.galleryViewController animated:YES];
 }

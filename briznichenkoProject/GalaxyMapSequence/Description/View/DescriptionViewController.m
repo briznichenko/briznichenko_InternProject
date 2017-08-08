@@ -30,10 +30,10 @@
 
 -(NSString *) setupDescriptionViewWithInfo: (NSDictionary*) info
 {
-    NSString *infoString = @"INFO: /n";
+    NSString *infoString = @"INFO: \n";
     for(NSString *key in info.allKeys)
     {
-        infoString = [infoString stringByAppendingString:[NSString stringWithFormat:@"%@ : %@ /n", key, [info valueForKey:key]]];
+        infoString = [infoString stringByAppendingString:[NSString stringWithFormat:@"%@ : %@ \n", key, [info valueForKey:key]]];
     }
     return infoString;
 }
@@ -66,7 +66,23 @@
 
 - (void) saveObject
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"saveSpaceObjectEntity" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SaveSpaceObjectEntity" object:nil];
+}
+
+- (void) showSavedAlert
+{
+    UIAlertController * savedAlert = [UIAlertController
+                                 alertControllerWithTitle:@"Object saved"
+                                 message:@"Object succesfully saved."
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okButton = [UIAlertAction
+                                actionWithTitle:@"OK"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    [savedAlert dismissViewControllerAnimated:YES completion:^{}];
+                                }];
+    [savedAlert addAction:okButton];
+    [self presentViewController:savedAlert animated:YES completion:nil];
 }
 
 - (void) shareObject

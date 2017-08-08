@@ -43,15 +43,15 @@
 {
     if ([notification.name isEqualToString:@"presentViewerController"])
     {
-        [self presentViewerController];
+        [self presentViewerControllerWithImage: [UIImage imageWithData: notification.object]];
     }
 }
 
-- (void) presentViewerController
+- (void) presentViewerControllerWithImage: (UIImage*) image
 {
     self.viewerController = [[ViewerController alloc] initAndAssemble];
     //
-    self.viewerController.viewerViewController.viewerView.viewedImageView.image = [NSKeyedUnarchiver unarchiveObjectWithData: self.galleryModel.data][1];
+    self.viewerController.viewerViewController.viewerView.viewedImageView.image = image;
     //
     [self.galleryViewController.navigationController pushViewController:self.viewerController.viewerViewController animated:YES];
 }

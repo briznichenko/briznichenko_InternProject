@@ -17,5 +17,6 @@
 @property (atomic, strong) CelestialBodyEntity *bodyEntity;
 
 - (instancetype) initModelWithData;
+- (void) imageryForObjectWithName: (NSString *)objectName completion: (void (^)(NSArray *imageryArray)) completion;
 
 @end

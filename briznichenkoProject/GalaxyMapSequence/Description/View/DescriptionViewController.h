@@ -17,4 +17,6 @@
 @property (nonatomic, strong) DescriptionView *descriptionView;
 @property (nonatomic, strong) CelestialBodyEntity *bodyEntity;
 
+- (void) showSavedAlert;
+
 @end

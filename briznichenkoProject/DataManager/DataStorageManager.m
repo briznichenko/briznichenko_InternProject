@@ -117,7 +117,6 @@
 {
     NSEntityDescription *spaceObjectEntityDescription = [[NSEntityDescription alloc] init];
     [spaceObjectEntityDescription setName:@"SpaceObject"];
-    [spaceObjectEntityDescription setManagedObjectClassName:@"SpaceObject"];
     
     NSAttributeDescription *nameAttribute = [[NSAttributeDescription alloc] init];
     [nameAttribute setName:@"Name"];

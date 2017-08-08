@@ -37,17 +37,24 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification:)
-                                                 name:@"saveSpaceObjectEntity"
+                                                 name:@"SaveSpaceObjectEntity"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"SavedSpaceObjectEntity"
                                                object:nil];
 }
 
 - (void) receiveNotification:(NSNotification *) notification
 {
-    if ([notification.name isEqualToString:@"saveSpaceObjectEntity"])
-    {
+    if ([notification.name isEqualToString:@"SaveSpaceObjectEntity"])
         [self.descriptionModel saveSpaceObjectEntity];
-    }
+    else if ([notification.name isEqualToString:@"SavedSpaceObjectEntity"])
+        [self.descriptionViewController showSavedAlert];
 }
+
+
 
 - (void)dealloc
 {

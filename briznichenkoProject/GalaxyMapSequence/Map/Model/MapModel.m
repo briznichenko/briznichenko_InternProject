@@ -164,10 +164,11 @@
     return objectDictionary;
 }
 
+#pragma mark -- Object Imagery
+
 -(void) extractAndDownloadImageFromEntity: (CelestialBodyEntity *) entity completion: (void (^) (NSData *fetchedData)) completion
 {
     NSString *rawRaDecString = [[NSKeyedUnarchiver unarchiveObjectWithData:entity.info] valueForKey:@"coord1 (ICRS,J2000/2000)"];
-    //    NSRange *raRange = NSMakeRange([rawRaDecString rangeOfString:@"."], NSUInteger len);
     rawRaDecString = [rawRaDecString stringByReplacingCharactersInRange:NSMakeRange(12, 1) withString:@"|"];
     NSURL *url = [NSURL URLWithString:[self cutoutImageUrlConstructorString:rawRaDecString]];
     NSLog(@"%@", url);
@@ -186,6 +187,61 @@
     NSString* webURL = [url stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
     
     return webURL;
+}
+
+- (void) imageryForObjectWithName: (NSString *)objectName completion: (void (^)(NSArray *imageryArray)) completion
+{
+    NSURLSession *urlSession;
+    NSURLSessionDataTask *dataTask;
+    NSString *urlQueryName = [objectName stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSURL *url = [[NSURL URLWithString:[NSString stringWithFormat:@"https://images-api.nasa.gov/search?q=%@", urlQueryName]] URLByResolvingSymlinksInPath];
+    NSLog(@"%@", url.absoluteString);
+    
+    urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    dataTask = [urlSession
+                dataTaskWithURL:url
+                completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                    if(data)
+                    {
+                        NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                        NSArray *collections = [[jsonData valueForKey:@"collection"] valueForKey:@"items"];
+                        if(!collections)
+                            completion(nil);
+                        NSMutableArray *collectionURLs = [NSMutableArray new];
+                        for (NSDictionary *collection in collections)
+                            [collectionURLs addObject:[collection valueForKey:@"href"]];
+                        [self getImageryFromCollectionWithURLs:collectionURLs completion:^(NSArray *imageryArray) {
+                            completion(imageryArray);
+                            NSLog(@"Imagery fetched!");
+                        }];
+                    }
+                    else if(error)
+                        NSLog(@"Error getting imagery urls%@", error.localizedDescription);
+                    else if(!data)
+                        completion(nil);
+                }];
+    [dataTask resume];
+}
+
+-(void) getImageryFromCollectionWithURLs: (NSArray *) collectionURLs completion: (void (^)(NSArray *imageryArray)) completion
+{
+    NSMutableSet *imageURLs = [NSMutableSet new];
+    NSMutableSet *imageryDataArray = [NSMutableSet new];
+    
+    for(NSString *url in collectionURLs)
+    {
+        NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+        NSArray *assetURLs = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
+        [imageURLs addObjectsFromArray: assetURLs];
+    }
+    __block unsigned long counter = imageURLs.count;
+    for (NSString *imageURL in imageURLs)
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [imageryDataArray addObject:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+            NSLog(@"Images left: %lu", --counter);
+            if(counter == 0)
+                completion(imageryDataArray.allObjects);
+        });
 }
 
 @end

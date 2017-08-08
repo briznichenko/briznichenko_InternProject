@@ -24,6 +24,7 @@
 {
     self.galleryView = [[GalleryView alloc] initAndInstallIntoSuperView: self.view];
     imagesArray = [NSKeyedUnarchiver unarchiveObjectWithData: data];
+    [self refillImagesArray];
     [self setupViewController];
 }
 
@@ -31,6 +32,19 @@
 {
     self.galleryView.imageryCollection.delegate = self;
     self.galleryView.imageryCollection.dataSource = self;
+}
+
+- (void) refillImagesArray
+{
+    NSMutableArray *tempArray = [NSMutableArray new];
+    for(NSData *imageData in imagesArray)
+    {
+        UIImage *tempImage = [UIImage imageWithData:imageData];
+        if (tempImage)
+             [tempArray addObject: tempImage];
+    }
+    NSSet *tempSet = [NSSet setWithArray:tempArray];
+    imagesArray = tempSet.allObjects;
 }
 
 #pragma mark - UICollectionView delegate methods
@@ -42,8 +56,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    return self.imagesArray.count;
-    return 10;
+    return imagesArray.count;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +74,7 @@
     
     CelestialBodyImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
-    cell.objectImageView.image = imagesArray[1];
+    cell.objectImageView.image = imagesArray[indexPath.row];
     cell.layer.borderWidth = borderWidth;
     cell.layer.borderColor = cellBorderColor.CGColor;
     

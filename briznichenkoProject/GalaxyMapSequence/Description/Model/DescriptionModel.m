@@ -38,9 +38,10 @@
     bodyEntity.info = self.bodyEntity.info;
     
     NSError *error = nil;
-    if ([context save:&error] == NO) {
+    if ([context save:&error] == NO)
         NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
-    }
+    else
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SavedSpaceObjectEntity" object:nil userInfo:nil];
 }
 
 @end
