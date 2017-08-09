@@ -9,6 +9,7 @@
 #import "DescriptionController.h"
 #import "GalleryController.h"
 #import "CelestialBodyEntity.h"
+#import "SharingController.h"
 
 @implementation DescriptionController
 
@@ -44,6 +45,11 @@
                                              selector:@selector(receiveNotification:)
                                                  name:@"SavedSpaceObjectEntity"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"PresentSpaceObjectSharingController"
+                                               object:nil];
 }
 
 - (void) receiveNotification:(NSNotification *) notification
@@ -52,9 +58,18 @@
         [self.descriptionModel saveSpaceObjectEntity];
     else if ([notification.name isEqualToString:@"SavedSpaceObjectEntity"])
         [self.descriptionViewController showSavedAlert];
+    else if ([notification.name isEqualToString:@"PresentSpaceObjectSharingController"])
+        [self presentShareController];
 }
 
-
+-(void) presentShareController
+{
+    self.sharingController = [[SharingController alloc] initAndAssemble];
+    self.sharingController.sharingViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.descriptionViewController presentViewController:self.sharingController.sharingViewController animated:YES completion:^{
+        NSLog(@"%@:SHARE", self);
+    }];
+}
 
 - (void)dealloc
 {

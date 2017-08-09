@@ -11,11 +11,14 @@
 #import "DescriptionViewController.h"
 #import "DescriptionModel.h"
 
+@class SharingController;
 @interface DescriptionController : NSObject
 <DescriptionViewControllerProtocol, DescriptionControllerProtocol, DescriptionModelProtocol>
 
 @property (nonatomic, strong) DescriptionViewController* descriptionViewController;
 @property (nonatomic, strong) DescriptionModel* descriptionModel;
+
+@property (nonatomic, strong) SharingController *sharingController;
 
 -(instancetype) initAndAssembleWithData: (id) data;
 

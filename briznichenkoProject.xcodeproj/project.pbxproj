@@ -11,6 +11,7 @@
 		21D839BC5ABE824CB82EA68B /* GalleryController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7424BC5761E1EED5EA8BA69 /* GalleryController.m */; };
 		232464A409C2FD670994FD16 /* EarthScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CE12BB11EBCD610B17150E /* EarthScreenViewController.m */; };
 		2F18493DADA81D0000BBD546 /* DescriptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A31FBDF9964D745A5ED3FF7B /* DescriptionModel.m */; };
+		2FFF1EA6599AD58C1EF85D04 /* SharingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B2302C3B5DAEE5C01170FA /* SharingView.m */; };
 		43430E399E6BF45AE7F5A3B2 /* SideMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 986C4775EA43E46C6F607D47 /* SideMenuModel.m */; };
 		446790C28CB108671B117877 /* SplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889DCF003E402B28088ED2C9 /* SplashController.m */; };
 		462F473668F899DEF8BB9C89 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA829C734E945437B1C4CAE /* GalleryViewController.m */; };
@@ -25,6 +26,7 @@
 		7D19F3161F2F782A000202AA /* CelestialBodyImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3151F2F782A000202AA /* CelestialBodyImageCell.m */; };
 		7D19F31A1F2F7C60000202AA /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */; };
 		7DA6C8131F274AE300A5BB0F /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */; };
+		7DA76F521F3B5D82002DF728 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA76F511F3B5D82002DF728 /* ShareManager.m */; };
 		7DAAC2361F34A0FD00C3B68D /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */; };
 		7DC05E411F322A340090A29B /* CropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC05E401F322A330090A29B /* CropView.m */; };
 		7DC0C4151F2A355A0080EEAE /* CelestialBodyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */; };
@@ -38,9 +40,11 @@
 		7DFF4A5E1F1D1C4800E5A602 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF4A5D1F1D1C4800E5A602 /* Assets.xcassets */; };
 		7DFF4A601F1D1C4F00E5A602 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF4A5F1F1D1C4F00E5A602 /* giphy.gif */; };
 		82EB953C0B1C5E02732D3A76 /* ViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DADCC50ED9B2E27F15F2F2 /* ViewerController.m */; };
+		83160F7010C74BD0C6C68BDF /* SharingController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FAB093F1DE6E832083EE02 /* SharingController.m */; };
 		874E0C3FC309BD8FCC1169D3 /* SplashModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCA5ADCBD115C9AB49A436B /* SplashModel.m */; };
 		919D596D82CAF831F166F153 /* ViewerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF2E0DBD9C25D40F9C639E0 /* ViewerView.m */; };
 		9476C326EA9479D40064ECDD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0648693740D5E8DDF7FA40B /* MapViewController.m */; };
+		94EFC8426024C0B7D1AF935F /* SharingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D93138367BDD80C8D9798DAF /* SharingViewController.m */; };
 		97C53397EB8211CEC2002ED9 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DB671209B5A8823AB7D9FD /* SplashViewController.m */; };
 		9C3C22367C999D3D0C7DA47A /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B62FDD043CBC37D89B9993 /* MapModel.m */; };
 		AE6BB56F59EFA58A0891F53A /* GalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F420EFB54B44A3D6C81DDDEC /* GalleryView.m */; };
@@ -48,13 +52,28 @@
 		CA0ADD97B62778ACE9B081FC /* SideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C73FC46A91B41B5623DFCD /* SideMenuController.m */; };
 		CC4ED70D7F29451E6D37F40B /* DescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4D11EDFC9508140DFB2D82 /* DescriptionController.m */; };
 		E263F3982514937F90FCA6D7 /* ViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */; };
+		E852017126830DDB10E02B40 /* SharingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB96E562D3CCFEFB9351A2BD /* SharingModel.m */; };
 		E94242F57C5EA3AC052D3734 /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E512894172FE78D737A1E13 /* SideMenuView.m */; };
 		F73FEE53F825CB1119207AC9 /* GalleryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 086FA570171CC76A6FE256A1 /* GalleryModel.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7DA76F611F3B70B5002DF728 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		01D0BF4D57FC1930DA3252B8 /* SplashModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SplashModel.h; sourceTree = "<group>"; };
 		021F30786813A6A51E7C39FC /* GalleryModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GalleryModel.h; sourceTree = "<group>"; };
+		02B2302C3B5DAEE5C01170FA /* SharingView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SharingView.m; sourceTree = "<group>"; };
 		04DADCC50ED9B2E27F15F2F2 /* ViewerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewerController.m; sourceTree = "<group>"; };
 		086FA570171CC76A6FE256A1 /* GalleryModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GalleryModel.m; sourceTree = "<group>"; };
 		0EF2E0DBD9C25D40F9C639E0 /* ViewerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewerView.m; sourceTree = "<group>"; };
@@ -65,6 +84,7 @@
 		26D99E1C4BFE3DE39F03784A /* SideMenuController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuController.h; sourceTree = "<group>"; };
 		43D09360ECAFC28C5308F595 /* DescriptionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DescriptionViewController.m; sourceTree = "<group>"; };
 		44DB671209B5A8823AB7D9FD /* SplashViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		46EB9E0F6C9186BB85783BBC /* SharingProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SharingProtocols.h; sourceTree = "<group>"; };
 		4809F24BF3FD2E9E09D57A00 /* SplashViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		491AA717A4C9A117D95C415C /* MapView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		4982716B85A15D31DFB58FA5 /* ViewerModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerModel.h; sourceTree = "<group>"; };
@@ -75,6 +95,7 @@
 		53EEC9A4536851B9D522B826 /* ViewerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerView.h; sourceTree = "<group>"; };
 		5874DC857923EE5B3F43B0F4 /* ViewerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewerViewController.m; sourceTree = "<group>"; };
 		5D90B169F1BF90A7F0EA5FD7 /* ViewerProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerProtocols.h; sourceTree = "<group>"; };
+		6BD44CC78F22DBCFEB90ECBA /* SharingView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SharingView.h; sourceTree = "<group>"; };
 		6E3D796C1D5FDEA281D0982C /* MapController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
 		709A64332C10D8962B8FA58A /* EarthScreenView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EarthScreenView.h; sourceTree = "<group>"; };
 		71CE12BB11EBCD610B17150E /* EarthScreenViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EarthScreenViewController.m; sourceTree = "<group>"; };
@@ -85,6 +106,9 @@
 		7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
 		7DA6C8111F274AE300A5BB0F /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
 		7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
+		7DA76F501F3B5D82002DF728 /* ShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
+		7DA76F511F3B5D82002DF728 /* ShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
+		7DA76F541F3B631C002DF728 /* Twitter-Kit-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Twitter-Kit-iOS"; sourceTree = "<group>"; };
 		7DAAC2341F34A0FC00C3B68D /* UIImage+Filtering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filtering.h"; sourceTree = "<group>"; };
 		7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filtering.m"; sourceTree = "<group>"; };
 		7DC05E3F1F322A330090A29B /* CropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CropView.h; sourceTree = "<group>"; };
@@ -123,6 +147,8 @@
 		9DBBAD5236B265EB3FBBBFB8 /* ViewerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerViewController.h; sourceTree = "<group>"; };
 		A31FBDF9964D745A5ED3FF7B /* DescriptionModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DescriptionModel.m; sourceTree = "<group>"; };
 		A7424BC5761E1EED5EA8BA69 /* GalleryController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GalleryController.m; sourceTree = "<group>"; };
+		AC3B7C26A11D323864D16833 /* SharingController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SharingController.h; sourceTree = "<group>"; };
+		AEFEAE924FD6EC5E4B271461 /* SharingViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SharingViewController.h; sourceTree = "<group>"; };
 		AF049F1F361EA682F2C04495 /* ViewerModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ViewerModel.m; sourceTree = "<group>"; };
 		B0648693740D5E8DDF7FA40B /* MapViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		B0A0BA7F3FEB6440ED2B24D6 /* MapController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
@@ -130,11 +156,15 @@
 		B909ACE4806E2836904D3F16 /* EarthScreenController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EarthScreenController.h; sourceTree = "<group>"; };
 		C01C9450600A03BE640C6659 /* DescriptionModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DescriptionModel.h; sourceTree = "<group>"; };
 		CC3C398685EF2E5E16AEADCC /* SideMenuViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		CD48EB979C55EDAB2A149CEA /* SharingModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SharingModel.h; sourceTree = "<group>"; };
 		CF83C08F18F6AB8877B3971B /* EarthScreenController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EarthScreenController.m; sourceTree = "<group>"; };
 		D01F2A148D03A889FDB5C396 /* SplashView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SplashView.m; sourceTree = "<group>"; };
+		D4FAB093F1DE6E832083EE02 /* SharingController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SharingController.m; sourceTree = "<group>"; };
 		D514B6158AD10027A24DCCC7 /* ViewerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ViewerController.h; sourceTree = "<group>"; };
 		D52B0A41D1A3155122302517 /* SideMenuViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		D93138367BDD80C8D9798DAF /* SharingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SharingViewController.m; sourceTree = "<group>"; };
 		D9BBB6FC604F0591AF5EA292 /* EarthScreenViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EarthScreenViewController.h; sourceTree = "<group>"; };
+		DB96E562D3CCFEFB9351A2BD /* SharingModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SharingModel.m; sourceTree = "<group>"; };
 		DD3C9FD5A3188CA9A02FEA76 /* SideMenuProtocols.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SideMenuProtocols.h; sourceTree = "<group>"; };
 		DD4B3A46E2C8F97A83B90387 /* EarthScreenView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EarthScreenView.m; sourceTree = "<group>"; };
 		E6B62FDD043CBC37D89B9993 /* MapModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MapModel.m; sourceTree = "<group>"; };
@@ -187,6 +217,15 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		29CAA8EF671583A4FFDC07E3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC3B7C26A11D323864D16833 /* SharingController.h */,
+				D4FAB093F1DE6E832083EE02 /* SharingController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2F904CF01D5BB048B8CAC681 /* Viewer */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +258,15 @@
 				7D19F3131F2F77C5000202AA /* CelestialBodyImageCell */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4896ABBBE6F66569B0EB3FBA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD48EB979C55EDAB2A149CEA /* SharingModel.h */,
+				DB96E562D3CCFEFB9351A2BD /* SharingModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		498CA9CDB24F82840E2E7CE5 /* View */ = {
@@ -395,6 +443,39 @@
 			name = RootNavigationController;
 			sourceTree = "<group>";
 		};
+		7DA76F4D1F3B4492002DF728 /* LibrarySequence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LibrarySequence;
+			sourceTree = "<group>";
+		};
+		7DA76F4E1F3B57F0002DF728 /* ShareManager */ = {
+			isa = PBXGroup;
+			children = (
+				7DA76F501F3B5D82002DF728 /* ShareManager.h */,
+				7DA76F511F3B5D82002DF728 /* ShareManager.m */,
+			);
+			path = ShareManager;
+			sourceTree = "<group>";
+		};
+		7DA76F4F1F3B57F9002DF728 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7DA76F4E1F3B57F0002DF728 /* ShareManager */,
+				7DDC42441F388C5600DA176D /* DataManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		7DA76F531F3B62D6002DF728 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				7DA76F541F3B631C002DF728 /* Twitter-Kit-iOS */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
 		7DAAC2321F349D3700C3B68D /* Filters */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +568,7 @@
 			children = (
 				7DFF4A451F1CCB0800E5A602 /* Applicaiton */,
 				7DFF4A471F1CCB3D00E5A602 /* Classes */,
+				7DA76F531F3B62D6002DF728 /* External */,
 				7DFF4A461F1CCB1E00E5A602 /* Resources */,
 			);
 			path = briznichenkoProject;
@@ -534,6 +616,7 @@
 		7DFF4A551F1D02BB00E5A602 /* Sequences */ = {
 			isa = PBXGroup;
 			children = (
+				7DA76F4D1F3B4492002DF728 /* LibrarySequence */,
 				7DAAC2371F34DB7B00C3B68D /* EarthSequence */,
 				7D19F3121F2F45D2000202AA /* GalaxyMapSequence */,
 				51B2183435554D3801645546 /* Splash */,
@@ -544,12 +627,21 @@
 		7DFF4A561F1D02C600E5A602 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				7DDC42441F388C5600DA176D /* DataManager */,
+				7DA76F4F1F3B57F9002DF728 /* Managers */,
+				CF40C0534738719B173C7237 /* Sharing */,
 				7DC0C4121F2A34E40080EEAE /* Entities */,
 				78F7D614159C7C2AB9E81EB5 /* SideMenu */,
 				7DA6C8101F274AAF00A5BB0F /* RootNavigationController */,
 			);
 			name = Shared;
+			sourceTree = "<group>";
+		};
+		8F11D7175FBCCDB942E888D2 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				46EB9E0F6C9186BB85783BBC /* SharingProtocols.h */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 		980D1A5BB1916D96F21E973A /* Controller */ = {
@@ -615,6 +707,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CF40C0534738719B173C7237 /* Sharing */ = {
+			isa = PBXGroup;
+			children = (
+				8F11D7175FBCCDB942E888D2 /* Interface */,
+				29CAA8EF671583A4FFDC07E3 /* Controller */,
+				DE459FCDB34EDB5940CBFC47 /* View */,
+				4896ABBBE6F66569B0EB3FBA /* Model */,
+			);
+			name = Sharing;
+			path = briznichenkoProject/sequences/Sharing;
+			sourceTree = SOURCE_ROOT;
+		};
 		D04E912A06B7771747ACC464 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +752,17 @@
 				889DCF003E402B28088ED2C9 /* SplashController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		DE459FCDB34EDB5940CBFC47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AEFEAE924FD6EC5E4B271461 /* SharingViewController.h */,
+				D93138367BDD80C8D9798DAF /* SharingViewController.m */,
+				6BD44CC78F22DBCFEB90ECBA /* SharingView.h */,
+				02B2302C3B5DAEE5C01170FA /* SharingView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E11F9C4E7D34C5683961A4B0 /* Model */ = {
@@ -711,6 +826,7 @@
 				7DFF4A241F1CCAB600E5A602 /* Sources */,
 				7DFF4A251F1CCAB600E5A602 /* Frameworks */,
 				7DFF4A261F1CCAB600E5A602 /* Resources */,
+				7DA76F611F3B70B5002DF728 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -812,6 +928,11 @@
 				232464A409C2FD670994FD16 /* EarthScreenViewController.m in Sources */,
 				617A20AA12F5EB8CB91A4769 /* EarthScreenView.m in Sources */,
 				74752222581ED58739D7D4B4 /* EarthScreenModel.m in Sources */,
+				7DA76F521F3B5D82002DF728 /* ShareManager.m in Sources */,
+				83160F7010C74BD0C6C68BDF /* SharingController.m in Sources */,
+				94EFC8426024C0B7D1AF935F /* SharingViewController.m in Sources */,
+				2FFF1EA6599AD58C1EF85D04 /* SharingView.m in Sources */,
+				E852017126830DDB10E02B40 /* SharingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,6 +1035,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/briznichenkoProject/Twitter-Kit-iOS",
+				);
 				INFOPLIST_FILE = briznichenkoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chi.briznichenko.briznichenkoProject;
@@ -925,6 +1050,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/briznichenkoProject/Twitter-Kit-iOS",
+				);
 				INFOPLIST_FILE = briznichenkoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chi.briznichenko.briznichenkoProject;

@@ -87,7 +87,7 @@
 
 - (void) shareObject
 {
-    NSLog(@"SHARE_OBJECT_STUB");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PresentSpaceObjectSharingController" object:nil];
 }
 
 @end

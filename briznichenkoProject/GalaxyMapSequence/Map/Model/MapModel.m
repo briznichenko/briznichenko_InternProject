@@ -230,8 +230,8 @@
     for(NSString *url in collectionURLs)
     {
         NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-        NSArray *assetURLs = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
-        [imageURLs addObjectsFromArray: assetURLs];
+        if(jsonData)
+            [imageURLs addObjectsFromArray:[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil]];
     }
     __block unsigned long counter = imageURLs.count;
     for (NSString *imageURL in imageURLs)
