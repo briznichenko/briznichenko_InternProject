@@ -108,7 +108,6 @@
 		7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		7DA76F501F3B5D82002DF728 /* ShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		7DA76F511F3B5D82002DF728 /* ShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
-		7DA76F541F3B631C002DF728 /* Twitter-Kit-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Twitter-Kit-iOS"; sourceTree = "<group>"; };
 		7DAAC2341F34A0FC00C3B68D /* UIImage+Filtering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filtering.h"; sourceTree = "<group>"; };
 		7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filtering.m"; sourceTree = "<group>"; };
 		7DC05E3F1F322A330090A29B /* CropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CropView.h; sourceTree = "<group>"; };
@@ -471,7 +470,6 @@
 		7DA76F531F3B62D6002DF728 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				7DA76F541F3B631C002DF728 /* Twitter-Kit-iOS */,
 			);
 			name = External;
 			sourceTree = "<group>";
