@@ -212,7 +212,6 @@
                             [collectionURLs addObject:[collection valueForKey:@"href"]];
                         [self getImageryFromCollectionWithURLs:collectionURLs completion:^(NSArray *imageryArray) {
                             completion(imageryArray);
-                            NSLog(@"Imagery fetched!");
                         }];
                     }
                     else if(error)

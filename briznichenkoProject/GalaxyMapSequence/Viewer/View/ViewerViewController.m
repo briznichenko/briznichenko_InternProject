@@ -13,13 +13,15 @@
 @implementation ViewerViewController
 {
     void (^superposition)(void);
-    NSArray *filters;
+    NSArray *filterNamesArray;
+    UIImage *originalImage;
 }
 
 #pragma mark - ViewController lifecycle methods
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
+    originalImage = self.viewerView.viewedImageView.image;
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -78,13 +80,20 @@
 
 - (void) makeFilterPreviews
 {
-    filters = [UIImage makeFiltersForImage: self.viewerView.viewedImageView.image];
-    for (UIImageView *filterView in self.viewerView.filterBar.subviews) {
-        if([self.viewerView.filterBar.subviews indexOfObject:filterView] >= filters.count)
-            break;
-        filterView.image = filters[[self.viewerView.filterBar.subviews indexOfObject:filterView]];
-    };
-    [self.viewerView.filterBar setNeedsDisplay];
+    [UIImage makeFiltersForImage:self.viewerView.viewedImageView.image completion:^(NSArray *filteredArray, NSArray *filterNames) {
+        filterNamesArray = filterNames;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            for (long i = 0; i < (self.viewerView.filterBar.subviews.count - filteredArray.count); i++)
+                [self.viewerView.filterBar.subviews[i] removeFromSuperview];
+            for (UIImageView *filterView in self.viewerView.filterBar.subviews)
+            {
+                if([self.viewerView.filterBar.subviews indexOfObject:filterView] == filteredArray.count)
+                    break;
+                filterView.image = filteredArray[[self.viewerView.filterBar.subviews indexOfObject:filterView]];
+                [self.viewerView.filterBar setNeedsDisplay];
+            }
+        });
+    }];
 }
 
 
@@ -115,7 +124,7 @@
 
 - (void) saveImage: (id) sender
 {
-    NSLog(@"SAVE");
+    [self saveImageToLibrary];
 }
 
 - (void) shareImage: (id) sender
@@ -186,10 +195,20 @@
     UIView* superview = recognizer.view;
     CGPoint subviewLocation = [recognizer locationInView:superview];
     UIView* subview = [superview hitTest:subviewLocation withEvent:nil];
-    self.viewerView.viewedImageView.image = filters[[self.viewerView.filterBar.subviews indexOfObject:subview]];
+    long index = [self.viewerView.filterBar.subviews indexOfObject:subview];
+    NSString *filterName = filterNamesArray[index];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.viewerView.viewedImageView.image = [UIImage makeFilteredImage:self.viewerView.viewedImageView.image withFilter: filterName];
+    });
 }
 
+
 #pragma mark -- UIImage editing
+
+- (void) saveImageToLibrary
+{
+    UIImageWriteToSavedPhotosAlbum(self.viewerView.viewedImageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
 
 - (UIImage *) cropImage: (UIImage *) originalImage
 {
@@ -240,6 +259,22 @@
     UIGraphicsEndImageContext();
     
     return image;
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    UIAlertController * savedAlert = [UIAlertController
+                                      alertControllerWithTitle:@"Image saved"
+                                      message:@"Image succesfully saved."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   [savedAlert dismissViewControllerAnimated:YES completion:^{}];
+                               }];
+    [savedAlert addAction:okButton];
+    [self presentViewController:savedAlert animated:YES completion:nil];
 }
 
 @end

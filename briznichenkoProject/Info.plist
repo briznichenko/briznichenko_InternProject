@@ -31,6 +31,12 @@
 	<string></string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>In order to save images to device,  access to writing images into photo library must be granted.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>In order to save images to device,  access to writing images into photo library must be granted.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>In order to save images to device,  access to writing images into photo library must be granted.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

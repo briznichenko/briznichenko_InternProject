@@ -10,6 +10,7 @@
 
 @interface UIImage (Filtering)
 
-+ (NSArray *)makeFiltersForImage: (UIImage*) image;
++ (void)makeFiltersForImage: (UIImage*) image completion:(void (^) (NSArray *filteredArray, NSArray *filterNames)) completion;
++ (UIImage *)makeFilteredImage: (UIImage*) image withFilter: (NSString*) filterName;
 
 @end
