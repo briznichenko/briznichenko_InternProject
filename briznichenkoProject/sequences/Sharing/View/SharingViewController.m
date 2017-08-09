@@ -26,7 +26,7 @@
 {
     [self.sharingView.twitterButton addTarget:self action:@selector(shareToTwitter) forControlEvents:UIControlEventTouchUpInside];
      [self.sharingView.facebookButton addTarget:self action:@selector(shareToFacebook) forControlEvents:UIControlEventTouchUpInside];
-     [self.sharingView.twitterButton addTarget:self action:@selector(shareToGoogle) forControlEvents:UIControlEventTouchUpInside];
+     [self.sharingView.googlePlusButton addTarget:self action:@selector(shareToGoogle) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark -- ViewController Actions
@@ -36,9 +36,7 @@
     UITouch *touch = [touches anyObject];
     
     if ([touch view] == self.view)
-    {
         [self dismissViewControllerAnimated:YES completion:^{}];
-    }
 }
 
 - (void) shareToTwitter
@@ -67,9 +65,15 @@
     NSURL* url = [urlComponents URL];
     NSLog(@"%@", url.absoluteString);
     
-    SFSafariViewController* controller = [[SFSafariViewController alloc] initWithURL:url];
-    controller.delegate = self;
-    [self presentViewController:controller animated:YES completion:nil];
+    if ([SFSafariViewController class]) {
+        SFSafariViewController* controller = [[SFSafariViewController alloc]
+                                              initWithURL:url];
+        controller.delegate = self;
+        [self presentViewController:controller animated:YES completion:nil];
+    } else {
+
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {}];
+    }
 }
 
 @end
