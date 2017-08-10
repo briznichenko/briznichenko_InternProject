@@ -11,13 +11,14 @@
 
 @implementation SharingController
 
--(instancetype) initAndAssemble
+-(instancetype) initAndAssembleWithShareURL:(NSString *)shareURL
 {
 	self = [super init];
 	if(self)
 	{
 		self.sharingViewController = [SharingViewController new];
 		self.sharingModel = [[SharingModel alloc] initWithData];
+        self.sharingViewController.shareURLString = shareURL;
         [self setupViewControllerWithData: self.sharingModel.data];
 	}	
 	return self;

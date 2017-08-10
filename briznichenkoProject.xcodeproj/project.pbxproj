@@ -31,6 +31,14 @@
 		7DC05E411F322A340090A29B /* CropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC05E401F322A330090A29B /* CropView.m */; };
 		7DC0C4151F2A355A0080EEAE /* CelestialBodyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */; };
 		7DC0C4191F2A44490080EEAE /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4181F2A44490080EEAE /* PopupView.m */; };
+		7DC4CBDD1F3CC1A000A3CB1A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC4CBDB1F3CB81A00A3CB1A /* Bolts.framework */; };
+		7DC4CBDE1F3CC1A000A3CB1A /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC4CBDB1F3CB81A00A3CB1A /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7DC4CBDF1F3CC1A000A3CB1A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC4CBD91F3CB81700A3CB1A /* FBSDKCoreKit.framework */; };
+		7DC4CBE01F3CC1A000A3CB1A /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC4CBD91F3CB81700A3CB1A /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7DC4CBE11F3CC1A000A3CB1A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC4CBD81F3CB81500A3CB1A /* FBSDKLoginKit.framework */; };
+		7DC4CBE21F3CC1A000A3CB1A /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC4CBD81F3CB81500A3CB1A /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7DC4CBE31F3CC1A000A3CB1A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC4CBDA1F3CB81A00A3CB1A /* FBSDKShareKit.framework */; };
+		7DC4CBE41F3CC1A000A3CB1A /* FBSDKShareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC4CBDA1F3CB81A00A3CB1A /* FBSDKShareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7DC68FD51F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC68FD41F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.m */; };
 		7DDA22071F1E36AD004155F6 /* AladinMap in Resources */ = {isa = PBXBuildFile; fileRef = 7DDA22061F1E36AD004155F6 /* AladinMap */; };
 		7DDC42471F3896FA00DA176D /* DataStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDC42461F3896F900DA176D /* DataStorageManager.m */; };
@@ -64,6 +72,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7DC4CBE41F3CC1A000A3CB1A /* FBSDKShareKit.framework in Embed Frameworks */,
+				7DC4CBDE1F3CC1A000A3CB1A /* Bolts.framework in Embed Frameworks */,
+				7DC4CBE01F3CC1A000A3CB1A /* FBSDKCoreKit.framework in Embed Frameworks */,
+				7DC4CBE21F3CC1A000A3CB1A /* FBSDKLoginKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +128,10 @@
 		7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CelestialBodyEntity.m; sourceTree = "<group>"; };
 		7DC0C4171F2A44490080EEAE /* PopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		7DC0C4181F2A44490080EEAE /* PopupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
+		7DC4CBD81F3CB81500A3CB1A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		7DC4CBD91F3CB81700A3CB1A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		7DC4CBDA1F3CB81A00A3CB1A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		7DC4CBDB1F3CB81A00A3CB1A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7DC68FD31F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagedCelesctialBodyEntity.h; sourceTree = "<group>"; };
 		7DC68FD41F39D32F007F7DF0 /* ManagedCelesctialBodyEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagedCelesctialBodyEntity.m; sourceTree = "<group>"; };
 		7DDA21FF1F1E1A15004155F6 /* MapProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapProtocols.h; sourceTree = "<group>"; };
@@ -180,6 +196,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DC4CBE31F3CC1A000A3CB1A /* FBSDKShareKit.framework in Frameworks */,
+				7DC4CBDD1F3CC1A000A3CB1A /* Bolts.framework in Frameworks */,
+				7DC4CBDF1F3CC1A000A3CB1A /* FBSDKCoreKit.framework in Frameworks */,
+				7DC4CBE11F3CC1A000A3CB1A /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,13 +487,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		7DA76F531F3B62D6002DF728 /* External */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = External;
-			sourceTree = "<group>";
-		};
 		7DAAC2321F349D3700C3B68D /* Filters */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +528,25 @@
 				7DC0C4181F2A44490080EEAE /* PopupView.m */,
 			);
 			path = PopupView;
+			sourceTree = "<group>";
+		};
+		7DC4CBD71F3CB7BF00A3CB1A /* FacebookSKD */ = {
+			isa = PBXGroup;
+			children = (
+				7DC4CBDB1F3CB81A00A3CB1A /* Bolts.framework */,
+				7DC4CBD91F3CB81700A3CB1A /* FBSDKCoreKit.framework */,
+				7DC4CBD81F3CB81500A3CB1A /* FBSDKLoginKit.framework */,
+				7DC4CBDA1F3CB81A00A3CB1A /* FBSDKShareKit.framework */,
+			);
+			name = FacebookSKD;
+			sourceTree = "<group>";
+		};
+		7DC4CBDC1F3CC16D00A3CB1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DC4CBD71F3CB7BF00A3CB1A /* FacebookSKD */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7DC68FD21F39D26A007F7DF0 /* SpaceObjectEntity */ = {
@@ -566,7 +598,7 @@
 			children = (
 				7DFF4A451F1CCB0800E5A602 /* Applicaiton */,
 				7DFF4A471F1CCB3D00E5A602 /* Classes */,
-				7DA76F531F3B62D6002DF728 /* External */,
+				7DC4CBDC1F3CC16D00A3CB1A /* Frameworks */,
 				7DFF4A461F1CCB1E00E5A602 /* Resources */,
 			);
 			path = briznichenkoProject;
@@ -1035,7 +1067,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/briznichenkoProject/Twitter-Kit-iOS",
+					"~/Documents/FacebookSDK",
+					"$(PROJECT_DIR)/briznichenkoProject",
 				);
 				INFOPLIST_FILE = briznichenkoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1050,7 +1083,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/briznichenkoProject/Twitter-Kit-iOS",
+					"~/Documents/FacebookSDK",
+					"$(PROJECT_DIR)/briznichenkoProject",
 				);
 				INFOPLIST_FILE = briznichenkoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

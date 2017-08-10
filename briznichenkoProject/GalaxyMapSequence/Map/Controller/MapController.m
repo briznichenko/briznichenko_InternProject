@@ -111,6 +111,7 @@
 {
     self.descriptionController = [[DescriptionController alloc] initAndAssembleWithData: self.mapModel.bodyEntity];
     self.descriptionController.descriptionViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    self.descriptionController.objectImageURL = self.mapModel.descriptionImageURL;
     
     [self.mapViewController presentViewController:self.descriptionController.descriptionViewController animated:YES completion:^{}];
 }

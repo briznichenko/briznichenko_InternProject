@@ -11,9 +11,9 @@
 
 @interface SharingView : UIView 
 
-@property (nonatomic, strong) UIButton *facebookButton;
-@property (nonatomic, strong) UIButton *twitterButton;
-@property (nonatomic, strong) UIButton *googlePlusButton;
+@property (nonatomic, strong) UIView *facebookPlaceholderView;
+@property (nonatomic, strong) UIView *twitterPlaceholderView;
+@property (nonatomic, strong) UIView *googlePlaceholderView;
 
 -(instancetype)initAndInstallIntoSuperView:(UIView *) superview;
 

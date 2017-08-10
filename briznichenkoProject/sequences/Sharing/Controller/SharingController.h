@@ -17,6 +17,6 @@
 @property (nonatomic, strong) SharingViewController* sharingViewController;
 @property (nonatomic, strong) SharingModel* sharingModel;
 
--(instancetype) initAndAssemble;
+-(instancetype) initAndAssembleWithShareURL: (NSString *)shareURL;
 
 @end

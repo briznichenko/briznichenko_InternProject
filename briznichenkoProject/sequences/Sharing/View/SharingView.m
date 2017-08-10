@@ -10,9 +10,6 @@
 
 
 @implementation SharingView
-{
-    NSArray *buttonSuperViews;
-}
 
 
 - (instancetype) initAndInstallIntoSuperView:(UIView *) superview
@@ -30,57 +27,43 @@
 - (void) makeView
 {
     self.backgroundColor = [UIColor whiteColor];
-    [self makeButtons];
+    [self makePlaceholderViews];
 }
 
-- (void) makeButtons
+- (void) makePlaceholderViews
 {
-    self.facebookButton = [UIButton buttonWithType:UIButtonTypePlain];
-    self.twitterButton = [UIButton buttonWithType:UIButtonTypePlain];
-    self.googlePlusButton = [UIButton buttonWithType:UIButtonTypePlain];
+    self.facebookPlaceholderView = [UIView new];
+    self.twitterPlaceholderView = [UIView new];
+    self.googlePlaceholderView = [UIView new];
     
-    [self.facebookButton setTitle:@"FACEBOOK" forState:UIControlStateNormal];
-    [self.twitterButton setTitle:@"TWITTER" forState:UIControlStateNormal];
-    [self.googlePlusButton setTitle:@"GOOGLE PLUS" forState:UIControlStateNormal];
-    
-    NSArray *buttons = @[self.facebookButton, self.twitterButton, self.googlePlusButton];
-    for(UIView *buttonView in buttons)
-    {
-        UIView *buttonSuperView = [UIView new];
-        [buttonSuperView addSubview:buttonView];
-        [self addSubview:buttonSuperView];
-    }
-    buttonSuperViews = self.subviews;
+    [self addSubview:self.facebookPlaceholderView];
+    [self addSubview:self.twitterPlaceholderView];
+    [self addSubview:self.googlePlaceholderView];
 }
 
 - (void) makeInnerConstraints
 {
     float superviewWidthMultiplier = 1.0f / 3.0f;
     
-    for (UIView *view in buttonSuperViews)
-    {
-        view.translatesAutoresizingMaskIntoConstraints = NO;
-        if ([buttonSuperViews indexOfObject:view] == 0)
-            [NSLayoutConstraint activateConstraints:
-             @[[view.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
-               [view.leftAnchor constraintEqualToAnchor:self.leftAnchor],
-               [view.heightAnchor constraintEqualToAnchor:self.heightAnchor],
-               [view.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:superviewWidthMultiplier]]];
-        else
-        {
-            UIView *previousView = buttonSuperViews[[buttonSuperViews indexOfObject:view] - 1];
-            
-            [NSLayoutConstraint activateConstraints:
-             @[[view.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
-               [view.leftAnchor constraintEqualToAnchor:previousView.rightAnchor],
-               [view.heightAnchor constraintEqualToAnchor:self.heightAnchor],
-               [view.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:superviewWidthMultiplier]]];
-        }
-        view.subviews[0].translatesAutoresizingMaskIntoConstraints = NO;
-        [NSLayoutConstraint activateConstraints:
-        @[[view.subviews[0].centerYAnchor constraintEqualToAnchor:view.centerYAnchor],
-          [view.subviews[0].centerXAnchor constraintEqualToAnchor:view.centerXAnchor]]];
-    }
+    self.facebookPlaceholderView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.twitterPlaceholderView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.googlePlaceholderView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [NSLayoutConstraint activateConstraints:
+     @[[self.facebookPlaceholderView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
+       [self.facebookPlaceholderView.leftAnchor constraintEqualToAnchor:self.leftAnchor],
+       [self.facebookPlaceholderView.heightAnchor constraintEqualToAnchor:self.heightAnchor],
+       [self.facebookPlaceholderView.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:superviewWidthMultiplier],
+       
+       [self.twitterPlaceholderView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
+       [self.twitterPlaceholderView.leftAnchor constraintEqualToAnchor:self.self.facebookPlaceholderView.rightAnchor],
+       [self.twitterPlaceholderView.heightAnchor constraintEqualToAnchor:self.heightAnchor],
+       [self.twitterPlaceholderView.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:superviewWidthMultiplier],
+       
+       [self.googlePlaceholderView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
+       [self.googlePlaceholderView.leftAnchor constraintEqualToAnchor:self.facebookPlaceholderView.rightAnchor],
+       [self.googlePlaceholderView.heightAnchor constraintEqualToAnchor:self.heightAnchor],
+       [self.googlePlaceholderView.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:superviewWidthMultiplier]]];
 }
 
 - (void) makeOuterConstraints:(UIView *) superview

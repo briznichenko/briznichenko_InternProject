@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong) SharingView* sharingView;
 
+@property (nonatomic, strong) NSString* shareURLString;
+
 @end

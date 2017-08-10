@@ -18,6 +18,8 @@
 @property (nonatomic, strong) DescriptionViewController* descriptionViewController;
 @property (nonatomic, strong) DescriptionModel* descriptionModel;
 
+@property (nonatomic, strong) NSString *objectImageURL;
+
 @property (nonatomic, strong) SharingController *sharingController;
 
 -(instancetype) initAndAssembleWithData: (id) data;

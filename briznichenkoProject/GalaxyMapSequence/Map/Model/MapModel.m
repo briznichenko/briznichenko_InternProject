@@ -170,8 +170,8 @@
 {
     NSString *rawRaDecString = [[NSKeyedUnarchiver unarchiveObjectWithData:entity.info] valueForKey:@"coord1 (ICRS,J2000/2000)"];
     rawRaDecString = [rawRaDecString stringByReplacingCharactersInRange:NSMakeRange(12, 1) withString:@"|"];
-    NSURL *url = [NSURL URLWithString:[self cutoutImageUrlConstructorString:rawRaDecString]];
-    NSLog(@"%@", url);
+    self.descriptionImageURL = [self cutoutImageUrlConstructorString:rawRaDecString];
+    NSURL *url = [NSURL URLWithString: self.descriptionImageURL];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSData *imageData = [NSData dataWithContentsOfURL: url];
         completion(imageData);

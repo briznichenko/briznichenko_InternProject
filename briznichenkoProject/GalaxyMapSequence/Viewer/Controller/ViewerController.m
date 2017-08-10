@@ -47,7 +47,7 @@
 
 -(void) presentShareController
 {
-    self.sharingController = [[SharingController alloc] initAndAssemble];
+    self.sharingController = [[SharingController alloc] initAndAssembleWithShareURL:@""];
     self.sharingController.sharingViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self.viewerViewController presentViewController:self.sharingController.sharingViewController animated:YES completion:^{
         NSLog(@"%@:SHARE", self);
