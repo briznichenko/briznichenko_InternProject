@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#include <Twitter/Twitter.h>
 
 @interface ShareManager : NSObject
 

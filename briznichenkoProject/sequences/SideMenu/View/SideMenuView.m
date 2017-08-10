@@ -41,7 +41,7 @@
     self.headerImage.layer.borderWidth = borderWidth;
     self.headerImage.layer.borderColor = borderColor;
     self.headerImage.backgroundColor = [UIColor blackColor];
-    self.headerImage.clipsToBounds = YES;
+//    self.headerImage.clipsToBounds = YES;
     self.headerImage.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview: self.headerImage];
 }

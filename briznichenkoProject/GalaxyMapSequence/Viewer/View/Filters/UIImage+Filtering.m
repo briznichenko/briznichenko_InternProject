@@ -12,21 +12,21 @@
 
 @implementation UIImage (Filtering)
 
-+ (void)makeFiltersForImage: (UIImage*) image completion:(void (^) (NSArray *filteredArray, NSArray *filterNames)) completion
++ (void)makeFiltersForImage: (UIImage*) image completion:(void (^) (NSDictionary *filters)) completion
 {
-    NSArray *filterNames = @[@"CISepiaTone", @"CIBloom", @"CIColorMonochrome", @"CIEdges"];
+    NSArray *filterNames = @[@"CISepiaTone", @"CIBloom", @"CIColorMonochrome", @"CIEdges", @"CIPhotoEffectChrome", @"CIComicEffect", @"CIEdges"];
     UIImage *scaledImage = [self imageWithImage:image scaledToSize:CGSizeMake(image.size.width / 10, image.size.height / 10)];
     
-    NSMutableArray *filteredArray = [NSMutableArray new];
-    NSMutableArray *unorderedFilterNames = [NSMutableArray new];
+    NSMutableDictionary *filters = [NSMutableDictionary new];
     
+    __block int counter = (int)filterNames.count;
     for (NSString *filterName in filterNames)
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [unorderedFilterNames addObject:filterName];
-            [filteredArray addObject:[self makeFilteredImage:scaledImage withFilter:filterName]];
-            if(filteredArray.count == filterNames.count)
-                completion(filteredArray, unorderedFilterNames);
+            [filters setValue:[self makeFilteredImage:scaledImage withFilter:filterName] forKey:filterName];
+            NSLog(@"%d", --counter);
+            if(counter == 0)
+                completion(filters);
         });
     }
 }
@@ -40,7 +40,8 @@
     
     CIFilter *imageFilter = [CIFilter filterWithName: filterName];
     [imageFilter setValue:inputImage forKey:kCIInputImageKey];
-    [imageFilter setValue: [NSNumber numberWithFloat:0.5f] forKey:kCIInputIntensityKey];
+    if([imageFilter.inputKeys containsObject:kCIInputIntensityKey])
+        [imageFilter setValue: [NSNumber numberWithFloat:0.5f] forKey:kCIInputIntensityKey];
     CIImage *outputImage = [imageFilter valueForKey:kCIOutputImageKey];
     if(outputImage)
     {

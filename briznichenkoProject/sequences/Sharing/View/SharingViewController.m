@@ -52,28 +52,28 @@
 - (void) shareToGoogle
 {
     NSLog(@"GOOGLE");
-    NSURL *shareURL = [NSURL URLWithString: @"http://archive.eso.org/dss/dss/image?ra=00%2007%2010.4%20+&dec=8%2048%2014%20%20%20%20%20%20%20&equinox=J2000&name=&x=8&y=6&Sky-Survey=DSS1&mime-type=download-gif"];
-    [self showGooglePlusShare: shareURL];
+//    NSURL *shareURL = [NSURL URLWithString: @"http://archive.eso.org/dss/dss/image?ra=00%2007%2010.4%20+&dec=8%2048%2014%20%20%20%20%20%20%20&equinox=J2000&name=&x=8&y=6&Sky-Survey=DSS1&mime-type=download-gif"];
+//    [self showGooglePlusShare: shareURL];
 }
 
 - (void)showGooglePlusShare:(NSURL*)shareURL
 {
-    NSURLComponents* urlComponents = [[NSURLComponents alloc] initWithString:@"https://plus.google.com/share"];
-    urlComponents.queryItems = @[[[NSURLQueryItem alloc]
-                                  initWithName:@"url"
-                                  value:[shareURL absoluteString]]];
-    NSURL* url = [urlComponents URL];
-    NSLog(@"%@", url.absoluteString);
-    
-    if ([SFSafariViewController class]) {
-        SFSafariViewController* controller = [[SFSafariViewController alloc]
-                                              initWithURL:url];
-        controller.delegate = self;
-        [self presentViewController:controller animated:YES completion:nil];
-    } else {
-
-        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {}];
-    }
+//    NSURLComponents* urlComponents = [[NSURLComponents alloc] initWithString:@"https://plus.google.com/share"];
+//    urlComponents.queryItems = @[[[NSURLQueryItem alloc]
+//                                  initWithName:@"url"
+//                                  value:[shareURL absoluteString]]];
+//    NSURL* url = [urlComponents URL];
+//    NSLog(@"%@", url.absoluteString);
+//    
+//    if ([SFSafariViewController class]) {
+//        SFSafariViewController* controller = [[SFSafariViewController alloc]
+//                                              initWithURL:url];
+//        controller.delegate = self;
+//        [self presentViewController:controller animated:YES completion:nil];
+//    } else {
+//
+//        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {}];
+//    }
 }
 
 @end

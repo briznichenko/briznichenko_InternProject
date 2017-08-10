@@ -11,11 +11,15 @@
 #import "ViewerViewController.h"
 #import "ViewerModel.h"
 
+@class SharingController;
+
 @interface ViewerController : NSObject
 <ViewerViewControllerProtocol, ViewerControllerProtocol, ViewerModelProtocol>
 
 @property (nonatomic, strong) ViewerViewController* viewerViewController;
 @property (nonatomic, strong) ViewerModel* viewerModel;
+
+@property (nonatomic, strong) SharingController *sharingController;
 
 -(instancetype) initAndAssemble;
 

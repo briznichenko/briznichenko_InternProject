@@ -209,10 +209,27 @@
                             completion(nil);
                         NSMutableArray *collectionURLs = [NSMutableArray new];
                         for (NSDictionary *collection in collections)
-                            [collectionURLs addObject:[collection valueForKey:@"href"]];
-                        [self getImageryFromCollectionWithURLs:collectionURLs completion:^(NSArray *imageryArray) {
-                            completion(imageryArray);
-                        }];
+                            if([[collection valueForKey:@"href"] containsString:@"/image/"])
+                                [collectionURLs addObject:[collection valueForKey:@"href"]];
+                        
+                        NSMutableArray *imageURLs = [NSMutableArray new];
+                        NSMutableSet *imageryDataArray = [NSMutableSet new];
+                        
+                        for(NSString *url in collectionURLs)
+                        {
+                            NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+                            if(jsonData)
+                                [imageURLs addObjectsFromArray:[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil]];
+                        }
+                        imageURLs = [NSMutableArray arrayWithArray: [self removeDuplicatesFromArray:imageURLs]];
+                        __block unsigned long counter = imageURLs.count;
+                        for (NSString *imageURL in imageURLs)
+                            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                [imageryDataArray addObject:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+                                NSLog(@"Images left: %lu", --counter);
+                                if(counter == 0)
+                                    completion(imageryDataArray.allObjects);
+                            });
                     }
                     else if(error)
                         NSLog(@"Error getting imagery urls%@", error.localizedDescription);
@@ -220,27 +237,6 @@
                         completion(nil);
                 }];
     [dataTask resume];
-}
-
--(void) getImageryFromCollectionWithURLs: (NSArray *) collectionURLs completion: (void (^)(NSArray *imageryArray)) completion
-{
-    NSMutableSet *imageURLs = [NSMutableSet new];
-    NSMutableSet *imageryDataArray = [NSMutableSet new];
-    
-    for(NSString *url in collectionURLs)
-    {
-        NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-        if(jsonData)
-            [imageURLs addObjectsFromArray:[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil]];
-    }
-    __block unsigned long counter = imageURLs.count;
-    for (NSString *imageURL in imageURLs)
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [imageryDataArray addObject:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
-            NSLog(@"Images left: %lu", --counter);
-            if(counter == 0)
-                completion(imageryDataArray.allObjects);
-        });
 }
 
 -(NSString *) constructQueryNameFromOriginalName: (NSString *) objectName
@@ -253,6 +249,15 @@
     else if (nameComponents.count > 1)
         return [NSString stringWithFormat:@"%@%@%@", nameComponents[0], nameComponents[1], nameComponents[2]];
     return @"M100";
+}
+
+-(NSArray *) removeDuplicatesFromArray: (NSArray *) originalArray
+{
+    NSMutableArray *tempArray = [NSMutableArray new];
+    for(NSString *url in originalArray)
+        if(![url containsString:@".json"] && [url containsString:@"~orig"])
+            [tempArray addObject:url];
+    return [NSArray arrayWithArray:tempArray];
 }
 
 @end

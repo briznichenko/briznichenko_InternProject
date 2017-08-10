@@ -13,7 +13,7 @@
 @implementation ViewerViewController
 {
     void (^superposition)(void);
-    NSArray *filterNamesArray;
+    NSDictionary *filtersDictionary;
     UIImage *originalImage;
 }
 
@@ -24,8 +24,9 @@
     originalImage = self.viewerView.viewedImageView.image;
 }
 
-- (void) viewWillAppear:(BOOL)animated
+-(void) viewWillAppear: (BOOL) animated
 {
+    [super viewWillAppear:animated];
     [self makeFilterPreviews];
 }
 
@@ -35,6 +36,11 @@
     CGSize contentSize = CGSizeMake(self.viewerView.filterBar.subviews[0].frame.size.width * (self.viewerView.filterBar.subviews.count - 1),
                                     self.viewerView.filterBar.frame.size.height);
     self.viewerView.filterBar.contentSize = contentSize;
+    float navigationBarHeight = self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height;
+    self.view.frame = CGRectMake(self.view.frame.origin.x,
+                                 self.view.frame.origin.y + navigationBarHeight,
+                                 self.view.frame.size.width,
+                                 self.view.frame.size.height - navigationBarHeight);
 }
 
 -(void)setupViewControllerWithData:(NSData *)data
@@ -60,6 +66,9 @@
     UITapGestureRecognizer *filterTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(filterTapGestureCaptured:)];
     filterTap.cancelsTouchesInView = NO;
     [self.viewerView.filterBar addGestureRecognizer:filterTap];
+    
+    UIPanGestureRecognizer *textFieldDragger = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveViewWithGestureRecognizer:)];
+    [self.viewerView.addTextField addGestureRecognizer:textFieldDragger];
 }
 
 - (void) setupEditingTools
@@ -80,16 +89,14 @@
 
 - (void) makeFilterPreviews
 {
-    [UIImage makeFiltersForImage:self.viewerView.viewedImageView.image completion:^(NSArray *filteredArray, NSArray *filterNames) {
-        filterNamesArray = filterNames;
+    [UIImage makeFiltersForImage:self.viewerView.viewedImageView.image completion:^(NSDictionary *filters) {
+        filtersDictionary = filters;
         dispatch_async(dispatch_get_main_queue(), ^{
-            for (long i = 0; i < (self.viewerView.filterBar.subviews.count - filteredArray.count); i++)
-                [self.viewerView.filterBar.subviews[i] removeFromSuperview];
             for (UIImageView *filterView in self.viewerView.filterBar.subviews)
             {
-                if([self.viewerView.filterBar.subviews indexOfObject:filterView] == filteredArray.count)
+                if([self.viewerView.filterBar.subviews indexOfObject:filterView] == filters.count)
                     break;
-                filterView.image = filteredArray[[self.viewerView.filterBar.subviews indexOfObject:filterView]];
+                filterView.image = filters.allValues[[self.viewerView.filterBar.subviews indexOfObject:filterView]];
                 [self.viewerView.filterBar setNeedsDisplay];
             }
         });
@@ -129,7 +136,7 @@
 
 - (void) shareImage: (id) sender
 {
-    NSLog(@"SHARE");
+    [self shareImage];
 }
 
 - (void) cutImage: (id) sender
@@ -194,12 +201,24 @@
 {
     UIView* superview = recognizer.view;
     CGPoint subviewLocation = [recognizer locationInView:superview];
-    UIView* subview = [superview hitTest:subviewLocation withEvent:nil];
-    long index = [self.viewerView.filterBar.subviews indexOfObject:subview];
-    NSString *filterName = filterNamesArray[index];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.viewerView.viewedImageView.image = [UIImage makeFilteredImage:self.viewerView.viewedImageView.image withFilter: filterName];
-    });
+    UIImageView* subview = (UIImageView*)[superview hitTest:subviewLocation withEvent:nil];
+    UIImage *image = subview.image;
+    NSArray *filterNames = [filtersDictionary allKeysForObject:image];
+    NSString *filterName = @"";
+    if(filterNames[0])
+        filterName = filterNames[0];
+    if(filterName)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.viewerView.viewedImageView.image = [UIImage makeFilteredImage:self.viewerView.viewedImageView.image withFilter: filterName];
+        });
+}
+
+- (void) moveViewWithGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
+{
+    CGPoint touchLocation = [panGestureRecognizer locationInView:self.viewerView.viewedImageView];
+    
+    self.self.viewerView.addTextField.center = touchLocation;
+    
 }
 
 
@@ -217,6 +236,11 @@
     UIImage *croppedImage   = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
     return croppedImage;
+}
+
+- (void) shareImage
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PresentSpaceObjectPhotoSharingController" object:nil];
 }
 
 - (UIImage *) applyFilterToImage: (UIImage *) originalImage

@@ -37,7 +37,7 @@
 {
     self.objectImageView = [[UIImageView alloc] init];
     self.objectImageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.objectImageView.backgroundColor = [UIColor blueColor];
+    self.objectImageView.backgroundColor = [UIColor blackColor];
     
     [self addSubview: self.objectImageView];
 }

@@ -133,7 +133,7 @@
 -(NSArray *) makeFilters
 {
     NSMutableArray *filtersArray = [NSMutableArray new];
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < 7; i++)
     {
         UIImageView *filterView = [UIImageView new];
         filterView.backgroundColor = [UIColor colorWithWhite: i / 10.0f alpha:1.0f];

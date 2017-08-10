@@ -7,7 +7,7 @@
 //
 
 #import "ShareManager.h"
-//#import <TwitterKit/TwitterKit.h>
+
 
 @implementation ShareManager
 
@@ -39,17 +39,7 @@
 
 - (void) initTwitter
 {
-//    TWTRLogInButton *logInButton = [TWTRLogInButton buttonWithLogInCompletion:^(TWTRSession *session, NSError *error) {
-//        if (session) {
-//            NSLog(@"signed in as %@", [session userName]);
-//        } else {
-//            NSLog(@"error: %@", [error localizedDescription]);
-//        }
-//    }];
-//    logInButton.center = self.view.center;
-//    [self.view addSubview:logInButton];
-    
-//    [[Twitter sharedInstance] startWithConsumerKey:@"TsrU3HY9rNLtR4OQhiLKIoHtU" consumerSecret:@"KZlqJwPZL1bjpLRJSBVjZXEvgCk4KggeldHKOeQ7l8ooi0Fjuo"];
+
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ViewerController.h"
+#import "SharingController.h"
 
 
 @implementation ViewerController
@@ -19,14 +20,43 @@
 		self.viewerViewController = [ViewerViewController new];
 		self.viewerModel = [[ViewerModel alloc] initWithData];
         [self setupViewControllerWithData: self.viewerModel.data];
+        [self subscribeToNotifications];
 	}	
 	return self;
 }
 
-#pragma mark -- Routing
-
 - (void)setupViewControllerWithData:(NSData *)data {
     [self.viewerViewController setupViewControllerWithData: data];
+}
+
+#pragma mark -- Routing
+
+- (void) subscribeToNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"PresentSpaceObjectPhotoSharingController"
+                                               object:nil];
+}
+
+- (void) receiveNotification:(NSNotification *) notification
+{
+    if ([notification.name isEqualToString:@"PresentSpaceObjectPhotoSharingController"])
+        [self presentShareController];
+}
+
+-(void) presentShareController
+{
+    self.sharingController = [[SharingController alloc] initAndAssemble];
+    self.sharingController.sharingViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.viewerViewController presentViewController:self.sharingController.sharingViewController animated:YES completion:^{
+        NSLog(@"%@:SHARE", self);
+    }];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
