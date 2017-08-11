@@ -118,7 +118,7 @@
 {
     UIAlertController *alert = [UIAlertController
                                 alertControllerWithTitle:@"Tweet failure"
-                                message:[NSString stringWithFormat:@"Your tweet was not posted due to error: %@ \n Do you wish to try ", error.localizedDescription]
+                                message:[NSString stringWithFormat:@"Your tweet was not posted due to error: %@ \n Do you wish to try again?", error.localizedDescription]
                                 preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okButton = [UIAlertAction
                                actionWithTitle:@"Yes, please."

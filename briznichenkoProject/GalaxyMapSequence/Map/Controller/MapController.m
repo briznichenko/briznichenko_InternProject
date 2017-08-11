@@ -89,6 +89,10 @@
             NSLog(@"Imagery fetched!");
             tempGalleryArray.array = @[];
             tempGalleryArray = [NSMutableArray arrayWithArray:imageryArray];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.mapViewController.popupView.galleryButton.backgroundColor = [UIColor whiteColor];
+                self.mapViewController.popupView.galleryButton.userInteractionEnabled = YES;
+            });
         }];
     }
     else if ([notification.name isEqualToString:@"presentDescriptionController"])

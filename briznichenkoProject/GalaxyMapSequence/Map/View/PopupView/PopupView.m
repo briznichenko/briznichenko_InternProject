@@ -62,6 +62,8 @@
     self.galleryButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.galleryButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.galleryButton setTitle:@"Imagery" forState:UIControlStateNormal];
+    self.galleryButton.backgroundColor = [UIColor grayColor];
+    self.galleryButton.userInteractionEnabled = YES;
     self.galleryButton.layer.borderWidth = borderWidth;
     self.galleryButton.layer.borderColor = [UIColor blackColor].CGColor;
     [self addSubview:self.galleryButton];

@@ -26,7 +26,6 @@
 		7D19F3161F2F782A000202AA /* CelestialBodyImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3151F2F782A000202AA /* CelestialBodyImageCell.m */; };
 		7D19F31A1F2F7C60000202AA /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */; };
 		7DA6C8131F274AE300A5BB0F /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */; };
-		7DA76F521F3B5D82002DF728 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA76F511F3B5D82002DF728 /* ShareManager.m */; };
 		7DAAC2361F34A0FD00C3B68D /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */; };
 		7DAEDC971F3DC44E00CC6C6F /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7DAEDC931F3DC44E00CC6C6F /* TwitterKitResources.bundle */; };
 		7DAEDC981F3DC44E00CC6C6F /* TwitterShareExtensionUIResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7DAEDC941F3DC44E00CC6C6F /* TwitterShareExtensionUIResources.bundle */; };
@@ -124,8 +123,6 @@
 		7D19F3191F2F7C60000202AA /* CustomFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
 		7DA6C8111F274AE300A5BB0F /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
 		7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
-		7DA76F501F3B5D82002DF728 /* ShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
-		7DA76F511F3B5D82002DF728 /* ShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
 		7DAAC2341F34A0FC00C3B68D /* UIImage+Filtering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filtering.h"; sourceTree = "<group>"; };
 		7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filtering.m"; sourceTree = "<group>"; };
 		7DAEDC921F3DC44E00CC6C6F /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
@@ -481,19 +478,9 @@
 			path = LibrarySequence;
 			sourceTree = "<group>";
 		};
-		7DA76F4E1F3B57F0002DF728 /* ShareManager */ = {
-			isa = PBXGroup;
-			children = (
-				7DA76F501F3B5D82002DF728 /* ShareManager.h */,
-				7DA76F511F3B5D82002DF728 /* ShareManager.m */,
-			);
-			path = ShareManager;
-			sourceTree = "<group>";
-		};
 		7DA76F4F1F3B57F9002DF728 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				7DA76F4E1F3B57F0002DF728 /* ShareManager */,
 				7DDC42441F388C5600DA176D /* DataManager */,
 			);
 			path = Managers;
@@ -984,7 +971,6 @@
 				232464A409C2FD670994FD16 /* EarthScreenViewController.m in Sources */,
 				617A20AA12F5EB8CB91A4769 /* EarthScreenView.m in Sources */,
 				74752222581ED58739D7D4B4 /* EarthScreenModel.m in Sources */,
-				7DA76F521F3B5D82002DF728 /* ShareManager.m in Sources */,
 				83160F7010C74BD0C6C68BDF /* SharingController.m in Sources */,
 				94EFC8426024C0B7D1AF935F /* SharingViewController.m in Sources */,
 				2FFF1EA6599AD58C1EF85D04 /* SharingView.m in Sources */,

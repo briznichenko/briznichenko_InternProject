@@ -96,6 +96,8 @@
         [self.popupView.descriptionButton addTarget:self action:@selector(presentDescriptionController) forControlEvents: UIControlEventTouchUpInside];
         [self.popupView.galleryButton addTarget:self action:@selector(presentGalleryController) forControlEvents: UIControlEventTouchUpInside];
     }
+    self.popupView.galleryButton.backgroundColor = [UIColor grayColor];
+    self.popupView.galleryButton.userInteractionEnabled = NO;
     self.popupView.celestialBodyNameLabel.text = [self.celestialBodyData valueForKey:@"objName"];
     self.popupView.center = tapLocation;
     self.popupView.hidden = NO;

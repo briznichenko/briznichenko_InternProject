@@ -89,11 +89,20 @@
 
 - (void) makeFilterPreviews
 {
+    for(UIView *subview in  self.viewerView.filterBar.subviews)
+    {
+        UIActivityIndicatorView *tempIndicator = [[UIActivityIndicatorView alloc] init];
+        [subview addSubview: tempIndicator];
+        tempIndicator.center = subview.center;
+        [tempIndicator startAnimating];
+    }
+    
     [UIImage makeFiltersForImage:self.viewerView.viewedImageView.image completion:^(NSDictionary *filters) {
         filtersDictionary = filters;
         dispatch_async(dispatch_get_main_queue(), ^{
             for (UIImageView *filterView in self.viewerView.filterBar.subviews)
             {
+                [filterView.subviews[0] removeFromSuperview];
                 if([self.viewerView.filterBar.subviews indexOfObject:filterView] == filters.count)
                     break;
                 filterView.image = filters.allValues[[self.viewerView.filterBar.subviews indexOfObject:filterView]];
@@ -205,11 +214,20 @@
     UIImage *image = subview.image;
     NSArray *filterNames = [filtersDictionary allKeysForObject:image];
     NSString *filterName = @"";
+    
     if(filterNames[0])
         filterName = filterNames[0];
+    
+    UIActivityIndicatorView *filterIndicator = [[UIActivityIndicatorView alloc] init];
+    [self.viewerView.viewedImageView addSubview: filterIndicator];
+    filterIndicator.center = self.viewerView.viewedImageView.center;
+    [filterIndicator startAnimating];
+    
     if(filterName)
         dispatch_async(dispatch_get_main_queue(), ^{
             self.viewerView.viewedImageView.image = [UIImage makeFilteredImage:self.viewerView.viewedImageView.image withFilter: filterName];
+            [filterIndicator stopAnimating];
+            [filterIndicator removeFromSuperview];
         });
 }
 
