@@ -87,6 +87,7 @@
         [self.mapModel imageryForObjectWithName: objectName completion:^(NSArray *imageryArray)
         {
             NSLog(@"Imagery fetched!");
+            tempGalleryArray.array = @[];
             tempGalleryArray = [NSMutableArray arrayWithArray:imageryArray];
         }];
     }

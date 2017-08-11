@@ -28,6 +28,11 @@
 		7DA6C8131F274AE300A5BB0F /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C8121F274AE300A5BB0F /* RootNavigationController.m */; };
 		7DA76F521F3B5D82002DF728 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA76F511F3B5D82002DF728 /* ShareManager.m */; };
 		7DAAC2361F34A0FD00C3B68D /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */; };
+		7DAEDC971F3DC44E00CC6C6F /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7DAEDC931F3DC44E00CC6C6F /* TwitterKitResources.bundle */; };
+		7DAEDC981F3DC44E00CC6C6F /* TwitterShareExtensionUIResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7DAEDC941F3DC44E00CC6C6F /* TwitterShareExtensionUIResources.bundle */; };
+		7DAEDC9B1F3DC46D00CC6C6F /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DAEDC921F3DC44E00CC6C6F /* TwitterKit.framework */; };
+		7DAEDC9C1F3DC46D00CC6C6F /* TwitterKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DAEDC921F3DC44E00CC6C6F /* TwitterKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7DAEDC9E1F3DC54100CC6C6F /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DAEDC9D1F3DC54100CC6C6F /* TwitterCore.framework */; };
 		7DC05E411F322A340090A29B /* CropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC05E401F322A330090A29B /* CropView.m */; };
 		7DC0C4151F2A355A0080EEAE /* CelestialBodyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4141F2A355A0080EEAE /* CelestialBodyEntity.m */; };
 		7DC0C4191F2A44490080EEAE /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC0C4181F2A44490080EEAE /* PopupView.m */; };
@@ -76,6 +81,7 @@
 				7DC4CBDE1F3CC1A000A3CB1A /* Bolts.framework in Embed Frameworks */,
 				7DC4CBE01F3CC1A000A3CB1A /* FBSDKCoreKit.framework in Embed Frameworks */,
 				7DC4CBE21F3CC1A000A3CB1A /* FBSDKLoginKit.framework in Embed Frameworks */,
+				7DAEDC9C1F3DC46D00CC6C6F /* TwitterKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +128,10 @@
 		7DA76F511F3B5D82002DF728 /* ShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
 		7DAAC2341F34A0FC00C3B68D /* UIImage+Filtering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filtering.h"; sourceTree = "<group>"; };
 		7DAAC2351F34A0FC00C3B68D /* UIImage+Filtering.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filtering.m"; sourceTree = "<group>"; };
+		7DAEDC921F3DC44E00CC6C6F /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		7DAEDC931F3DC44E00CC6C6F /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		7DAEDC941F3DC44E00CC6C6F /* TwitterShareExtensionUIResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterShareExtensionUIResources.bundle; sourceTree = "<group>"; };
+		7DAEDC9D1F3DC54100CC6C6F /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		7DC05E3F1F322A330090A29B /* CropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CropView.h; sourceTree = "<group>"; };
 		7DC05E401F322A330090A29B /* CropView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CropView.m; sourceTree = "<group>"; };
 		7DC0C4131F2A355A0080EEAE /* CelestialBodyEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CelestialBodyEntity.h; sourceTree = "<group>"; };
@@ -197,9 +207,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DC4CBE31F3CC1A000A3CB1A /* FBSDKShareKit.framework in Frameworks */,
+				7DAEDC9E1F3DC54100CC6C6F /* TwitterCore.framework in Frameworks */,
 				7DC4CBDD1F3CC1A000A3CB1A /* Bolts.framework in Frameworks */,
 				7DC4CBDF1F3CC1A000A3CB1A /* FBSDKCoreKit.framework in Frameworks */,
 				7DC4CBE11F3CC1A000A3CB1A /* FBSDKLoginKit.framework in Frameworks */,
+				7DAEDC9B1F3DC46D00CC6C6F /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +516,17 @@
 			path = EarthSequence;
 			sourceTree = "<group>";
 		};
+		7DB51C561F3DAE16004C8CF7 /* TwitterKit */ = {
+			isa = PBXGroup;
+			children = (
+				7DAEDC9D1F3DC54100CC6C6F /* TwitterCore.framework */,
+				7DAEDC921F3DC44E00CC6C6F /* TwitterKit.framework */,
+				7DAEDC931F3DC44E00CC6C6F /* TwitterKitResources.bundle */,
+				7DAEDC941F3DC44E00CC6C6F /* TwitterShareExtensionUIResources.bundle */,
+			);
+			name = TwitterKit;
+			sourceTree = "<group>";
+		};
 		7DC05E3E1F3229CC0090A29B /* CropView */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +567,7 @@
 		7DC4CBDC1F3CC16D00A3CB1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7DB51C561F3DAE16004C8CF7 /* TwitterKit */,
 				7DC4CBD71F3CB7BF00A3CB1A /* FacebookSKD */,
 			);
 			name = Frameworks;
@@ -905,9 +929,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DAEDC971F3DC44E00CC6C6F /* TwitterKitResources.bundle in Resources */,
 				7DDA22071F1E36AD004155F6 /* AladinMap in Resources */,
 				7DFF4A5E1F1D1C4800E5A602 /* Assets.xcassets in Resources */,
 				7DFF4A601F1D1C4F00E5A602 /* giphy.gif in Resources */,
+				7DAEDC981F3DC44E00CC6C6F /* TwitterShareExtensionUIResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1065,15 +1091,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"~/Documents/FacebookSDK",
+					"~/Documents/SDKs",
+					"$(PROJECT_DIR)/briznichenkoProject",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"~/Documents/SDKs",
 					"$(PROJECT_DIR)/briznichenkoProject",
 				);
 				INFOPLIST_FILE = briznichenkoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chi.briznichenko.briznichenkoProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1081,15 +1116,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"~/Documents/FacebookSDK",
+					"~/Documents/SDKs",
 					"$(PROJECT_DIR)/briznichenkoProject",
 				);
 				INFOPLIST_FILE = briznichenkoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chi.briznichenko.briznichenkoProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

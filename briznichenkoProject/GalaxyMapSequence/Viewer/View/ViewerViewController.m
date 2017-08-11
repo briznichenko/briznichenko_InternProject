@@ -14,14 +14,14 @@
 {
     void (^superposition)(void);
     NSDictionary *filtersDictionary;
-    UIImage *originalImage;
+    UIImage *initialImage;
 }
 
 #pragma mark - ViewController lifecycle methods
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
-    originalImage = self.viewerView.viewedImageView.image;
+    initialImage = self.viewerView.viewedImageView.image;
 }
 
 -(void) viewWillAppear: (BOOL) animated

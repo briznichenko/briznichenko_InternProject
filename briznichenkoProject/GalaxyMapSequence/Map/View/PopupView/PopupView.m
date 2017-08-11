@@ -52,13 +52,15 @@
 {
     float borderWidth = 1.5f;
     
-    self.descriptionButton = [UIButton buttonWithType:UIButtonTypePlain];
+    self.descriptionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.descriptionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.descriptionButton setTitle:@"Description" forState:UIControlStateNormal];
     self.descriptionButton.layer.borderWidth = borderWidth;
     self.descriptionButton.layer.borderColor = [UIColor blackColor].CGColor;
     [self addSubview:self.descriptionButton];
     
-    self.galleryButton = [UIButton buttonWithType:UIButtonTypePlain];
+    self.galleryButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.galleryButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.galleryButton setTitle:@"Imagery" forState:UIControlStateNormal];
     self.galleryButton.layer.borderWidth = borderWidth;
     self.galleryButton.layer.borderColor = [UIColor blackColor].CGColor;

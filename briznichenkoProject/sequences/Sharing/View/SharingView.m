@@ -61,7 +61,7 @@
        [self.twitterPlaceholderView.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:superviewWidthMultiplier],
        
        [self.googlePlaceholderView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
-       [self.googlePlaceholderView.leftAnchor constraintEqualToAnchor:self.facebookPlaceholderView.rightAnchor],
+       [self.googlePlaceholderView.leftAnchor constraintEqualToAnchor:self.twitterPlaceholderView.rightAnchor],
        [self.googlePlaceholderView.heightAnchor constraintEqualToAnchor:self.heightAnchor],
        [self.googlePlaceholderView.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:superviewWidthMultiplier]]];
 }

@@ -41,7 +41,7 @@
 
 - (void) makeModeSwitcher
 {
-    self.modeSwitcher = [UIButton buttonWithType:UIButtonTypePlain];
+    self.modeSwitcher = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.modeSwitcher setTitle:@"👁" forState:UIControlStateNormal];
     self.modeSwitcher.tintColor = [UIColor blueColor];
     
@@ -62,29 +62,34 @@
     CGFloat buttonBorderWidth = 0.5f;
     CGColorRef borderColor = [UIColor blackColor].CGColor;
     
-    self.shareButton = [UIButton buttonWithType: UIButtonTypePlain];
+    self.shareButton = [UIButton buttonWithType: UIButtonTypeCustom];
+    [self.shareButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.shareButton setTitle:@"↪️" forState:UIControlStateNormal];
     self.shareButton.layer.borderWidth = buttonBorderWidth;
     self.shareButton.layer.borderColor = borderColor;
     
-    self.saveButton = [UIButton buttonWithType: UIButtonTypePlain];
+    self.saveButton = [UIButton buttonWithType: UIButtonTypeCustom];
+    [self.saveButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.saveButton setTitle:@"⬇️" forState:UIControlStateNormal];
     self.saveButton.layer.borderWidth = buttonBorderWidth;
     self.saveButton.layer.borderColor = borderColor;
     
-    self.cutButton = [UIButton buttonWithType: UIButtonTypePlain];
+    self.cutButton = [UIButton buttonWithType: UIButtonTypeCustom];
+    [self.cutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.cutButton setTitle:@"CUT" forState:UIControlStateNormal];
     self.cutButton.layer.borderWidth = buttonBorderWidth;
     self.cutButton.layer.borderColor = borderColor;
     self.cutButton.hidden = YES;
     
-    self.filtersButton = [UIButton buttonWithType: UIButtonTypePlain];
+    self.filtersButton = [UIButton buttonWithType: UIButtonTypeCustom];
+    [self.filtersButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.filtersButton setTitle:@"FILTER" forState:UIControlStateNormal];
     self.filtersButton.layer.borderWidth = buttonBorderWidth;
     self.filtersButton.layer.borderColor = borderColor;
     self.filtersButton.hidden = YES;
     
-    self.textButton = [UIButton buttonWithType: UIButtonTypePlain];
+    self.textButton = [UIButton buttonWithType: UIButtonTypeCustom];
+    [self.textButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.textButton setTitle:@"TEXT" forState:UIControlStateNormal];
     self.textButton.layer.borderWidth = buttonBorderWidth;
     self.textButton.layer.borderColor = borderColor;

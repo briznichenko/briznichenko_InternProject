@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TwitterKit/TwitterKit.h>
 #import <SafariServices/SafariServices.h>
 #import "SharingProtocols.h"
 #import "SharingView.h"
 
 @interface SharingViewController : UIViewController
-<SharingViewControllerProtocol, SFSafariViewControllerDelegate>
+<SharingViewControllerProtocol, TWTRComposerViewControllerDelegate, SFSafariViewControllerDelegate>
 
 @property (nonatomic, strong) SharingView* sharingView;
 
-@property (nonatomic, strong) NSString* shareURLString;
+@property (nonatomic, strong) NSString *shareURLString;
+@property (nonatomic, strong) NSData *sharedImageData;
+@property (nonatomic, strong) NSString *sharedText;
 
 @end
