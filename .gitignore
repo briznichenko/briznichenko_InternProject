@@ -24,4 +24,9 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+## Code Gen
+Rambafile
+.rambaspec
+.liquid
+
 
