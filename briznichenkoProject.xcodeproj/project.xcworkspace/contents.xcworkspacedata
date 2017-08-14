@@ -2,6 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:briznichenkoProject.xcodeproj">
+      location = "group:../briznichenkoProject/Resources">
+   </FileRef>
+   <Group
+      location = "container:"
+      name = "New Group">
+   </Group>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
