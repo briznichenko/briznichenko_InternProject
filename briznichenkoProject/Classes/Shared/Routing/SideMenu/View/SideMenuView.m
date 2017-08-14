@@ -89,7 +89,6 @@
 {
 	[superview addSubview:self];
     float widthMultiplier = 0.6f;
-//    float statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:

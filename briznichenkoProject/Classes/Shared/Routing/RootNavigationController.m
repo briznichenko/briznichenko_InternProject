@@ -15,9 +15,6 @@
 //#import "header"
 //#import "header"
 
-@interface RootNavigationController ()
-
-@end
 
 @implementation RootNavigationController
 
@@ -50,12 +47,9 @@
                                                                        style:UIBarButtonItemStyleDone
                                                                       target:self
                                                                       action:@selector(presentSideMenu:)];
-//        [backButton setBackgroundImage:[UIImage imageNamed:@"Icon-App-76x76"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        
         self.navigationBar.topItem.leftBarButtonItem = backButton;
         self.navigationItem.hidesBackButton = NO;
         
-//        [self.navigationBar setFrame: CGRectMake(0, 0, 100, 50)];
         self.navigationBar.barTintColor = [UIColor colorWithRed:0.0f green:0.07450980392f blue:0.2f alpha:1.0f];
     }
 
@@ -78,8 +72,7 @@
 -(void) presentSideMenu:(id)sender
 {
     self.sideMenuController.sideMenuViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    self.sideMenuController.sideMenuViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:self.sideMenuController.sideMenuViewController animated:YES completion:^{}];
+    [self presentViewController:self.sideMenuController.sideMenuViewController animated:NO completion:nil];
 }
 
 - (void) presentMapController
@@ -110,6 +103,5 @@
         [self setViewControllers:newControllerStack animated:YES];
     }
 }
-
 
 @end

@@ -50,9 +50,7 @@
 - (void) presentViewerControllerWithImage: (UIImage*) image
 {
     self.viewerController = [[ViewerController alloc] initAndAssemble];
-    //
     self.viewerController.viewerViewController.viewerView.viewedImageView.image = image;
-    //
     [self.galleryViewController.navigationController pushViewController:self.viewerController.viewerViewController animated:YES];
 }
 

@@ -21,13 +21,20 @@
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
-    initialImage = self.viewerView.viewedImageView.image;
+    
+    UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithTitle:@"Reset"
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(dismissChanges)];
+    self.navigationItem.rightBarButtonItem = resetButton;
+    self.navigationItem.hidesBackButton = NO;
 }
 
 -(void) viewWillAppear: (BOOL) animated
 {
     [super viewWillAppear:animated];
     [self makeFilterPreviews];
+    initialImage = self.viewerView.viewedImageView.image;
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -309,7 +316,7 @@
                                       alertControllerWithTitle:@"Image saved"
                                       message:@"Image succesfully saved."
                                       preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* okButton = [UIAlertAction
+    UIAlertAction *okButton = [UIAlertAction
                                actionWithTitle:@"OK"
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
@@ -317,6 +324,11 @@
                                }];
     [savedAlert addAction:okButton];
     [self presentViewController:savedAlert animated:YES completion:nil];
+}
+
+- (void) dismissChanges
+{
+    self.viewerView.viewedImageView.image = initialImage;
 }
 
 @end

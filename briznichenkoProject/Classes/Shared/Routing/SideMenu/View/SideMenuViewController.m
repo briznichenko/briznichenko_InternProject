@@ -7,10 +7,9 @@
 //
 
 #import "SideMenuViewController.h"
+#import <CoreGraphics/CoreGraphics.h>
 
 @implementation SideMenuViewController
-{
-}
 
 #pragma mark - ViewController lifecycle methods
 
@@ -18,6 +17,23 @@
 	[super viewDidLoad];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.view.alpha = 0.0f;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.view.alpha = 1.0f;
+    CATransition *transition = [[CATransition alloc] init];
+    transition.duration = 0.5;
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromLeft;
+    [self.view.layer addAnimation:transition forKey:kCATransition];
+    [super viewDidAppear:animated];
 }
 
 -(void)viewDidLayoutSubviews
@@ -101,7 +117,7 @@
 
 -(void) dismissSideMenu: (id) sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [self dismissViewControllerAnimated:NO completion:^{}];
 }
 
 @end

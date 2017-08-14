@@ -19,9 +19,9 @@
     
     self.window.rootViewController = (UIViewController *)[[SplashController alloc] initAndAssemble].splashViewController;
     
-//    [[Twitter sharedInstance] startWithConsumerKey:@"TsrU3HY9rNLtR4OQhiLKIoHtU" consumerSecret:@"KZlqJwPZL1bjpLRJSBVjZXEvgCk4KggeldHKOeQ7l8ooi0Fjuo"];
-//    [[FBSDKApplicationDelegate sharedInstance] application:application
-//                             didFinishLaunchingWithOptions:launchOptions];
+    [[Twitter sharedInstance] startWithConsumerKey:@"TsrU3HY9rNLtR4OQhiLKIoHtU" consumerSecret:@"KZlqJwPZL1bjpLRJSBVjZXEvgCk4KggeldHKOeQ7l8ooi0Fjuo"];
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
     
     [self.window makeKeyAndVisible];
     return YES;

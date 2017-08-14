@@ -68,6 +68,7 @@
 		7D020A2F1F41CFEE002D56F5 /* jquery-1.10.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A2C1F41CFB7002D56F5 /* jquery-1.10.1.min.js */; };
 		7D020A301F41CFEE002D56F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A281F41CFB7002D56F5 /* Assets.xcassets */; };
 		7D020A311F41CFEE002D56F5 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A271F41CFB7002D56F5 /* giphy.gif */; };
+		7D020A3F1F420459002D56F5 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A3C1F4203EA002D56F5 /* TwitterKitResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -193,6 +194,7 @@
 		7D020A2A1F41CFB7002D56F5 /* aladin.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = aladin.js; sourceTree = "<group>"; };
 		7D020A2B1F41CFB7002D56F5 /* AladinMap.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = AladinMap.html; sourceTree = "<group>"; };
 		7D020A2C1F41CFB7002D56F5 /* jquery-1.10.1.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery-1.10.1.min.js"; sourceTree = "<group>"; };
+		7D020A3C1F4203EA002D56F5 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
 		7D290CB61F41A5B700C20ABA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D290CB71F41A5B700C20ABA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D290CB81F41A5B700C20ABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		7D0209421F41AC3D002D56F5 /* TwitterSDK */ = {
 			isa = PBXGroup;
 			children = (
+				7D020A3C1F4203EA002D56F5 /* TwitterKitResources.bundle */,
 				7D0209431F41AC3D002D56F5 /* TwitterCore.framework */,
 				7D0209441F41AC3D002D56F5 /* TwitterKit.framework */,
 			);
@@ -569,8 +572,6 @@
 		7D0209AD1F41AE2A002D56F5 /* InitialSequence */ = {
 			isa = PBXGroup;
 			children = (
-				7D0209AE1F41AE2A002D56F5 /* RootNavigationController.h */,
-				7D0209AF1F41AE2A002D56F5 /* RootNavigationController.m */,
 				7D0209B01F41AE2A002D56F5 /* Splash */,
 			);
 			path = InitialSequence;
@@ -621,10 +622,10 @@
 		7D0209BF1F41AE2A002D56F5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				7D020A361F41D848002D56F5 /* Routing */,
 				7D0209C01F41AE2A002D56F5 /* Entities */,
 				7D0209C61F41AE2A002D56F5 /* Managers */,
 				7D0209CA1F41AE2A002D56F5 /* Sharing */,
-				7D0209D81F41AE2A002D56F5 /* SideMenu */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -782,6 +783,16 @@
 			path = briznichenkoProject/Resources/AladinMap;
 			sourceTree = SOURCE_ROOT;
 		};
+		7D020A361F41D848002D56F5 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				7D0209AE1F41AE2A002D56F5 /* RootNavigationController.h */,
+				7D0209AF1F41AE2A002D56F5 /* RootNavigationController.m */,
+				7D0209D81F41AE2A002D56F5 /* SideMenu */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
 		7D290CB51F41A5B700C20ABA /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +894,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D020A3F1F420459002D56F5 /* TwitterKitResources.bundle in Resources */,
 				7D020A2D1F41CFEE002D56F5 /* aladin.js in Resources */,
 				7D020A2E1F41CFEE002D56F5 /* AladinMap.html in Resources */,
 				7D020A2F1F41CFEE002D56F5 /* jquery-1.10.1.min.js in Resources */,
