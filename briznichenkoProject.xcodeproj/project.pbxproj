@@ -189,8 +189,8 @@
 		7D0209E31F41AE2A002D56F5 /* SideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenuView.m; sourceTree = "<group>"; };
 		7D0209E41F41AE2A002D56F5 /* SideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
 		7D0209E51F41AE2A002D56F5 /* SideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
-		7D020A271F41CFB7002D56F5 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = giphy.gif; path = briznichenkoProject/Resources/giphy.gif; sourceTree = SOURCE_ROOT; };
-		7D020A281F41CFB7002D56F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = briznichenkoProject/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		7D020A271F41CFB7002D56F5 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = giphy.gif; path = Resources/giphy.gif; sourceTree = SOURCE_ROOT; };
+		7D020A281F41CFB7002D56F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7D020A2A1F41CFB7002D56F5 /* aladin.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = aladin.js; sourceTree = "<group>"; };
 		7D020A2B1F41CFB7002D56F5 /* AladinMap.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = AladinMap.html; sourceTree = "<group>"; };
 		7D020A2C1F41CFB7002D56F5 /* jquery-1.10.1.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery-1.10.1.min.js"; sourceTree = "<group>"; };
@@ -762,16 +762,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		7D020A261F41CFA3002D56F5 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7D020A291F41CFB7002D56F5 /* AladinMap */,
-				7D020A281F41CFB7002D56F5 /* Assets.xcassets */,
-				7D020A271F41CFB7002D56F5 /* giphy.gif */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		7D020A291F41CFB7002D56F5 /* AladinMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,7 +770,7 @@
 				7D020A2C1F41CFB7002D56F5 /* jquery-1.10.1.min.js */,
 			);
 			name = AladinMap;
-			path = briznichenkoProject/Resources/AladinMap;
+			path = Resources/AladinMap;
 			sourceTree = SOURCE_ROOT;
 		};
 		7D020A361F41D848002D56F5 /* Routing */ = {
@@ -815,6 +805,16 @@
 			path = briznichenkoProject/Frameworks;
 			sourceTree = "<group>";
 		};
+		7DD156031F42E8F600C370D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7D020A291F41CFB7002D56F5 /* AladinMap */,
+				7D020A281F41CFB7002D56F5 /* Assets.xcassets */,
+				7D020A271F41CFB7002D56F5 /* giphy.gif */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7DFF4A1F1F1CCAB600E5A602 = {
 			isa = PBXGroup;
 			children = (
@@ -822,7 +822,7 @@
 				7D0209541F41AE2A002D56F5 /* Classes */,
 				7D290CBA1F41A5C600C20ABA /* Frameworks */,
 				7DFF4A291F1CCAB600E5A602 /* Products */,
-				7D020A261F41CFA3002D56F5 /* Resources */,
+				7DD156031F42E8F600C370D6 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};

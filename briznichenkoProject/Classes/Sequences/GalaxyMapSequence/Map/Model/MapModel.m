@@ -168,9 +168,10 @@
 
 -(void) extractAndDownloadImageFromEntity: (CelestialBodyEntity *) entity completion: (void (^) (NSData *fetchedData)) completion
 {
-    NSString *rawRaDecString = [[NSKeyedUnarchiver unarchiveObjectWithData:entity.info] valueForKey:@"coord1 (ICRS,J2000/2000)"];
+    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:entity.info];
+    NSString *rawRaDecString = [dict valueForKey:@"coord1 (ICRS,J2000/2000)"];
     if(!rawRaDecString)
-        rawRaDecString = [[NSKeyedUnarchiver unarchiveObjectWithData:entity.info] valueForKey:@"Coordinates(ICRS,ep=J2000,eq=2000)"];
+        rawRaDecString = [dict valueForKey:@"Coordinates(ICRS,ep=J2000,eq=2000)"];
     long raDecSeparatorLocation = [rawRaDecString rangeOfString:@"+"].location ? [rawRaDecString rangeOfString:@"+"].location - 1 : [rawRaDecString rangeOfString:@"-"].location - 1;
     rawRaDecString = [rawRaDecString stringByReplacingCharactersInRange:NSMakeRange(raDecSeparatorLocation, 1) withString:@"|"];
     self.descriptionImageURL = [self cutoutImageUrlConstructorString:rawRaDecString];

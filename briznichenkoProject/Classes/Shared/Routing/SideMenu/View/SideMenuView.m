@@ -35,11 +35,10 @@
 - (void) makeHeaderImage
 {
     float borderWidth = 2.0f;
-    CGColorRef borderColor = [UIColor colorWithRed:0.0f green:0.07450980392f blue:0.2f alpha:1.0f].CGColor;
     
     self.headerImage = [UIImageView new];
     self.headerImage.layer.borderWidth = borderWidth;
-    self.headerImage.layer.borderColor = borderColor;
+    self.headerImage.layer.borderColor = [UIColor whiteColor].CGColor;
     self.headerImage.backgroundColor = [UIColor blackColor];
 //    self.headerImage.clipsToBounds = YES;
     self.headerImage.contentMode = UIViewContentModeScaleAspectFit;

@@ -35,6 +35,7 @@
 - (void) makeViewedImageView
 {
     self.viewedImageView = [UIImageView new];
+    self.viewedImageView.userInteractionEnabled = YES;
     self.viewedImageView.contentMode = UIViewContentModeScaleToFill;
     [self addSubview:self.viewedImageView];
 }
@@ -105,6 +106,8 @@
     self.cropViewOverlay.transparentView = self.cropView;
     self.cropViewOverlay.backgroundColor = [UIColor colorWithWhite:0.001f alpha:0.5f];
     self.cropViewOverlay.hidden = YES;
+    self.cropViewOverlay.userInteractionEnabled = YES;
+     self.cropView.userInteractionEnabled = YES;
     [self.viewedImageView addSubview:self.cropViewOverlay];
     [self.cropViewOverlay addSubview:self.cropView];
     

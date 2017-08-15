@@ -76,7 +76,15 @@
     
     UIPanGestureRecognizer *textFieldDragger = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveViewWithGestureRecognizer:)];
     [self.viewerView.addTextField addGestureRecognizer:textFieldDragger];
+    
+    UIPanGestureRecognizer *cropViewDragger = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveCropViewWithGestureRecognizer:)];
+    [self.viewerView.cropViewOverlay addGestureRecognizer:cropViewDragger];
+    
+    UIPinchGestureRecognizer *cropViewResizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(resizeCropView:)];
+    [self.viewerView.cropView addGestureRecognizer:cropViewResizer];
+    
 }
+
 
 - (void) setupEditingTools
 {
@@ -242,11 +250,44 @@
 {
     CGPoint touchLocation = [panGestureRecognizer locationInView:self.viewerView.viewedImageView];
     
-    self.self.viewerView.addTextField.center = touchLocation;
+    self.viewerView.addTextField.center = touchLocation;
     
 }
 
+- (void) moveCropViewWithGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
+{
+    CGPoint touchLocation = [panGestureRecognizer locationInView:self.viewerView.cropViewOverlay];
+    
+    self.viewerView.cropView.center = touchLocation;
+    [self.viewerView.cropViewOverlay setNeedsDisplay];
+}
 
+- (void) resizeCropView:(UIPinchGestureRecognizer *)pinchGestureRecognizer
+{
+    CGRect cropViewFrame = self.viewerView.cropView.frame;
+    CGPoint cropViewCenter = self.viewerView.cropView.center;
+    CGRect cropOverlayFrame = self.viewerView.cropViewOverlay.frame;
+    float maxScale = 0.9f;
+    float minScale = 0.25f;
+    NSLog(@"%f", pinchGestureRecognizer.scale);
+    if(cropViewFrame.size.width >= (cropOverlayFrame.size.width * minScale) && cropViewFrame.size.width <= cropOverlayFrame.size.width * maxScale)
+        self.viewerView.cropView.frame = CGRectMake(cropViewFrame.origin.x,
+                                                    cropViewFrame.origin.y,
+                                                    cropViewFrame.size.width * pinchGestureRecognizer.scale,
+                                                    cropViewFrame.size.height * pinchGestureRecognizer.scale);
+    else if(cropViewFrame.size.width > cropOverlayFrame.size.width * maxScale)
+        self.viewerView.cropView.frame = CGRectMake(cropOverlayFrame.origin.x,
+                                                    cropOverlayFrame.origin.y,
+                                                    cropOverlayFrame.size.width * maxScale,
+                                                    cropOverlayFrame.size.height * maxScale);
+    else if(cropViewFrame.size.width < (cropOverlayFrame.size.width * minScale))
+        self.viewerView.cropView.frame = CGRectMake(cropOverlayFrame.origin.x,
+                                                    cropOverlayFrame.origin.y,
+                                                    cropOverlayFrame.size.width * minScale,
+                                                    cropOverlayFrame.size.height *minScale);
+    self.viewerView.cropView.center = cropViewCenter;
+    [self.viewerView.cropViewOverlay setNeedsDisplay];
+}
 #pragma mark -- UIImage editing
 
 - (void) saveImageToLibrary
@@ -256,7 +297,14 @@
 
 - (UIImage *) cropImage: (UIImage *) originalImage
 {
-    CGRect clippedRect  = self.viewerView.cropViewOverlay.transparentView.frame;
+    CGSize imageSize = originalImage.size;
+    float xRatio = imageSize.width / self.viewerView.cropViewOverlay.frame.size.width;
+    float yRatio = imageSize.height / self.viewerView.cropViewOverlay.frame.size.height;
+    CGRect clippedRect  = CGRectMake(self.viewerView.cropViewOverlay.transparentView.frame.origin.x * xRatio,
+                                     self.viewerView.cropViewOverlay.transparentView.frame.origin.y * yRatio,
+                                     self.viewerView.cropViewOverlay.transparentView.frame.size.width * xRatio,
+                                     self.viewerView.cropViewOverlay.transparentView.frame.size.height * yRatio);
+    
     CGImageRef imageRef = CGImageCreateWithImageInRect(originalImage.CGImage, clippedRect);
     UIImage *croppedImage   = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
@@ -270,7 +318,6 @@
 
 - (UIImage *) applyFilterToImage: (UIImage *) originalImage
 {
-    NSLog(@"FILTER METHOD");
     UIImage *filteredImage = self.viewerView.viewedImageView.image;
     return filteredImage;
 }
@@ -295,8 +342,8 @@
     
     CGSize imageSize = originalImage.size;
     CGRect textFrame = self.viewerView.addTextField.frame;
-    float xRatio = textFrame.size.width / imageSize.width;
-    float yRatio = textFrame.size.height / imageSize.height;
+    float xRatio =  imageSize.width / self.viewerView.viewedImageView.frame.size.width;
+    float yRatio = imageSize.height / self.viewerView.viewedImageView.frame.size.height;
     CGRect textRect = CGRectMake(textFrame.origin.x * xRatio,
                                  textFrame.origin.y * yRatio,
                                  textFrame.size.width,
