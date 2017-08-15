@@ -10,9 +10,12 @@
 #import "EarthScreenProtocols.h"
 #import "EarthScreenView.h"
 
+@class EPICImageryViewController;
 @interface EarthScreenViewController : UIViewController
 <EarthScreenViewControllerProtocol>
 
-@property (nonatomic, strong) EarthScreenView* earthscreenView;
+@property (nonatomic, strong) EarthScreenView* earthScreenView;
+
+@property EPICImageryViewController *imageryViewController;
 
 @end

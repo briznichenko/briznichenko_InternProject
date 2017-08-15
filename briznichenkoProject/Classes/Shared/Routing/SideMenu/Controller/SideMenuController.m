@@ -72,11 +72,9 @@
             [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
             break;
         case 2:
-            NSLog(@"");
             [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
             break;
         case 3:
-             NSLog(@"");
             [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
             break;
             

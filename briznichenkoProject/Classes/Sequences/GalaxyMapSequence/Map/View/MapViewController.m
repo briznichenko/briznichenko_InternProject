@@ -68,7 +68,6 @@
     if(self.isReady)
     {
         worldLocationString = [request.URL.absoluteString stringByReplacingCharactersInRange:NSMakeRange(0, [request.URL.absoluteString stringByDeletingLastPathComponent].length + 3) withString:@""];
-        NSLog(@"Coords are: %@", worldLocationString);
         NSRange xRange = NSMakeRange(0, [worldLocationString rangeOfString:@","].location);
         NSRange yRange = NSMakeRange(xRange.length + 1, worldLocationString.length - xRange.length - 1);
         worldLocation.x = [worldLocationString substringWithRange:xRange].floatValue;
@@ -142,18 +141,14 @@
 
 -(void)didDoubleTap:(UITapGestureRecognizer *) recognizer
 {
-    NSLog(@"Size of the native map: W%f, H%f", self.mapView.map.frame.size.width, self.mapView.map.frame.size.height);
     CGPoint touchPoint = [recognizer locationInView: self.mapView.map];
     tapLocation = touchPoint;
-    NSLog(@"Location tapped in native map: X%f, Y%f", touchPoint.x, touchPoint.y);
     [self.mapView.map stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"window.location = aladin.pix2world(%f, %f);", touchPoint.x, touchPoint.y - 64]];
 }
 
 -(void)didPinch:(UIPinchGestureRecognizer *) recognizer
 {
     currentZoom = currentZoom > 180 ? 180 : currentZoom / recognizer.scale;
-        
-    NSLog(@"Pinching! %f", currentZoom);
     [self.mapView.map stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"aladin.setFov(%f);", currentZoom]];
 }
 

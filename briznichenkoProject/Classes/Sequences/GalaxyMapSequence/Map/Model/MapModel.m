@@ -199,7 +199,6 @@
     NSURLSessionDataTask *dataTask;
     NSString *urlQueryName = [self constructQueryNameFromOriginalName:objectName];
     NSURL *url = [[NSURL URLWithString:[NSString stringWithFormat:@"https://images-api.nasa.gov/search?q=%@", urlQueryName]] URLByResolvingSymlinksInPath];
-    NSLog(@"%@", url.absoluteString);
     
     urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     dataTask = [urlSession

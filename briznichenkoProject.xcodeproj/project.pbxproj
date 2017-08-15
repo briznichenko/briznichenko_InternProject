@@ -69,6 +69,8 @@
 		7D020A301F41CFEE002D56F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A281F41CFB7002D56F5 /* Assets.xcassets */; };
 		7D020A311F41CFEE002D56F5 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A271F41CFB7002D56F5 /* giphy.gif */; };
 		7D020A3F1F420459002D56F5 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A3C1F4203EA002D56F5 /* TwitterKitResources.bundle */; };
+		7D1249451F4342F2000B8F3C /* EpicImageryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1249441F4342F2000B8F3C /* EpicImageryView.m */; };
+		7D1249481F4345D5000B8F3C /* EPICImageryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1249471F4345D5000B8F3C /* EPICImageryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -195,6 +197,10 @@
 		7D020A2B1F41CFB7002D56F5 /* AladinMap.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = AladinMap.html; sourceTree = "<group>"; };
 		7D020A2C1F41CFB7002D56F5 /* jquery-1.10.1.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery-1.10.1.min.js"; sourceTree = "<group>"; };
 		7D020A3C1F4203EA002D56F5 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		7D1249431F4342F2000B8F3C /* EpicImageryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EpicImageryView.h; sourceTree = "<group>"; };
+		7D1249441F4342F2000B8F3C /* EpicImageryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EpicImageryView.m; sourceTree = "<group>"; };
+		7D1249461F4345D5000B8F3C /* EPICImageryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPICImageryViewController.h; sourceTree = "<group>"; };
+		7D1249471F4345D5000B8F3C /* EPICImageryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPICImageryViewController.m; sourceTree = "<group>"; };
 		7D290CB61F41A5B700C20ABA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D290CB71F41A5B700C20ABA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D290CB81F41A5B700C20ABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -312,6 +318,7 @@
 				7D0209621F41AE2A002D56F5 /* EarthScreenView.m */,
 				7D0209631F41AE2A002D56F5 /* EarthScreenViewController.h */,
 				7D0209641F41AE2A002D56F5 /* EarthScreenViewController.m */,
+				7D1249421F43425F000B8F3C /* EPICImageryController */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -783,6 +790,17 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
+		7D1249421F43425F000B8F3C /* EPICImageryController */ = {
+			isa = PBXGroup;
+			children = (
+				7D1249431F4342F2000B8F3C /* EpicImageryView.h */,
+				7D1249441F4342F2000B8F3C /* EpicImageryView.m */,
+				7D1249461F4345D5000B8F3C /* EPICImageryViewController.h */,
+				7D1249471F4345D5000B8F3C /* EPICImageryViewController.m */,
+			);
+			path = EPICImageryController;
+			sourceTree = "<group>";
+		};
 		7D290CB51F41A5B700C20ABA /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -950,6 +968,8 @@
 				7D020A0B1F41AE64002D56F5 /* SharingViewController.m in Sources */,
 				7D020A0C1F41AE64002D56F5 /* SideMenuController.m in Sources */,
 				7D020A0D1F41AE64002D56F5 /* SideMenuModel.m in Sources */,
+				7D1249481F4345D5000B8F3C /* EPICImageryViewController.m in Sources */,
+				7D1249451F4342F2000B8F3C /* EpicImageryView.m in Sources */,
 				7D020A0E1F41AE64002D56F5 /* SideMenuView.m in Sources */,
 				7D020A0F1F41AE64002D56F5 /* SideMenuViewController.m in Sources */,
 				7D0209521F41AD2D002D56F5 /* AppDelegate.m in Sources */,

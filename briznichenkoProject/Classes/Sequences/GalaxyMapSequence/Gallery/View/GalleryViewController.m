@@ -83,7 +83,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Cell selected at: %li", (long)indexPath.row);
     CelestialBodyImageCell *cell = (CelestialBodyImageCell *)[collectionView cellForItemAtIndexPath:indexPath];
     NSData *imageData = UIImagePNGRepresentation(cell.objectImageView.image);
     [self presentViewerControllerWithImageData: imageData];

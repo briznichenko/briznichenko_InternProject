@@ -1,0 +1,25 @@
+{% include 'header' %}
+
+#import "{{ prefix }}{{ module_info.name }}Model.h"
+
+
+@implementation {{ prefix }}{{ module_info.name }}Model
+
+
+- (instancetype) initWithData
+{
+	self = [super init];
+	if(self)
+	{
+        [self fetchData];
+	}
+	return self;
+}
+
+-(void) fetchData
+{
+    self.data = [NSData new];
+}
+
+
+@end

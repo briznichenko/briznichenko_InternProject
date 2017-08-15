@@ -51,7 +51,6 @@
     self.sharingController.sharingViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self.viewerViewController presentViewController:self.sharingController.sharingViewController animated:YES completion:^{
         self.sharingController.sharingViewController.sharedImageData = UIImagePNGRepresentation(self.viewerViewController.viewerView.viewedImageView.image);
-        NSLog(@"%@:SHARE", self);
     }];
 }
 

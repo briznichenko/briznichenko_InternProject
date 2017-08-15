@@ -1,0 +1,10 @@
+{% include 'header' %}
+
+#import <UIKit/UIKit.h>
+
+
+@interface {{ prefix }}{{ module_info.name }}View : UIView 
+
+-(instancetype)initAndInstallIntoSuperView:(UIView *) superview;
+
+@end

@@ -67,7 +67,6 @@
     self.sharingController = [[SharingController alloc] initAndAssembleWithShareURL:self.objectImageURL];
     self.sharingController.sharingViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self.descriptionViewController presentViewController:self.sharingController.sharingViewController animated:YES completion:^{
-        NSLog(@"%@:SHARE", self);
         self.sharingController.sharingViewController.sharedText = self.descriptionViewController.descriptionView.objectInfoView.text;
     }];
 }

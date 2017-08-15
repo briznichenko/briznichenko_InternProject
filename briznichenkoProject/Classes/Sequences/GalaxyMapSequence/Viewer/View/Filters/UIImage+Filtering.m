@@ -24,7 +24,7 @@
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [filters setValue:[self makeFilteredImage:scaledImage withFilter:filterName] forKey:filterName];
-            NSLog(@"%d", --counter);
+            NSLog(@"Filters to process:%d", --counter);
             if(counter == 0)
                 completion(filters);
         });

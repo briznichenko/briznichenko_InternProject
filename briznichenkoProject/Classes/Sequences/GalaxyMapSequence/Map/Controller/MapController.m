@@ -86,7 +86,6 @@
         NSString *objectName = [notification.object valueForKey:@"objName"];
         [self.mapModel imageryForObjectWithName: objectName completion:^(NSArray *imageryArray)
         {
-            NSLog(@"Imagery fetched!");
             tempGalleryArray.array = @[];
             tempGalleryArray = [NSMutableArray arrayWithArray:imageryArray];
             dispatch_async(dispatch_get_main_queue(), ^{

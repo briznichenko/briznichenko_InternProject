@@ -11,6 +11,7 @@
 #import "EarthScreenViewController.h"
 #import "EarthScreenModel.h"
 
+//@class
 @interface EarthScreenController : NSObject
 <EarthScreenViewControllerProtocol, EarthScreenControllerProtocol, EarthScreenModelProtocol>
 

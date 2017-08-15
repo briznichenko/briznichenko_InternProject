@@ -44,10 +44,15 @@
                                     self.viewerView.filterBar.frame.size.height);
     self.viewerView.filterBar.contentSize = contentSize;
     float navigationBarHeight = self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height;
-    self.view.frame = CGRectMake(self.view.frame.origin.x,
-                                 self.view.frame.origin.y + navigationBarHeight,
-                                 self.view.frame.size.width,
-                                 self.view.frame.size.height - navigationBarHeight);
+    CGRect properFrame = CGRectMake(self.view.frame.origin.x,
+                                    self.view.frame.origin.y + navigationBarHeight,
+                                    self.view.frame.size.width,
+                                    self.view.frame.size.height - navigationBarHeight);
+    if(self.view.frame.origin.y != properFrame.origin.y)
+        self.view.frame = CGRectMake(self.view.frame.origin.x,
+                                     self.view.frame.origin.y + navigationBarHeight,
+                                     self.view.frame.size.width,
+                                     self.view.frame.size.height - navigationBarHeight);
 }
 
 -(void)setupViewControllerWithData:(NSData *)data
@@ -269,7 +274,6 @@
     CGRect cropOverlayFrame = self.viewerView.cropViewOverlay.frame;
     float maxScale = 0.9f;
     float minScale = 0.25f;
-    NSLog(@"%f", pinchGestureRecognizer.scale);
     if(cropViewFrame.size.width >= (cropOverlayFrame.size.width * minScale) && cropViewFrame.size.width <= cropOverlayFrame.size.width * maxScale)
         self.viewerView.cropView.frame = CGRectMake(cropViewFrame.origin.x,
                                                     cropViewFrame.origin.y,

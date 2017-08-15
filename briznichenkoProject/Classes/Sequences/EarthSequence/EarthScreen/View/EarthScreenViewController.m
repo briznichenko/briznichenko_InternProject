@@ -7,6 +7,7 @@
 //
 
 #import "EarthScreenViewController.h"
+#import "EPICImageryViewController.h"
 
 @implementation EarthScreenViewController
 
@@ -18,7 +19,11 @@
 
 -(void)setupViewControllerWithData:(NSData *)data
 {
-    self.earthscreenView = [[EarthScreenView alloc] initAndInstallIntoSuperView: self.view];
+    self.earthScreenView = [[EarthScreenView alloc] initAndInstallIntoSuperView: self.view];
+    self.imageryViewController = [EPICImageryViewController new];
+    [self addChildViewController:self.imageryViewController];
+    
+    [self.earthScreenView.containerView addSubview: self.imageryViewController.view];
 }
 
 @end
