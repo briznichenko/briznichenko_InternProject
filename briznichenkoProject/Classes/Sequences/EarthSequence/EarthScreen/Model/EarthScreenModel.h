@@ -2,19 +2,18 @@
 //  EarthScreenModel.h
 //  briznichenkoProject
 //
-//  Created by briznichenko on 04/08/2017.
+//  Created by briznichenko on 8/16/17.
 //  Copyright © 2017 CHI. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "EarthScreenProtocols.h"
-
 
 @interface EarthScreenModel : NSObject
-<EarthScreenModelProtocol>
 
-@property (atomic, strong) NSData *data;
+@property (nonatomic, strong) NSArray *EPICImages;
 
 - (instancetype) initWithData;
 
+-(void) getEPICData:(void (^)(bool finished))completionBlock;
+-(void)downloadNextImages:(void (^)(NSArray *imagesArray)) completion;
 @end

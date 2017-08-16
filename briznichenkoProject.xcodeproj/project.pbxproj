@@ -21,10 +21,6 @@
 		7D0209501F41AC4C002D56F5 /* TwitterKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7D0209441F41AC3D002D56F5 /* TwitterKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7D0209521F41AD2D002D56F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D290CB71F41A5B700C20ABA /* AppDelegate.m */; };
 		7D0209531F41AD2D002D56F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D290CB91F41A5B700C20ABA /* main.m */; };
-		7D0209E61F41AE64002D56F5 /* EarthScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D02095A1F41AE2A002D56F5 /* EarthScreenController.m */; };
-		7D0209E71F41AE64002D56F5 /* EarthScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D02095F1F41AE2A002D56F5 /* EarthScreenModel.m */; };
-		7D0209E81F41AE64002D56F5 /* EarthScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0209621F41AE2A002D56F5 /* EarthScreenView.m */; };
-		7D0209E91F41AE64002D56F5 /* EarthScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0209641F41AE2A002D56F5 /* EarthScreenViewController.m */; };
 		7D0209EA1F41AE64002D56F5 /* DescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0209691F41AE2A002D56F5 /* DescriptionController.m */; };
 		7D0209EB1F41AE64002D56F5 /* DescriptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D02096E1F41AE2A002D56F5 /* DescriptionModel.m */; };
 		7D0209EC1F41AE64002D56F5 /* DescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0209711F41AE2A002D56F5 /* DescriptionView.m */; };
@@ -69,8 +65,10 @@
 		7D020A301F41CFEE002D56F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A281F41CFB7002D56F5 /* Assets.xcassets */; };
 		7D020A311F41CFEE002D56F5 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A271F41CFB7002D56F5 /* giphy.gif */; };
 		7D020A3F1F420459002D56F5 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D020A3C1F4203EA002D56F5 /* TwitterKitResources.bundle */; };
-		7D1249451F4342F2000B8F3C /* EpicImageryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1249441F4342F2000B8F3C /* EpicImageryView.m */; };
-		7D1249481F4345D5000B8F3C /* EPICImageryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1249471F4345D5000B8F3C /* EPICImageryViewController.m */; };
+		7D1EAD321F44605B00A7DA74 /* EarthScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EAD2B1F445FC400A7DA74 /* EarthScreenModel.m */; };
+		7D1EAD331F44605B00A7DA74 /* EarthScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EAD2E1F445FC400A7DA74 /* EarthScreenViewController.m */; };
+		7D1EAD341F44605B00A7DA74 /* EPICImageryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EAD311F445FC400A7DA74 /* EPICImageryViewController.m */; };
+		7D9E9A501F4445A900B40593 /* EarthSequenceStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -99,15 +97,6 @@
 		7D0209411F41AC3D002D56F5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		7D0209431F41AC3D002D56F5 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		7D0209441F41AC3D002D56F5 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
-		7D0209591F41AE2A002D56F5 /* EarthScreenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthScreenController.h; sourceTree = "<group>"; };
-		7D02095A1F41AE2A002D56F5 /* EarthScreenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthScreenController.m; sourceTree = "<group>"; };
-		7D02095C1F41AE2A002D56F5 /* EarthScreenProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthScreenProtocols.h; sourceTree = "<group>"; };
-		7D02095E1F41AE2A002D56F5 /* EarthScreenModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthScreenModel.h; sourceTree = "<group>"; };
-		7D02095F1F41AE2A002D56F5 /* EarthScreenModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthScreenModel.m; sourceTree = "<group>"; };
-		7D0209611F41AE2A002D56F5 /* EarthScreenView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthScreenView.h; sourceTree = "<group>"; };
-		7D0209621F41AE2A002D56F5 /* EarthScreenView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthScreenView.m; sourceTree = "<group>"; };
-		7D0209631F41AE2A002D56F5 /* EarthScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthScreenViewController.h; sourceTree = "<group>"; };
-		7D0209641F41AE2A002D56F5 /* EarthScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthScreenViewController.m; sourceTree = "<group>"; };
 		7D0209681F41AE2A002D56F5 /* DescriptionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DescriptionController.h; sourceTree = "<group>"; };
 		7D0209691F41AE2A002D56F5 /* DescriptionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DescriptionController.m; sourceTree = "<group>"; };
 		7D02096B1F41AE2A002D56F5 /* DescriptionProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DescriptionProtocols.h; sourceTree = "<group>"; };
@@ -197,14 +186,17 @@
 		7D020A2B1F41CFB7002D56F5 /* AladinMap.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = AladinMap.html; sourceTree = "<group>"; };
 		7D020A2C1F41CFB7002D56F5 /* jquery-1.10.1.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery-1.10.1.min.js"; sourceTree = "<group>"; };
 		7D020A3C1F4203EA002D56F5 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
-		7D1249431F4342F2000B8F3C /* EpicImageryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EpicImageryView.h; sourceTree = "<group>"; };
-		7D1249441F4342F2000B8F3C /* EpicImageryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EpicImageryView.m; sourceTree = "<group>"; };
-		7D1249461F4345D5000B8F3C /* EPICImageryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPICImageryViewController.h; sourceTree = "<group>"; };
-		7D1249471F4345D5000B8F3C /* EPICImageryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPICImageryViewController.m; sourceTree = "<group>"; };
+		7D1EAD2A1F445FC400A7DA74 /* EarthScreenModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthScreenModel.h; sourceTree = "<group>"; };
+		7D1EAD2B1F445FC400A7DA74 /* EarthScreenModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthScreenModel.m; sourceTree = "<group>"; };
+		7D1EAD2D1F445FC400A7DA74 /* EarthScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthScreenViewController.h; sourceTree = "<group>"; };
+		7D1EAD2E1F445FC400A7DA74 /* EarthScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthScreenViewController.m; sourceTree = "<group>"; };
+		7D1EAD301F445FC400A7DA74 /* EPICImageryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPICImageryViewController.h; sourceTree = "<group>"; };
+		7D1EAD311F445FC400A7DA74 /* EPICImageryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPICImageryViewController.m; sourceTree = "<group>"; };
 		7D290CB61F41A5B700C20ABA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D290CB71F41A5B700C20ABA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D290CB81F41A5B700C20ABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D290CB91F41A5B700C20ABA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EarthSequenceStoryboard.storyboard; sourceTree = "<group>"; };
 		7DFF4A281F1CCAB600E5A602 /* briznichenkoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = briznichenkoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -269,58 +261,10 @@
 		7D0209561F41AE2A002D56F5 /* EarthSequence */ = {
 			isa = PBXGroup;
 			children = (
-				7D0209571F41AE2A002D56F5 /* EarthScreen */,
+				7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */,
+				7D1EAD281F445FC400A7DA74 /* EarthScreen */,
 			);
 			path = EarthSequence;
-			sourceTree = "<group>";
-		};
-		7D0209571F41AE2A002D56F5 /* EarthScreen */ = {
-			isa = PBXGroup;
-			children = (
-				7D0209581F41AE2A002D56F5 /* Controller */,
-				7D02095B1F41AE2A002D56F5 /* Interface */,
-				7D02095D1F41AE2A002D56F5 /* Model */,
-				7D0209601F41AE2A002D56F5 /* View */,
-			);
-			path = EarthScreen;
-			sourceTree = "<group>";
-		};
-		7D0209581F41AE2A002D56F5 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7D0209591F41AE2A002D56F5 /* EarthScreenController.h */,
-				7D02095A1F41AE2A002D56F5 /* EarthScreenController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		7D02095B1F41AE2A002D56F5 /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				7D02095C1F41AE2A002D56F5 /* EarthScreenProtocols.h */,
-			);
-			path = Interface;
-			sourceTree = "<group>";
-		};
-		7D02095D1F41AE2A002D56F5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7D02095E1F41AE2A002D56F5 /* EarthScreenModel.h */,
-				7D02095F1F41AE2A002D56F5 /* EarthScreenModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7D0209601F41AE2A002D56F5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7D0209611F41AE2A002D56F5 /* EarthScreenView.h */,
-				7D0209621F41AE2A002D56F5 /* EarthScreenView.m */,
-				7D0209631F41AE2A002D56F5 /* EarthScreenViewController.h */,
-				7D0209641F41AE2A002D56F5 /* EarthScreenViewController.m */,
-				7D1249421F43425F000B8F3C /* EPICImageryController */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		7D0209651F41AE2A002D56F5 /* GalaxyMapSequence */ = {
@@ -790,15 +734,41 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
-		7D1249421F43425F000B8F3C /* EPICImageryController */ = {
+		7D1EAD281F445FC400A7DA74 /* EarthScreen */ = {
 			isa = PBXGroup;
 			children = (
-				7D1249431F4342F2000B8F3C /* EpicImageryView.h */,
-				7D1249441F4342F2000B8F3C /* EpicImageryView.m */,
-				7D1249461F4345D5000B8F3C /* EPICImageryViewController.h */,
-				7D1249471F4345D5000B8F3C /* EPICImageryViewController.m */,
+				7D1EAD291F445FC400A7DA74 /* Model */,
+				7D1EAD2C1F445FC400A7DA74 /* View Controller */,
 			);
-			path = EPICImageryController;
+			path = EarthScreen;
+			sourceTree = "<group>";
+		};
+		7D1EAD291F445FC400A7DA74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D1EAD2A1F445FC400A7DA74 /* EarthScreenModel.h */,
+				7D1EAD2B1F445FC400A7DA74 /* EarthScreenModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D1EAD2C1F445FC400A7DA74 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7D1EAD2D1F445FC400A7DA74 /* EarthScreenViewController.h */,
+				7D1EAD2E1F445FC400A7DA74 /* EarthScreenViewController.m */,
+				7D1EAD2F1F445FC400A7DA74 /* EPICImageryViewController */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		7D1EAD2F1F445FC400A7DA74 /* EPICImageryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7D1EAD301F445FC400A7DA74 /* EPICImageryViewController.h */,
+				7D1EAD311F445FC400A7DA74 /* EPICImageryViewController.m */,
+			);
+			path = EPICImageryViewController;
 			sourceTree = "<group>";
 		};
 		7D290CB51F41A5B700C20ABA /* Application */ = {
@@ -916,6 +886,7 @@
 				7D020A2D1F41CFEE002D56F5 /* aladin.js in Resources */,
 				7D020A2E1F41CFEE002D56F5 /* AladinMap.html in Resources */,
 				7D020A2F1F41CFEE002D56F5 /* jquery-1.10.1.min.js in Resources */,
+				7D9E9A501F4445A900B40593 /* EarthSequenceStoryboard.storyboard in Resources */,
 				7D020A301F41CFEE002D56F5 /* Assets.xcassets in Resources */,
 				7D020A311F41CFEE002D56F5 /* giphy.gif in Resources */,
 			);
@@ -928,10 +899,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D0209E61F41AE64002D56F5 /* EarthScreenController.m in Sources */,
-				7D0209E71F41AE64002D56F5 /* EarthScreenModel.m in Sources */,
-				7D0209E81F41AE64002D56F5 /* EarthScreenView.m in Sources */,
-				7D0209E91F41AE64002D56F5 /* EarthScreenViewController.m in Sources */,
+				7D1EAD321F44605B00A7DA74 /* EarthScreenModel.m in Sources */,
+				7D1EAD331F44605B00A7DA74 /* EarthScreenViewController.m in Sources */,
+				7D1EAD341F44605B00A7DA74 /* EPICImageryViewController.m in Sources */,
 				7D0209EA1F41AE64002D56F5 /* DescriptionController.m in Sources */,
 				7D0209EB1F41AE64002D56F5 /* DescriptionModel.m in Sources */,
 				7D0209EC1F41AE64002D56F5 /* DescriptionView.m in Sources */,
@@ -968,8 +938,6 @@
 				7D020A0B1F41AE64002D56F5 /* SharingViewController.m in Sources */,
 				7D020A0C1F41AE64002D56F5 /* SideMenuController.m in Sources */,
 				7D020A0D1F41AE64002D56F5 /* SideMenuModel.m in Sources */,
-				7D1249481F4345D5000B8F3C /* EPICImageryViewController.m in Sources */,
-				7D1249451F4342F2000B8F3C /* EpicImageryView.m in Sources */,
 				7D020A0E1F41AE64002D56F5 /* SideMenuView.m in Sources */,
 				7D020A0F1F41AE64002D56F5 /* SideMenuViewController.m in Sources */,
 				7D0209521F41AD2D002D56F5 /* AppDelegate.m in Sources */,

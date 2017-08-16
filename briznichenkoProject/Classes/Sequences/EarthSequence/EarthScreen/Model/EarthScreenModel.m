@@ -2,30 +2,27 @@
 //  EarthScreenModel.m
 //  briznichenkoProject
 //
-//  Created by briznichenko on 04/08/2017.
+//  Created by briznichenko on 8/16/17.
 //  Copyright © 2017 CHI. All rights reserved.
 //
 
 #import "EarthScreenModel.h"
 
-
 @implementation EarthScreenModel
 {
-        NSMutableArray *epicImageURLs;
+    NSMutableArray *epicImageURLs;
+    int index;
 }
+static int amount = 3;
 
 - (instancetype) initWithData
 {
-	self = [super init];
-	if(self)
-	{
+    self = [super init];
+    if(self)
+    {
         epicImageURLs = [NSMutableArray new];
-        [self getEPICData:^(bool finished) {
-            if(finished)
-                NSLog(@"DOWNLOAD_SAY_5_IMAGES_FROM_ARRAY");
-        }];
     }
-	return self;
+    return self;
 }
 
 -(void) getEPICData:(void (^)(bool finished))completionBlock
@@ -50,13 +47,26 @@
                                                          [jsonDict valueForKey:@"image"]];
                                 [epicImageURLs addObject:rawImageURL];
                             }
-                            
                             completionBlock(epicImageURLs.count == jsonData.count);
                         }
                         else
                             NSLog(@"Error:%@", error.localizedDescription);
                     }];
         [dataTask resume];
+    });
+}
+
+-(void)downloadNextImages:(void (^)(NSArray *imagesArray)) completion
+{
+    NSMutableArray *imagesArray = [NSMutableArray new];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        for(int i = 0; i < 3; i++)
+        {
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:epicImageURLs[i]]];
+            [imagesArray addObject:imageData];
+            if(imagesArray.count == amount)
+                completion(imagesArray);
+        }
     });
 }
 

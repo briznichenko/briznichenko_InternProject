@@ -10,7 +10,6 @@
 #import "SideMenuController.h"
 #import "MapController.h"
 #import "MapViewController.h"
-#import "EarthScreenController.h"
 #import "EarthScreenViewController.h"
 //#import "header"
 //#import "header"
@@ -98,8 +97,10 @@
         [self.sideMenuController.sideMenuViewController dismissViewControllerAnimated:YES completion:nil];
     else
     {
-        self.earthScreenController = [[EarthScreenController alloc] initAndAssemble];
-        NSArray *newControllerStack = @[self.earthScreenController.earthscreenViewController];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EarthSequenceStoryboard" bundle:nil];
+        self.earthScreenViewController = [storyboard instantiateViewControllerWithIdentifier:@"EarthScreenViewController"];
+//        self.earthScreenViewController = [[EarthScreenViewController alloc] in]
+        NSArray *newControllerStack = @[self.earthScreenViewController];
         [self setViewControllers:newControllerStack animated:YES];
     }
 }

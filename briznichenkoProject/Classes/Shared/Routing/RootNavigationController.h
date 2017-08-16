@@ -11,7 +11,7 @@
 
 @class SideMenuController;
 @class MapController;
-@class EarthScreenController;
+@class EarthScreenViewController;
 //@class ;
 //@class ;
 
@@ -21,7 +21,7 @@
 @property(nonatomic, strong) SideMenuController *sideMenuController;
 
 @property (nonatomic, strong) MapController *mapController;
-@property (nonatomic, strong) EarthScreenController *earthScreenController;
+@property (nonatomic, strong) EarthScreenViewController *earthScreenViewController;
 
 - (instancetype) initWithInitialViewController;
 
