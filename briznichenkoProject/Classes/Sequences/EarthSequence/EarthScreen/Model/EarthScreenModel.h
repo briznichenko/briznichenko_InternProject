@@ -14,6 +14,5 @@
 
 - (instancetype) initWithData;
 
--(void) getEPICData:(void (^)(bool finished))completionBlock;
--(void)downloadNextImages:(void (^)(NSArray *imagesArray)) completion;
+-(void)downloadImagePackForPreviousDay: (BOOL) direction completion:(void (^)(NSArray *imagesArray)) completion;
 @end

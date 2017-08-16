@@ -15,6 +15,9 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *epicImageryScrollView;
 
-- (void)populateWithImages;
+- (void) updateImagery;
+//- (void) setupScrollViewWithImage:(UIImage*) initialImage;
+//- (void) addNextImage:(UIImage *)nextImage;
+//- (void) addPreviousImage:(UIImage*) previousImage;
 
 @end

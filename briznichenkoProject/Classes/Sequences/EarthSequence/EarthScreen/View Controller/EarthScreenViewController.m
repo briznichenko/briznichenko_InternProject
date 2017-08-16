@@ -24,15 +24,11 @@
 {
     self.earthScreenModel = [[EarthScreenModel alloc] initWithData];
     self.dateLabel.text = [NSString stringWithFormat:@"%@", [NSDate new]];
-    [self.earthScreenModel getEPICData:^(bool finished) {
-        if(finished)
-            [self.earthScreenModel downloadNextImages:^(NSArray *imagesArray) {
-                if(self.epicImageryController)
-                {
-                    self.epicImageryController.imageryArray = imagesArray;
-                    [self.epicImageryController populateWithImages];
-                }
-            }];
+    [self.earthScreenModel downloadImagePackForPreviousDay:YES completion:^(NSArray *imagesArray) {
+        self.epicImageryController.imageryArray = imagesArray;
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.epicImageryController updateImagery];
+        });
     }];
 }
 

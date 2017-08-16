@@ -20,12 +20,13 @@ static int amount = 3;
     self = [super init];
     if(self)
     {
+        index = 0;
         epicImageURLs = [NSMutableArray new];
     }
     return self;
 }
 
--(void) getEPICData:(void (^)(bool finished))completionBlock
+-(void) getImageURLsForDate:(NSDate*) date completion:(void (^)(bool finished))completionBlock
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURLSession *urlSession;
@@ -56,18 +57,35 @@ static int amount = 3;
     });
 }
 
--(void)downloadNextImages:(void (^)(NSArray *imagesArray)) completion
+-(void)downloadImagePackForPreviousDay: (BOOL) direction completion:(void (^)(NSArray *imagesArray)) completion
 {
     NSMutableArray *imagesArray = [NSMutableArray new];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        for(int i = 0; i < 3; i++)
-        {
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:epicImageURLs[i]]];
-            [imagesArray addObject:imageData];
-            if(imagesArray.count == amount)
-                completion(imagesArray);
-        }
-    });
+    int count = index + amount;
+    if(epicImageURLs.count == 0)
+        [self getImageURLsForDate:[NSDate new] completion:^(bool finished){
+            if(finished)
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    for(int i = index; i < count; i++)
+                    {
+                        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:epicImageURLs[i]]];
+                        [imagesArray addObject:imageData];
+                        if(imagesArray.count == amount)
+                        {
+                            index += amount;
+                            completion(imagesArray);
+                        }}});
+        }];
+    else
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            for(int i = index; i < count; i++)
+            {
+                NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:epicImageURLs[i]]];
+                [imagesArray addObject:imageData];
+                if(imagesArray.count == amount)
+                {
+                    index += amount;
+                    completion(imagesArray);
+                }}});
 }
 
 @end
