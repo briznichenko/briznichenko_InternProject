@@ -1,6 +1,6 @@
 # briznichenko_InternProject
 
-## An app created to explore both the depth of space and the nearby surroundings of Earth.
+## An app created to explore both the depths of space and the nearby surroundings of Earth.
 
 
 The app consists of 4 main modules:
