@@ -30,80 +30,63 @@
 
 #pragma mark -- Actions
 
-//-(void)populateWithImages
-//{
-//    __block float contentWidth = 0.0f;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        for (int i = 0; i < self.imageryArray.count; i++)
-//        {
-//            UIImage *epicImage = [UIImage imageWithData:self.imageryArray[i]];
-//            UIImageView *epicImageView = [[UIImageView alloc] initWithImage:epicImage];
-//            if(i == 0)
-//                epicImageView.frame = self.epicImageryScrollView.frame;
-//            else
-//                epicImageView.frame = CGRectMake(self.epicImageryScrollView.subviews[i - 1].frame.origin.x + self.epicImageryScrollView.frame.size.width,
-//                                                 self.epicImageryScrollView.frame.origin.y,
-//                                                 self.epicImageryScrollView.frame.size.width,
-//                                                 self.epicImageryScrollView.frame.size.height);
-//            epicImageView.backgroundColor = [UIColor colorWithWhite:1.0f / i alpha:1.0f];
-//            [self.epicImageryScrollView addSubview:epicImageView];
-//            if(self.epicImageryScrollView.subviews.count == self.imageryArray.count)
-//            {
-//                self.epicImageryScrollView.contentSize = CGSizeMake(self.epicImageryScrollView.frame.size.height * self.epicImageryScrollView.subviews.count,
-//                                                                    self.epicImageryScrollView.frame.size.height);
-//                [self.epicImageryScrollView setNeedsDisplay];
-//                [self shouldHideActivityIndicator:YES];
-//            }
-//        }
-//    });
-//}
-
 - (void) updateImagery
 {
-    //if kokoko
-    [self setupScrollViewWithImage:[self imageFromData:self.imageryArray[0]]];
-    [self addNextImage:[self imageFromData:self.imageryArray[1]]];
-    [self addNextImage:[self imageFromData:self.imageryArray[2]]];
+    if(self.epicImageryScrollView.subviews.count == 0)
+    {
+        [self setupScrollViewWithImage:[self imageFromData:self.imageryArray[0]]];
+        [self addFront:YES image:[self imageFromData:self.imageryArray[1]]];
+        [self addFront:YES image:[self imageFromData:self.imageryArray[2]]];
+        [self.imageryArray removeAllObjects];
+        [self shouldHideActivityIndicator:YES];
+    }
     
-    [self shouldHideActivityIndicator:YES];
     [self.epicImageryScrollView setNeedsDisplay];
 }
 
 -(void) setupScrollViewWithImage:(UIImage*) initialImage
 {
     UIImageView *EPICImageView = [[UIImageView alloc] initWithImage:initialImage];
+    EPICImageView.contentMode = UIViewContentModeScaleToFill;
     EPICImageView.frame = self.epicImageryScrollView.frame;
     [self.epicImageryScrollView addSubview:EPICImageView];
+    EPICImageView.backgroundColor = [UIColor greenColor];
+    self.epicImageryScrollView.contentSize = self.epicImageryScrollView.frame.size;
 }
 
-- (void) addNextImage:(UIImage *)nextImage
+- (void) addFront:(BOOL) front image:(UIImage *)image
 {
-    CGRect EPICImageViewFrame = CGRectMake(self.epicImageryScrollView.subviews.lastObject.frame.origin.x + self.epicImageryScrollView.frame.size.width,
-                                            self.epicImageryScrollView.subviews.lastObject.frame.origin.y,
-                                            self.epicImageryScrollView.frame.size.width,
-                                            self.epicImageryScrollView.frame.size.height);
-    UIImageView *EPICImageView = [[UIImageView alloc] initWithImage:nextImage];
-    EPICImageView.frame = EPICImageViewFrame;
+    float EPICImageFrameOriginX = front ? self.epicImageryScrollView.subviews.lastObject.frame.origin.x + self.epicImageryScrollView.frame.size.width : self.epicImageryScrollView.subviews.firstObject.frame.origin.x - self.epicImageryScrollView.frame.size.width;
+    UIImageView *EPICImageView = [[UIImageView alloc] initWithImage:image];
+    EPICImageView.backgroundColor = [UIColor colorWithWhite:1.0f / self.epicImageryScrollView.subviews.count alpha:1.0f];
+    EPICImageView.contentMode = UIViewContentModeScaleToFill;
+    EPICImageView.frame = CGRectMake(EPICImageFrameOriginX,
+                                     self.epicImageryScrollView.frame.origin.y,
+                                     self.epicImageryScrollView.frame.size.width,
+                                     self.epicImageryScrollView.frame.size.height);
     [self.epicImageryScrollView addSubview:EPICImageView];
     self.epicImageryScrollView.contentSize = CGSizeMake(self.epicImageryScrollView.contentSize.width + EPICImageView.frame.size.width,
-                                    self.epicImageryScrollView.contentSize.height);
-}
-
-- (void) addPreviousImage:(UIImage*) previousImage
-{
-    CGRect EPICImageViewFrame = CGRectMake(self.epicImageryScrollView.subviews.lastObject.frame.origin.x - self.epicImageryScrollView.frame.size.width,
-                                           self.epicImageryScrollView.subviews.lastObject.frame.origin.y,
-                                           self.epicImageryScrollView.frame.size.width,
-                                           self.epicImageryScrollView.frame.size.height);
-    UIImageView *EPICImageView = [[UIImageView alloc] initWithImage:previousImage];
-    EPICImageView.frame = EPICImageViewFrame;
-    [self.epicImageryScrollView addSubview:EPICImageView];
+                                                        self.epicImageryScrollView.frame.size.height);
 }
 
 - (void)shouldHideActivityIndicator:(BOOL) hideIndicator
 {
     hideIndicator? [activityIndicator stopAnimating] : [activityIndicator startAnimating];
     activityIndicator.hidden = hideIndicator;
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.epicImageryScrollView.subviews.firstObject removeFromSuperview];
+    if(self.imageryArray.count != 0)
+    {
+        [self addFront:YES image:[self imageFromData:self.imageryArray[0]]];
+//        [self.imageryArray removeObjectAtIndex:0];
+    }
+    else
+    {
+        
+    }
 }
 
 #pragma mark - Util

@@ -11,7 +11,7 @@
 @interface EPICImageryViewController : UIViewController
 <UIScrollViewDelegate>
 
-@property (nonatomic, strong) NSArray *imageryArray;
+@property (nonatomic, strong) NSMutableArray *imageryArray;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *epicImageryScrollView;
 

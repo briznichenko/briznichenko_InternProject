@@ -99,7 +99,6 @@
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EarthSequenceStoryboard" bundle:nil];
         self.earthScreenViewController = [storyboard instantiateViewControllerWithIdentifier:@"EarthScreenViewController"];
-//        self.earthScreenViewController = [[EarthScreenViewController alloc] in]
         NSArray *newControllerStack = @[self.earthScreenViewController];
         [self setViewControllers:newControllerStack animated:YES];
     }
