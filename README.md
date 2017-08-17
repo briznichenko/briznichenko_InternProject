@@ -2,6 +2,7 @@
 
 ## An app created to explore both the depth of space and the nearby surroundings of Earth.
 
+
 The app consists of 4 main modules:
 N | Module name                               |Module status (%)
 --|-------------------------------------------|------------
@@ -9,6 +10,7 @@ N | Module name                               |Module status (%)
 2.|Earth imagery and Earth events module   	  |10%
 3.|Location and time-based conditions module  |0%
 4.|Library module                             |0%
+
 
  ### 1. Space-Map module tutorial:
 
