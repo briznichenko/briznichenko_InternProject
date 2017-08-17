@@ -13,7 +13,7 @@
     NSMutableArray *epicImageURLs;
     int index;
 }
-static int amount = 3;
+static int amount = 5;
 
 - (instancetype) initWithData
 {
@@ -61,6 +61,7 @@ static int amount = 3;
 {
     NSMutableArray *imagesArray = [NSMutableArray new];
     int count = index + amount;
+    index = count;
     if(epicImageURLs.count == 0)
         [self getImageURLsForDate:[NSDate new] completion:^(bool finished){
             if(finished)

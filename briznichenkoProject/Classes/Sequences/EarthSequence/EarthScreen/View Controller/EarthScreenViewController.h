@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EarthScreenModel.h"
 
-@class EPICImageryViewController;
+@class EPICImageryViewController, FlatEarthViewController;
 @interface EarthScreenViewController : UIViewController
 
 @property (nonatomic, strong) EarthScreenModel *earthScreenModel;
@@ -18,7 +18,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *eventsButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *earthViewSwitcher;
 @property (weak, nonatomic) IBOutlet UIView *earthScreenViewContainer;
+@property (weak, nonatomic) IBOutlet UIView *earthFlatViewContainer;
 
 @property (nonatomic, strong) EPICImageryViewController *epicImageryController;
+@property (nonatomic, strong) FlatEarthViewController *flatEarthController;
+
+-(void) fetchImages;
 
 @end

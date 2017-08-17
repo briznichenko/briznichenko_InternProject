@@ -9,15 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface EPICImageryViewController : UIViewController
-<UIScrollViewDelegate>
+<UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *imageryArray;
 
-@property (strong, nonatomic) IBOutlet UIScrollView *epicImageryScrollView;
+@property (weak, nonatomic) IBOutlet UICollectionView *imageryCollection;
 
-- (void) updateImagery;
-//- (void) setupScrollViewWithImage:(UIImage*) initialImage;
-//- (void) addNextImage:(UIImage *)nextImage;
-//- (void) addPreviousImage:(UIImage*) previousImage;
+-(void) updateImagery;
 
 @end

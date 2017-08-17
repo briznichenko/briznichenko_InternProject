@@ -10,6 +10,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Flat Earth View Controller-->
+        <scene sceneID="FCJ-0A-rj5">
+            <objects>
+                <viewController id="YbS-8P-w0z" customClass="FlatEarthViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPX-JP-NHh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXl-u0-U0f">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AXl-u0-U0f" firstAttribute="centerX" secondItem="C30-Uz-X8h" secondAttribute="centerX" id="diY-Qh-gxX"/>
+                            <constraint firstItem="AXl-u0-U0f" firstAttribute="width" secondItem="cPX-JP-NHh" secondAttribute="width" id="uJ1-TB-OE1"/>
+                            <constraint firstItem="AXl-u0-U0f" firstAttribute="centerY" secondItem="C30-Uz-X8h" secondAttribute="centerY" id="uck-yC-fma"/>
+                            <constraint firstItem="AXl-u0-U0f" firstAttribute="height" secondItem="cPX-JP-NHh" secondAttribute="height" id="yeF-je-OFp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="C30-Uz-X8h"/>
+                    </view>
+                    <connections>
+                        <outlet property="flatEarthWebView" destination="AXl-u0-U0f" id="61H-uf-lIK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJG-ml-Q6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="486" y="832"/>
+        </scene>
         <!--Earth Screen View Controller-->
         <scene sceneID="EJv-dZ-gx7">
             <objects>
@@ -39,6 +69,9 @@
                                                     <constraint firstAttribute="height" constant="25" id="HyI-Dh-DB8"/>
                                                 </constraints>
                                                 <state key="normal" title="Events-&gt;"/>
+                                                <connections>
+                                                    <segue destination="YIE-aR-O2L" kind="show" id="AqM-Rc-d2U"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.49803921569999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,9 +87,12 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-Q6-0OL">
                                         <rect key="frame" x="8" y="83" width="359" height="29"/>
                                         <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
+                                            <segment title="Globe"/>
+                                            <segment title="Flat"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="segmentedControlValueChanged:" destination="Gmk-8Y-jBx" eventType="valueChanged" id="wDZ-Kh-CXU"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,27 +128,38 @@
                                     <constraint firstAttribute="height" constant="20" id="c8o-ve-A2Y"/>
                                 </constraints>
                             </view>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFl-WN-5lS">
+                                <rect key="frame" x="0.0" y="205" width="375" height="462"/>
+                                <connections>
+                                    <segue destination="YbS-8P-w0z" kind="embed" identifier="Flat_earth_view_controller_embed" id="pmB-CE-leb"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Wea-ml-e0d" firstAttribute="leading" secondItem="zr4-1p-HO4" secondAttribute="leading" id="5ux-YP-6aC"/>
+                            <constraint firstItem="VFl-WN-5lS" firstAttribute="width" secondItem="Wea-ml-e0d" secondAttribute="width" id="63I-CI-Jaj"/>
                             <constraint firstItem="Wea-ml-e0d" firstAttribute="bottom" secondItem="zr4-1p-HO4" secondAttribute="bottom" id="8A7-KT-al1"/>
                             <constraint firstItem="83E-1I-nrH" firstAttribute="trailing" secondItem="zr4-1p-HO4" secondAttribute="trailing" id="8ou-IT-4Fn"/>
                             <constraint firstItem="Hy5-lJ-e0l" firstAttribute="leading" secondItem="6aI-pV-jxY" secondAttribute="leading" id="8wr-rH-5sm"/>
                             <constraint firstItem="Wea-ml-e0d" firstAttribute="trailing" secondItem="zr4-1p-HO4" secondAttribute="trailing" id="A6f-7U-7oy"/>
                             <constraint firstAttribute="trailing" secondItem="Hy5-lJ-e0l" secondAttribute="trailing" id="Egv-Zm-lja"/>
+                            <constraint firstItem="VFl-WN-5lS" firstAttribute="centerY" secondItem="Wea-ml-e0d" secondAttribute="centerY" id="FUH-ke-5ab"/>
                             <constraint firstItem="Hy5-lJ-e0l" firstAttribute="top" secondItem="6aI-pV-jxY" secondAttribute="top" id="Fdw-Cx-Q27"/>
+                            <constraint firstItem="VFl-WN-5lS" firstAttribute="height" secondItem="Wea-ml-e0d" secondAttribute="height" id="KJt-cc-wfl"/>
                             <constraint firstItem="83E-1I-nrH" firstAttribute="leading" secondItem="zr4-1p-HO4" secondAttribute="leading" id="QAO-yO-3bJ"/>
                             <constraint firstItem="yMc-Oc-pAu" firstAttribute="trailing" secondItem="zr4-1p-HO4" secondAttribute="trailing" id="eiZ-ix-Lwe"/>
                             <constraint firstItem="Wea-ml-e0d" firstAttribute="top" secondItem="yMc-Oc-pAu" secondAttribute="bottom" id="gtP-hK-xyX"/>
                             <constraint firstItem="yMc-Oc-pAu" firstAttribute="leading" secondItem="zr4-1p-HO4" secondAttribute="leading" id="idH-fu-Grf"/>
                             <constraint firstItem="83E-1I-nrH" firstAttribute="top" secondItem="Hy5-lJ-e0l" secondAttribute="bottom" id="jHu-LR-ZOM"/>
+                            <constraint firstItem="VFl-WN-5lS" firstAttribute="centerX" secondItem="Wea-ml-e0d" secondAttribute="centerX" id="ymV-yc-Bk5"/>
                             <constraint firstItem="yMc-Oc-pAu" firstAttribute="top" secondItem="83E-1I-nrH" secondAttribute="bottom" id="zeQ-9D-PMD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zr4-1p-HO4"/>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="fGD-RA-cnU" id="bv8-eE-PeV"/>
+                        <outlet property="earthFlatViewContainer" destination="VFl-WN-5lS" id="py6-zf-wdu"/>
                         <outlet property="earthScreenViewContainer" destination="Wea-ml-e0d" id="wih-R5-lGg"/>
                         <outlet property="earthViewSwitcher" destination="fvN-Q6-0OL" id="dNK-ix-8RK"/>
                         <outlet property="eventsButton" destination="YPA-Xy-iTv" id="lAJ-ly-6Uu"/>
@@ -130,27 +177,130 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0S-Br-ECe">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cet-kf-Pbh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </scrollView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f24-JB-egl">
+                                    <size key="itemSize" width="375" height="465"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="epicImageCell" id="Uz9-I2-XJH">
+                                        <rect key="frame" x="0.0" y="-1.5" width="375" height="465"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="465"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="K0S-Br-ECe" secondAttribute="bottom" id="79q-w4-d22"/>
-                            <constraint firstItem="K0S-Br-ECe" firstAttribute="leading" secondItem="bBs-bg-7fR" secondAttribute="leading" id="d8U-6l-e6O"/>
-                            <constraint firstItem="K0S-Br-ECe" firstAttribute="top" secondItem="bBs-bg-7fR" secondAttribute="top" id="dFk-Lo-dwL"/>
-                            <constraint firstItem="K0S-Br-ECe" firstAttribute="trailing" secondItem="bBs-bg-7fR" secondAttribute="trailing" id="tY3-yV-OwD"/>
+                            <constraint firstItem="bBs-bg-7fR" firstAttribute="trailing" secondItem="Cet-kf-Pbh" secondAttribute="trailing" id="BXe-gz-kW0"/>
+                            <constraint firstItem="Cet-kf-Pbh" firstAttribute="leading" secondItem="bBs-bg-7fR" secondAttribute="leading" id="JVz-ig-q0v"/>
+                            <constraint firstItem="bBs-bg-7fR" firstAttribute="bottom" secondItem="Cet-kf-Pbh" secondAttribute="bottom" id="QaN-Yx-AWO"/>
+                            <constraint firstItem="Cet-kf-Pbh" firstAttribute="top" secondItem="bBs-bg-7fR" secondAttribute="top" id="hsC-ML-yOP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bBs-bg-7fR"/>
                     </view>
                     <connections>
-                        <outlet property="epicImageryScrollView" destination="K0S-Br-ECe" id="M2d-8k-F8q"/>
+                        <outlet property="imageryCollection" destination="Cet-kf-Pbh" id="xk3-Q4-YZF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mdf-iG-LqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496.80000000000001" y="120.53973013493254"/>
+            <point key="canvasLocation" x="486" y="228"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="WNI-Rz-t8m">
+            <objects>
+                <collectionViewController id="YIE-aR-O2L" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1dl-13-jUM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UK4-ib-8H4">
+                            <size key="itemSize" width="182" height="237"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="b0B-iM-h06">
+                                <rect key="frame" x="0.0" y="50" width="182" height="237"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="182" height="237"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                                <connections>
+                                    <segue destination="YQr-zk-6Jv" kind="show" id="68f-uN-KAT"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hh0-ZP-QgM">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="YIE-aR-O2L" id="7QV-dv-sGu"/>
+                            <outlet property="delegate" destination="YIE-aR-O2L" id="8e7-6i-zqS"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UoC-LI-CJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1256.8" y="145.27736131934034"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Bwc-Sy-ea8">
+            <objects>
+                <tableViewController id="YQr-zk-6Jv" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zhj-jg-qJ1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TSr-xS-ryv">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TSr-xS-ryv" id="t77-WL-Kqk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ztr-6H-T33" kind="show" id="2ac-mo-P19"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YQr-zk-6Jv" id="uWV-iD-kZS"/>
+                            <outlet property="delegate" destination="YQr-zk-6Jv" id="bNK-Vv-Aj4"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sQJ-Wa-Dzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1984" y="144"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7iv-UD-lwA">
+            <objects>
+                <viewController id="ztr-6H-T33" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GSI-Vd-cRw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="wx5-tn-Gpu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RlS-9P-0Kc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2727" y="147"/>
         </scene>
     </scenes>
 </document>

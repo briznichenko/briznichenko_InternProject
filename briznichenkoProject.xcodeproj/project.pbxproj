@@ -69,6 +69,7 @@
 		7D1EAD331F44605B00A7DA74 /* EarthScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EAD2E1F445FC400A7DA74 /* EarthScreenViewController.m */; };
 		7D1EAD341F44605B00A7DA74 /* EPICImageryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EAD311F445FC400A7DA74 /* EPICImageryViewController.m */; };
 		7D9E9A501F4445A900B40593 /* EarthSequenceStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */; };
+		7DDB23F01F45F61600B62C9B /* FlatEarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -197,6 +198,8 @@
 		7D290CB81F41A5B700C20ABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D290CB91F41A5B700C20ABA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EarthSequenceStoryboard.storyboard; sourceTree = "<group>"; };
+		7DDB23EE1F45F61600B62C9B /* FlatEarthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlatEarthViewController.h; sourceTree = "<group>"; };
+		7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlatEarthViewController.m; sourceTree = "<group>"; };
 		7DFF4A281F1CCAB600E5A602 /* briznichenkoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = briznichenkoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -755,6 +758,7 @@
 		7D1EAD2C1F445FC400A7DA74 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7DDB23ED1F45F5C900B62C9B /* FlatEarthViewController */,
 				7D1EAD2D1F445FC400A7DA74 /* EarthScreenViewController.h */,
 				7D1EAD2E1F445FC400A7DA74 /* EarthScreenViewController.m */,
 				7D1EAD2F1F445FC400A7DA74 /* EPICImageryViewController */,
@@ -801,6 +805,15 @@
 				7D020A271F41CFB7002D56F5 /* giphy.gif */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7DDB23ED1F45F5C900B62C9B /* FlatEarthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7DDB23EE1F45F61600B62C9B /* FlatEarthViewController.h */,
+				7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */,
+			);
+			path = FlatEarthViewController;
 			sourceTree = "<group>";
 		};
 		7DFF4A1F1F1CCAB600E5A602 = {
@@ -929,6 +942,7 @@
 				7D020A021F41AE64002D56F5 /* UIImage+animatedGIF.m in Sources */,
 				7D020A031F41AE64002D56F5 /* SplashView.m in Sources */,
 				7D020A041F41AE64002D56F5 /* SplashViewController.m in Sources */,
+				7DDB23F01F45F61600B62C9B /* FlatEarthViewController.m in Sources */,
 				7D020A051F41AE64002D56F5 /* CelestialBodyEntity.m in Sources */,
 				7D020A061F41AE64002D56F5 /* ManagedCelesctialBodyEntity.m in Sources */,
 				7D020A071F41AE64002D56F5 /* DataStorageManager.m in Sources */,

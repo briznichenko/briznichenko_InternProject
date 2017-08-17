@@ -7,6 +7,7 @@
 //
 
 #import "EPICImageryViewController.h"
+#import "EarthScreenViewController.h"
 
 @implementation EPICImageryViewController
 {
@@ -24,49 +25,35 @@
     [self.view addSubview:activityIndicator];
     activityIndicator.center = self.view.center;
     [self shouldHideActivityIndicator:NO];
-    self.epicImageryScrollView.delegate = self;
+    
+    self.imageryArray = [NSMutableArray new];
+    self.imageryCollection.delegate = self;
+    self.imageryCollection.dataSource = self;
+}
+#pragma mark -- Collection View Delegate methods
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.imageryArray.count;
 }
 
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"epicImageCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor colorWithWhite:1.0f - (1.0f / indexPath.row) alpha:1.0f];
+    if(self.imageryArray.count == indexPath.row)
+        [self updateImagesArray];
+    if(self.imageryArray.count > 0)
+        cell.backgroundView = [[UIImageView alloc] initWithImage:[self imageFromData: self.imageryArray[indexPath.row % 3]]];
+    return cell;
+}
 
 #pragma mark -- Actions
 
-- (void) updateImagery
-{
-    if(self.epicImageryScrollView.subviews.count == 0)
-    {
-        [self setupScrollViewWithImage:[self imageFromData:self.imageryArray[0]]];
-        [self addFront:YES image:[self imageFromData:self.imageryArray[1]]];
-        [self addFront:YES image:[self imageFromData:self.imageryArray[2]]];
-        [self.imageryArray removeAllObjects];
-        [self shouldHideActivityIndicator:YES];
-    }
-    
-    [self.epicImageryScrollView setNeedsDisplay];
-}
 
--(void) setupScrollViewWithImage:(UIImage*) initialImage
+-(void) updateImagery
 {
-    UIImageView *EPICImageView = [[UIImageView alloc] initWithImage:initialImage];
-    EPICImageView.contentMode = UIViewContentModeScaleToFill;
-    EPICImageView.frame = self.epicImageryScrollView.frame;
-    [self.epicImageryScrollView addSubview:EPICImageView];
-    EPICImageView.backgroundColor = [UIColor greenColor];
-    self.epicImageryScrollView.contentSize = self.epicImageryScrollView.frame.size;
-}
-
-- (void) addFront:(BOOL) front image:(UIImage *)image
-{
-    float EPICImageFrameOriginX = front ? self.epicImageryScrollView.subviews.lastObject.frame.origin.x + self.epicImageryScrollView.frame.size.width : self.epicImageryScrollView.subviews.firstObject.frame.origin.x - self.epicImageryScrollView.frame.size.width;
-    UIImageView *EPICImageView = [[UIImageView alloc] initWithImage:image];
-    EPICImageView.backgroundColor = [UIColor colorWithWhite:1.0f / self.epicImageryScrollView.subviews.count alpha:1.0f];
-    EPICImageView.contentMode = UIViewContentModeScaleToFill;
-    EPICImageView.frame = CGRectMake(EPICImageFrameOriginX,
-                                     self.epicImageryScrollView.frame.origin.y,
-                                     self.epicImageryScrollView.frame.size.width,
-                                     self.epicImageryScrollView.frame.size.height);
-    [self.epicImageryScrollView addSubview:EPICImageView];
-    self.epicImageryScrollView.contentSize = CGSizeMake(self.epicImageryScrollView.contentSize.width + EPICImageView.frame.size.width,
-                                                        self.epicImageryScrollView.frame.size.height);
+    [self.imageryCollection reloadData];
+    [self shouldHideActivityIndicator:YES];
 }
 
 - (void)shouldHideActivityIndicator:(BOOL) hideIndicator
@@ -77,16 +64,13 @@
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self.epicImageryScrollView.subviews.firstObject removeFromSuperview];
-    if(self.imageryArray.count != 0)
-    {
-        [self addFront:YES image:[self imageFromData:self.imageryArray[0]]];
-//        [self.imageryArray removeObjectAtIndex:0];
-    }
-    else
-    {
-        
-    }
+   
+}
+
+-(void ) updateImagesArray
+{
+    EarthScreenViewController *parentController = (EarthScreenViewController *)self.parentViewController;
+    [parentController fetchImages];
 }
 
 #pragma mark - Util
@@ -105,5 +89,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end
