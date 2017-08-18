@@ -15,6 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *imageryCollection;
 
--(void) updateImagery;
+- (void)shouldHideActivityIndicator:(BOOL) hideIndicator;
 
 @end

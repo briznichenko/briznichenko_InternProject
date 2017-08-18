@@ -22,16 +22,19 @@ static int amount = 5;
     {
         index = 0;
         epicImageURLs = [NSMutableArray new];
+        self.imageryDate = [NSDate new];
     }
     return self;
 }
 
 -(void) getImageURLsForDate:(NSDate*) date completion:(void (^)(bool finished))completionBlock
 {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURLSession *urlSession;
         NSURLSessionDataTask *dataTask;
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.nasa.gov/EPIC/api/natural/images?api_key=%@", @"ZxAYPjTpa4xx4LPlkSQbV5oYkbVr27UJ26ys9EuB"]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.nasa.gov/EPIC/api/natural/date/%@?api_key=%@", [formatter stringFromDate:date], @"ZxAYPjTpa4xx4LPlkSQbV5oYkbVr27UJ26ys9EuB"]];
         
         urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         dataTask = [urlSession
@@ -61,18 +64,28 @@ static int amount = 5;
 {
     NSMutableArray *imagesArray = [NSMutableArray new];
     int count = index + amount;
-    index = count;
-    if(epicImageURLs.count == 0)
-        [self getImageURLsForDate:[NSDate new] completion:^(bool finished){
+    if((epicImageURLs.count == 0) || (count >= epicImageURLs.count))
+        [self getImageURLsForDate:self.imageryDate completion:^(bool finished){
             if(finished)
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     for(int i = index; i < count; i++)
                     {
+                        if(epicImageURLs.count == 0)
+                        {
+                            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+                            [dateComponents setDay:-1];
+                            self.imageryDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:self.imageryDate options:0];
+                            completion(imagesArray);
+                            break;
+                        }
                         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:epicImageURLs[i]]];
                         [imagesArray addObject:imageData];
                         if(imagesArray.count == amount)
                         {
                             index += amount;
+                            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+                            [dateComponents setDay:-1];
+                            self.imageryDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:self.imageryDate options:0];
                             completion(imagesArray);
                         }}});
         }];

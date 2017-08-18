@@ -12,7 +12,9 @@
 
 @property (nonatomic, strong) NSArray *EPICImages;
 
-- (instancetype) initWithData;
+@property (nonatomic, strong) NSDate *imageryDate;
 
+- (instancetype) initWithData;
 -(void)downloadImagePackForPreviousDay: (BOOL) direction completion:(void (^)(NSArray *imagesArray)) completion;
+
 @end

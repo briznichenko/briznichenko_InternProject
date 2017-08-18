@@ -23,7 +23,7 @@
 {
     activityIndicator = [UIActivityIndicatorView new];
     [self.view addSubview:activityIndicator];
-    activityIndicator.center = self.view.center;
+    activityIndicator.center = self.imageryCollection.center;
     [self shouldHideActivityIndicator:NO];
     
     self.imageryArray = [NSMutableArray new];
@@ -33,43 +33,48 @@
 #pragma mark -- Collection View Delegate methods
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.imageryArray.count;
+    return self.imageryArray.count != 0 ? self.imageryArray.count : 1;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"epicImageCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor colorWithWhite:1.0f - (1.0f / indexPath.row) alpha:1.0f];
-    if(self.imageryArray.count == indexPath.row)
+    if (self.imageryArray.count == 0)
         [self updateImagesArray];
     if(self.imageryArray.count > 0)
-        cell.backgroundView = [[UIImageView alloc] initWithImage:[self imageFromData: self.imageryArray[indexPath.row % 3]]];
+    {
+        if (!activityIndicator.hidden)
+            [self shouldHideActivityIndicator:YES];
+        cell.backgroundView = [[UIImageView alloc] initWithImage:[self imageFromData: self.imageryArray[indexPath.row]]];
+    }
     return cell;
 }
 
 #pragma mark -- Actions
 
-
--(void) updateImagery
-{
-    [self.imageryCollection reloadData];
-    [self shouldHideActivityIndicator:YES];
-}
-
 - (void)shouldHideActivityIndicator:(BOOL) hideIndicator
 {
-    hideIndicator? [activityIndicator stopAnimating] : [activityIndicator startAnimating];
-    activityIndicator.hidden = hideIndicator;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        hideIndicator? [activityIndicator stopAnimating] : [activityIndicator startAnimating];
+        activityIndicator.hidden = hideIndicator;
+    });
 }
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-   
+    NSLog(@"%ld", [self.imageryCollection indexPathForCell:self.imageryCollection.visibleCells.lastObject].row);
+    if(self.imageryArray.count > 2)
+        if ([self.imageryCollection indexPathForCell:self.imageryCollection.visibleCells.lastObject].row == (self.imageryArray.count - 2))
+            [self updateImagesArray];
+    
 }
 
 -(void ) updateImagesArray
 {
     EarthScreenViewController *parentController = (EarthScreenViewController *)self.parentViewController;
+    [self shouldHideActivityIndicator:NO];
+    NSLog(@"Loading...");
     [parentController fetchImages];
 }
 
@@ -79,17 +84,5 @@
 {
     return [UIImage imageWithData:data];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
 
 @end

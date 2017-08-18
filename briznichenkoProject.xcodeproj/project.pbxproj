@@ -68,6 +68,13 @@
 		7D1EAD321F44605B00A7DA74 /* EarthScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EAD2B1F445FC400A7DA74 /* EarthScreenModel.m */; };
 		7D1EAD331F44605B00A7DA74 /* EarthScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EAD2E1F445FC400A7DA74 /* EarthScreenViewController.m */; };
 		7D1EAD341F44605B00A7DA74 /* EPICImageryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EAD311F445FC400A7DA74 /* EPICImageryViewController.m */; };
+		7D4E65671F46F4DE004A54EA /* EventCategoriesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E65661F46F4DE004A54EA /* EventCategoriesController.m */; };
+		7D4E656C1F46F54E004A54EA /* EventCategoriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E656B1F46F54E004A54EA /* EventCategoriesModel.m */; };
+		7D4E65721F470BD8004A54EA /* EventsTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E65711F470BD8004A54EA /* EventsTableModel.m */; };
+		7D4E65751F470C11004A54EA /* EventsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E65741F470C11004A54EA /* EventsTableController.m */; };
+		7D4E657B1F4730B1004A54EA /* EarthEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E657A1F4730B1004A54EA /* EarthEventEntity.m */; };
+		7D4E657E1F4733DB004A54EA /* EarthEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E657D1F4733DB004A54EA /* EarthEventController.m */; };
+		7D4E65811F4733F2004A54EA /* EarthEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E65801F4733F2004A54EA /* EarthEventModel.m */; };
 		7D9E9A501F4445A900B40593 /* EarthSequenceStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */; };
 		7DDB23F01F45F61600B62C9B /* FlatEarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */; };
 /* End PBXBuildFile section */
@@ -197,6 +204,20 @@
 		7D290CB71F41A5B700C20ABA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D290CB81F41A5B700C20ABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D290CB91F41A5B700C20ABA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7D4E65651F46F4DE004A54EA /* EventCategoriesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventCategoriesController.h; sourceTree = "<group>"; };
+		7D4E65661F46F4DE004A54EA /* EventCategoriesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventCategoriesController.m; sourceTree = "<group>"; };
+		7D4E656A1F46F54E004A54EA /* EventCategoriesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventCategoriesModel.h; sourceTree = "<group>"; };
+		7D4E656B1F46F54E004A54EA /* EventCategoriesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventCategoriesModel.m; sourceTree = "<group>"; };
+		7D4E65701F470BD8004A54EA /* EventsTableModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsTableModel.h; sourceTree = "<group>"; };
+		7D4E65711F470BD8004A54EA /* EventsTableModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventsTableModel.m; sourceTree = "<group>"; };
+		7D4E65731F470C11004A54EA /* EventsTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsTableController.h; sourceTree = "<group>"; };
+		7D4E65741F470C11004A54EA /* EventsTableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventsTableController.m; sourceTree = "<group>"; };
+		7D4E65791F4730B1004A54EA /* EarthEventEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthEventEntity.h; sourceTree = "<group>"; };
+		7D4E657A1F4730B1004A54EA /* EarthEventEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthEventEntity.m; sourceTree = "<group>"; };
+		7D4E657C1F4733DB004A54EA /* EarthEventController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthEventController.h; sourceTree = "<group>"; };
+		7D4E657D1F4733DB004A54EA /* EarthEventController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthEventController.m; sourceTree = "<group>"; };
+		7D4E657F1F4733F2004A54EA /* EarthEventModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthEventModel.h; sourceTree = "<group>"; };
+		7D4E65801F4733F2004A54EA /* EarthEventModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthEventModel.m; sourceTree = "<group>"; };
 		7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EarthSequenceStoryboard.storyboard; sourceTree = "<group>"; };
 		7DDB23EE1F45F61600B62C9B /* FlatEarthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlatEarthViewController.h; sourceTree = "<group>"; };
 		7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlatEarthViewController.m; sourceTree = "<group>"; };
@@ -266,6 +287,9 @@
 			children = (
 				7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */,
 				7D1EAD281F445FC400A7DA74 /* EarthScreen */,
+				7D4E65621F46F47B004A54EA /* EventCategoriesScreen */,
+				7D4E65631F46F488004A54EA /* EventsTableScreen */,
+				7D4E65641F46F492004A54EA /* SingleEventScreen */,
 			);
 			path = EarthSequence;
 			sourceTree = "<group>";
@@ -587,6 +611,7 @@
 		7D0209C01F41AE2A002D56F5 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				7D4E65781F472E1C004A54EA /* EarthEventEntity */,
 				7D0209C11F41AE2A002D56F5 /* SpaceObjectEntity */,
 			);
 			path = Entities;
@@ -758,10 +783,10 @@
 		7D1EAD2C1F445FC400A7DA74 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7DDB23ED1F45F5C900B62C9B /* FlatEarthViewController */,
 				7D1EAD2D1F445FC400A7DA74 /* EarthScreenViewController.h */,
 				7D1EAD2E1F445FC400A7DA74 /* EarthScreenViewController.m */,
 				7D1EAD2F1F445FC400A7DA74 /* EPICImageryViewController */,
+				7DDB23ED1F45F5C900B62C9B /* FlatEarthViewController */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -795,6 +820,96 @@
 			);
 			name = Frameworks;
 			path = briznichenkoProject/Frameworks;
+			sourceTree = "<group>";
+		};
+		7D4E65621F46F47B004A54EA /* EventCategoriesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E65681F46F4E5004A54EA /* Model */,
+				7D4E65691F46F513004A54EA /* ViewController */,
+			);
+			path = EventCategoriesScreen;
+			sourceTree = "<group>";
+		};
+		7D4E65631F46F488004A54EA /* EventsTableScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E656F1F470BB6004A54EA /* Model */,
+				7D4E656E1F470BAE004A54EA /* ViewController */,
+			);
+			path = EventsTableScreen;
+			sourceTree = "<group>";
+		};
+		7D4E65641F46F492004A54EA /* SingleEventScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E65771F472E14004A54EA /* Model */,
+				7D4E65761F472E0B004A54EA /* ViewController */,
+			);
+			path = SingleEventScreen;
+			sourceTree = "<group>";
+		};
+		7D4E65681F46F4E5004A54EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E656A1F46F54E004A54EA /* EventCategoriesModel.h */,
+				7D4E656B1F46F54E004A54EA /* EventCategoriesModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D4E65691F46F513004A54EA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E65651F46F4DE004A54EA /* EventCategoriesController.h */,
+				7D4E65661F46F4DE004A54EA /* EventCategoriesController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7D4E656E1F470BAE004A54EA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E65731F470C11004A54EA /* EventsTableController.h */,
+				7D4E65741F470C11004A54EA /* EventsTableController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7D4E656F1F470BB6004A54EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E65701F470BD8004A54EA /* EventsTableModel.h */,
+				7D4E65711F470BD8004A54EA /* EventsTableModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D4E65761F472E0B004A54EA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E657C1F4733DB004A54EA /* EarthEventController.h */,
+				7D4E657D1F4733DB004A54EA /* EarthEventController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7D4E65771F472E14004A54EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E657F1F4733F2004A54EA /* EarthEventModel.h */,
+				7D4E65801F4733F2004A54EA /* EarthEventModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D4E65781F472E1C004A54EA /* EarthEventEntity */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E65791F4730B1004A54EA /* EarthEventEntity.h */,
+				7D4E657A1F4730B1004A54EA /* EarthEventEntity.m */,
+			);
+			path = EarthEventEntity;
 			sourceTree = "<group>";
 		};
 		7DD156031F42E8F600C370D6 /* Resources */ = {
@@ -912,10 +1027,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D4E65811F4733F2004A54EA /* EarthEventModel.m in Sources */,
 				7D1EAD321F44605B00A7DA74 /* EarthScreenModel.m in Sources */,
 				7D1EAD331F44605B00A7DA74 /* EarthScreenViewController.m in Sources */,
 				7D1EAD341F44605B00A7DA74 /* EPICImageryViewController.m in Sources */,
+				7D4E65751F470C11004A54EA /* EventsTableController.m in Sources */,
 				7D0209EA1F41AE64002D56F5 /* DescriptionController.m in Sources */,
+				7D4E656C1F46F54E004A54EA /* EventCategoriesModel.m in Sources */,
 				7D0209EB1F41AE64002D56F5 /* DescriptionModel.m in Sources */,
 				7D0209EC1F41AE64002D56F5 /* DescriptionView.m in Sources */,
 				7D0209ED1F41AE64002D56F5 /* DescriptionViewController.m in Sources */,
@@ -929,6 +1047,7 @@
 				7D0209F51F41AE64002D56F5 /* MapModel.m in Sources */,
 				7D0209F61F41AE64002D56F5 /* MapView.m in Sources */,
 				7D0209F71F41AE64002D56F5 /* MapViewController.m in Sources */,
+				7D4E65671F46F4DE004A54EA /* EventCategoriesController.m in Sources */,
 				7D0209F81F41AE64002D56F5 /* PopupView.m in Sources */,
 				7D0209F91F41AE64002D56F5 /* ViewerController.m in Sources */,
 				7D0209FA1F41AE64002D56F5 /* ViewerModel.m in Sources */,
@@ -938,6 +1057,7 @@
 				7D0209FE1F41AE64002D56F5 /* ViewerViewController.m in Sources */,
 				7D0209FF1F41AE64002D56F5 /* RootNavigationController.m in Sources */,
 				7D020A001F41AE64002D56F5 /* SplashController.m in Sources */,
+				7D4E657B1F4730B1004A54EA /* EarthEventEntity.m in Sources */,
 				7D020A011F41AE64002D56F5 /* SplashModel.m in Sources */,
 				7D020A021F41AE64002D56F5 /* UIImage+animatedGIF.m in Sources */,
 				7D020A031F41AE64002D56F5 /* SplashView.m in Sources */,
@@ -955,6 +1075,8 @@
 				7D020A0E1F41AE64002D56F5 /* SideMenuView.m in Sources */,
 				7D020A0F1F41AE64002D56F5 /* SideMenuViewController.m in Sources */,
 				7D0209521F41AD2D002D56F5 /* AppDelegate.m in Sources */,
+				7D4E657E1F4733DB004A54EA /* EarthEventController.m in Sources */,
+				7D4E65721F470BD8004A54EA /* EventsTableModel.m in Sources */,
 				7D0209531F41AD2D002D56F5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
