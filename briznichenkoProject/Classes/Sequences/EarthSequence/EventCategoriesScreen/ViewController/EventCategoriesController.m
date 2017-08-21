@@ -8,6 +8,7 @@
 
 #import "EventCategoriesController.h"
 #import "EventsTableController.h"
+#import "EventCell.h"
 
 @interface EventCategoriesController ()
 
@@ -19,6 +20,8 @@
     int tag;
 }
 
+static NSString *reuseIdentifier = @"EventCategory";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViewController];
@@ -27,14 +30,17 @@
 - (void)setupViewController
 {
     self.categoriesModel = [[EventCategoriesModel alloc] initWithData];
+    [self.eventCategoriesCollection registerClass:[EventCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    self.eventCategoriesCollection.delegate = self;
+    self.eventCategoriesCollection.dataSource = self;
+    self.navigationItem.title = @"Event categories";
+    self.navigationItem.titleView.tintColor = [UIColor whiteColor];
     [self.categoriesModel getEventCategories:^(bool finished) {
         categories = self.categoriesModel.eventCategories;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.eventCategoriesCollection reloadData];
         });
     }];
-    self.eventCategoriesCollection.delegate = self;
-    self.eventCategoriesCollection.dataSource = self;
 }
 
 
@@ -45,30 +51,17 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"EventCategory" forIndexPath:indexPath];
+    EventCell *cell = (EventCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(cell.center.x,
-                                                                    cell.center.y,
-                                                                    cell.frame.size.width / 3,
-                                                                    cell.frame.size.height / 2)];
-    titleLabel.text = [categories[indexPath.row] valueForKey:@"title"];
-    [cell addSubview:titleLabel];
+    cell.eventNameLabel.text = [categories[indexPath.row] valueForKey:@"title"];
+    cell.eventDescriptionView.text = [categories[indexPath.row] valueForKey:@"description"];
     
-    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,
-                                                                          titleLabel.frame.origin.y + titleLabel.frame.size.height,
-                                                                          cell.frame.size.width,
-                                                                          cell.frame.size.height / 2)];
-    descriptionLabel.text = [categories[indexPath.row] valueForKey:@"description"];
-    [cell addSubview:descriptionLabel];
+    cell.backgroundColor = indexPath.row % 2 ? [UIColor lightGrayColor] : [UIColor grayColor];
     
-    NSLog(@"%@", categories[indexPath.row]);
+    cell.layer.borderColor = [UIColor blueColor].CGColor;
+    cell.layer.borderWidth = 1.5f;
     
     cell.tag = [[categories[indexPath.row] valueForKey:@"id"] intValue];
-    
-    cell.backgroundColor = [UIColor colorWithRed:1.0f / indexPath.row
-                                           green:1.0f / indexPath.row
-                                            blue:1.0f / indexPath.row
-                                           alpha:1.0f];
     return cell;
 }
 

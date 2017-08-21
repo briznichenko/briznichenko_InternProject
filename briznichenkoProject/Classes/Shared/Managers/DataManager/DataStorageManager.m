@@ -107,7 +107,7 @@
 
 -(void) makeEntites
 {
-    [managedObjectModel setEntities:@[[self makeSpaceObjectEntityDescription]]];
+    [managedObjectModel setEntities:@[[self makeSpaceObjectEntityDescription] ,[self makeEarthEventEntityDescription]]];
     
     NSData *modelData = [NSKeyedArchiver archivedDataWithRootObject:managedObjectModel];
     [modelData writeToFile:pathToModel atomically:YES];
@@ -147,9 +147,56 @@
     return spaceObjectEntityDescription;
 }
 
-- (void)dealloc
+- (NSEntityDescription *) makeEarthEventEntityDescription
 {
+    NSEntityDescription *spaceObjectEntityDescription = [[NSEntityDescription alloc] init];
+    [spaceObjectEntityDescription setName:@"EarthEvent"];
     
+    NSAttributeDescription *idAttribute = [[NSAttributeDescription alloc] init];
+    [idAttribute setName:@"event_id"];
+    [idAttribute setAttributeType:NSStringAttributeType];
+    [idAttribute setOptional:NO];
+    [idAttribute setIndexed:YES];
+    
+    NSAttributeDescription *titleAttribute = [[NSAttributeDescription alloc] init];
+    [titleAttribute setName:@"event_title"];
+    [titleAttribute setAttributeType:NSStringAttributeType];
+    [titleAttribute setOptional:NO];
+    [titleAttribute setIndexed:YES];
+    
+    NSAttributeDescription *descriptionAttribute = [[NSAttributeDescription alloc] init];
+    [descriptionAttribute setName:@"event_description"];
+    [descriptionAttribute setAttributeType:NSStringAttributeType];
+    [descriptionAttribute setOptional:NO];
+    [descriptionAttribute setIndexed:YES];
+    
+    NSAttributeDescription *linkAttribute = [[NSAttributeDescription alloc] init];
+    [linkAttribute setName:@"event_link"];
+    [linkAttribute setAttributeType:NSStringAttributeType];
+    [linkAttribute setOptional:NO];
+    [linkAttribute setIndexed:YES];
+    
+    NSAttributeDescription *categoriesAttribute = [[NSAttributeDescription alloc] init];
+    [categoriesAttribute setName:@"event_categories"];
+    [categoriesAttribute setAttributeType:NSBinaryDataAttributeType];
+    [categoriesAttribute setOptional:YES];
+    [categoriesAttribute setIndexed:NO];
+    
+    NSAttributeDescription *sourcesAttribute = [[NSAttributeDescription alloc] init];
+    [sourcesAttribute setName:@"event_sources"];
+    [sourcesAttribute setAttributeType:NSBinaryDataAttributeType];
+    [sourcesAttribute setOptional:YES];
+    [sourcesAttribute setIndexed:NO];
+    
+    NSAttributeDescription *geometriesAttribute = [[NSAttributeDescription alloc] init];
+    [geometriesAttribute setName:@"event_geometries"];
+    [geometriesAttribute setAttributeType:NSBinaryDataAttributeType];
+    [geometriesAttribute setOptional:YES];
+    [geometriesAttribute setIndexed:NO];
+    
+    [spaceObjectEntityDescription setProperties:@[idAttribute, titleAttribute, descriptionAttribute, linkAttribute, categoriesAttribute, sourcesAttribute, geometriesAttribute]];
+    
+    return spaceObjectEntityDescription;
 }
 
 @end

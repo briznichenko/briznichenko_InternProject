@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EarthEventEntity.h"
 
 @interface EarthEventModel : NSObject
+
+@property (nonatomic, strong) EarthEventEntity *eventEntity;
+
+- (instancetype) initWithData;
+- (void) saveEvent: (void (^) (BOOL saved)) completionBlock;
 
 @end

@@ -7,13 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EarthEventModel.h"
 #import "EarthEventEntity.h"
 
+@class SharingController;
 @interface EarthEventController : UIViewController
+<UIWebViewDelegate>
 
 @property (nonatomic, strong) EarthEventEntity *eventEntity;
+@property (nonatomic, strong) EarthEventModel *eventModel;
+
 @property (weak, nonatomic) IBOutlet UILabel *eventTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *eventWebView;
+
+@property (nonatomic, strong) SharingController *sharingController;
 
 @end

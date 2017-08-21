@@ -1,0 +1,6 @@
+var divs=document.getElementsByTagName('div'),
+childDivs=document.getElementById('content').getElementsByTagName('div');
+for(var i = 0; i < divs.length; i++)
+{divs[i].style.display = 'none'; if((divs[i].id == 'wrap') || (divs[i].id == 'content')){divs[i].style.display = 'block';}}
+for(var i = 0; i < childDivs.length; i++)
+{childDivs[i].style.display = 'block';}

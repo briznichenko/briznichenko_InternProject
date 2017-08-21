@@ -11,7 +11,7 @@
 #import "MapController.h"
 #import "MapViewController.h"
 #import "EarthScreenViewController.h"
-//#import "header"
+#import "WeatherScreenController.h"
 //#import "header"
 
 
@@ -100,6 +100,18 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EarthSequenceStoryboard" bundle:nil];
         self.earthScreenViewController = [storyboard instantiateViewControllerWithIdentifier:@"EarthScreenViewController"];
         NSArray *newControllerStack = @[self.earthScreenViewController];
+        [self setViewControllers:newControllerStack animated:YES];
+    }
+}
+
+- (void)presentWeatherScreenController
+{
+    if([self.viewControllers[0] isKindOfClass:[WeatherScreenViewController class]])
+        [self.sideMenuController.sideMenuViewController dismissViewControllerAnimated:YES completion:nil];
+    else
+    {
+        self.weatherScreenController = [[WeatherScreenController alloc] initAndAssemble];
+        NSArray *newControllerStack = @[self.weatherScreenController.weatherscreenViewController];
         [self setViewControllers:newControllerStack animated:YES];
     }
 }

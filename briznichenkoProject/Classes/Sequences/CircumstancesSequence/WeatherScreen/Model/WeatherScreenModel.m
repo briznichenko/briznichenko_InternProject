@@ -1,31 +1,32 @@
 //
-//  EventCategoriesModel.m
+//  WeatherScreenModel.m
 //  briznichenkoProject
 //
-//  Created by briznichenko on 8/18/17.
+//  Created by briznichenko on 21/08/2017.
 //  Copyright © 2017 CHI. All rights reserved.
 //
 
-#import "EventCategoriesModel.h"
+#import "WeatherScreenModel.h"
 
-@implementation EventCategoriesModel
+
+@implementation WeatherScreenModel
+
 
 - (instancetype) initWithData
 {
-    self = [super init];
-    if(self)
-    {
-        self.eventCategories = [NSArray new];
-    }
-    return self;
+	self = [super init];
+	if(self)
+	{
+	}
+	return self;
 }
 
--(void) getEventCategories:(void (^)(bool finished))completionBlock
+-(void) getVisibleStars:(void (^)(bool finished))completionBlock
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURLSession *urlSession;
         NSURLSessionDataTask *dataTask;
-        NSURL *url = [NSURL URLWithString:@"https://eonet.sci.gsfc.nasa.gov/api/v2.1/categories"];
+        NSURL *url = [NSURL URLWithString:[@"https://www.fourmilab.ch/cgi-bin/Yourtel?lat=77.6327&ns=North&lon=140.393&fov=45&z=1" stringByAppendingString:[NSString stringWithFormat:@"%d", category_id]]];
         
         urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         dataTask = [urlSession
@@ -34,12 +35,8 @@
                         if(!error)
                         {
                             NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                            NSArray *rawCategories = [jsonData valueForKey:@"categories"];
-                            NSMutableArray *categories = [NSMutableArray new];
-                            for(NSDictionary *category in rawCategories)
-                                [categories addObject: category];
-                            self.eventCategories = [NSArray arrayWithArray:categories];
-                            completionBlock(self.eventCategories.count > 0);
+                            @"<img src=\"\" usemap=";
+                            completionBlock(1 > 0);
                         }
                         else
                             NSLog(@"Error:%@", error.localizedDescription);
@@ -47,5 +44,7 @@
         [dataTask resume];
     });
 }
+
+
 
 @end

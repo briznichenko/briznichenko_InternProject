@@ -37,25 +37,11 @@
 
 - (void) subscribeToNotifications
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:sideMenuEntries[0]
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:sideMenuEntries[1]
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:sideMenuEntries[2]
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:sideMenuEntries[3]
-                                               object:nil];
+    for(int i = 0; i < sideMenuEntries.count; i++)
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(receiveNotification:)
+                                                     name:sideMenuEntries[i]
+                                                   object:nil];
 }
 
 #pragma mark -- Routing
@@ -72,6 +58,7 @@
             [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
             break;
         case 2:
+            [self.rootNavigationController presentWeatherScreenController];
             [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
             break;
         case 3:

@@ -25,12 +25,22 @@
     self.eventsTableModel = [[EventsTableModel alloc] initWithData];
     self.eventsTable.delegate = self;
     self.eventsTable.dataSource = self;
+    eventsArray = @[@{@"title" : @"Please wait", @"description" : @"Data is being fetched."}];
     [self.eventsTableModel getEventsForCategoryID:self.tag completion:^(bool finished) {
         if(finished)
         {
             eventsArray = self.eventsTableModel.events;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.eventsTable reloadData];
+                [self.eventsTable setNeedsDisplay];
+            });
+        }
+        else
+        {
+            eventsArray = @[@{@"title" : @"Empty", @"description" : @"No data for this category."}];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.eventsTable reloadData];
+                [self.eventsTable setNeedsDisplay];
             });
         }
     }];
@@ -53,11 +63,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.eventsTableModel getEntityForIndex:(int)indexPath.row];
-    [self performSegueWithIdentifier:@"present_event_screen" sender:self];
+    if(eventsArray == self.eventsTableModel.events)
+    {
+        [self.eventsTableModel getEntityForIndex:(int)indexPath.row];
+        [self performSegueWithIdentifier:@"present_event_screen" sender:self];
+    }
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selected = NO;
 }
-
-
 
 #pragma mark -- Routing
 
