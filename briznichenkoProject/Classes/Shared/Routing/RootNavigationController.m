@@ -111,7 +111,7 @@
     else
     {
         self.weatherScreenController = [[WeatherScreenController alloc] initAndAssemble];
-        NSArray *newControllerStack = @[self.weatherScreenController.weatherscreenViewController];
+        NSArray *newControllerStack = @[self.weatherScreenController.weatherScreenViewController];
         [self setViewControllers:newControllerStack animated:YES];
     }
 }
