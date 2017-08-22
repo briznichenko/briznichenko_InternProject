@@ -30,6 +30,7 @@
     [self makeHeaderImage];
     [self makeMenuEntries];
     [self makeAppNameLabel];
+    [self makeMenuButton];
 }
 
 - (void) makeHeaderImage
@@ -59,6 +60,15 @@
     [self.headerImage addSubview:self.appNameLabel];
 }
 
+- (void) makeMenuButton
+{
+    self.menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.menuButton.backgroundColor = [UIColor whiteColor];
+    [self.menuButton setTitle:@"MENU" forState:UIControlStateNormal];
+    [self.menuButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self addSubview:self.menuButton];
+}
+
 - (void) makeInnerConstraints
 {
     float imageHeightMultiplier = 0.35f;
@@ -67,6 +77,7 @@
     self.headerImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.menuItems.translatesAutoresizingMaskIntoConstraints = NO;
     self.appNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.menuButton.translatesAutoresizingMaskIntoConstraints = NO;
     
     [NSLayoutConstraint activateConstraints:
      @[ [self.headerImage.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
@@ -80,7 +91,12 @@
         [self.menuItems.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
         [self.menuItems.topAnchor constraintEqualToAnchor:self.headerImage.bottomAnchor],
         [self.menuItems.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-        [self.menuItems.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier: menuHeightMultiplier]
+        [self.menuItems.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier: menuHeightMultiplier],
+        
+        [self.menuButton.leftAnchor constraintEqualToAnchor:self.rightAnchor],
+        [self.menuItems.topAnchor constraintGreaterThanOrEqualToAnchor:self.topAnchor constant:-30.0f],
+        [self.menuItems.widthAnchor constraintEqualToConstant:60.0f],
+        [self.menuItems.heightAnchor constraintEqualToConstant:40.0f]
        ]];
 }
 

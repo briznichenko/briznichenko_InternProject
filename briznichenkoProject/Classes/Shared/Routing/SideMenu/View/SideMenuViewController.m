@@ -96,6 +96,7 @@
 -(void) setupSideMenuActions
 {
     [self setupSwipeDetection];
+    [self.sidemenuView.menuButton addTarget:self action:@selector(dismissSideMenu:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void) setupSwipeDetection

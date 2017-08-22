@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "WeatherScreenProtocols.h"
 
-
 @interface WeatherScreenModel : NSObject
-<WeatherScreenModelProtocol>
+<WeatherScreenModelProtocol, CLLocationManagerDelegate>
 
 @property (atomic, strong) NSData *data;
 
 - (instancetype) initWithData;
--(void) getVisibleStars:(void (^)(bool finished))completionBlock;
-
+- (void) getVisibleStars:(void (^)(NSData *imageData))completionBlock;
+- (void) getWeatherData: (void (^) (NSDictionary *weatherData)) completion;
+- (NSString *) returnLocationString;
 @end

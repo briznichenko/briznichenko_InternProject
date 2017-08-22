@@ -15,4 +15,6 @@
 
 @property (nonatomic, strong) WeatherScreenView* weatherScreenView;
 
+@property (nonatomic, strong) NSDictionary* weatherDictionary;
+
 @end

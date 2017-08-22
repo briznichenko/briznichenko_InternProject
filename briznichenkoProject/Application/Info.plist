@@ -4,6 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>In order to enable location-based content,  access to location tracking must be granted.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>In order to enable location-based content,  access to location tracking must be granted.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>In order to enable location-based content,  access to location tracking must be granted.</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -34,10 +40,10 @@
 	<array>
 		<string>twitter</string>
 		<string>twitterauth</string>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

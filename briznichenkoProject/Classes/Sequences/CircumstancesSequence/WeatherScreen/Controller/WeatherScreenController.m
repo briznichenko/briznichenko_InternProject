@@ -18,15 +18,26 @@
 	{
 		self.weatherScreenViewController = [WeatherScreenViewController new];
 		self.weatherScreenModel = [[WeatherScreenModel alloc] initWithData];
-        [self.weatherScreenModel getVisibleStars:^(bool finished) {
-            
-        }];
+        [self setupViewControllerWithData:self.weatherScreenModel.data];
 	}	
 	return self;
 }
 
 - (void)setupViewControllerWithData:(NSData *)data {
-    [self.weatherScreenViewController setupViewControllerWithData:data];
+    [self.weatherScreenModel getVisibleStars:^(NSData *imageData) {
+        if(imageData){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.weatherScreenViewController setupViewControllerWithData:imageData];
+                self.weatherScreenViewController.weatherScreenView.locationLabel.text = [self.weatherScreenModel returnLocationString];
+            });
+            [self.weatherScreenModel getWeatherData:^(NSDictionary *weatherData) {
+                if(weatherData)
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.weatherScreenViewController.weatherDictionary = weatherData;
+                        [self.weatherScreenViewController.weatherScreenView setNeedsDisplay];
+                    });
+            }];}
+    }];
 }
 
 #pragma mark -- Routing

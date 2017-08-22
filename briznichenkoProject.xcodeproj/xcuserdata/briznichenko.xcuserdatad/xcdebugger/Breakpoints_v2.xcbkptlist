@@ -13,5 +13,482 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Model/WeatherScreenModel.m"
+            timestampString = "525117365.081938"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-getWeatherData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Model/WeatherScreenModel.m"
+            timestampString = "525117365.082096"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-getWeatherData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Model/WeatherScreenModel.m"
+            timestampString = "525117365.08223"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-getWeatherData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Model/WeatherScreenModel.m"
+            timestampString = "525117365.082349"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-getWeatherData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/View/WeatherScreenViewController.m"
+            timestampString = "525117365.082464"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-makeWeatherUIFromDictionary"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Model/WeatherScreenModel.m"
+            timestampString = "525117365.082569"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-getWeatherData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Model/WeatherScreenModel.m"
+            timestampString = "525117365.082677"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-getWeatherData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Model/WeatherScreenModel.m"
+            timestampString = "525117365.082789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-getWeatherData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+            timestampString = "525117365.082905"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[WeatherScreenController setupViewControllerWithData:]_block_invoke"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.244554"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "235">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[WeatherScreenController setupViewControllerWithData:]_block_invoke.28"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.24755"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+            timestampString = "525117365.083817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+            timestampString = "525117365.084491"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+            timestampString = "525117365.085168"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[WeatherScreenController setupViewControllerWithData:]_block_invoke.28"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.270898"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "66">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[WeatherScreenController setupViewControllerWithData:]_block_invoke_2.29"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.273758"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+            timestampString = "525117365.085782"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WeatherScreenController setupViewControllerWithData:]"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.281075"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "43">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[WeatherScreenController setupViewControllerWithData:]_block_invoke"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.28434"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "47">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+            timestampString = "525117365.086521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+            timestampString = "525117365.087243"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+            timestampString = "525117365.087859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[WeatherScreenController setupViewControllerWithData:]_block_invoke_2.29"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.303946"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.34"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.307021"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.35"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.309924"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "59">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+            timestampString = "525117365.088487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-setupViewControllerWithData:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[WeatherScreenController setupViewControllerWithData:]_block_invoke"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.318924"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "401">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[WeatherScreenController setupViewControllerWithData:]_block_invoke.28"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.321952"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.37"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.325446"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.38"
+                  moduleName = "briznichenkoProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/XCodeProjects/briznichenkoProject/briznichenkoProject/Classes/Sequences/CircumstancesSequence/WeatherScreen/Controller/WeatherScreenController.m"
+                  timestampString = "525117365.328578"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
