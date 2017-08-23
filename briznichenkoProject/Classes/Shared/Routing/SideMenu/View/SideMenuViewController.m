@@ -41,7 +41,7 @@
     [super viewDidLayoutSubviews];
     dispatch_async(dispatch_get_main_queue(),
     ^{
-        self.sidemenuView.headerImage.layer.cornerRadius = self.sidemenuView.headerImage.frame.size.height / 2;
+        self.sidemenuView.roundImage.layer.cornerRadius = self.sidemenuView.roundImage.frame.size.height / 2;
     });
 }
 
@@ -49,6 +49,7 @@
 {
     self.sidemenuView = [[SideMenuView alloc] initAndInstallIntoSuperView: self.view];
     self.sidemenuView.headerImage.image = [UIImage imageWithData:data];
+    self.sidemenuView.roundImage.image = self.sidemenuView.headerImage.image;
     self.sidemenuView.menuItems.delegate = self;
     self.sidemenuView.menuItems.dataSource = self;
     [self setupSideMenu];

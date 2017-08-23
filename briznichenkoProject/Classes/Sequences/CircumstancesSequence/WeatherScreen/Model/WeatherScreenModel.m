@@ -68,23 +68,14 @@
 
 -(void) getWeatherData: (void (^) (NSDictionary *weatherData)) completion
 {
-    NSURLSession *urlSession;
-    NSURLSessionDataTask *dataTask;
+    //lat=35&lon=139
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?q=%@&appid=%@",
                                        [currentPlacemark.subAdministrativeArea stringByReplacingOccurrencesOfString:@" " withString:@""],
                                        @"49f186e15c83eb0bbc7a734e831b2021"]];
-    dataTask = [urlSession
-                dataTaskWithURL:url
-                completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                    if(error)
-                    {
-                        NSLog(@"Error getting weather data: %@", error.localizedDescription);
-                        return;
-                    }
-                    NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                    completion(jsonData);
-                }];
-    [dataTask resume];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    completion([NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil]);
+    });
 }
 
 #pragma mark -- Util

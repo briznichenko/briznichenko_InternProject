@@ -18,32 +18,53 @@
 
 -(void)setupViewControllerWithData:(NSData *)data
 {
-    self.weatherScreenView = [[WeatherScreenView alloc] initAndInstallIntoSuperView: self.view];
+    float topY = [UIApplication sharedApplication].statusBarFrame.size.height + self.navigationController.navigationBar.frame.size.height;
+    self.weatherScreenView = [[WeatherScreenView alloc] initAndInstallIntoSuperView: self.view topY:topY];
     [self makeBarButtons];
     self.weatherScreenView.visibleStarsImageView.image = [UIImage imageWithData:data];
-    [self makeWeatherUIFromDictionary];
 }
 
--(void)viewDidLayoutSubviews
+- (void) updateWeatherData: (NSDictionary *)weatherData
 {
-    [super viewDidLayoutSubviews];
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-}
-
-- (void) makeWeatherUIFromDictionary
-{
-    NSLog(@"%@", self.weatherDictionary);
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"HH:MM:SS";
+    NSString *sunsetString = [formatter stringFromDate:
+                              [NSDate dateWithTimeIntervalSince1970:
+                               [NSString stringWithFormat:@"%@", [[weatherData valueForKey:@"sys"] valueForKey:@"sunset"]].doubleValue]];
+    NSString *sunriseString = [formatter stringFromDate:
+                               [NSDate dateWithTimeIntervalSince1970:
+                                [NSString stringWithFormat:@"%@", [[weatherData valueForKey:@"sys"] valueForKey:@"sunrise"]].doubleValue]];
+    NSString *tempString = [NSString stringWithFormat:@"%f C",
+                            [NSString stringWithFormat:@"%@",
+                             [[weatherData valueForKey:@"main"] valueForKey:@"temp"]].floatValue - 273.15];
+    NSString *maxTempString = [NSString stringWithFormat:@"%f C",
+                               [NSString stringWithFormat:@"%@",
+                                [[weatherData valueForKey:@"main"] valueForKey:@"temp_max"]].floatValue - 273.15];
+    NSString *minTempString = [NSString stringWithFormat:@"%f C",
+                               [NSString stringWithFormat:@"%@",
+                                [[weatherData valueForKey:@"main"] valueForKey:@"temp_min"]].floatValue - 273.15];;
     
-//    self.weatherScreenView.humidityLabel.text = [self.weatherDictionary valueForKey:@"humidity"];
-//    self.weatherScreenView.pressureLabel       = [UILabel new];
-//    self.weatherScreenView. avgTemperatureLabel = [UILabel new];
-//    self.weatherScreenView. maxTemperatureLabel = [UILabel new];
-//    self.weatherScreenView.minTemperatureLabel = [UILabel new];
-//    self.weatherScreenView.sunsetLabel         = [UILabel new];
-//    self.weatherScreenView.sunriseLabel        = [UILabel new];
-//    self.weatherScreenView. cloudsLevelLabel    = [UILabel new];
-//    self.weatherScreenView.windSpeedLabel      = [UILabel new];
-//    self.weatherScreenView. visibilityLabel     = [UILabel new];
+    self.weatherScreenView.humidityLabel.text = [NSString stringWithFormat:@"%@%%", [[weatherData valueForKey:@"main"] valueForKey:@"humidity"]];
+    self.weatherScreenView.pressureLabel.text = [NSString stringWithFormat:@"%@ hPa", [[weatherData valueForKey:@"main"] valueForKey:@"pressure"]];
+    self.weatherScreenView.avgTemperatureLabel.text = tempString;
+    self.weatherScreenView.maxTemperatureLabel.text = maxTempString;
+    self.weatherScreenView.minTemperatureLabel.text = minTempString;
+    self.weatherScreenView.sunsetLabel.text = sunsetString;
+    self.weatherScreenView.sunriseLabel.text = sunriseString;
+    self.weatherScreenView.cloudsLevelLabel.text = [NSString stringWithFormat:@"%@", [[weatherData valueForKey:@"clouds"]valueForKey:@"all"]];
+    self.weatherScreenView.windSpeedLabel.text = [NSString stringWithFormat:@"%@ mps", [[weatherData valueForKey:@"wind"] valueForKey:@"speed"]];
+    self.weatherScreenView.visibilityLabel.text = [NSString stringWithFormat:@"%@ m", [weatherData valueForKey:@"visibility"]];
+    
+    NSString *weatherURLString = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",[[weatherData valueForKey:@"weather"] valueForKey:@"icon"]];
+    weatherURLString = [[weatherURLString stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    weatherURLString = [[weatherURLString stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
+    NSURL *weatherURL = [[NSURL URLWithString: weatherURLString] URLByStandardizingPath];
+    UIImage *weatherImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:weatherURL]];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.weatherScreenView.weatherImage.image = weatherImage;
+        [self.weatherScreenView.weatherImage setNeedsDisplay];
+    });
 }
 
 

@@ -30,6 +30,8 @@
 @property (nonatomic, strong) UIImageView *visibleStarsImageView;
 @property (nonatomic, strong) UILabel *locationLabel;
 
--(instancetype)initAndInstallIntoSuperView:(UIView *) superview;
+@property (nonatomic, strong) UIImageView *weatherImage;
+
+-(instancetype)initAndInstallIntoSuperView:(UIView *) superview topY:(float) topY;
 
 @end

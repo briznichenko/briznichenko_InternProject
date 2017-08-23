@@ -38,12 +38,16 @@
     float borderWidth = 2.0f;
     
     self.headerImage = [UIImageView new];
-    self.headerImage.layer.borderWidth = borderWidth;
-    self.headerImage.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.headerImage.backgroundColor = [UIColor blackColor];
-//    self.headerImage.clipsToBounds = YES;
     self.headerImage.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview: self.headerImage];
+    
+    self.roundImage = [UIImageView new];
+    self.roundImage.layer.borderWidth = borderWidth;
+    self.roundImage.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.roundImage.backgroundColor = [UIColor blackColor];
+    self.roundImage.contentMode = UIViewContentModeScaleAspectFill;
+    self.headerImage.clipsToBounds = YES;
+    [self.headerImage addSubview: self.roundImage];
 }
 
 - (void) makeMenuEntries
@@ -75,6 +79,7 @@
     float menuHeightMultiplier = 1.0f - imageHeightMultiplier;
     
     self.headerImage.translatesAutoresizingMaskIntoConstraints = NO;
+    self.roundImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.menuItems.translatesAutoresizingMaskIntoConstraints = NO;
     self.appNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.menuButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -84,6 +89,11 @@
      	[self.headerImage.topAnchor constraintEqualToAnchor:self.topAnchor],
         [self.headerImage.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier: imageHeightMultiplier],
         [self.headerImage.widthAnchor constraintEqualToAnchor:self.headerImage.heightAnchor],
+        
+        [self.roundImage.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
+        [self.roundImage.centerYAnchor constraintEqualToAnchor:self.headerImage.centerYAnchor],
+        [self.roundImage.heightAnchor constraintEqualToAnchor:self.headerImage.heightAnchor],
+        [self.roundImage.widthAnchor constraintEqualToAnchor:self.roundImage.heightAnchor],
         
         [self.appNameLabel.centerXAnchor constraintEqualToAnchor:self.headerImage.centerXAnchor],
         [self.appNameLabel.centerYAnchor constraintEqualToAnchor:self.headerImage.centerYAnchor],

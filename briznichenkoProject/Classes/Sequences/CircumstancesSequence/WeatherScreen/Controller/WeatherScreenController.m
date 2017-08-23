@@ -29,11 +29,12 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.weatherScreenViewController setupViewControllerWithData:imageData];
                 self.weatherScreenViewController.weatherScreenView.locationLabel.text = [self.weatherScreenModel returnLocationString];
+                [self.weatherScreenViewController.weatherScreenView setNeedsDisplay];
             });
             [self.weatherScreenModel getWeatherData:^(NSDictionary *weatherData) {
                 if(weatherData)
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        self.weatherScreenViewController.weatherDictionary = weatherData;
+                        [self.weatherScreenViewController updateWeatherData: weatherData];
                         [self.weatherScreenViewController.weatherScreenView setNeedsDisplay];
                     });
             }];}

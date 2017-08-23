@@ -12,6 +12,7 @@
 @interface SideMenuView : UIView
 
 @property (nonatomic, strong) UIImageView *headerImage;
+@property (nonatomic, strong) UIImageView *roundImage;
 @property (nonatomic, strong) UITableView *menuItems;
 @property (nonatomic, strong) UILabel *appNameLabel;
 @property (nonatomic, strong) UIButton *menuButton;

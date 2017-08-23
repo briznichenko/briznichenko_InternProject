@@ -21,14 +21,14 @@
 @synthesize humidityLabel,pressureLabel,avgTemperatureLabel,maxTemperatureLabel,minTemperatureLabel,sunsetLabel,sunriseLabel,cloudsLevelLabel,windSpeedLabel,visibilityLabel;
 
 
-- (instancetype) initAndInstallIntoSuperView:(UIView *) superview
+- (instancetype) initAndInstallIntoSuperView:(UIView *) superview topY:(float) topY
 {
 	self = [super init];
 	if(self)
 	{
 		[self makeView];
 		[self makeInnerConstraints];
-		[self makeOuterConstraints: superview];
+		[self makeOuterConstraints: superview topY:topY];
 	}
 	return self;
 }
@@ -80,6 +80,12 @@
     windSpeedLabel      = [UILabel new];
     visibilityLabel     = [UILabel new];
     
+    humidityLabel.adjustsFontSizeToFitWidth = YES;
+    pressureLabel.adjustsFontSizeToFitWidth = YES;
+    avgTemperatureLabel.adjustsFontSizeToFitWidth = YES;
+    maxTemperatureLabel.adjustsFontSizeToFitWidth = YES;
+    minTemperatureLabel.adjustsFontSizeToFitWidth = YES;
+    
     NSArray *labelText = @[@"hum",
                            @"pres",
                            @"avgT",
@@ -98,6 +104,9 @@
             [leftAccessory addSubview:labels[i]];
         else if(i >= 5)
             [centerAccessory addSubview:labels[i]];
+    
+    self.weatherImage = [UIImageView new];
+    [rightAccessory addSubview:self.weatherImage];
 }
 
 - (void) makeLocationLabel
@@ -132,7 +141,7 @@
 
 - (void) makeHeaderConstraints
 {
-    float widthMultiplier = 0.4f;
+    float widthMultiplier = 0.7f;
     
     leftAccessory.translatesAutoresizingMaskIntoConstraints = NO;
     centerAccessory.translatesAutoresizingMaskIntoConstraints = NO;
@@ -157,22 +166,23 @@
     
     for (UILabel *label in labels)
         label.translatesAutoresizingMaskIntoConstraints = NO;
+    self.weatherImage.translatesAutoresizingMaskIntoConstraints = NO;
     
     [NSLayoutConstraint activateConstraints:
      @[[humidityLabel.topAnchor constraintEqualToAnchor:leftAccessory.topAnchor],
        [humidityLabel.leftAnchor constraintEqualToAnchor:leftAccessory.leftAnchor],
        
-       [pressureLabel.topAnchor constraintEqualToAnchor:leftAccessory.topAnchor],
-       [pressureLabel.rightAnchor constraintEqualToAnchor:leftAccessory.rightAnchor],
+       [pressureLabel.topAnchor constraintEqualToAnchor:humidityLabel.bottomAnchor],
+       [pressureLabel.leftAnchor constraintEqualToAnchor:leftAccessory.leftAnchor],
        
-       [maxTemperatureLabel.bottomAnchor constraintEqualToAnchor:leftAccessory.bottomAnchor],
+       [maxTemperatureLabel.bottomAnchor constraintEqualToAnchor:avgTemperatureLabel.topAnchor],
        [maxTemperatureLabel.leftAnchor constraintEqualToAnchor:leftAccessory.leftAnchor],
        
-       [avgTemperatureLabel.bottomAnchor constraintEqualToAnchor:leftAccessory.bottomAnchor],
-       [avgTemperatureLabel.centerXAnchor constraintEqualToAnchor:leftAccessory.centerXAnchor],
+       [avgTemperatureLabel.bottomAnchor constraintEqualToAnchor:minTemperatureLabel.topAnchor],
+       [avgTemperatureLabel.leftAnchor constraintEqualToAnchor:leftAccessory.leftAnchor],
        
        [minTemperatureLabel.bottomAnchor constraintEqualToAnchor:leftAccessory.bottomAnchor],
-       [minTemperatureLabel.rightAnchor constraintEqualToAnchor:leftAccessory.rightAnchor],
+       [minTemperatureLabel.leftAnchor constraintEqualToAnchor:leftAccessory.leftAnchor],
        
        [sunriseLabel.centerYAnchor constraintEqualToAnchor:centerAccessory.centerYAnchor],
        [sunriseLabel.leftAnchor constraintEqualToAnchor:centerAccessory.leftAnchor],
@@ -187,20 +197,25 @@
        [windSpeedLabel.centerXAnchor constraintEqualToAnchor:centerAccessory.centerXAnchor],
        
        [visibilityLabel.centerXAnchor constraintEqualToAnchor:centerAccessory.centerXAnchor],
-       [visibilityLabel.centerYAnchor constraintEqualToAnchor:centerAccessory.centerYAnchor]
+       [visibilityLabel.centerYAnchor constraintEqualToAnchor:centerAccessory.centerYAnchor],
+       
+       [self.weatherImage.centerXAnchor constraintEqualToAnchor:rightAccessory.centerXAnchor],
+       [self.weatherImage.centerYAnchor constraintEqualToAnchor:rightAccessory.centerYAnchor],
+       [self.weatherImage.widthAnchor constraintEqualToAnchor:rightAccessory.widthAnchor],
+       [self.weatherImage.heightAnchor constraintEqualToAnchor:rightAccessory.widthAnchor]
        ]];
 }
 
-- (void) makeOuterConstraints:(UIView *) superview
+- (void) makeOuterConstraints:(UIView *) superview topY:(float) topY
 {
 	[superview addSubview:self];
-    
+
     self.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:
      @[[self.centerXAnchor constraintEqualToAnchor:superview.centerXAnchor],
-       [self.centerYAnchor constraintEqualToAnchor:superview.centerYAnchor],
+       [self.topAnchor constraintGreaterThanOrEqualToAnchor:superview.topAnchor constant:topY],
        [self.widthAnchor constraintEqualToAnchor:superview.widthAnchor],
-       [self.heightAnchor constraintEqualToAnchor:superview.heightAnchor]
+       [self.heightAnchor constraintEqualToAnchor:superview.heightAnchor multiplier: (superview.frame.size.height - topY) / superview.frame.size.height]
      ]];
 
 }
