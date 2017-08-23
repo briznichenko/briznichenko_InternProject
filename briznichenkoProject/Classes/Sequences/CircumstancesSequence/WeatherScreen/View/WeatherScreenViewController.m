@@ -16,6 +16,8 @@
 	[super viewDidLoad];
 }
 
+#pragma mark - ViewController setup methods
+
 -(void)setupViewControllerWithData:(NSData *)data
 {
     float topY = [UIApplication sharedApplication].statusBarFrame.size.height + self.navigationController.navigationBar.frame.size.height;
@@ -34,15 +36,15 @@
     NSString *sunriseString = [formatter stringFromDate:
                                [NSDate dateWithTimeIntervalSince1970:
                                 [NSString stringWithFormat:@"%@", [[weatherData valueForKey:@"sys"] valueForKey:@"sunrise"]].doubleValue]];
-    NSString *tempString = [NSString stringWithFormat:@"%f C",
+    NSString *tempString = [NSString stringWithFormat:@"%i C",
                             [NSString stringWithFormat:@"%@",
-                             [[weatherData valueForKey:@"main"] valueForKey:@"temp"]].floatValue - 273.15];
-    NSString *maxTempString = [NSString stringWithFormat:@"%f C",
+                             [[weatherData valueForKey:@"main"] valueForKey:@"temp"]].intValue - 273];
+    NSString *maxTempString = [NSString stringWithFormat:@"%i C",
                                [NSString stringWithFormat:@"%@",
-                                [[weatherData valueForKey:@"main"] valueForKey:@"temp_max"]].floatValue - 273.15];
-    NSString *minTempString = [NSString stringWithFormat:@"%f C",
+                                [[weatherData valueForKey:@"main"] valueForKey:@"temp_max"]].intValue - 273];
+    NSString *minTempString = [NSString stringWithFormat:@"%i C",
                                [NSString stringWithFormat:@"%@",
-                                [[weatherData valueForKey:@"main"] valueForKey:@"temp_min"]].floatValue - 273.15];;
+                                [[weatherData valueForKey:@"main"] valueForKey:@"temp_min"]].intValue - 273];;
     
     self.weatherScreenView.humidityLabel.text = [NSString stringWithFormat:@"%@%%", [[weatherData valueForKey:@"main"] valueForKey:@"humidity"]];
     self.weatherScreenView.pressureLabel.text = [NSString stringWithFormat:@"%@ hPa", [[weatherData valueForKey:@"main"] valueForKey:@"pressure"]];
@@ -73,13 +75,29 @@
     UIBarButtonItem *eventsButton = [[UIBarButtonItem alloc] initWithTitle:@"Events"
                                                                    style:UIBarButtonItemStyleDone
                                                                   target:self
-                                                                  action:nil];
+                                                                  action:@selector(presentNearEarthEventsController)];
     
     UIBarButtonItem *objectsButton = [[UIBarButtonItem alloc] initWithTitle:@"Objects"
                                                                      style:UIBarButtonItemStyleDone
                                                                     target:self
-                                                                    action:nil];
+                                                                    action:@selector(presentNearEarthObjectsController)];
     self.navigationController.navigationBar.topItem.rightBarButtonItems = @[eventsButton, objectsButton];
+}
+
+#pragma mark -- Actions
+
+- (void) presentNearEarthEventsController
+{
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"presentNearEarthEventsController"
+     object:nil];
+}
+
+- (void) presentNearEarthObjectsController
+{
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"presentNearEarthObjectsController"
+     object:nil];
 }
 
 @end

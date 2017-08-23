@@ -7,7 +7,8 @@
 //
 
 #import "WeatherScreenController.h"
-
+#import "NearEarthEventsController.h"
+#import "NearEarthObjectsController.h"
 
 @implementation WeatherScreenController
 
@@ -19,6 +20,7 @@
 		self.weatherScreenViewController = [WeatherScreenViewController new];
 		self.weatherScreenModel = [[WeatherScreenModel alloc] initWithData];
         [self setupViewControllerWithData:self.weatherScreenModel.data];
+        [self subscribeToNotifications];
 	}	
 	return self;
 }
@@ -42,5 +44,46 @@
 }
 
 #pragma mark -- Routing
+
+- (void) subscribeToNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"presentNearEarthEventsController"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"presentNearEarthObjectsController"
+                                               object:nil];
+}
+
+- (void) receiveNotification:(NSNotification *) notification
+{
+    if ([notification.name isEqualToString:@"presentNearEarthEventsController"])
+    {
+        [self peresentNearEarthEventsController];
+    }
+    else if ([notification.name isEqualToString:@"presentNearEarthObjectsController"])
+    {
+        [self presentNearEarthObjectsController];
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) peresentNearEarthEventsController
+{
+    self.nearEarthEventsController = [[NearEarthEventsController alloc] initAndAssemble];
+    [self.weatherScreenViewController.navigationController pushViewController:self.nearEarthEventsController.nearEarthEventsViewController animated:YES];
+}
+- (void) presentNearEarthObjectsController
+{
+    self.nearEarthObjectsController = [[NearEarthObjectsController alloc] initAndAssemble];
+    [self.weatherScreenViewController.navigationController pushViewController:self.nearEarthObjectsController.nearEarthObjectsViewController animated:YES];
+}
 
 @end

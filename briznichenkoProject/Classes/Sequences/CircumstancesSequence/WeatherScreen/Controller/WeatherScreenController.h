@@ -11,11 +11,15 @@
 #import "WeatherScreenViewController.h"
 #import "WeatherScreenModel.h"
 
+@class NearEarthEventsController, NearEarthObjectsController;
 @interface WeatherScreenController : NSObject
 <WeatherScreenViewControllerProtocol, WeatherScreenControllerProtocol, WeatherScreenModelProtocol>
 
 @property (nonatomic, strong) WeatherScreenViewController* weatherScreenViewController;
 @property (nonatomic, strong) WeatherScreenModel* weatherScreenModel;
+
+@property (nonatomic, strong) NearEarthEventsController* nearEarthEventsController;
+@property (nonatomic, strong) NearEarthObjectsController* nearEarthObjectsController;
 
 -(instancetype) initAndAssemble;
 

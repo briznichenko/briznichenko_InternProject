@@ -141,7 +141,7 @@
 
 - (void) makeHeaderConstraints
 {
-    float widthMultiplier = 0.7f;
+    float widthMultiplier = 0.6f;
     
     leftAccessory.translatesAutoresizingMaskIntoConstraints = NO;
     centerAccessory.translatesAutoresizingMaskIntoConstraints = NO;
