@@ -91,7 +91,15 @@
 		7DAC3CA51F4DAEBC00692D96 /* NearEarthObjectsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3C9A1F4DAB6900692D96 /* NearEarthObjectsModel.m */; };
 		7DAC3CA61F4DAEBC00692D96 /* NearEarthObjectsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3C9D1F4DAB6900692D96 /* NearEarthObjectsView.m */; };
 		7DAC3CA71F4DAEBC00692D96 /* NearEarthObjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3C9F1F4DAB6900692D96 /* NearEarthObjectsViewController.m */; };
-		7DAC3CC81F4DE1BA00692D96 /* NearEarthObjectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC71F4DE1BA00692D96 /* NearEarthObjectEntity.m */; };
+		7DBBB2671F4EC6A0009EFF29 /* NearEarthEventDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CAB1F4DD5F300692D96 /* NearEarthEventDetailController.m */; };
+		7DBBB2681F4EC6A0009EFF29 /* NearEarthEventDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CB01F4DD5F300692D96 /* NearEarthEventDetailModel.m */; };
+		7DBBB2691F4EC6A0009EFF29 /* NearEarthEventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CB31F4DD5F300692D96 /* NearEarthEventDetailView.m */; };
+		7DBBB26A1F4EC6A0009EFF29 /* NearEarthEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CB51F4DD5F300692D96 /* NearEarthEventDetailViewController.m */; };
+		7DBBB26B1F4EC6A0009EFF29 /* NearEarthObjectDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CB91F4DD5F300692D96 /* NearEarthObjectDetailController.m */; };
+		7DBBB26C1F4EC6A0009EFF29 /* NearEarthObjectDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CBE1F4DD5F300692D96 /* NearEarthObjectDetailModel.m */; };
+		7DBBB26D1F4EC6A0009EFF29 /* NearEarthObjectDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC11F4DD5F300692D96 /* NearEarthObjectDetailView.m */; };
+		7DBBB26E1F4EC6A0009EFF29 /* NearEarthObjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC31F4DD5F300692D96 /* NearEarthObjectDetailViewController.m */; };
+		7DBBB26F1F4EC881009EFF29 /* NearEarthObjectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC71F4DE1BA00692D96 /* NearEarthObjectEntity.m */; };
 		7DDB23F01F45F61600B62C9B /* FlatEarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -846,8 +854,8 @@
 			isa = PBXGroup;
 			children = (
 				7DAC3CA81F4DD5F300692D96 /* NearEarthEventDetail */,
-				7DAC3CB61F4DD5F300692D96 /* NearEarthObjectDetail */,
 				7DAC3C841F4DAB6900692D96 /* NearEarthEvents */,
+				7DAC3CB61F4DD5F300692D96 /* NearEarthObjectDetail */,
 				7DAC3C921F4DAB6900692D96 /* NearEarthObjects */,
 				7D0AB4111F4B291300457DC0 /* WeatherScreen */,
 			);
@@ -1381,6 +1389,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DBBB26F1F4EC881009EFF29 /* NearEarthObjectEntity.m in Sources */,
+				7DBBB2671F4EC6A0009EFF29 /* NearEarthEventDetailController.m in Sources */,
+				7DBBB2681F4EC6A0009EFF29 /* NearEarthEventDetailModel.m in Sources */,
+				7DBBB2691F4EC6A0009EFF29 /* NearEarthEventDetailView.m in Sources */,
+				7DBBB26A1F4EC6A0009EFF29 /* NearEarthEventDetailViewController.m in Sources */,
+				7DBBB26B1F4EC6A0009EFF29 /* NearEarthObjectDetailController.m in Sources */,
+				7DBBB26C1F4EC6A0009EFF29 /* NearEarthObjectDetailModel.m in Sources */,
+				7DBBB26D1F4EC6A0009EFF29 /* NearEarthObjectDetailView.m in Sources */,
+				7DBBB26E1F4EC6A0009EFF29 /* NearEarthObjectDetailViewController.m in Sources */,
 				7DAC3CA01F4DAEBC00692D96 /* NearEarthEventsController.m in Sources */,
 				7DAC3CA11F4DAEBC00692D96 /* NearEarthEventsModel.m in Sources */,
 				7DAC3CA21F4DAEBC00692D96 /* NearEarthEventsView.m in Sources */,
@@ -1425,7 +1442,6 @@
 				7D0209FE1F41AE64002D56F5 /* ViewerViewController.m in Sources */,
 				7D0209FF1F41AE64002D56F5 /* RootNavigationController.m in Sources */,
 				7D020A001F41AE64002D56F5 /* SplashController.m in Sources */,
-				7DAC3CC81F4DE1BA00692D96 /* NearEarthObjectEntity.m in Sources */,
 				7D4E657B1F4730B1004A54EA /* EarthEventEntity.m in Sources */,
 				7D020A011F41AE64002D56F5 /* SplashModel.m in Sources */,
 				7D020A021F41AE64002D56F5 /* UIImage+animatedGIF.m in Sources */,

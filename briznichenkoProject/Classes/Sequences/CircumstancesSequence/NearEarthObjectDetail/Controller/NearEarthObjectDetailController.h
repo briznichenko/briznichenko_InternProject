@@ -15,8 +15,9 @@
 <NearEarthObjectDetailViewControllerProtocol, NearEarthObjectDetailControllerProtocol, NearEarthObjectDetailModelProtocol>
 
 @property (nonatomic, strong) NearEarthObjectDetailViewController* nearEarthObjectDetailViewController;
-@property (nonatomic, strong) NearEarthObjectDetailModel* nearEarthObjectDetaillModel;
+@property (nonatomic, strong) NearEarthObjectDetailModel* nearEarthObjectDetailModel;
 
 -(instancetype) initAndAssemble;
+-(void) setupWithEntity;
 
 @end

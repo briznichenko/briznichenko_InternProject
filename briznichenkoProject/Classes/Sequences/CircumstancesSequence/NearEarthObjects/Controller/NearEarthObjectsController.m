@@ -7,6 +7,7 @@
 //
 
 #import "NearEarthObjectsController.h"
+#import "NearEarthObjectDetailController.h"
 
 
 @implementation NearEarthObjectsController
@@ -18,6 +19,7 @@
 	{
 		self.nearEarthObjectsViewController = [NearEarthObjectsViewController new];
 		self.nearEarthObjectsModel = [[NearEarthObjectsModel alloc] initWithData];
+        [self subscribeToNotifications];
         [self setupViewControllerWithData:self.nearEarthObjectsModel.data];
 	}	
 	return self;
@@ -36,6 +38,45 @@
 
 #pragma mark -- Routing
 
+- (void) subscribeToNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"requestNearEarthObjectDetail"
+                                               object:nil];
+}
 
+- (void) receiveNotification:(NSNotification *) notification
+{
+    if ([notification.name isEqualToString:@"requestNearEarthObjectDetail"])
+    {
+        [self requestNearEarthObjectDetailForID: notification.object];
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) requestNearEarthObjectDetailForID: (NSString *) objectID
+{
+    [self.nearEarthObjectsModel getSingleNearbyObjectByObjectID:objectID completion:^(bool finished) {
+        if(finished)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentNearEarthObjectDetailControlller];
+            });
+        }
+    }];
+}
+
+- (void) presentNearEarthObjectDetailControlller
+{
+    self.nearEarthObjectsDetailController = [[NearEarthObjectDetailController alloc] initAndAssemble];
+    self.nearEarthObjectsDetailController.nearEarthObjectDetailModel.objectEntity = self.nearEarthObjectsModel.objectEntity;
+    [self.nearEarthObjectsDetailController setupWithEntity];
+    [self.nearEarthObjectsViewController.navigationController pushViewController:self.nearEarthObjectsDetailController.nearEarthObjectDetailViewController animated:YES];
+}
 
 @end

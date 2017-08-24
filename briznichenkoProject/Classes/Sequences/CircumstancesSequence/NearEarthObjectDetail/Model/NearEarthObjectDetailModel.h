@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "NearEarthObjectDetailProtocols.h"
-
+#import "NearEarthObjectEntity.h"
 
 @interface NearEarthObjectDetailModel : NSObject
 <NearEarthObjectDetailModelProtocol>
 
 @property (atomic, strong) NSData *data;
+@property (atomic, strong) NearEarthObjectEntity *objectEntity;
 
 - (instancetype) initWithData;
 

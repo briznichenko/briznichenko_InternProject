@@ -8,7 +8,6 @@
 
 #import "NearEarthObjectsModel.h"
 
-
 @implementation NearEarthObjectsModel
 {
     NSString *nasaAPIKey;
@@ -61,7 +60,7 @@
     [dataTask resume];
 }
 
--(void)getSingleNearbyObjectByObjectID:(NSString *)objectID completion:(void (^)(NSDictionary *description))completion
+-(void)getSingleNearbyObjectByObjectID:(NSString *)objectID completion:(void (^)(bool finished))completion
 {
     NSURLSession *urlSession;
     NSURLSessionDataTask *dataTask;
@@ -81,7 +80,8 @@
                     if(!error)
                     {
                         NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                        completion(jsonData);
+                        self.objectEntity = [[NearEarthObjectEntity alloc] initFromDictionary: jsonData];
+                        completion(self.objectEntity != nil);
                     }
                     else if(error)
                     {

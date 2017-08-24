@@ -17,14 +17,19 @@
 	if(self)
 	{
 		self.nearEarthObjectDetailViewController = [NearEarthObjectDetailViewController new];
-		self.nearEarthObjectDetailModel = [[NearEarthObjectDetailModel alloc] initWithData];
-        [self setupViewControllerWithData: self.nearEarthObjectDetailModel.data];
+        self.nearEarthObjectDetailModel = [[NearEarthObjectDetailModel alloc] initWithData];
     }
 	return self;
 }
 
+-(void) setupWithEntity
+{
+    [self setupViewControllerWithData:[NSData new]];
+}
+
 -(void)setupViewControllerWithData:(NSData *)data
 {
+    self.nearEarthObjectDetailViewController.objectEntity = self.nearEarthObjectDetailModel.objectEntity;
     [self.nearEarthObjectDetailViewController setupViewControllerWithData: data];
 }
 

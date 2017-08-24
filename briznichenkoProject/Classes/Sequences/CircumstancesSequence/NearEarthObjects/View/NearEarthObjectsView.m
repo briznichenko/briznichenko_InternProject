@@ -99,7 +99,6 @@
        [self.widthAnchor constraintEqualToAnchor:superview.widthAnchor],
        [self.heightAnchor constraintEqualToAnchor:superview.heightAnchor multiplier: (superview.frame.size.height - topY) / superview.frame.size.height]
        ]];
-    
 }
 
 @end

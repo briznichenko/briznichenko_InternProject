@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "NearEarthObjectDetailProtocols.h"
 #import "NearEarthObjectDetailView.h"
+#import "NearEarthObjectEntity.h"
 
 @interface NearEarthObjectDetailViewController : UIViewController
-<NearEarthObjectDetailViewControllerProtocol>
+<NearEarthObjectDetailViewControllerProtocol, UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate>
 
 @property (nonatomic, strong) NearEarthObjectDetailView* nearEarthObjectDetailView;
+@property (atomic, strong) NearEarthObjectEntity *objectEntity;
 
 @end

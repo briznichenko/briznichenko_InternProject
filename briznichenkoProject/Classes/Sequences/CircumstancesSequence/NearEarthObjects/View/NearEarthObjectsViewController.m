@@ -71,8 +71,27 @@ static NSString *reuseID = @"Nearby object cell";
     objectCell.textLabel.text = [currentObject valueForKey:@"name"];
     NSString *distanceToEarth = [[[currentObject valueForKey:@"close_approach_data"]valueForKey:@"miss_distance"]valueForKey:@"kilometers"][0];
     objectCell.detailTextLabel.text = [NSString stringWithFormat:@"%i km", distanceToEarth.intValue];
-    objectCell.backgroundColor = [UIColor colorWithWhite: (indexPath.row % 2) / 2 alpha:1.0f];
+    objectCell.backgroundColor = [UIColor colorWithWhite: indexPath.row % 2 ? 1.0f : 0.5f alpha:1.0f];
     return objectCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *currentObject;
+    if(self.nearEarthObjects.count > 1)
+    {
+        NSArray *objects = [self.nearEarthObjects valueForKey:self.nearEarthObjects.allKeys[indexPath.section]];
+        currentObject = objects[indexPath.row];
+    }
+    else
+    {
+        NSArray *objects = [self.nearEarthObjects valueForKey:self.nearEarthObjects.allKeys[indexPath.section]];
+        currentObject = objects[indexPath.row];
+    }
+    NSString *objectID = [NSString stringWithFormat:@"%@", [currentObject valueForKey:@"neo_reference_id"]];
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"requestNearEarthObjectDetail"
+     object: objectID];
 }
 
 @end
