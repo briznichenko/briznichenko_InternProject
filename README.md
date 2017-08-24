@@ -9,8 +9,8 @@ The app consists of 4 main modules:
 N | Module name                               |Module status (%)
 ---|---|:---:
 1|Space-Map module;                          |90%
-2|Earth imagery and Earth events module   	  |50%
-3|Location and time-based conditions module  |0%
+2|Earth imagery and Earth events module   	  |70%
+3|Location and time-based conditions module  |50%
 4|Library module                             |0%
 
 
