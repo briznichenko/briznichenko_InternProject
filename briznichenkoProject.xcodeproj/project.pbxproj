@@ -82,7 +82,7 @@
 		7D4E657B1F4730B1004A54EA /* EarthEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E657A1F4730B1004A54EA /* EarthEventEntity.m */; };
 		7D4E657E1F4733DB004A54EA /* EarthEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E657D1F4733DB004A54EA /* EarthEventController.m */; };
 		7D4E65811F4733F2004A54EA /* EarthEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E65801F4733F2004A54EA /* EarthEventModel.m */; };
-		7D9E9A501F4445A900B40593 /* EarthSequenceStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */; };
+		7D9E9A501F4445A900B40593 /* EarthSequence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E9A4F1F4445A900B40593 /* EarthSequence.storyboard */; };
 		7DAC3CA01F4DAEBC00692D96 /* NearEarthEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3C871F4DAB6900692D96 /* NearEarthEventsController.m */; };
 		7DAC3CA11F4DAEBC00692D96 /* NearEarthEventsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3C8C1F4DAB6900692D96 /* NearEarthEventsModel.m */; };
 		7DAC3CA21F4DAEBC00692D96 /* NearEarthEventsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3C8F1F4DAB6900692D96 /* NearEarthEventsView.m */; };
@@ -100,7 +100,9 @@
 		7DBBB26D1F4EC6A0009EFF29 /* NearEarthObjectDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC11F4DD5F300692D96 /* NearEarthObjectDetailView.m */; };
 		7DBBB26E1F4EC6A0009EFF29 /* NearEarthObjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC31F4DD5F300692D96 /* NearEarthObjectDetailViewController.m */; };
 		7DBBB26F1F4EC881009EFF29 /* NearEarthObjectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC71F4DE1BA00692D96 /* NearEarthObjectEntity.m */; };
+		7DBBB2721F4F16F3009EFF29 /* LibrarySequence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DBBB2711F4F16F3009EFF29 /* LibrarySequence.storyboard */; };
 		7DDB23F01F45F61600B62C9B /* FlatEarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */; };
+		7DE2E81A1F5413DF00EA2142 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2E8191F5413DE00EA2142 /* LibraryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -256,7 +258,7 @@
 		7D4E657D1F4733DB004A54EA /* EarthEventController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthEventController.m; sourceTree = "<group>"; };
 		7D4E657F1F4733F2004A54EA /* EarthEventModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthEventModel.h; sourceTree = "<group>"; };
 		7D4E65801F4733F2004A54EA /* EarthEventModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthEventModel.m; sourceTree = "<group>"; };
-		7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EarthSequenceStoryboard.storyboard; sourceTree = "<group>"; };
+		7D9E9A4F1F4445A900B40593 /* EarthSequence.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EarthSequence.storyboard; sourceTree = "<group>"; };
 		7DAC3C861F4DAB6900692D96 /* NearEarthEventsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthEventsController.h; sourceTree = "<group>"; };
 		7DAC3C871F4DAB6900692D96 /* NearEarthEventsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthEventsController.m; sourceTree = "<group>"; };
 		7DAC3C891F4DAB6900692D96 /* NearEarthEventsProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthEventsProtocols.h; sourceTree = "<group>"; };
@@ -295,8 +297,11 @@
 		7DAC3CC31F4DD5F300692D96 /* NearEarthObjectDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthObjectDetailViewController.m; sourceTree = "<group>"; };
 		7DAC3CC61F4DE1BA00692D96 /* NearEarthObjectEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthObjectEntity.h; sourceTree = "<group>"; };
 		7DAC3CC71F4DE1BA00692D96 /* NearEarthObjectEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthObjectEntity.m; sourceTree = "<group>"; };
+		7DBBB2711F4F16F3009EFF29 /* LibrarySequence.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LibrarySequence.storyboard; sourceTree = "<group>"; };
 		7DDB23EE1F45F61600B62C9B /* FlatEarthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlatEarthViewController.h; sourceTree = "<group>"; };
 		7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlatEarthViewController.m; sourceTree = "<group>"; };
+		7DE2E8181F5413DE00EA2142 /* LibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
+		7DE2E8191F5413DE00EA2142 /* LibraryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
 		7DFF4A281F1CCAB600E5A602 /* briznichenkoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = briznichenkoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -351,6 +356,7 @@
 		7D0209551F41AE2A002D56F5 /* Sequences */ = {
 			isa = PBXGroup;
 			children = (
+				7DBBB2701F4F16A4009EFF29 /* LibrarySequence */,
 				7D0AB40C1F4B140000457DC0 /* CircumstancesSequence */,
 				7D0209561F41AE2A002D56F5 /* EarthSequence */,
 				7D0209651F41AE2A002D56F5 /* GalaxyMapSequence */,
@@ -362,7 +368,7 @@
 		7D0209561F41AE2A002D56F5 /* EarthSequence */ = {
 			isa = PBXGroup;
 			children = (
-				7D9E9A4F1F4445A900B40593 /* EarthSequenceStoryboard.storyboard */,
+				7D9E9A4F1F4445A900B40593 /* EarthSequence.storyboard */,
 				7D1EAD281F445FC400A7DA74 /* EarthScreen */,
 				7D4E65621F46F47B004A54EA /* EventCategoriesScreen */,
 				7D4E65631F46F488004A54EA /* EventsTableScreen */,
@@ -1273,6 +1279,15 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		7DBBB2701F4F16A4009EFF29 /* LibrarySequence */ = {
+			isa = PBXGroup;
+			children = (
+				7DE2E8151F54126900EA2142 /* Library */,
+				7DBBB2711F4F16F3009EFF29 /* LibrarySequence.storyboard */,
+			);
+			path = LibrarySequence;
+			sourceTree = "<group>";
+		};
 		7DD156031F42E8F600C370D6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1290,6 +1305,31 @@
 				7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */,
 			);
 			path = FlatEarthViewController;
+			sourceTree = "<group>";
+		};
+		7DE2E8151F54126900EA2142 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				7DE2E8171F54127B00EA2142 /* Model */,
+				7DE2E8161F54127300EA2142 /* ViewController */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		7DE2E8161F54127300EA2142 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7DE2E8181F5413DE00EA2142 /* LibraryViewController.h */,
+				7DE2E8191F5413DE00EA2142 /* LibraryViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7DE2E8171F54127B00EA2142 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7DFF4A1F1F1CCAB600E5A602 = {
@@ -1375,9 +1415,10 @@
 				7D020A2D1F41CFEE002D56F5 /* aladin.js in Resources */,
 				7D020A2E1F41CFEE002D56F5 /* AladinMap.html in Resources */,
 				7D020A2F1F41CFEE002D56F5 /* jquery-1.10.1.min.js in Resources */,
-				7D9E9A501F4445A900B40593 /* EarthSequenceStoryboard.storyboard in Resources */,
+				7D9E9A501F4445A900B40593 /* EarthSequence.storyboard in Resources */,
 				7D020A301F41CFEE002D56F5 /* Assets.xcassets in Resources */,
 				7D020A311F41CFEE002D56F5 /* giphy.gif in Resources */,
+				7DBBB2721F4F16F3009EFF29 /* LibrarySequence.storyboard in Resources */,
 				7D0AB40B1F4B0DE300457DC0 /* EventDisplayScript in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1419,6 +1460,7 @@
 				7D0209EA1F41AE64002D56F5 /* DescriptionController.m in Sources */,
 				7D4E656C1F46F54E004A54EA /* EventCategoriesModel.m in Sources */,
 				7D0209EB1F41AE64002D56F5 /* DescriptionModel.m in Sources */,
+				7DE2E81A1F5413DF00EA2142 /* LibraryViewController.m in Sources */,
 				7D0209EC1F41AE64002D56F5 /* DescriptionView.m in Sources */,
 				7D0209ED1F41AE64002D56F5 /* DescriptionViewController.m in Sources */,
 				7D0209EE1F41AE64002D56F5 /* GalleryController.m in Sources */,

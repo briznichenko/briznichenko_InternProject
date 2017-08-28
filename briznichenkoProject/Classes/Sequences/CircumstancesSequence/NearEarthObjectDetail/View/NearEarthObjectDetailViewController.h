@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NearEarthObjectDetailView* nearEarthObjectDetailView;
 @property (atomic, strong) NearEarthObjectEntity *objectEntity;
 
+- (void) showSavedAlert;
+
 @end

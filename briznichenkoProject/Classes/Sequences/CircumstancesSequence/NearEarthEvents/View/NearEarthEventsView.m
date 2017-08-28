@@ -12,44 +12,52 @@
 @implementation NearEarthEventsView
 
 
-- (instancetype) initAndInstallIntoSuperView:(UIView *) superview
+- (instancetype) initAndInstallIntoSuperView:(UIView *) superview topY:(float) topY
 {
 	self = [super init];
 	if(self)
 	{
 		[self makeView];
 		[self makeInnerConstraints];
-		[self makeOuterConstraints: superview];
+		[self makeOuterConstraints: superview topY:topY];
 	}
 	return self;
 }
 
 - (void) makeView
 {
+    [self makeEventsWebView];
+}
 
-
+- (void) makeEventsWebView
+{
+    self.eventsWebView = [UIWebView new];
+    [self addSubview:self.eventsWebView];
 }
 
 - (void) makeInnerConstraints
 {
-		[NSLayoutConstraint activateConstraints:
-     @[
-     	
+    self.eventsWebView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [NSLayoutConstraint activateConstraints:
+     @[[self.eventsWebView.centerXAnchor constraintEqualToAnchor: self.centerXAnchor],
+       [self.eventsWebView.topAnchor constraintEqualToAnchor: self.topAnchor],
+       [self.eventsWebView.widthAnchor constraintEqualToAnchor: self.widthAnchor],
+       [self.eventsWebView.heightAnchor constraintEqualToAnchor: self.heightAnchor]
        ]];
 }
 
-- (void) makeOuterConstraints:(UIView *) superview
+- (void) makeOuterConstraints:(UIView *) superview topY:(float) topY
 {
-	[superview addSubview:self];
+    [superview addSubview:self];
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:
      @[[self.centerXAnchor constraintEqualToAnchor:superview.centerXAnchor],
-       [self.centerYAnchor constraintEqualToAnchor:superview.centerYAnchor],
+       [self.topAnchor constraintGreaterThanOrEqualToAnchor:superview.topAnchor constant:topY],
        [self.widthAnchor constraintEqualToAnchor:superview.widthAnchor],
-       [self.heightAnchor constraintEqualToAnchor:superview.heightAnchor]
-     ]];
-
+       [self.heightAnchor constraintEqualToAnchor:superview.heightAnchor multiplier: (superview.frame.size.height - topY) / superview.frame.size.height]
+       ]];
 }
 
 @end

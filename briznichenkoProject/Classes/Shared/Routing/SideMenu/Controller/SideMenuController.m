@@ -62,6 +62,7 @@
             [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
             break;
         case 3:
+            [self.rootNavigationController presentLibraryViewController];
             [self.sideMenuViewController dismissViewControllerAnimated:YES completion:^{}];
             break;
             

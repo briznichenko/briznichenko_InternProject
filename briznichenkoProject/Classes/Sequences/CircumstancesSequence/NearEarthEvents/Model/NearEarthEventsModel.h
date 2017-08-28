@@ -16,5 +16,6 @@
 @property (atomic, strong) NSData *data;
 
 - (instancetype) initWithData;
+- (void) requestEventsHTML: (void (^) (NSString *htmlForEvents)) completion;
 
 @end

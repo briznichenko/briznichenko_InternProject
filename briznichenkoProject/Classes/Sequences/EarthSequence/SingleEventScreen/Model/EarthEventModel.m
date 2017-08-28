@@ -37,9 +37,12 @@
     
     NSError *error = nil;
     if ([context save:&error] == NO)
+    {
+        completionBlock(NO);
         NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
     else
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SavedSpaceObjectEntity" object:nil userInfo:nil];
+        completionBlock(YES);
 }
 
 @end

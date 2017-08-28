@@ -27,7 +27,8 @@ static NSString *approachInfoCellID =  @"approach_info_cell";
                                                                44.0f);
     float cornerRadius = self.nearEarthObjectDetailView.frame.size.width / 6;
     self.nearEarthObjectDetailView.diameterSchemeView.layer.cornerRadius = cornerRadius;
-        [super viewDidLayoutSubviews];
+    [self makeBarButtons];
+    [super viewDidLayoutSubviews];
 }
 
 #pragma mark - ViewController setup methods
@@ -54,12 +55,12 @@ static NSString *approachInfoCellID =  @"approach_info_cell";
     self.nearEarthObjectDetailView.objectMagnitudeLabel.text = self.objectEntity.absolute_magnitude_h;
     self.nearEarthObjectDetailView.objectHazardousLabel.text = self.objectEntity.is_potentially_hazardous_asteroid;
     
-    NSArray *diameterString = [self formatStringsFromEntity];
+    NSArray *diameterStrings = [self formatStringsFromEntity];
     
-    self.nearEarthObjectDetailView.diameterKMLabel.text = diameterString[0];
-    self.nearEarthObjectDetailView.diameterMeterLabel.text = diameterString[1];
-    self.nearEarthObjectDetailView.diameterFeetLabel.text = diameterString[2];
-    self.nearEarthObjectDetailView.diameterMilesLabel.text = diameterString[3];
+    self.nearEarthObjectDetailView.diameterKMLabel.text = diameterStrings[0];
+    self.nearEarthObjectDetailView.diameterMeterLabel.text = diameterStrings[1];
+    self.nearEarthObjectDetailView.diameterFeetLabel.text = diameterStrings[2];
+    self.nearEarthObjectDetailView.diameterMilesLabel.text = diameterStrings[3];
     
     NSURL *requestURL = [NSURL URLWithString:self.objectEntity.nasa_jpl_url];
     [self.nearEarthObjectDetailView.objectNasaView loadRequest:[NSURLRequest requestWithURL:requestURL]];
@@ -70,12 +71,12 @@ static NSString *approachInfoCellID =  @"approach_info_cell";
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share"
                                                                      style:UIBarButtonItemStyleDone
                                                                     target:self
-                                                                    action:nil];//@selector(presentNearEarthEventsController)];
+                                                                    action:@selector(shareObject)];
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"
                                                                       style:UIBarButtonItemStyleDone
                                                                      target:self
-                                                                     action:nil];//@selector(presentNearEarthObjectsController)];
+                                                                     action:@selector(saveObject)];
     self.navigationController.navigationBar.topItem.rightBarButtonItems = @[shareButton, saveButton];
 }
 
@@ -142,7 +143,36 @@ static NSString *approachInfoCellID =  @"approach_info_cell";
     [self.nearEarthObjectDetailView.objectNasaView reload];
 }
 
-#pragma mark - util
+#pragma mark -- Messaging
+
+- (void) saveObject
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"saveNearEarthObject" object:nil];
+}
+
+- (void) shareObject
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"shareNearEarthObject" object:nil];
+}
+
+- (void) showSavedAlert
+{
+    UIAlertController * savedAlert = [UIAlertController
+                                      alertControllerWithTitle:@"Object saved"
+                                      message:@"Object succesfully saved."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   [savedAlert dismissViewControllerAnimated:YES completion:^{}];
+                               }];
+    [savedAlert addAction:okButton];
+    [self presentViewController:savedAlert animated:YES completion:nil];
+}
+
+
+#pragma mark - Util
 
 - (NSArray *) formatStringsFromEntity
 {

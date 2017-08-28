@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SideMenuProtocols.h"
 
-@class SideMenuController, MapController, EarthScreenViewController, WeatherScreenController; //@class ;
+@class SideMenuController, MapController, EarthScreenViewController, WeatherScreenController, LibraryViewController;
 @interface RootNavigationController : UINavigationController
 <SideMenuControllerProtocol>
 
@@ -18,11 +18,13 @@
 @property (nonatomic, strong) MapController *mapController;
 @property (nonatomic, strong) EarthScreenViewController *earthScreenViewController;
 @property (nonatomic, strong) WeatherScreenController *weatherScreenController;
+@property (nonatomic, strong) LibraryViewController *libraryViewController;
 
 - (instancetype) initWithInitialViewController;
 
 - (void) presentMapController;
 - (void) presentEarthScreenController;
 - (void) presentWeatherScreenController;
+- (void) presentLibraryViewController;
 
 @end

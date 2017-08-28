@@ -58,7 +58,7 @@
                                completionHandler:^(NSArray *array, NSError *error){
                                    if (error){
                                        NSLog(@"Geocode failed with error: %@", error);
-                                       return;
+                                       completionBlock(imageData);
                                    }
                                    currentPlacemark = [array objectAtIndex:0];
                                    completionBlock(imageData);

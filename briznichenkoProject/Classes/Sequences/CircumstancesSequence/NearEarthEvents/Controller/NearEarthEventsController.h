@@ -11,11 +11,14 @@
 #import "NearEarthEventsViewController.h"
 #import "NearEarthEventsModel.h"
 
+@class NearEarthEventDetailController;
 @interface NearEarthEventsController : NSObject
 <NearEarthEventsViewControllerProtocol, NearEarthEventsControllerProtocol, NearEarthEventsModelProtocol>
 
 @property (nonatomic, strong) NearEarthEventsViewController* nearEarthEventsViewController;
 @property (nonatomic, strong) NearEarthEventsModel* nearEarthEventsModel;
+
+@property (nonatomic, strong) NearEarthEventDetailController* nearEarthEventDetailController;
 
 -(instancetype) initAndAssemble;
 

@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface NearEarthEventsView : UIView 
+@interface NearEarthEventsView : UIView
 
--(instancetype)initAndInstallIntoSuperView:(UIView *) superview;
+@property (nonatomic, strong) UIWebView *eventsWebView;
+
+-(instancetype)initAndInstallIntoSuperView:(UIView *) superview topY:(float) topY;
 
 @end

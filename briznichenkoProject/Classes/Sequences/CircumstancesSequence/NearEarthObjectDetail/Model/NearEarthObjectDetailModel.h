@@ -17,5 +17,5 @@
 @property (atomic, strong) NearEarthObjectEntity *objectEntity;
 
 - (instancetype) initWithData;
-
+- (void) saveNearEarthObjectEntity: (void (^) (BOOL saved)) completion;
 @end

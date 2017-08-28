@@ -14,7 +14,9 @@
 <NearEarthEventDetailModelProtocol>
 
 @property (atomic, strong) NSData *data;
+@property (nonatomic, strong) NSURL *baseURL;
 
 - (instancetype) initWithData;
+- (void) parseDataFromEventHTML: (void (^) (BOOL finished)) completion;
 
 @end

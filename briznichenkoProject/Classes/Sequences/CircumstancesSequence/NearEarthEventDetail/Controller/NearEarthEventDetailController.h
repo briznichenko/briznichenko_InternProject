@@ -17,6 +17,6 @@
 @property (nonatomic, strong) NearEarthEventDetailViewController* nearEarthEventDetailViewController;
 @property (nonatomic, strong) NearEarthEventDetailModel* nearEarthEventDetailModel;
 
-- (instancetype) initAndAssemble;
+- (instancetype) initAndAssembleWithEventURL: (NSURL *) eventURL;
 
 @end

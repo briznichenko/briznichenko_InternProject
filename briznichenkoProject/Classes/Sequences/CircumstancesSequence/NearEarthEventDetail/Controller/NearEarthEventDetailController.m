@@ -11,14 +11,17 @@
 
 @implementation NearEarthEventDetailController
 
--(instancetype) initAndAssemble
+-(instancetype) initAndAssembleWithEventURL: (NSURL *) eventURL;
 {
 	self = [super init];
 	if(self)
 	{
 		self.nearEarthEventDetailViewController = [NearEarthEventDetailViewController new];
 		self.nearEarthEventDetailModel = [[NearEarthEventDetailModel alloc] initWithData];
-        [self setupViewControllerWithData: self.nearEarthEventDetailModel.data];
+        self.nearEarthEventDetailModel.baseURL = eventURL;
+        [self.nearEarthEventDetailModel parseDataFromEventHTML:^(BOOL finished) {
+            [self setupViewControllerWithData: self.nearEarthEventDetailModel.data];
+        }];
 	}	
 	return self;
 }

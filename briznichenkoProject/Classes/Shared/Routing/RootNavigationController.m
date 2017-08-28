@@ -12,7 +12,7 @@
 #import "MapViewController.h"
 #import "EarthScreenViewController.h"
 #import "WeatherScreenController.h"
-//#import "header"
+#import "LibraryViewController.h"
 
 
 @implementation RootNavigationController
@@ -86,8 +86,8 @@
     else
     {
         self.mapController = [[MapController alloc] initAndAssemble];
-        NSArray *newControllerStack = @[self.mapController.mapViewController];
-        [self setViewControllers:newControllerStack animated:YES];
+        [self setViewControllers:@[self.mapController.mapViewController]
+                        animated:YES];
     }
 }
 
@@ -97,10 +97,10 @@
         [self.sideMenuController.sideMenuViewController dismissViewControllerAnimated:YES completion:nil];
     else
     {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EarthSequenceStoryboard" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"EarthSequence" bundle:nil];
         self.earthScreenViewController = [storyboard instantiateViewControllerWithIdentifier:@"EarthScreenViewController"];
-        NSArray *newControllerStack = @[self.earthScreenViewController];
-        [self setViewControllers:newControllerStack animated:YES];
+        [self setViewControllers:@[self.earthScreenViewController]
+                        animated:YES];
     }
 }
 
@@ -111,8 +111,21 @@
     else
     {
         self.weatherScreenController = [[WeatherScreenController alloc] initAndAssemble];
-        NSArray *newControllerStack = @[self.weatherScreenController.weatherScreenViewController];
-        [self setViewControllers:newControllerStack animated:YES];
+        [self setViewControllers:@[self.weatherScreenController.weatherScreenViewController]
+                        animated:YES];
+    }
+}
+
+- (void) presentLibraryViewController
+{
+    if([self.viewControllers[0] isKindOfClass:[LibraryViewController class]])
+        [self.sideMenuController.sideMenuViewController dismissViewControllerAnimated:YES completion:nil];
+    else
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LibrarySequence" bundle:nil];
+        self.libraryViewController = [storyboard instantiateViewControllerWithIdentifier:@"LibraryViewController"];
+        [self setViewControllers:@[self.libraryViewController]
+                        animated:YES];
     }
 }
 

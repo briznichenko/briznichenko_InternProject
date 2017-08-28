@@ -11,8 +11,10 @@
 #import "NearEarthEventsView.h"
 
 @interface NearEarthEventsViewController : UIViewController
-<NearEarthEventsViewControllerProtocol>
+<NearEarthEventsViewControllerProtocol, UIWebViewDelegate>
 
 @property (nonatomic, strong) NearEarthEventsView* nearEarthEventsView;
+
+- (void) loadFormattedHTML: (NSString *) stringHTML;
 
 @end
