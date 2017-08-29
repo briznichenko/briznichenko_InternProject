@@ -11,6 +11,14 @@
 
 @interface NearEarthEventDetailView : UIView 
 
--(instancetype)initAndInstallIntoSuperView:(UIView *) superview;
+@property (nonatomic, strong) UIImageView *eventImageView;
+@property (nonatomic, strong) UILabel *eventImageDescriptionField;
+@property (nonatomic, strong) UILabel *eventTitleField;
+@property (nonatomic, strong) UILabel *eventDateField;
+@property (nonatomic, strong) UIImageView *eventTypeIconImageView;
+@property (nonatomic, strong) UILabel *eventTypeIconDescriptionField;
+@property (nonatomic, strong) UITextView *eventDescriptionView;
+
+-(instancetype)initAndInstallIntoSuperView:(UIView *) superview topY:(float) topY;
 
 @end

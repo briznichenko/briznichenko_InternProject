@@ -10,6 +10,9 @@
 #import <UIKit/UIKit.h>
 
 @implementation NearEarthEventDetailModel
+{
+    NSDictionary *eventDictionary;
+}
 
 
 - (instancetype) initWithData
@@ -27,7 +30,6 @@
     self.data = [NSData new];
 }
 
-
 - (void) parseDataFromEventHTML: (void (^) (BOOL finished)) completion
 {
     NSString *start;
@@ -42,47 +44,79 @@
     end = @"<div class=\"col-xl-2 tallright noprint\">";
     rawHTML = [self stringFromSource:rawHTML betweenStrings:start and:end];
     
-    NSMutableArray *rawData = [NSMutableArray new];
-    NSString *pattern;
-    
-    //1
-    pattern = @"<img src=\"(.*)\\\" alt=\"";
-    [rawData addObject:[self regex:pattern fromRawHTML:rawHTML]];
-    
-    //2
-    pattern = @"alt=\"(.*)\" title=\"";
-    [rawData addObject:[self regex:pattern fromRawHTML:rawHTML]];
-    
-    //3
-    pattern = @"<p class=\"widetitle\" style=\"overflow: hidden;\">(.*)<\\/p>";
-    [rawData addObject:[self regex:pattern fromRawHTML:rawHTML]];
-    
-    //4
-    pattern = @"style=\"float:right;margin-right:50px;\">\n(.*)\">";
-    [rawData addObject:[self regex:pattern fromRawHTML:rawHTML]];
-    
-    //5 todo
-    pattern = @"<img src=\"(.*)\\\" alt=\"";
-    [rawData addObject:[self regex:pattern fromRawHTML:rawHTML]];
-    
-    //6
-    pattern = @"alt=\"(.*)\" title=\"";
-    [rawData addObject:[self regex:pattern fromRawHTML:rawHTML]];
-    
-    //7
-    pattern = @"<p class=\"widetitle\" style=\"overflow: hidden;\">(.*)<\\/p>";
-    [rawData addObject:[self regex:pattern fromRawHTML:rawHTML]];
-    
-    //8
-    pattern = @"style=\"float:right;margin-right:50px;\">\n(.*)\">";
-    [rawData addObject:[self regex:pattern fromRawHTML:rawHTML]];
-    
-    //9
-    pattern = @"style=\"float:right;margin-right:50px;\">\n(.*)\">";
-    [rawData addObject:[self regex:pattern fromRawHTML:rawHTML]];
+    NSMutableDictionary *eventData = [NSMutableDictionary new];
+    NSArray *patterns = @[@"(?!<img src=)(\"(.*)\")(?= alt=\")",
+                          @"(alt=)(\"(.*)\")(?= title=\")",
+                          @"(?!<p class=\"widetitle\" style=\"overflow: hidden;\")(>(.*)<)(?=\\/p>)",
+                          @"(?!<img src=)(\"(.*)\")(?=(\n.*)style=)",
+                          @"(style=\"margin:5px;\"\\s*alt=\")(.*)\"",
+                          @"<table style=\"(.*)table>",
+                          @"<p>((.*\\n)*)<\\/p>"];
+    NSArray *keys = @[@"event_image",
+                      @"event_image_description",
+                      @"event_title",
+                      @"event_type_icon",
+                      @"event_type_description",
+                      @"event_date",
+                      @"event_description"];
+    for(int i = 0; i < patterns.count; i++)
+        [eventData setValue:[self regex:patterns[i] fromRawHTML:rawHTML] forKey:keys[i]];
+    [eventData setValue:self.baseURL.absoluteString forKey:@"source_url"];
+    eventDictionary = [self cleanDictionary:eventData];
+    self.eventEntity = [[NearEarthEventEntity alloc] initFromDictionary:eventDictionary];
     
     completion(YES);
 }
+
+#pragma mark -- Data processing
+
+- (NSDictionary *) cleanDictionary: (NSMutableDictionary *) dictionaryToClean
+{
+    NSMutableDictionary *cleanedDict = [NSMutableDictionary dictionaryWithDictionary:dictionaryToClean];
+    NSString *cleanedString;
+    NSData *imageData;
+    NSURL *imageURL;
+    
+    cleanedString = [cleanedDict valueForKey:@"event_image"];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+    imageURL = [NSURL URLWithString:cleanedString];
+    NSLog(@"%@", imageURL.absoluteString);
+    imageData = [NSData dataWithContentsOfURL:imageURL];
+    [cleanedDict setValue:imageData forKey:@"event_image"];
+    
+    cleanedString = [cleanedDict valueForKey:@"event_image_description"];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"alt=" withString:@""];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+    [cleanedDict setValue:cleanedString forKey:@"event_image_description"];
+    
+    cleanedString = [cleanedDict valueForKey:@"event_type_icon"];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+    imageURL = [NSURL URLWithString:cleanedString];
+    imageData = [NSData dataWithContentsOfURL:imageURL];
+    [cleanedDict setValue:imageData forKey:@"event_type_icon"];
+    
+    cleanedString = [cleanedDict valueForKey:@"event_type_description"];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"style=margin:5px;\n" withString:@""];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"alt=" withString:@""];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"  " withString:@""];
+    [cleanedDict setValue:cleanedString forKey:@"event_type_description"];
+    
+    cleanedString = [self cleanHTMLTags:[cleanedDict valueForKey:@"event_date"]];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    [cleanedDict setValue:cleanedString forKey:@"event_date"];
+    
+    cleanedString = [self cleanHTMLTags:[cleanedDict valueForKey:@"event_description"]];
+    cleanedString = [cleanedString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    [cleanedDict setValue:cleanedString forKey:@"event_description"];
+    
+    return cleanedDict;
+}
+
+#pragma mark -- Util
 
 - (NSString *) regex: (NSString *) pattern fromRawHTML: (NSString *)rawHTML
 {
@@ -92,10 +126,10 @@
     
     stringRange = [rawHTML rangeOfString:pattern options:NSRegularExpressionSearch];
     if(stringRange.location == NSNotFound)
-        return @"";
+        return @"None";
     rawString = [rawHTML substringWithRange:stringRange];
-    rawString = [rawString stringByReplacingOccurrencesOfString:replacements[0] withString:@""];
-    rawString = [rawString stringByReplacingOccurrencesOfString:replacements[1] withString:@""];
+    for (NSString *replacement in replacements)
+        rawString = [rawString stringByReplacingOccurrencesOfString:replacement withString:@""];
     return rawString;
 }
 
@@ -110,6 +144,20 @@
         return substring;
     }
     return @"";
+}
+
+- (NSString *) cleanHTMLTags: (NSString *) stringToClean
+{
+    NSString *cleanedString = stringToClean;
+    NSString *pattern = @"<(.*)>";
+    NSRange rangetoClear = [cleanedString rangeOfString:pattern options:NSRegularExpressionSearch];
+    if(rangetoClear.location != NSNotFound)
+        do {
+            cleanedString = [cleanedString stringByReplacingOccurrencesOfString:[cleanedString substringWithRange:rangetoClear]
+                                                                 withString:@""];
+            rangetoClear = [cleanedString rangeOfString:pattern options:NSRegularExpressionSearch];
+        } while (rangetoClear.location != NSNotFound);
+    return cleanedString;
 }
 
 @end

@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "NearEarthEventDetailProtocols.h"
-
+#import "NearEarthEventEntity.h"
 
 @interface NearEarthEventDetailModel : NSObject
 <NearEarthEventDetailModelProtocol>
 
 @property (atomic, strong) NSData *data;
 @property (nonatomic, strong) NSURL *baseURL;
+
+@property (nonatomic, strong) NearEarthEventEntity *eventEntity;
 
 - (instancetype) initWithData;
 - (void) parseDataFromEventHTML: (void (^) (BOOL finished)) completion;

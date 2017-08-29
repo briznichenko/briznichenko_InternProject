@@ -35,7 +35,6 @@
 {
     if(navigationType == UIWebViewNavigationTypeLinkClicked)
     {
-        NSString *uri = request.URL.absoluteString;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"requestNearEarthEventDetail" object:request.URL];
         return NO;
     }

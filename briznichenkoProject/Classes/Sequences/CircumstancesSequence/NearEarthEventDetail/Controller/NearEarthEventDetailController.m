@@ -28,6 +28,7 @@
 
 -(void)setupViewControllerWithData:(NSData *)data
 {
+    self.nearEarthEventDetailViewController.eventEntity = self.nearEarthEventDetailModel.eventEntity;
     [self.nearEarthEventDetailViewController setupViewControllerWithData: data];
 }
 

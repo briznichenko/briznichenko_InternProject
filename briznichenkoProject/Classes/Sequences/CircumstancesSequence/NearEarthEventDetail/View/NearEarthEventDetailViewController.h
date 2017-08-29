@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "NearEarthEventDetailProtocols.h"
 #import "NearEarthEventDetailView.h"
+#import "NearEarthEventEntity.h"
 
 @interface NearEarthEventDetailViewController : UIViewController
 <NearEarthEventDetailViewControllerProtocol>
 
 @property (nonatomic, strong) NearEarthEventDetailView* nearEarthEventDetailView;
+@property (nonatomic, strong) NearEarthEventEntity *eventEntity;
 
 @end

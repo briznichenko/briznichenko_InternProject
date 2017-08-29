@@ -101,6 +101,7 @@
 		7DBBB26E1F4EC6A0009EFF29 /* NearEarthObjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC31F4DD5F300692D96 /* NearEarthObjectDetailViewController.m */; };
 		7DBBB26F1F4EC881009EFF29 /* NearEarthObjectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC71F4DE1BA00692D96 /* NearEarthObjectEntity.m */; };
 		7DBBB2721F4F16F3009EFF29 /* LibrarySequence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DBBB2711F4F16F3009EFF29 /* LibrarySequence.storyboard */; };
+		7DD7E14B1F559FC000E9C336 /* NearEarthEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD7E14A1F559FBF00E9C336 /* NearEarthEventEntity.m */; };
 		7DDB23F01F45F61600B62C9B /* FlatEarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */; };
 		7DE2E81A1F5413DF00EA2142 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2E8191F5413DE00EA2142 /* LibraryViewController.m */; };
 /* End PBXBuildFile section */
@@ -298,6 +299,8 @@
 		7DAC3CC61F4DE1BA00692D96 /* NearEarthObjectEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthObjectEntity.h; sourceTree = "<group>"; };
 		7DAC3CC71F4DE1BA00692D96 /* NearEarthObjectEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthObjectEntity.m; sourceTree = "<group>"; };
 		7DBBB2711F4F16F3009EFF29 /* LibrarySequence.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LibrarySequence.storyboard; sourceTree = "<group>"; };
+		7DD7E1491F559FBF00E9C336 /* NearEarthEventEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthEventEntity.h; sourceTree = "<group>"; };
+		7DD7E14A1F559FBF00E9C336 /* NearEarthEventEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthEventEntity.m; sourceTree = "<group>"; };
 		7DDB23EE1F45F61600B62C9B /* FlatEarthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlatEarthViewController.h; sourceTree = "<group>"; };
 		7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlatEarthViewController.m; sourceTree = "<group>"; };
 		7DE2E8181F5413DE00EA2142 /* LibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
@@ -1265,6 +1268,8 @@
 		7DAC3CC41F4DDD3800692D96 /* NearEarthEventEntity */ = {
 			isa = PBXGroup;
 			children = (
+				7DD7E1491F559FBF00E9C336 /* NearEarthEventEntity.h */,
+				7DD7E14A1F559FBF00E9C336 /* NearEarthEventEntity.m */,
 			);
 			path = NearEarthEventEntity;
 			sourceTree = "<group>";
@@ -1472,6 +1477,7 @@
 				7D0AB4081F4ADD5700457DC0 /* EventCell.m in Sources */,
 				7D0209F41F41AE64002D56F5 /* MapController.m in Sources */,
 				7D0209F51F41AE64002D56F5 /* MapModel.m in Sources */,
+				7DD7E14B1F559FC000E9C336 /* NearEarthEventEntity.m in Sources */,
 				7D0209F61F41AE64002D56F5 /* MapView.m in Sources */,
 				7D0209F71F41AE64002D56F5 /* MapViewController.m in Sources */,
 				7D4E65671F46F4DE004A54EA /* EventCategoriesController.m in Sources */,

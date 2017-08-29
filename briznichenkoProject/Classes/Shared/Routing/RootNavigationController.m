@@ -49,7 +49,7 @@
         self.navigationBar.topItem.leftBarButtonItem = backButton;
         self.navigationItem.hidesBackButton = NO;
         
-        self.navigationBar.barTintColor = [UIColor colorWithRed:0.0f green:0.07450980392f blue:0.2f alpha:1.0f];
+        self.navigationBar.barTintColor = [UIColor blackColor];
     }
 
 }
