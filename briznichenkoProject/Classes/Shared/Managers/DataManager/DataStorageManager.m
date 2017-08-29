@@ -113,6 +113,8 @@
     [modelData writeToFile:pathToModel atomically:YES];
 }
 
+#pragma mark -- Entity Description Creation
+
 - (NSEntityDescription *) makeSpaceObjectEntityDescription
 {
     NSEntityDescription *spaceObjectEntityDescription = [[NSEntityDescription alloc] init];
@@ -142,7 +144,10 @@
     [infoAttribute setOptional:YES];
     [infoAttribute setIndexed:NO];
     
-    [spaceObjectEntityDescription setProperties:@[nameAttribute, raDecAttribute, imageAttribute, infoAttribute]];
+    [spaceObjectEntityDescription setProperties:@[nameAttribute,
+                                                  raDecAttribute,
+                                                  imageAttribute,
+                                                  infoAttribute]];
     
     return spaceObjectEntityDescription;
 }
@@ -194,9 +199,151 @@
     [geometriesAttribute setOptional:YES];
     [geometriesAttribute setIndexed:NO];
     
-    [spaceObjectEntityDescription setProperties:@[idAttribute, titleAttribute, descriptionAttribute, linkAttribute, categoriesAttribute, sourcesAttribute, geometriesAttribute]];
+    [spaceObjectEntityDescription setProperties:@[idAttribute,
+                                                  titleAttribute,
+                                                  descriptionAttribute,
+                                                  linkAttribute,
+                                                  categoriesAttribute,
+                                                  sourcesAttribute,
+                                                  geometriesAttribute]];
     
     return spaceObjectEntityDescription;
+}
+
+- (NSEntityDescription *) makeNearEarthEventEntityDescription
+{
+    NSEntityDescription *nearEarthEventEntityDescription = [[NSEntityDescription alloc] init];
+    [nearEarthEventEntityDescription setName:@"NearEarthEvent"];
+  
+    NSAttributeDescription *imageAttribute = [[NSAttributeDescription alloc] init];
+    [imageAttribute setName:@"event_id"];
+    [imageAttribute setAttributeType:NSBinaryDataAttributeType];
+    [imageAttribute setOptional:NO];
+    [imageAttribute setIndexed:YES];
+    
+    NSAttributeDescription *imageDescriptionAttribute = [[NSAttributeDescription alloc] init];
+    [imageDescriptionAttribute setName:@"event_image_description"];
+    [imageDescriptionAttribute setAttributeType:NSStringAttributeType];
+    [imageDescriptionAttribute setOptional:NO];
+    [imageDescriptionAttribute setIndexed:YES];
+    
+    NSAttributeDescription *titleAttribute = [[NSAttributeDescription alloc] init];
+    [titleAttribute setName:@"event_title"];
+    [titleAttribute setAttributeType:NSStringAttributeType];
+    [titleAttribute setOptional:NO];
+    [titleAttribute setIndexed:YES];
+    
+    NSAttributeDescription *typeIconAttribute = [[NSAttributeDescription alloc] init];
+    [typeIconAttribute setName:@"event_type_icon"];
+    [typeIconAttribute setAttributeType:NSBinaryDataAttributeType];
+    [typeIconAttribute setOptional:NO];
+    [typeIconAttribute setIndexed:YES];
+    
+    NSAttributeDescription *typeDescriptionAttribute = [[NSAttributeDescription alloc] init];
+    [typeDescriptionAttribute setName:@"event_type_description"];
+    [typeDescriptionAttribute setAttributeType:NSStringAttributeType];
+    [typeDescriptionAttribute setOptional:NO];
+    [typeDescriptionAttribute setIndexed:YES];
+    
+    NSAttributeDescription *dateAttribute = [[NSAttributeDescription alloc] init];
+    [dateAttribute setName:@"event_date"];
+    [dateAttribute setAttributeType:NSStringAttributeType];
+    [dateAttribute setOptional:NO];
+    [dateAttribute setIndexed:YES];
+    
+    NSAttributeDescription *descriptionAttribute = [[NSAttributeDescription alloc] init];
+    [descriptionAttribute setName:@"event_description"];
+    [descriptionAttribute setAttributeType:NSStringAttributeType];
+    [descriptionAttribute setOptional:NO];
+    [descriptionAttribute setIndexed:YES];
+    
+    NSAttributeDescription *sourceURLAttribute = [[NSAttributeDescription alloc] init];
+    [sourceURLAttribute setName:@"source_url"];
+    [sourceURLAttribute setAttributeType:NSStringAttributeType];
+    [sourceURLAttribute setOptional:NO];
+    [sourceURLAttribute setIndexed:YES];
+    
+    [nearEarthEventEntityDescription setProperties:@[imageAttribute,
+                                                      imageDescriptionAttribute,
+                                                      titleAttribute,
+                                                      typeIconAttribute,
+                                                      typeDescriptionAttribute,
+                                                      dateAttribute,
+                                                      descriptionAttribute,
+                                                      sourceURLAttribute]];
+    return nearEarthEventEntityDescription;
+}
+
+- (NSEntityDescription *) makeNearEarthObjectEntityDescription
+{
+    NSEntityDescription *nearEarthObjectEntityDescription = [[NSEntityDescription alloc] init];
+    [nearEarthObjectEntityDescription setName:@"NearEarthObject"];
+    
+    NSAttributeDescription *diameterAttribute = [[NSAttributeDescription alloc] init];
+    [diameterAttribute setName:@"estimated_diameter"];
+    [diameterAttribute setAttributeType:NSBinaryDataAttributeType];
+    [diameterAttribute setOptional:NO];
+    [diameterAttribute setIndexed:YES];
+    
+    NSAttributeDescription *hazardousAttribute = [[NSAttributeDescription alloc] init];
+    [hazardousAttribute setName:@"is_potentially_hazardous_asteroid"];
+    [hazardousAttribute setAttributeType:NSStringAttributeType];
+    [hazardousAttribute setOptional:NO];
+    [hazardousAttribute setIndexed:YES];
+    
+    NSAttributeDescription *neoIDAttribute = [[NSAttributeDescription alloc] init];
+    [neoIDAttribute setName:@"neo_reference_id"];
+    [neoIDAttribute setAttributeType:NSStringAttributeType];
+    [neoIDAttribute setOptional:NO];
+    [neoIDAttribute setIndexed:YES];
+    
+    NSAttributeDescription *approachDataAttribute = [[NSAttributeDescription alloc] init];
+    [approachDataAttribute setName:@"close_approach_data"];
+    [approachDataAttribute setAttributeType:NSBinaryDataAttributeType];
+    [approachDataAttribute setOptional:NO];
+    [approachDataAttribute setIndexed:YES];
+    
+    NSAttributeDescription *nasaURLAttribute = [[NSAttributeDescription alloc] init];
+    [nasaURLAttribute setName:@"nasa_jpl_url"];
+    [nasaURLAttribute setAttributeType:NSStringAttributeType];
+    [nasaURLAttribute setOptional:YES];
+    [nasaURLAttribute setIndexed:NO];
+    
+    NSAttributeDescription *orbitalDataAttribute = [[NSAttributeDescription alloc] init];
+    [orbitalDataAttribute setName:@"orbital_data"];
+    [orbitalDataAttribute setAttributeType:NSBinaryDataAttributeType];
+    [orbitalDataAttribute setOptional:YES];
+    [orbitalDataAttribute setIndexed:NO];
+    
+    NSAttributeDescription *linksAttribute = [[NSAttributeDescription alloc] init];
+    [linksAttribute setName:@"links"];
+    [linksAttribute setAttributeType:NSBinaryDataAttributeType];
+    [linksAttribute setOptional:YES];
+    [linksAttribute setIndexed:NO];
+    
+    NSAttributeDescription *nameAttribute = [[NSAttributeDescription alloc] init];
+    [nameAttribute setName:@"name"];
+    [nameAttribute setAttributeType:NSStringAttributeType];
+    [nameAttribute setOptional:YES];
+    [nameAttribute setIndexed:NO];
+    
+    NSAttributeDescription *magnitudeAttribute = [[NSAttributeDescription alloc] init];
+    [magnitudeAttribute setName:@"absolute_magnitude_h"];
+    [magnitudeAttribute setAttributeType:NSStringAttributeType];
+    [magnitudeAttribute setOptional:YES];
+    [magnitudeAttribute setIndexed:NO];
+    
+    [nearEarthObjectEntityDescription setProperties:@[diameterAttribute,
+                                                      hazardousAttribute,
+                                                      hazardousAttribute,
+                                                      neoIDAttribute,
+                                                      approachDataAttribute,
+                                                      nasaURLAttribute,
+                                                      orbitalDataAttribute,
+                                                      linksAttribute,
+                                                      nameAttribute,
+                                                      magnitudeAttribute]];
+    return nearEarthObjectEntityDescription;
 }
 
 @end

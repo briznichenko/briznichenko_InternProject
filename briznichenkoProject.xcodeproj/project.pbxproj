@@ -99,9 +99,11 @@
 		7DBBB26C1F4EC6A0009EFF29 /* NearEarthObjectDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CBE1F4DD5F300692D96 /* NearEarthObjectDetailModel.m */; };
 		7DBBB26D1F4EC6A0009EFF29 /* NearEarthObjectDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC11F4DD5F300692D96 /* NearEarthObjectDetailView.m */; };
 		7DBBB26E1F4EC6A0009EFF29 /* NearEarthObjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC31F4DD5F300692D96 /* NearEarthObjectDetailViewController.m */; };
-		7DBBB26F1F4EC881009EFF29 /* NearEarthObjectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CC71F4DE1BA00692D96 /* NearEarthObjectEntity.m */; };
 		7DBBB2721F4F16F3009EFF29 /* LibrarySequence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DBBB2711F4F16F3009EFF29 /* LibrarySequence.storyboard */; };
 		7DD7E14B1F559FC000E9C336 /* NearEarthEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD7E14A1F559FBF00E9C336 /* NearEarthEventEntity.m */; };
+		7DD7E14E1F55B0B600E9C336 /* ManagedNearEarthEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD7E14D1F55B0B600E9C336 /* ManagedNearEarthEventEntity.m */; };
+		7DD7E1561F55B24600E9C336 /* ManagedNearEarthObjectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD7E1551F55B24500E9C336 /* ManagedNearEarthObjectEntity.m */; };
+		7DD7E1571F55B24600E9C336 /* NearEarthObjectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD7E1541F55B24500E9C336 /* NearEarthObjectEntity.m */; };
 		7DDB23F01F45F61600B62C9B /* FlatEarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */; };
 		7DE2E81A1F5413DF00EA2142 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2E8191F5413DE00EA2142 /* LibraryViewController.m */; };
 /* End PBXBuildFile section */
@@ -296,11 +298,15 @@
 		7DAC3CC11F4DD5F300692D96 /* NearEarthObjectDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthObjectDetailView.m; sourceTree = "<group>"; };
 		7DAC3CC21F4DD5F300692D96 /* NearEarthObjectDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthObjectDetailViewController.h; sourceTree = "<group>"; };
 		7DAC3CC31F4DD5F300692D96 /* NearEarthObjectDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthObjectDetailViewController.m; sourceTree = "<group>"; };
-		7DAC3CC61F4DE1BA00692D96 /* NearEarthObjectEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthObjectEntity.h; sourceTree = "<group>"; };
-		7DAC3CC71F4DE1BA00692D96 /* NearEarthObjectEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthObjectEntity.m; sourceTree = "<group>"; };
 		7DBBB2711F4F16F3009EFF29 /* LibrarySequence.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LibrarySequence.storyboard; sourceTree = "<group>"; };
 		7DD7E1491F559FBF00E9C336 /* NearEarthEventEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthEventEntity.h; sourceTree = "<group>"; };
 		7DD7E14A1F559FBF00E9C336 /* NearEarthEventEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthEventEntity.m; sourceTree = "<group>"; };
+		7DD7E14C1F55B0B600E9C336 /* ManagedNearEarthEventEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagedNearEarthEventEntity.h; sourceTree = "<group>"; };
+		7DD7E14D1F55B0B600E9C336 /* ManagedNearEarthEventEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagedNearEarthEventEntity.m; sourceTree = "<group>"; };
+		7DD7E1521F55B24500E9C336 /* NearEarthObjectEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NearEarthObjectEntity.h; path = briznichenkoProject/Classes/Shared/Entities/NearEarthObjectEntity/NearEarthObjectEntity.h; sourceTree = SOURCE_ROOT; };
+		7DD7E1531F55B24500E9C336 /* ManagedNearEarthObjectEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ManagedNearEarthObjectEntity.h; path = briznichenkoProject/Classes/Shared/Entities/NearEarthObjectEntity/ManagedNearEarthObjectEntity.h; sourceTree = SOURCE_ROOT; };
+		7DD7E1541F55B24500E9C336 /* NearEarthObjectEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NearEarthObjectEntity.m; path = briznichenkoProject/Classes/Shared/Entities/NearEarthObjectEntity/NearEarthObjectEntity.m; sourceTree = SOURCE_ROOT; };
+		7DD7E1551F55B24500E9C336 /* ManagedNearEarthObjectEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ManagedNearEarthObjectEntity.m; path = briznichenkoProject/Classes/Shared/Entities/NearEarthObjectEntity/ManagedNearEarthObjectEntity.m; sourceTree = SOURCE_ROOT; };
 		7DDB23EE1F45F61600B62C9B /* FlatEarthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlatEarthViewController.h; sourceTree = "<group>"; };
 		7DDB23EF1F45F61600B62C9B /* FlatEarthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlatEarthViewController.m; sourceTree = "<group>"; };
 		7DE2E8181F5413DE00EA2142 /* LibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
@@ -1268,6 +1274,8 @@
 		7DAC3CC41F4DDD3800692D96 /* NearEarthEventEntity */ = {
 			isa = PBXGroup;
 			children = (
+				7DD7E14C1F55B0B600E9C336 /* ManagedNearEarthEventEntity.h */,
+				7DD7E14D1F55B0B600E9C336 /* ManagedNearEarthEventEntity.m */,
 				7DD7E1491F559FBF00E9C336 /* NearEarthEventEntity.h */,
 				7DD7E14A1F559FBF00E9C336 /* NearEarthEventEntity.m */,
 			);
@@ -1277,8 +1285,10 @@
 		7DAC3CC51F4DDD4700692D96 /* NearEarthObjectEntity */ = {
 			isa = PBXGroup;
 			children = (
-				7DAC3CC61F4DE1BA00692D96 /* NearEarthObjectEntity.h */,
-				7DAC3CC71F4DE1BA00692D96 /* NearEarthObjectEntity.m */,
+				7DD7E1531F55B24500E9C336 /* ManagedNearEarthObjectEntity.h */,
+				7DD7E1551F55B24500E9C336 /* ManagedNearEarthObjectEntity.m */,
+				7DD7E1521F55B24500E9C336 /* NearEarthObjectEntity.h */,
+				7DD7E1541F55B24500E9C336 /* NearEarthObjectEntity.m */,
 			);
 			name = NearEarthObjectEntity;
 			path = "New Group";
@@ -1435,7 +1445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DBBB26F1F4EC881009EFF29 /* NearEarthObjectEntity.m in Sources */,
+				7DD7E1571F55B24600E9C336 /* NearEarthObjectEntity.m in Sources */,
 				7DBBB2671F4EC6A0009EFF29 /* NearEarthEventDetailController.m in Sources */,
 				7DBBB2681F4EC6A0009EFF29 /* NearEarthEventDetailModel.m in Sources */,
 				7DBBB2691F4EC6A0009EFF29 /* NearEarthEventDetailView.m in Sources */,
@@ -1487,6 +1497,7 @@
 				7D0209FB1F41AE64002D56F5 /* CropView.m in Sources */,
 				7D0209FC1F41AE64002D56F5 /* UIImage+Filtering.m in Sources */,
 				7D0209FD1F41AE64002D56F5 /* ViewerView.m in Sources */,
+				7DD7E14E1F55B0B600E9C336 /* ManagedNearEarthEventEntity.m in Sources */,
 				7D0209FE1F41AE64002D56F5 /* ViewerViewController.m in Sources */,
 				7D0209FF1F41AE64002D56F5 /* RootNavigationController.m in Sources */,
 				7D020A001F41AE64002D56F5 /* SplashController.m in Sources */,
@@ -1506,6 +1517,7 @@
 				7D020A0C1F41AE64002D56F5 /* SideMenuController.m in Sources */,
 				7D020A0D1F41AE64002D56F5 /* SideMenuModel.m in Sources */,
 				7D020A0E1F41AE64002D56F5 /* SideMenuView.m in Sources */,
+				7DD7E1561F55B24600E9C336 /* ManagedNearEarthObjectEntity.m in Sources */,
 				7D020A0F1F41AE64002D56F5 /* SideMenuViewController.m in Sources */,
 				7D0209521F41AD2D002D56F5 /* AppDelegate.m in Sources */,
 				7D4E657E1F4733DB004A54EA /* EarthEventController.m in Sources */,
