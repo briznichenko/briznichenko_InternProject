@@ -32,8 +32,6 @@
     [self makeEventDateField];
     [self makeEventType];
     [self makeEventDescriptionView];
-    
-    [self test];
 }
 
 - (void) makeEventImage
