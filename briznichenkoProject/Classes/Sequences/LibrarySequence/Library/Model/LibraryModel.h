@@ -10,4 +10,8 @@
 
 @interface LibraryModel : NSObject
 
+@property (nonatomic, strong) NSDictionary *storedEntities;
+
+-(void) fetchData:(void (^) (bool finished)) completionBlock;
+
 @end

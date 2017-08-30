@@ -11,8 +11,7 @@
 
 @implementation LibraryViewController
 {
-    NSArray *libraryEntries;
-    NSArray *segueIDs;
+    NSDictionary *libraryEntries;
 }
 
 static NSString *reuseID = @"library_cell";
@@ -30,17 +29,21 @@ static NSString *reuseID = @"library_cell";
 - (void)setupViewController
 {
     self.libraryModel = [LibraryModel new];
+    [self.libraryModel fetchData:^(bool finished) {
+        if(finished)
+            [self.libraryCollection reloadData];
+    }];
     self.libraryCollection.delegate = self;
     self.libraryCollection.dataSource = self;
     
-    UINib *libraryNib = [UINib nibWithNibName:@"LibraryCell" bundle:[NSBundle mainBundle]];
-    [self.libraryCollection registerNib:libraryNib forCellWithReuseIdentifier:reuseID];
-    [self.libraryCollection registerClass:[LibraryCell class] forCellWithReuseIdentifier:reuseID];
-    libraryEntries = @[@"Space Objects", @"Earth Events", @"Near Earth Objects", @"Near Earth Events"];
-    segueIDs = @[@"presentSpaceObjectsController",
-                 @"presentEarthEventsController",
-                 @"presentNearEarthObjectsController",
-                 @"presentNearEarthEventsController"];
+    UINib *libraryCellNib = [UINib nibWithNibName:@"LibraryCell" bundle:nil];
+    [self.libraryCollection registerNib:libraryCellNib forCellWithReuseIdentifier:reuseID];
+    NSArray *cellTitles = @[@"Space Objects", @"Earth Events", @"Near Earth Objects", @"Near Earth Events"];
+    NSArray *segueIDs = @[@"presentSpaceObjectsController",
+                         @"presentEarthEventsController",
+                         @"presentNearEarthObjectsController",
+                         @"presentNearEarthEventsController"];
+    libraryEntries = [NSDictionary dictionaryWithObjects:segueIDs forKeys:cellTitles];
 }
 
 #pragma mark -- Collection View Delegate methods
@@ -52,18 +55,20 @@ static NSString *reuseID = @"library_cell";
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LibraryCell *cell = (LibraryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithWhite:1.0f - (1.0f / indexPath.row) alpha:1.0f];
-    cell.titleLabel.text = libraryEntries[indexPath.row];
-    cell.countLabel.text = [NSString stringWithFormat:@"%lu", libraryEntries.count - indexPath.row];
+    cell.titleLabel.text = libraryEntries.allKeys[indexPath.row];
+    NSString *entityName = self.libraryModel.storedEntities.allKeys[indexPath.row];
+    NSArray *entites = [self.libraryModel.storedEntities valueForKey:entityName];
+    cell.countLabel.text = [NSString stringWithFormat:@"%lu", entites.count];
     
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    LibraryCell *cell = (LibraryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
-    int index = (int)[libraryEntries indexOfObject:cell.titleLabel.text];
-    [self performSegueWithIdentifier:segueIDs[index] sender:self];
+    LibraryCell *cell = (LibraryCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    NSString *title = cell.titleLabel.text;
+    NSString *segueID = [libraryEntries valueForKey:title];
+    [self performSegueWithIdentifier:segueID sender:self];
 }
 
 #pragma mark -- Routing

@@ -1,4 +1,3 @@
-
 //
 //  LibraryCell.m
 //  briznichenkoProject
@@ -10,5 +9,10 @@
 #import "LibraryCell.h"
 
 @implementation LibraryCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    NSLog(@"Awaken!");
+}
 
 @end

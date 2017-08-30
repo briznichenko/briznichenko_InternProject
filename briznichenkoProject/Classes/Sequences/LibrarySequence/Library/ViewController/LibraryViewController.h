@@ -13,6 +13,6 @@
 <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) LibraryModel *libraryModel;
-@property (weak, nonatomic) IBOutlet UICollectionView *libraryCollection;
+@property (strong, nonatomic) IBOutlet UICollectionView *libraryCollection;
 
 @end
