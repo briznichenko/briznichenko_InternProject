@@ -8,6 +8,9 @@
 
 #import "NearEarthEventDetailModel.h"
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import "DataStorageManager.h"
+#import "ManagedNearEarthEventEntity.h"
 
 @implementation NearEarthEventDetailModel
 {
@@ -114,6 +117,32 @@
     [cleanedDict setValue:cleanedString forKey:@"event_description"];
     
     return cleanedDict;
+}
+
+#pragma mark -- Data saving
+
+- (void) saveNearEarthEvent: (void (^) (BOOL saved)) completionBlock
+{
+    NSManagedObjectContext *context = [[DataStorageManager sharedManager] managedObjectContext];
+    ManagedNearEarthEventEntity *eventEntity = [NSEntityDescription insertNewObjectForEntityForName:@"NearEarthEvent" inManagedObjectContext:context];
+    
+    eventEntity.event_image = self.eventEntity.event_image;
+    eventEntity.event_image_description = self.eventEntity.event_image_description;
+    eventEntity.event_title = self.eventEntity.event_title;
+    eventEntity.event_date = self.eventEntity.event_date;
+    eventEntity.event_type_icon = self.eventEntity.event_type_icon;
+    eventEntity.event_type_description = self.eventEntity.event_type_description;
+    eventEntity.event_description = self.eventEntity.event_description;
+    eventEntity.source_url = self.eventEntity.source_url;
+
+    NSError *error = nil;
+    if ([context save:&error] == NO)
+    {
+        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+        completionBlock(NO);
+    }
+    else
+        completionBlock(YES);
 }
 
 #pragma mark -- Util

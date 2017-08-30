@@ -147,12 +147,12 @@ static NSString *approachInfoCellID =  @"approach_info_cell";
 
 - (void) saveObject
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"saveNearEarthObject" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SaveNearEarthObjectEntity" object:nil];
 }
 
 - (void) shareObject
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"shareNearEarthObject" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PresentNearEarthObjectSharingController" object:nil];
 }
 
 - (void) showSavedAlert

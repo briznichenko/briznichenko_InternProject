@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NearEarthEventDetailView* nearEarthEventDetailView;
 @property (nonatomic, strong) NearEarthEventEntity *eventEntity;
 
+- (void) showSavedAlert;
+
 @end

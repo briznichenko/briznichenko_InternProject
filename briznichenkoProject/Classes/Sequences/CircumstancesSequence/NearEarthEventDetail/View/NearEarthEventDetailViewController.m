@@ -47,13 +47,43 @@
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share"
                                                                     style:UIBarButtonItemStyleDone
                                                                    target:self
-                                                                   action:nil];//@selector(shareObject)];
+                                                                   action:@selector(shareObject)];
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"
                                                                    style:UIBarButtonItemStyleDone
                                                                   target:self
-                                                                  action:nil];//@selector(saveObject)];
+                                                                  action:@selector(saveObject)];
     self.navigationController.navigationBar.topItem.rightBarButtonItems = @[shareButton, saveButton];
+}
+
+#pragma mark -- ViewController actions
+
+- (void) saveObject
+{
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"SaveNearEarthEventEntity" object:nil];
+}
+
+- (void) showSavedAlert
+{
+    UIAlertController * savedAlert = [UIAlertController
+                                      alertControllerWithTitle:@"Object saved"
+                                      message:@"Object succesfully saved."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   [savedAlert dismissViewControllerAnimated:YES completion:^{}];
+                               }];
+    [savedAlert addAction:okButton];
+    [self presentViewController:savedAlert animated:YES completion:nil];
+}
+
+- (void) shareObject
+{
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"PresentNearEarthEventSharingController" object:nil];
 }
 
 @end

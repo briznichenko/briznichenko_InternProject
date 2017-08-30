@@ -91,6 +91,9 @@
 		7DAC3CA51F4DAEBC00692D96 /* NearEarthObjectsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3C9A1F4DAB6900692D96 /* NearEarthObjectsModel.m */; };
 		7DAC3CA61F4DAEBC00692D96 /* NearEarthObjectsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3C9D1F4DAB6900692D96 /* NearEarthObjectsView.m */; };
 		7DAC3CA71F4DAEBC00692D96 /* NearEarthObjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3C9F1F4DAB6900692D96 /* NearEarthObjectsViewController.m */; };
+		7DAED0E01F56DAEB00FF3AFF /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAED0DF1F56DAEB00FF3AFF /* LibraryModel.m */; };
+		7DAED0E31F56DEF700FF3AFF /* LibraryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED0E21F56DEF700FF3AFF /* LibraryCell.xib */; };
+		7DAED0E61F56DF1900FF3AFF /* LibraryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAED0E51F56DF1900FF3AFF /* LibraryCell.m */; };
 		7DBBB2671F4EC6A0009EFF29 /* NearEarthEventDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CAB1F4DD5F300692D96 /* NearEarthEventDetailController.m */; };
 		7DBBB2681F4EC6A0009EFF29 /* NearEarthEventDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CB01F4DD5F300692D96 /* NearEarthEventDetailModel.m */; };
 		7DBBB2691F4EC6A0009EFF29 /* NearEarthEventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC3CB31F4DD5F300692D96 /* NearEarthEventDetailView.m */; };
@@ -298,6 +301,11 @@
 		7DAC3CC11F4DD5F300692D96 /* NearEarthObjectDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthObjectDetailView.m; sourceTree = "<group>"; };
 		7DAC3CC21F4DD5F300692D96 /* NearEarthObjectDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthObjectDetailViewController.h; sourceTree = "<group>"; };
 		7DAC3CC31F4DD5F300692D96 /* NearEarthObjectDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthObjectDetailViewController.m; sourceTree = "<group>"; };
+		7DAED0DE1F56DAEB00FF3AFF /* LibraryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryModel.h; sourceTree = "<group>"; };
+		7DAED0DF1F56DAEB00FF3AFF /* LibraryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryModel.m; sourceTree = "<group>"; };
+		7DAED0E21F56DEF700FF3AFF /* LibraryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCell.xib; sourceTree = "<group>"; };
+		7DAED0E41F56DF1900FF3AFF /* LibraryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LibraryCell.h; path = ../libraryCell/LibraryCell.h; sourceTree = "<group>"; };
+		7DAED0E51F56DF1900FF3AFF /* LibraryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryCell.m; sourceTree = "<group>"; };
 		7DBBB2711F4F16F3009EFF29 /* LibrarySequence.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LibrarySequence.storyboard; sourceTree = "<group>"; };
 		7DD7E1491F559FBF00E9C336 /* NearEarthEventEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearEarthEventEntity.h; sourceTree = "<group>"; };
 		7DD7E14A1F559FBF00E9C336 /* NearEarthEventEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearEarthEventEntity.m; sourceTree = "<group>"; };
@@ -703,7 +711,7 @@
 		7D0209C01F41AE2A002D56F5 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				7DAC3CC51F4DDD4700692D96 /* NearEarthObjectEntity */,
+				7DAED0D11F56B7E400FF3AFF /* NearEarthObjectEntity */,
 				7DAC3CC41F4DDD3800692D96 /* NearEarthEventEntity */,
 				7D4E65781F472E1C004A54EA /* EarthEventEntity */,
 				7D0209C11F41AE2A002D56F5 /* SpaceObjectEntity */,
@@ -1282,7 +1290,7 @@
 			path = NearEarthEventEntity;
 			sourceTree = "<group>";
 		};
-		7DAC3CC51F4DDD4700692D96 /* NearEarthObjectEntity */ = {
+		7DAED0D11F56B7E400FF3AFF /* NearEarthObjectEntity */ = {
 			isa = PBXGroup;
 			children = (
 				7DD7E1531F55B24500E9C336 /* ManagedNearEarthObjectEntity.h */,
@@ -1290,15 +1298,120 @@
 				7DD7E1521F55B24500E9C336 /* NearEarthObjectEntity.h */,
 				7DD7E1541F55B24500E9C336 /* NearEarthObjectEntity.m */,
 			);
-			name = NearEarthObjectEntity;
-			path = "New Group";
+			path = NearEarthObjectEntity;
+			sourceTree = "<group>";
+		};
+		7DAED0D21F56D9C600FF3AFF /* Space Objects */ = {
+			isa = PBXGroup;
+			children = (
+				7DAED0DD1F56DA9B00FF3AFF /* Model */,
+				7DAED0DC1F56DA9B00FF3AFF /* ViewController */,
+			);
+			path = "Space Objects";
+			sourceTree = "<group>";
+		};
+		7DAED0D31F56D9D900FF3AFF /* Earth Events */ = {
+			isa = PBXGroup;
+			children = (
+				7DAED0D61F56DA8300FF3AFF /* Model */,
+				7DAED0D71F56DA8300FF3AFF /* ViewController */,
+			);
+			path = "Earth Events";
+			sourceTree = "<group>";
+		};
+		7DAED0D41F56D9F300FF3AFF /* Near Earth Events */ = {
+			isa = PBXGroup;
+			children = (
+				7DAED0D91F56DA8D00FF3AFF /* Model */,
+				7DAED0D81F56DA8D00FF3AFF /* ViewController */,
+			);
+			path = "Near Earth Events";
+			sourceTree = "<group>";
+		};
+		7DAED0D51F56D9FA00FF3AFF /* Near Earth Objects */ = {
+			isa = PBXGroup;
+			children = (
+				7DAED0DA1F56DA9400FF3AFF /* Model */,
+				7DAED0DB1F56DA9400FF3AFF /* ViewController */,
+			);
+			path = "Near Earth Objects";
+			sourceTree = "<group>";
+		};
+		7DAED0D61F56DA8300FF3AFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7DAED0D71F56DA8300FF3AFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7DAED0D81F56DA8D00FF3AFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7DAED0D91F56DA8D00FF3AFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7DAED0DA1F56DA9400FF3AFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7DAED0DB1F56DA9400FF3AFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7DAED0DC1F56DA9B00FF3AFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7DAED0DD1F56DA9B00FF3AFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7DAED0E11F56DEDA00FF3AFF /* LibraryCell */ = {
+			isa = PBXGroup;
+			children = (
+				7DAED0E21F56DEF700FF3AFF /* LibraryCell.xib */,
+				7DAED0E41F56DF1900FF3AFF /* LibraryCell.h */,
+				7DAED0E51F56DF1900FF3AFF /* LibraryCell.m */,
+			);
+			path = LibraryCell;
 			sourceTree = "<group>";
 		};
 		7DBBB2701F4F16A4009EFF29 /* LibrarySequence */ = {
 			isa = PBXGroup;
 			children = (
+				7DAED0D31F56D9D900FF3AFF /* Earth Events */,
 				7DE2E8151F54126900EA2142 /* Library */,
 				7DBBB2711F4F16F3009EFF29 /* LibrarySequence.storyboard */,
+				7DAED0D41F56D9F300FF3AFF /* Near Earth Events */,
+				7DAED0D51F56D9FA00FF3AFF /* Near Earth Objects */,
+				7DAED0D21F56D9C600FF3AFF /* Space Objects */,
 			);
 			path = LibrarySequence;
 			sourceTree = "<group>";
@@ -1334,6 +1447,7 @@
 		7DE2E8161F54127300EA2142 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7DAED0E11F56DEDA00FF3AFF /* LibraryCell */,
 				7DE2E8181F5413DE00EA2142 /* LibraryViewController.h */,
 				7DE2E8191F5413DE00EA2142 /* LibraryViewController.m */,
 			);
@@ -1343,6 +1457,8 @@
 		7DE2E8171F54127B00EA2142 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7DAED0DE1F56DAEB00FF3AFF /* LibraryModel.h */,
+				7DAED0DF1F56DAEB00FF3AFF /* LibraryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1433,6 +1549,7 @@
 				7D9E9A501F4445A900B40593 /* EarthSequence.storyboard in Resources */,
 				7D020A301F41CFEE002D56F5 /* Assets.xcassets in Resources */,
 				7D020A311F41CFEE002D56F5 /* giphy.gif in Resources */,
+				7DAED0E31F56DEF700FF3AFF /* LibraryCell.xib in Resources */,
 				7DBBB2721F4F16F3009EFF29 /* LibrarySequence.storyboard in Resources */,
 				7D0AB40B1F4B0DE300457DC0 /* EventDisplayScript in Resources */,
 			);
@@ -1473,11 +1590,13 @@
 				7D1EAD341F44605B00A7DA74 /* EPICImageryViewController.m in Sources */,
 				7D4E65751F470C11004A54EA /* EventsTableController.m in Sources */,
 				7D0209EA1F41AE64002D56F5 /* DescriptionController.m in Sources */,
+				7DAED0E01F56DAEB00FF3AFF /* LibraryModel.m in Sources */,
 				7D4E656C1F46F54E004A54EA /* EventCategoriesModel.m in Sources */,
 				7D0209EB1F41AE64002D56F5 /* DescriptionModel.m in Sources */,
 				7DE2E81A1F5413DF00EA2142 /* LibraryViewController.m in Sources */,
 				7D0209EC1F41AE64002D56F5 /* DescriptionView.m in Sources */,
 				7D0209ED1F41AE64002D56F5 /* DescriptionViewController.m in Sources */,
+				7DAED0E61F56DF1900FF3AFF /* LibraryCell.m in Sources */,
 				7D0209EE1F41AE64002D56F5 /* GalleryController.m in Sources */,
 				7D0209EF1F41AE64002D56F5 /* GalleryModel.m in Sources */,
 				7D0209F01F41AE64002D56F5 /* CelestialBodyImageCell.m in Sources */,

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LibraryModel.h"
 
 @interface LibraryViewController : UIViewController
+<UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) LibraryModel *libraryModel;
+@property (weak, nonatomic) IBOutlet UICollectionView *libraryCollection;
 
 @end

@@ -103,12 +103,14 @@
     [managedObjectContext setPersistentStoreCoordinator:persistentStoreCoordinator];
 }
 
-#pragma mark -- Data Storage Entity Creation Methods
+#pragma mark -- Data Storage Model Creation
 
 -(void) makeEntites
 {
-    [managedObjectModel setEntities:@[[self makeSpaceObjectEntityDescription] ,[self makeEarthEventEntityDescription]]];
-    
+    [managedObjectModel setEntities:@[[self makeSpaceObjectEntityDescription],
+                                      [self makeEarthEventEntityDescription],
+                                      [self makeNearEarthEventEntityDescription],
+                                      [self makeNearEarthObjectEntityDescription]]];
     NSData *modelData = [NSKeyedArchiver archivedDataWithRootObject:managedObjectModel];
     [modelData writeToFile:pathToModel atomically:YES];
 }
@@ -216,7 +218,7 @@
     [nearEarthEventEntityDescription setName:@"NearEarthEvent"];
   
     NSAttributeDescription *imageAttribute = [[NSAttributeDescription alloc] init];
-    [imageAttribute setName:@"event_id"];
+    [imageAttribute setName:@"event_image"];
     [imageAttribute setAttributeType:NSBinaryDataAttributeType];
     [imageAttribute setOptional:NO];
     [imageAttribute setIndexed:YES];
@@ -334,7 +336,6 @@
     [magnitudeAttribute setIndexed:NO];
     
     [nearEarthObjectEntityDescription setProperties:@[diameterAttribute,
-                                                      hazardousAttribute,
                                                       hazardousAttribute,
                                                       neoIDAttribute,
                                                       approachDataAttribute,

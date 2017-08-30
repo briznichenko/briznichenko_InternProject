@@ -40,44 +40,45 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification:)
-                                                 name:@"shareNearEarthObject"
+                                                 name:@"SaveNearEarthObjectEntity"
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification:)
-                                                 name:@"saveNearEarthObject"
+                                                 name:@"PresentNearEarthObjectSharingController"
                                                object:nil];
 }
 
 - (void) receiveNotification:(NSNotification *) notification
 {
-    if ([notification.name isEqualToString:@"shareNearEarthObject"])
-    {
-        [self presentSharingController];
-    }
-    else if ([notification.name isEqualToString:@"saveNearEarthObject"])
-    {
-        [self.nearEarthObjectDetailModel saveNearEarthObjectEntity:^(BOOL saved) {
-            if(saved)
-                [self.nearEarthObjectDetailViewController showSavedAlert];
-        }];
-    }
+    if ([notification.name isEqualToString:@"SaveNearEarthObjectEntity"])
+        [self saveNearEarthEventEntity];
+    else if ([notification.name isEqualToString:@"PresentNearEarthObjectSharingController"])
+        [self presentShareController];
+}
+
+- (void) presentShareController
+{
+    self.sharingController = [[SharingController alloc] initAndAssembleWithShareURL:self.nearEarthObjectDetailModel.objectEntity.nasa_jpl_url];
+    self.sharingController.sharingViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.nearEarthObjectDetailViewController presentViewController:self.sharingController.sharingViewController animated:YES completion:^{
+        self.sharingController.sharingViewController.sharedText = self.nearEarthObjectDetailModel.objectEntity.name;
+    }];
+}
+
+- (void) saveNearEarthEventEntity
+{
+    [self.nearEarthObjectDetailModel saveNearEarthObject:^(BOOL saved) {
+        if(saved)
+            [self.nearEarthObjectDetailViewController showSavedAlert];
+        else
+            NSLog(@"Failure saving NearEarthObjectEntity");
+    }];
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark -- Routing methods
-
-- (void)presentSharingController
-{
-    self.sharingController = [[SharingController alloc] initAndAssembleWithShareURL:@""];
-    self.sharingController.sharingViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    [self.nearEarthObjectDetailViewController presentViewController:self.sharingController.sharingViewController animated:YES completion:^{
-        //TODO
-    }];
 }
 
 @end

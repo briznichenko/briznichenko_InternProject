@@ -20,5 +20,6 @@
 
 - (instancetype) initWithData;
 - (void) parseDataFromEventHTML: (void (^) (BOOL finished)) completion;
+- (void) saveNearEarthEvent: (void (^) (BOOL saved)) completionBlock;
 
 @end

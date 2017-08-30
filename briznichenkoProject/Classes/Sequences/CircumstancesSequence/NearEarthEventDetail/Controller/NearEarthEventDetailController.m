@@ -7,7 +7,7 @@
 //
 
 #import "NearEarthEventDetailController.h"
-
+#import "SharingController.h"
 
 @implementation NearEarthEventDetailController
 
@@ -18,6 +18,8 @@
 	{
 		self.nearEarthEventDetailViewController = [NearEarthEventDetailViewController new];
 		self.nearEarthEventDetailModel = [[NearEarthEventDetailModel alloc] initWithData];
+        [self subscribeToNotifications];
+        
         self.nearEarthEventDetailModel.baseURL = eventURL;
         [self.nearEarthEventDetailModel parseDataFromEventHTML:^(BOOL finished) {
             [self setupViewControllerWithData: self.nearEarthEventDetailModel.data];
@@ -32,7 +34,51 @@
     [self.nearEarthEventDetailViewController setupViewControllerWithData: data];
 }
 
-
 #pragma mark -- Routing
+
+- (void) subscribeToNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"SaveNearEarthEventEntity"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveNotification:)
+                                                 name:@"PresentNearEarthEventSharingController"
+                                               object:nil];
+}
+
+- (void) receiveNotification:(NSNotification *) notification
+{
+    if ([notification.name isEqualToString:@"SaveNearEarthEventEntity"])
+        [self saveNearEarthEventEntity];
+    else if ([notification.name isEqualToString:@"PresentNearEarthEventSharingController"])
+        [self presentShareController];
+}
+
+- (void) presentShareController
+{
+    self.sharingController = [[SharingController alloc] initAndAssembleWithShareURL:self.nearEarthEventDetailModel.baseURL.absoluteString];
+    self.sharingController.sharingViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.nearEarthEventDetailViewController presentViewController:self.sharingController.sharingViewController animated:YES completion:^{
+        self.sharingController.sharingViewController.sharedText = self.nearEarthEventDetailModel.eventEntity.event_title;
+    }];
+}
+
+- (void) saveNearEarthEventEntity
+{
+    [self.nearEarthEventDetailModel saveNearEarthEvent:^(BOOL saved) {
+        if(saved)
+            [self.nearEarthEventDetailViewController showSavedAlert];
+        else
+            NSLog(@"Failure saving NearEarthEventEntity");
+    }];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end
