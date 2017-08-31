@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SavedNearEarthEventsModel.h"
 
+@class NearEarthEventDetailController;
 @interface SavedNearEarthEventsViewController : UIViewController
+<UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UICollectionView *nearEarthEventsCollection;
+@property (nonatomic, strong) SavedNearEarthEventsModel *nearEarthEventsModel;
+
+@property (nonatomic, strong) NearEarthEventDetailController *nearEarthEventDetailController;
+
+-(void) setupModelWithData: (NSArray *)data;
 
 @end

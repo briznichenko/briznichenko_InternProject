@@ -10,4 +10,8 @@
 
 @interface SavedNearEarthEventsModel : NSObject
 
+@property (nonatomic, strong) NSArray *nearEarthEvents;
+
+- (void) formatEntities;
+
 @end

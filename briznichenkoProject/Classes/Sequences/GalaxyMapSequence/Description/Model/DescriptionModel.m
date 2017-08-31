@@ -28,10 +28,11 @@
     self.data = [NSData new];
 }
 
--(void)saveSpaceObjectEntity
+- (void) saveSpaceObjectEntity
 {
     NSManagedObjectContext *context = [[DataStorageManager sharedManager] managedObjectContext];
     ManagedCelesctialBodyEntity *bodyEntity = [NSEntityDescription insertNewObjectForEntityForName:@"SpaceObject" inManagedObjectContext:context];
+    
     bodyEntity.name = self.bodyEntity.name;
     bodyEntity.image = self.bodyEntity.image;
     bodyEntity.raDec = self.bodyEntity.raDec;

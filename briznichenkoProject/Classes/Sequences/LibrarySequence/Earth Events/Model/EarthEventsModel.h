@@ -10,4 +10,8 @@
 
 @interface EarthEventsModel : NSObject
 
+@property (nonatomic, strong) NSArray *earthEvents;
+
+- (void) formatEntities;
+
 @end

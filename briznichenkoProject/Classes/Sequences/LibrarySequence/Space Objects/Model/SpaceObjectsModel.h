@@ -10,4 +10,8 @@
 
 @interface SpaceObjectsModel : NSObject
 
+@property (nonatomic, strong) NSArray *spaceObjects;
+
+- (void) formatEntities;
+
 @end

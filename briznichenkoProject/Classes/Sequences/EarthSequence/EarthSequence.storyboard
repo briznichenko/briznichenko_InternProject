@@ -349,7 +349,7 @@
         <!--Earth Event Controller-->
         <scene sceneID="7iv-UD-lwA">
             <objects>
-                <viewController id="ztr-6H-T33" customClass="EarthEventController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EarthEventController" id="ztr-6H-T33" customClass="EarthEventController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GSI-Vd-cRw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

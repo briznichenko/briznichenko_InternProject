@@ -15,11 +15,11 @@
 @interface NearEarthEventDetailController : NSObject
 <NearEarthEventDetailViewControllerProtocol, NearEarthEventDetailControllerProtocol, NearEarthEventDetailModelProtocol>
 
-@property (nonatomic, strong) NearEarthEventDetailViewController* nearEarthEventDetailViewController;
+@property (nonatomic, strong) NearEarthEventDetailViewController *nearEarthEventDetailViewController;
 @property (nonatomic, strong) NearEarthEventDetailModel* nearEarthEventDetailModel;
 
 @property (nonatomic, strong) SharingController* sharingController;
 
-- (instancetype) initAndAssembleWithEventURL: (NSURL *) eventURL;
+- (instancetype) initAndAssembleWithEventURL: (NSURL * _Nullable) eventURL orEntity: (id _Nullable) entity;
 
 @end

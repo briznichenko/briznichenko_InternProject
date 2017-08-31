@@ -11,7 +11,7 @@
 
 @implementation NearEarthEventDetailController
 
--(instancetype) initAndAssembleWithEventURL: (NSURL *) eventURL;
+- (instancetype) initAndAssembleWithEventURL: (NSURL * _Nullable) eventURL orEntity: (id _Nullable) entity
 {
 	self = [super init];
 	if(self)
@@ -20,10 +20,18 @@
 		self.nearEarthEventDetailModel = [[NearEarthEventDetailModel alloc] initWithData];
         [self subscribeToNotifications];
         
-        self.nearEarthEventDetailModel.baseURL = eventURL;
-        [self.nearEarthEventDetailModel parseDataFromEventHTML:^(BOOL finished) {
+        if(entity)
+        {
+            self.nearEarthEventDetailModel.eventEntity = entity;
             [self setupViewControllerWithData: self.nearEarthEventDetailModel.data];
-        }];
+        }
+        else
+        {
+            self.nearEarthEventDetailModel.baseURL = eventURL;
+            [self.nearEarthEventDetailModel parseDataFromEventHTML:^(BOOL finished) {
+                [self setupViewControllerWithData: self.nearEarthEventDetailModel.data];
+            }];
+        }
 	}	
 	return self;
 }

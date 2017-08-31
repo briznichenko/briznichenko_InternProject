@@ -123,19 +123,19 @@
     [spaceObjectEntityDescription setName:@"SpaceObject"];
     
     NSAttributeDescription *nameAttribute = [[NSAttributeDescription alloc] init];
-    [nameAttribute setName:@"Name"];
+    [nameAttribute setName:@"name"];
     [nameAttribute setAttributeType:NSStringAttributeType];
     [nameAttribute setOptional:NO];
     [nameAttribute setIndexed:YES];
     
     NSAttributeDescription *raDecAttribute = [[NSAttributeDescription alloc] init];
-    [raDecAttribute setName:@"RaDec"];
+    [raDecAttribute setName:@"raDec"];
     [raDecAttribute setAttributeType:NSStringAttributeType];
     [raDecAttribute setOptional:NO];
     [raDecAttribute setIndexed:YES];
     
     NSAttributeDescription *imageAttribute = [[NSAttributeDescription alloc] init];
-    [imageAttribute setName:@"Image"];
+    [imageAttribute setName:@"image"];
     [imageAttribute setAttributeType:NSBinaryDataAttributeType];
     [imageAttribute setOptional:YES];
     [imageAttribute setIndexed:NO];

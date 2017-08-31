@@ -9,9 +9,15 @@
 #import "LibraryViewController.h"
 #import "LibraryCell.h"
 
+#import "EarthEventsViewController.h"
+#import "SavedNearEarthEventsViewController.h"
+#import "SavedNearEarthObjectsViewController.h"
+#import "SpaceObjectsViewController.h"
+
 @implementation LibraryViewController
 {
     NSDictionary *libraryEntries;
+    NSString *selectedEntry;
 }
 
 static NSString *reuseID = @"library_cell";
@@ -56,7 +62,8 @@ static NSString *reuseID = @"library_cell";
 {
     LibraryCell *cell = (LibraryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
     cell.titleLabel.text = libraryEntries.allKeys[indexPath.row];
-    NSString *entityName = self.libraryModel.storedEntities.allKeys[indexPath.row];
+    NSString *entityName = [[cell.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""]
+                            stringByReplacingOccurrencesOfString:@"s" withString:@""];
     NSArray *entites = [self.libraryModel.storedEntities valueForKey:entityName];
     cell.countLabel.text = [NSString stringWithFormat:@"%lu", entites.count];
     
@@ -66,8 +73,8 @@ static NSString *reuseID = @"library_cell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LibraryCell *cell = (LibraryCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    NSString *title = cell.titleLabel.text;
-    NSString *segueID = [libraryEntries valueForKey:title];
+    selectedEntry = cell.titleLabel.text;
+    NSString *segueID = [libraryEntries valueForKey:selectedEntry];
     [self performSegueWithIdentifier:segueID sender:self];
 }
 
@@ -75,12 +82,31 @@ static NSString *reuseID = @"library_cell";
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if ([segue.identifier isEqualToString: @"EPIC_images_controller_embed"])
-//        self.epicImageryController = (EPICImageryViewController *)segue.destinationViewController;
-//    else if([segue.identifier isEqualToString:@"Flat_earth_view_controller_embed"])
-//        self.flatEarthController = (FlatEarthViewController *)segue.destinationViewController;
-//    else if([segue.identifier isEqualToString:@"present_event_categories"])
-//        self.eventCategoriesController = (EventCategoriesController *)segue.destinationViewController;
+    NSString *entityName;
+    entityName = [[selectedEntry stringByReplacingOccurrencesOfString:@" " withString:@""]
+                  stringByReplacingOccurrencesOfString:@"s" withString:@""];
+    NSArray *entities = [self.libraryModel.storedEntities valueForKey:entityName];
+    
+    if ([segue.identifier isEqualToString: @"presentSpaceObjectsController"])
+    {
+        self.savedSpaceObjectsVC = (SpaceObjectsViewController *)segue.destinationViewController;
+        [self.savedSpaceObjectsVC setupModelWithData:entities];
+    }
+    else if([segue.identifier isEqualToString:@"presentEarthEventsController"])
+    {
+        self.savedEarthEventsVC = (EarthEventsViewController *)segue.destinationViewController;
+        [self.savedEarthEventsVC setupModelWithData:entities];
+    }
+    else if([segue.identifier isEqualToString:@"presentNearEarthObjectsController"])
+    {
+        self.savedNearEarthObjectsVC = (SavedNearEarthObjectsViewController *)segue.destinationViewController;
+        [self.savedNearEarthObjectsVC setupModelWithData:entities];
+    }
+    else if([segue.identifier isEqualToString:@"presentNearEarthEventsController"])
+    {
+        self.savedNearEarthEventsVC = (SavedNearEarthEventsViewController *)segue.destinationViewController;
+        [self.savedNearEarthEventsVC setupModelWithData:entities];
+    }
 }
 
 @end

@@ -52,7 +52,7 @@
 
 - (void) presentNearEarthEventWithURL: (NSURL *) eventURL
 {
-    self.nearEarthEventDetailController = [[NearEarthEventDetailController alloc] initAndAssembleWithEventURL:eventURL];
+    self.nearEarthEventDetailController = [[NearEarthEventDetailController alloc] initAndAssembleWithEventURL:eventURL orEntity: nil];
     [self.nearEarthEventsViewController.navigationController pushViewController:self.nearEarthEventDetailController.nearEarthEventDetailViewController animated:YES];
 }
 
