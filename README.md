@@ -12,6 +12,7 @@ N | Module name                               |Module status (%)
 2|Earth imagery and Earth events module   	  |80%
 3|Location and time-based conditions module  |85%
 4|Library module                             |80%%
+=======
 
 
  ### 1. Space-Map module tutorial:
