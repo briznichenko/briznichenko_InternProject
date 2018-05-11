@@ -173,7 +173,7 @@
     if(!rawRaDecString)
         rawRaDecString = [dict valueForKey:@"Coordinates(ICRS,ep=J2000,eq=2000)"];
     long raDecSeparatorLocation = [rawRaDecString rangeOfString:@"+"].location ? [rawRaDecString rangeOfString:@"+"].location - 1 : [rawRaDecString rangeOfString:@"-"].location - 1;
-    if(raDecSeparatorLocation != NSNotFound){
+    if(raDecSeparatorLocation < rawRaDecString.length && raDecSeparatorLocation >= 0){
         rawRaDecString = [rawRaDecString stringByReplacingCharactersInRange:NSMakeRange(raDecSeparatorLocation, 1) withString:@"|"];
     } else {
         rawRaDecString = @"";

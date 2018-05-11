@@ -74,7 +74,11 @@
                                        [currentPlacemark.subAdministrativeArea stringByReplacingOccurrencesOfString:@" " withString:@""],
                                        @"49f186e15c83eb0bbc7a734e831b2021"]];
     NSData *data = [NSData dataWithContentsOfURL:url];
-    completion([NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil]);
+    id serializedObject;
+    if(data){
+        serializedObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    }
+    completion(serializedObject);
     });
 }
 

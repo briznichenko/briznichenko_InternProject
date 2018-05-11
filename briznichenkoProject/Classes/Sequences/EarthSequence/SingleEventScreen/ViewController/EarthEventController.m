@@ -26,9 +26,9 @@
     self.eventTitleLabel.text = self.eventEntity.event_title;
     self.eventDescriptionLabel.text = self.eventEntity.event_description;
     self.eventModel = [[EarthEventModel alloc] initWithData];
-    NSLog(@"%@", [self.eventEntity.event_sources[0] valueForKey:@"url"]);
+    NSLog(@"%@", [self.eventEntity.event_sources.firstObject valueForKey:@"url"]);
     self.eventWebView.delegate = self;
-    [self.eventWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.eventEntity.event_sources[0] valueForKey:@"url"]]]];
+    [self.eventWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.eventEntity.event_sources.firstObject valueForKey:@"url"]]]];
 }
 
 #pragma mark -- Actions
