@@ -173,7 +173,12 @@
     if(!rawRaDecString)
         rawRaDecString = [dict valueForKey:@"Coordinates(ICRS,ep=J2000,eq=2000)"];
     long raDecSeparatorLocation = [rawRaDecString rangeOfString:@"+"].location ? [rawRaDecString rangeOfString:@"+"].location - 1 : [rawRaDecString rangeOfString:@"-"].location - 1;
-    rawRaDecString = [rawRaDecString stringByReplacingCharactersInRange:NSMakeRange(raDecSeparatorLocation, 1) withString:@"|"];
+    if(raDecSeparatorLocation != NSNotFound){
+        rawRaDecString = [rawRaDecString stringByReplacingCharactersInRange:NSMakeRange(raDecSeparatorLocation, 1) withString:@"|"];
+    } else {
+        rawRaDecString = @"";
+    }
+    
     self.descriptionImageURL = [self cutoutImageUrlConstructorString:rawRaDecString];
     NSURL *url = [NSURL URLWithString: self.descriptionImageURL];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
